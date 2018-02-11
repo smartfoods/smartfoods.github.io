@@ -1,6 +1,6 @@
 webpackJsonp([1,9],{
 
-/***/ 726:
+/***/ 730:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,18 +12,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var storage_service_1 = __webpack_require__(57);
+var storage_service_1 = __webpack_require__(58);
 var core_1 = __webpack_require__(2);
 var common_1 = __webpack_require__(28);
-var forms_1 = __webpack_require__(70);
-var http_1 = __webpack_require__(56);
-var popup_modal_module_1 = __webpack_require__(136);
-var categoria_service_1 = __webpack_require__(729);
-var shared_component_module_1 = __webpack_require__(249);
-var categorias_routing_module_1 = __webpack_require__(744);
-var listar_categorias_component_1 = __webpack_require__(736);
-var create_catetorias_component_1 = __webpack_require__(734);
-var edit_catetorias_component_1 = __webpack_require__(735);
+var forms_1 = __webpack_require__(56);
+var http_1 = __webpack_require__(57);
+var popup_modal_module_1 = __webpack_require__(135);
+var categoria_service_1 = __webpack_require__(733);
+var shared_component_module_1 = __webpack_require__(250);
+var categorias_routing_module_1 = __webpack_require__(757);
+var listar_categorias_component_1 = __webpack_require__(744);
+var create_catetorias_component_1 = __webpack_require__(742);
+var edit_catetorias_component_1 = __webpack_require__(743);
 var CategoriasModule = (function () {
     function CategoriasModule() {
     }
@@ -52,11 +52,11 @@ CategoriasModule = __decorate([
     })
 ], CategoriasModule);
 exports.CategoriasModule = CategoriasModule;
-//# sourceMappingURL=E:/paladar-fit/web2/src/categorias.module.js.map
+//# sourceMappingURL=H:/paladar-fit/frontend-web/src/categorias.module.js.map
 
 /***/ }),
 
-/***/ 729:
+/***/ 733:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82,9 +82,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var http_1 = __webpack_require__(56);
-var api_config_1 = __webpack_require__(135);
-var abstract_service_1 = __webpack_require__(731);
+var http_1 = __webpack_require__(57);
+var api_config_1 = __webpack_require__(134);
+var abstract_service_1 = __webpack_require__(736);
 //import { catchError, retry } from 'rxjs/operators';
 var CategoriasService = (function (_super) {
     __extends(CategoriasService, _super);
@@ -99,7 +99,7 @@ var CategoriasService = (function (_super) {
     CategoriasService.prototype.findAll = function () {
         return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/all");
     };
-    CategoriasService.prototype.savar = function (categoria) {
+    CategoriasService.prototype.salvar = function (categoria) {
         return this.http.post(api_config_1.API_CONFIG.baseUrl + "/categorias", JSON.stringify(categoria), this.getHearderTokenNoResponse());
     };
     CategoriasService.prototype.changeStatus = function (categoria) {
@@ -123,17 +123,18 @@ CategoriasService = __decorate([
 ], CategoriasService);
 exports.CategoriasService = CategoriasService;
 var _a;
-//# sourceMappingURL=E:/paladar-fit/web2/src/categoria.service.js.map
+//# sourceMappingURL=H:/paladar-fit/frontend-web/src/categoria.service.js.map
 
 /***/ }),
 
-/***/ 730:
+/***/ 734:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var event_emiter_services_1 = __webpack_require__(732);
+var event_emiter_services_1 = __webpack_require__(737);
+var combo_dto_1 = __webpack_require__(738);
 var AbstractBaseComponent = (function () {
     function AbstractBaseComponent() {
         this.maskCPF = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
@@ -142,6 +143,9 @@ var AbstractBaseComponent = (function () {
         this.maskFoneResidencial = ['(', /[0-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
         this.maskFoneCelular = ['(', /[0-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
         this.urlFoto = 'assets/img/noimage/prod.jpg';
+        this.label = {
+            selecione: ':: selecione ::'
+        };
         this.btn = {
             btnSalvar: 'Salvar',
             btnEditar: 'Editar',
@@ -197,6 +201,13 @@ var AbstractBaseComponent = (function () {
         }
         //console.log(message, optionalParams)
     };
+    AbstractBaseComponent.prototype.aplicarCssGroupRow = function (campo) {
+        return {
+            'form-group row ': true,
+            'has-danger': this.isInvalido(campo),
+            'has-success': this.isValido(campo)
+        };
+    };
     AbstractBaseComponent.prototype.aplicarCssGroup = function (campo) {
         return {
             'form-group': true,
@@ -214,21 +225,29 @@ var AbstractBaseComponent = (function () {
     AbstractBaseComponent.prototype.isCampoVazio = function (campo) {
         return campo.value == null || campo.value == '';
     };
+    AbstractBaseComponent.prototype.preencharCombo = function (response, compoId, campoValor) {
+        var combo = [];
+        for (var _i = 0, response_1 = response; _i < response_1.length; _i++) {
+            var cat = response_1[_i];
+            combo.push(new combo_dto_1.ComboDTO(cat[compoId], cat[campoValor]));
+        }
+        return combo;
+    };
     return AbstractBaseComponent;
 }());
 exports.AbstractBaseComponent = AbstractBaseComponent;
-//# sourceMappingURL=E:/paladar-fit/web2/src/abstract-base.component.js.map
+//# sourceMappingURL=H:/paladar-fit/frontend-web/src/abstract-base.component.js.map
 
 /***/ }),
 
-/***/ 731:
+/***/ 736:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var storage_keys_config_1 = __webpack_require__(250);
-var http_1 = __webpack_require__(56);
+var storage_keys_config_1 = __webpack_require__(251);
+var http_1 = __webpack_require__(57);
 var AbstractService = (function () {
     function AbstractService() {
     }
@@ -258,19 +277,19 @@ var AbstractService = (function () {
     return AbstractService;
 }());
 exports.AbstractService = AbstractService;
-//# sourceMappingURL=E:/paladar-fit/web2/src/abstract-service.js.map
+//# sourceMappingURL=H:/paladar-fit/frontend-web/src/abstract-service.js.map
 
 /***/ }),
 
-/***/ 732:
+/***/ 737:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var toater_mensagem_model_1 = __webpack_require__(251);
-var tipo_mensagem_enum_1 = __webpack_require__(137);
+var toater_mensagem_model_1 = __webpack_require__(252);
+var tipo_mensagem_enum_1 = __webpack_require__(136);
 var EventEmitterService = (function () {
     function EventEmitterService() {
     }
@@ -306,11 +325,29 @@ var EventEmitterService = (function () {
 }());
 EventEmitterService.emitters = {};
 exports.EventEmitterService = EventEmitterService;
-//# sourceMappingURL=E:/paladar-fit/web2/src/event-emiter.services.js.map
+//# sourceMappingURL=H:/paladar-fit/frontend-web/src/event-emiter.services.js.map
 
 /***/ }),
 
-/***/ 734:
+/***/ 738:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ComboDTO = (function () {
+    function ComboDTO(id, text) {
+        this.id = id;
+        this.text = text;
+    }
+    return ComboDTO;
+}());
+exports.ComboDTO = ComboDTO;
+//# sourceMappingURL=H:/paladar-fit/frontend-web/src/combo.dto.js.map
+
+/***/ }),
+
+/***/ 742:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -335,20 +372,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var event_emitter_services_1 = __webpack_require__(134);
-var forms_1 = __webpack_require__(70);
+var event_emitter_services_1 = __webpack_require__(133);
+var forms_1 = __webpack_require__(56);
 var core_1 = __webpack_require__(2);
-var abstract_base_component_1 = __webpack_require__(730);
-var categoria_service_1 = __webpack_require__(729);
-var router_1 = __webpack_require__(38);
+var abstract_base_component_1 = __webpack_require__(734);
+var categoria_service_1 = __webpack_require__(733);
+var router_1 = __webpack_require__(42);
 var common_1 = __webpack_require__(28);
 var CreateCatetoriasComponent = (function (_super) {
     __extends(CreateCatetoriasComponent, _super);
-    function CreateCatetoriasComponent(fb, location, CategoriasService, router) {
+    function CreateCatetoriasComponent(fb, location, categoriasService, router) {
         var _this = _super.call(this) || this;
         _this.fb = fb;
         _this.location = location;
-        _this.CategoriasService = CategoriasService;
+        _this.categoriasService = categoriasService;
         _this.router = router;
         return _this;
     }
@@ -360,12 +397,12 @@ var CreateCatetoriasComponent = (function (_super) {
         this.formulario.patchValue({
             urlImagem: this.urlFoto
         });
-        this.CategoriasService.savar(this.formulario.value)
+        this.categoriasService.salvar(this.formulario.value)
             .subscribe(function (response) {
             event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria incluída com sucesso!!!');
             _this.router.navigate(['/categorias/listar']);
         }, function (error) {
-            console.log('error de validação:', error.error);
+            //console.log('error de validação:', error.error);
         });
     };
     CreateCatetoriasComponent.prototype.voltar = function () {
@@ -391,18 +428,18 @@ var CreateCatetoriasComponent = (function (_super) {
 CreateCatetoriasComponent = __decorate([
     core_1.Component({
         selector: 'app-create-catetorias',
-        template: __webpack_require__(754),
-        styles: [__webpack_require__(747)]
+        template: __webpack_require__(781),
+        styles: [__webpack_require__(763)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriasService !== "undefined" && categoria_service_1.CategoriasService) === "function" && _c || Object, typeof (_d = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _d || Object])
 ], CreateCatetoriasComponent);
 exports.CreateCatetoriasComponent = CreateCatetoriasComponent;
 var _a, _b, _c, _d;
-//# sourceMappingURL=E:/paladar-fit/web2/src/create-catetorias.component.js.map
+//# sourceMappingURL=H:/paladar-fit/frontend-web/src/create-catetorias.component.js.map
 
 /***/ }),
 
-/***/ 735:
+/***/ 743:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -428,12 +465,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var router_1 = __webpack_require__(38);
-var forms_1 = __webpack_require__(70);
+var router_1 = __webpack_require__(42);
+var forms_1 = __webpack_require__(56);
 var common_1 = __webpack_require__(28);
-var abstract_base_component_1 = __webpack_require__(730);
-var categoria_service_1 = __webpack_require__(729);
-var event_emitter_services_1 = __webpack_require__(134);
+var abstract_base_component_1 = __webpack_require__(734);
+var categoria_service_1 = __webpack_require__(733);
+var event_emitter_services_1 = __webpack_require__(133);
 var EditCatetoriasComponent = (function (_super) {
     __extends(EditCatetoriasComponent, _super);
     function EditCatetoriasComponent(fb, route, location, CategoriasService, router) {
@@ -462,7 +499,6 @@ var EditCatetoriasComponent = (function (_super) {
         this.formulario.patchValue({
             urlImagem: this.urlFoto
         });
-        console.log(this.formulario.value);
         this.CategoriasService.atualizar(this.formulario.value)
             .subscribe(function (response) {
             event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria alterada com sucesso!!!');
@@ -497,25 +533,24 @@ var EditCatetoriasComponent = (function (_super) {
             comentario: [categoria.comentario],
             urlImagem: [categoria.urlImagem]
         });
-        console.log('alterado', categoria);
         this.urlFoto = categoria.urlImagem;
     };
     return EditCatetoriasComponent;
 }(abstract_base_component_1.AbstractBaseComponent));
 EditCatetoriasComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(755),
-        styles: [__webpack_require__(748)]
+        template: __webpack_require__(782),
+        styles: [__webpack_require__(764)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _b || Object, typeof (_c = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _c || Object, typeof (_d = typeof categoria_service_1.CategoriasService !== "undefined" && categoria_service_1.CategoriasService) === "function" && _d || Object, typeof (_e = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _e || Object])
 ], EditCatetoriasComponent);
 exports.EditCatetoriasComponent = EditCatetoriasComponent;
 var _a, _b, _c, _d, _e;
-//# sourceMappingURL=E:/paladar-fit/web2/src/edit-catetorias.component.js.map
+//# sourceMappingURL=H:/paladar-fit/frontend-web/src/edit-catetorias.component.js.map
 
 /***/ }),
 
-/***/ 736:
+/***/ 744:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -540,12 +575,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var event_emitter_services_1 = __webpack_require__(134);
+var event_emitter_services_1 = __webpack_require__(133);
 var core_1 = __webpack_require__(2);
-var api_config_1 = __webpack_require__(135);
-var categoria_service_1 = __webpack_require__(729);
-var abstract_base_component_1 = __webpack_require__(730);
-var router_1 = __webpack_require__(38);
+var api_config_1 = __webpack_require__(134);
+var categoria_service_1 = __webpack_require__(733);
+var abstract_base_component_1 = __webpack_require__(734);
+var router_1 = __webpack_require__(42);
 var ListarCategoriasComponent = (function (_super) {
     __extends(ListarCategoriasComponent, _super);
     function ListarCategoriasComponent(CategoriasService, router) {
@@ -602,18 +637,18 @@ __decorate([
 ListarCategoriasComponent = __decorate([
     core_1.Component({
         selector: 'listar-categorias',
-        template: __webpack_require__(756),
-        styles: [__webpack_require__(749)]
+        template: __webpack_require__(783),
+        styles: [__webpack_require__(765)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof categoria_service_1.CategoriasService !== "undefined" && categoria_service_1.CategoriasService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], ListarCategoriasComponent);
 exports.ListarCategoriasComponent = ListarCategoriasComponent;
 var _a, _b;
-//# sourceMappingURL=E:/paladar-fit/web2/src/listar-categorias.component.js.map
+//# sourceMappingURL=H:/paladar-fit/frontend-web/src/listar-categorias.component.js.map
 
 /***/ }),
 
-/***/ 744:
+/***/ 757:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -626,10 +661,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var router_1 = __webpack_require__(38);
-var create_catetorias_component_1 = __webpack_require__(734);
-var listar_categorias_component_1 = __webpack_require__(736);
-var edit_catetorias_component_1 = __webpack_require__(735);
+var router_1 = __webpack_require__(42);
+var create_catetorias_component_1 = __webpack_require__(742);
+var listar_categorias_component_1 = __webpack_require__(744);
+var edit_catetorias_component_1 = __webpack_require__(743);
 var routes = [
     {
         path: '',
@@ -678,14 +713,14 @@ CategoriasRoutingModule = __decorate([
     })
 ], CategoriasRoutingModule);
 exports.CategoriasRoutingModule = CategoriasRoutingModule;
-//# sourceMappingURL=E:/paladar-fit/web2/src/categorias-routing.module.js.map
+//# sourceMappingURL=H:/paladar-fit/frontend-web/src/categorias-routing.module.js.map
 
 /***/ }),
 
-/***/ 747:
+/***/ 763:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(93)();
+exports = module.exports = __webpack_require__(71)();
 // imports
 
 
@@ -700,10 +735,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 748:
+/***/ 764:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(93)();
+exports = module.exports = __webpack_require__(71)();
 // imports
 
 
@@ -718,10 +753,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 749:
+/***/ 765:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(93)();
+exports = module.exports = __webpack_require__(71)();
 // imports
 
 
@@ -736,24 +771,24 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 754:
+/***/ 781:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-sm-12\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <strong>Categoria</strong>\n        <small> - inclusão de uma nova categoria</small>\n      </div>\n      \n      <div class=\"card-block\">\n        <div class=\"form-group\">\n          <div class=\"row\">\n            <div class=\"col-sm-4 col-md-4\">\n              <div class=\"card\">\n                <div class=\"card-header\">\n                  <strong>Imagem da categoria</strong>\n                </div>\n                <div class=\"card-block\">\n                  <div class=\"row\">\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\n                  </div>\n                  \n                </div>\n                <div class=\"card-footer\">\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\n                  (onSelecionarImagem)=\"mudarImage($event)\">\n                </upload-imagem>\n              </div>\n            </div>\n          </div>\n          <!--/.col-->\n          \n          <div class=\"col-md-8 col-sm-8\">\n            <form [formGroup]=\"formulario\" (ngSubmit)=\"confirmar()\" >\n\n                <div class=\"card\">\n                  <div class=\"card-header\">\n                    <strong>Descrição</strong>\n                  </div>\n                  <div class=\"card-block\">\n                      <div  [ngClass]=\"aplicarCssGroup(formulario.get('nome'))\">\n                        <label for=\"nome\">Nome da categoria</label>\n                        <input  type=\"text\"\n                                [ngClass]=\"aplicarCssForm(formulario.get('nome'))\"\n                                name=\"nome\"\n                                maxlength=\"25\"\n                                placeholder=\"Digite o nome da categoria\"\n                                formControlName=\"nome\">\n                                <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nome'))\" \n                                    titulo=\"Erro:\" mensagem=\"o campo Nome da categoria deve ter entre 5 a 25 caracteres\">\n                                </alert-mensagem>\n                      </div>\n                      <div class=\"form-group\">\n                          <label for=\"comentario\">Descrição da categoria</label>\n                          <textarea type=\"textarea\"\n                                maxlength=\"100\"\n                                rows=\"7\"\n                                [ngClass]=\"aplicarCssForm(formulario.get('comentario'))\"\n                                name=\"comentario\"\n                                placeholder=\"Digite o texto descritivo da categoria\"\n                                formControlName=\"comentario\"></textarea>\n                    </div>\n                  </div>\n                </div>\n\n              </form>\n              </div>\n\n            </div>\n              <div class=\"card-footer\">\n                  <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmEditarModalUsuario.show()\">\n                     <i class=\"fa fa-save\">  </i> {{btn.btnSalvar}}\n                  </button>\n                  <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\n                      <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\n                  </button>\n              </div>\n          </div>\n        </div>\n    </div>\n  </div>\n\n  <confirm-popup-modal #confirmEditarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar()\">\n    <strong>Confirma inclusão da categoria?</strong>\n  </confirm-popup-modal>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-sm-12\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <strong>Categoria</strong>\n        <small> - inclusão de uma nova categoria</small>\n      </div>\n      \n      <div class=\"card-block\">\n        <div class=\"form-group\">\n          <div class=\"row\">\n            <div class=\"col-sm-4 col-md-4\">\n              <div class=\"card\">\n                <div class=\"card-header\">\n                  <strong>Imagem da categoria</strong>\n                </div>\n                <div class=\"card-block\">\n                  <div class=\"row\">\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\n                  </div>\n                  \n                </div>\n                <div class=\"card-footer\">\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\n                  (onSelecionarImagem)=\"mudarImage($event)\">\n                </upload-imagem>\n              </div>\n            </div>\n          </div>\n          <!--/.col-->\n          \n          <div class=\"col-md-8 col-sm-8\">\n            <form [formGroup]=\"formulario\" (ngSubmit)=\"confirmar()\" >\n\n                <div class=\"card\">\n                  <div class=\"card-header\">\n                    <strong>Descrição</strong>\n                  </div>\n                  <div class=\"card-block\">\n                      <div  [ngClass]=\"aplicarCssGroup(formulario.get('nome'))\">\n                        <label for=\"nome\">Nome da categoria</label>\n                        <input  type=\"text\"\n                                [ngClass]=\"aplicarCssForm(formulario.get('nome'))\"\n                                name=\"nome\"\n                                [autoFoco]=\"true\"\n                                maxlength=\"25\"\n                                placeholder=\"Digite o nome da categoria\"\n                                formControlName=\"nome\">\n                                <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nome'))\" \n                                    titulo=\"Erro:\" mensagem=\"o campo Nome da categoria deve ter entre 5 a 25 caracteres\">\n                                </alert-mensagem>\n                      </div>\n                      <div class=\"form-group\">\n                          <label for=\"comentario\">Descrição da categoria</label>\n                          <textarea type=\"textarea\"\n                                maxlength=\"100\"\n                                rows=\"7\"\n                                [ngClass]=\"aplicarCssForm(formulario.get('comentario'))\"\n                                name=\"comentario\"\n                                placeholder=\"Digite o texto descritivo da categoria\"\n                                formControlName=\"comentario\"></textarea>\n                    </div>\n                  </div>\n                </div>\n\n              </form>\n              </div>\n\n            </div>\n              <div class=\"card-footer\">\n                  <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmEditarModalUsuario.show()\">\n                     <i class=\"fa fa-save\">  </i> {{btn.btnSalvar}}\n                  </button>\n                  <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\n                      <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\n                  </button>\n              </div>\n          </div>\n        </div>\n    </div>\n  </div>\n\n  <confirm-popup-modal #confirmEditarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar()\">\n    <strong>Confirma inclusão da categoria?</strong>\n  </confirm-popup-modal>\n"
 
 /***/ }),
 
-/***/ 755:
+/***/ 782:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-sm-12\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <strong>Categoria</strong>\n        <small> - alteração da categoria selecionada</small>\n      </div>\n      <div class=\"card-block\">\n        <div class=\"form-group\">\n          <div class=\"row\">\n            <div class=\"col-sm-4 col-md-4\">\n              <div class=\"card\">\n                <div class=\"card-header\">\n                  <strong>Imagem da categoria</strong>\n                </div>\n                <div class=\"card-block\">\n                  <div class=\"row\">\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\n                  </div>\n\n                </div>\n                <div class=\"card-footer\">\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\n                    (onSelecionarImagem)=\"mudarImage($event)\">\n                  </upload-imagem>\n                </div>\n              </div>\n            </div>\n            <!--/.col-->\n\n            <div class=\"col-md-8 col-sm-8\">\n              <form [formGroup]=\"formulario\" novalidade (ngSubmit)=\"confirmar()\">\n\n                <div class=\"card\">\n                  <div class=\"card-header\">\n                    <strong>Descrição</strong>\n                  </div>\n                  <div class=\"card-block\">\n                    <div [ngClass]=\"aplicarCssGroup(formulario.get('nome'))\">\n                      <label for=\"nome\">Nome da categoria</label>\n                      <input type=\"text\" [ngClass]=\"aplicarCssForm(formulario.get('nome'))\" name=\"nome\" maxlength=\"25\" placeholder=\"Digite o nome da categoria\"\n                        formControlName=\"nome\">\n                      <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nome'))\" titulo=\"Erro:\" mensagem=\"o campo Nome da categoria deve ter entre 5 a 25 caracteres\">\n                      </alert-mensagem>\n                    </div>\n                    <div class=\"form-group\">\n                      <label for=\"comentario\">Descrição da categoria</label>\n                      <textarea type=\"textarea\" maxlength=\"100\" rows=\"7\" [ngClass]=\"aplicarCssForm(formulario.get('comentario'))\" name=\"comentario\"\n                        placeholder=\"Digite o texto descritivo da categoria\" formControlName=\"comentario\"></textarea>\n                    </div>\n                  </div>\n                </div>\n\n              </form>\n            </div>\n\n          </div>\n          <div class=\"card-footer\">\n            <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmEditarModalUsuario.show()\">\n              <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\n            </button>\n            <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\n              <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\n            </button>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <confirm-popup-modal #confirmEditarModalUsuario popupStyle=\"warning\" (onClickConfirm)=\"confirmar()\">\n    <strong>Confirma alteração da categoria?</strong>\n  </confirm-popup-modal>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-sm-12\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <strong>Categoria</strong>\n        <small> - alteração da categoria selecionada</small>\n      </div>\n      <div class=\"card-block\">\n        <div class=\"form-group\">\n          <div class=\"row\">\n            <div class=\"col-sm-4 col-md-4\">\n              <div class=\"card\">\n                <div class=\"card-header\">\n                  <strong>Imagem da categoria</strong>\n                </div>\n                <div class=\"card-block\">\n                  <div class=\"row\">\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\n                  </div>\n\n                </div>\n                <div class=\"card-footer\">\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\n                    (onSelecionarImagem)=\"mudarImage($event)\">\n                  </upload-imagem>\n                </div>\n              </div>\n            </div>\n            <!--/.col-->\n\n            <div class=\"col-md-8 col-sm-8\">\n              <form [formGroup]=\"formulario\" novalidade (ngSubmit)=\"confirmar()\">\n\n                <div class=\"card\">\n                  <div class=\"card-header\">\n                    <strong>Descrição</strong>\n                  </div>\n                  <div class=\"card-block\">\n                    <div [ngClass]=\"aplicarCssGroup(formulario.get('nome'))\">\n                      <label for=\"nome\">Nome da categoria</label>\n                      <input type=\"text\" [ngClass]=\"aplicarCssForm(formulario.get('nome'))\" name=\"nome\" maxlength=\"25\" placeholder=\"Digite o nome da categoria\"\n                        formControlName=\"nome\">\n                      <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nome'))\" titulo=\"Erro:\" mensagem=\"o campo Nome da categoria deve ter entre 5 a 25 caracteres\">\n                      </alert-mensagem>\n                    </div>\n                    <div class=\"form-group\">\n                      <label for=\"comentario\">Descrição da categoria</label>\n                      <textarea type=\"textarea\" maxlength=\"100\" rows=\"7\" [ngClass]=\"aplicarCssForm(formulario.get('comentario'))\" name=\"comentario\"\n                        placeholder=\"Digite o texto descritivo da categoria\" formControlName=\"comentario\"></textarea>\n                    </div>\n                  </div>\n                </div>\n\n              </form>\n            </div>\n\n          </div>\n          <div class=\"card-footer\">\n            <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmEditarModalUsuario.show()\">\n              <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\n            </button>\n            <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\n              <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\n            </button>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <confirm-popup-modal #confirmEditarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar()\">\n    <strong>Confirma alteração da categoria?</strong>\n  </confirm-popup-modal>"
 
 /***/ }),
 
-/***/ 756:
+/***/ 783:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-1\"></div>\n<button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/categorias/novo']\">\n    <i class=\"icon-plus\"></i> Novo</button>\n\n<table class=\"table table-hover table-outline mb-0 hidden-sm-down\">\n    <thead class=\"thead-default\">\n        <tr>\n            <th class=\"text-center\">\n                <i class=\"icon-people\"></i>\n            </th>\n            <th>Categorias</th>\n            <th class=\"text-center\">Situação</th>\n            <th class=\"text-center\">Ação</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let item of items\">\n            <td class=\"text-center\">\n                <div class=\"avatar\">\n                    <foto src=\"{{bucketUrl}}/categorias/cat{{item.id}}.jpg\" classCss=\"img-avatar\" alt=\"Avatar\"></foto>\n                </div>\n            </td>\n            <td>\n                <div>{{item.nome}}</div>\n                <div class=\"small text-muted\">\n                    {{item.comentario}}\n                </div>\n            </td>\n            <td class=\"text-center\">\n                <status status={{item.status}}></status>\n            </td>\n            <td class=\"text-center\">\n                <button type=\"button\" class=\"btn btn-md btn-primary\" style=\"cursor:pointer\" (click)=\"alterarCategoria(item)\">\n                    <i class=\"fa fa fa-edit\"> </i> </button>\n                <button type=\"button\" class=\"btn btn-md btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\n                    <i class=\"fa fa-eraser\"> </i></button>\n                <button type=\"button\" class=\"btn btn-md btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\n                    <i class=\"fa fa-exclamation\"> </i></button>\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n<confirm-popup-modal #ExcluirCategoriaModal popupStyle=\"danger\" (onClickConfirm)=\"excluirCategoria()\">\n    <strong>Deseja excluir a categoria?</strong>\n</confirm-popup-modal>\n\n<confirm-popup-modal #ChangeSatusCategoriaModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\n    <strong>Deseja alterar o status da categoria?</strong>\n</confirm-popup-modal>"
+module.exports = "<div class=\"col-md-1\"></div>\n<button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/categorias/novo']\">\n    <i class=\"icon-plus\"></i> Novo</button>\n\n<table class=\"table table-hover table-outline mb-0 hidden-sm-down\">\n    <thead class=\"thead-default\">\n        <tr>\n            <th class=\"text-center\">\n                <i class=\"icon-people\"></i>\n            </th>\n            <th>Categorias</th>\n            <th class=\"text-center\">Situação</th>\n            <th class=\"text-center\">Ação</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let item of items\">\n            <td class=\"text-center\">\n                <div class=\"avatar\">\n                    <foto src=\"{{bucketUrl}}/categorias/cat{{item.id}}.jpg\" classCss=\"img-avatar\" alt=\"Avatar\"></foto>\n                </div>\n            </td>\n            <td>\n                <div>{{item.nome}}</div>\n                <div class=\"small text-muted\">\n                    {{item.comentario}}\n                </div>\n            </td>\n            <td class=\"text-center\">\n                <status status={{item.status}}></status>\n            </td>\n            <td class=\"text-center\">\n                <button type=\"button\" class=\"btn btn-md btn-primary\" style=\"cursor:pointer\" (click)=\"alterarCategoria(item)\">\n                    <i class=\"fa fa fa-edit\"> </i> </button>\n                <button type=\"button\" class=\"btn btn-md btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\n                    <i class=\"fa fa-eraser\"> </i></button>\n                <button type=\"button\" class=\"btn btn-md btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\n                    <i class=\"fa fa-exclamation\"> </i></button>\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n<confirm-popup-modal #ExcluirCategoriaModal popupStyle=\"primary\" (onClickConfirm)=\"excluirCategoria()\">\n    <strong>Deseja excluir a categoria?</strong>\n</confirm-popup-modal>\n\n<confirm-popup-modal #ChangeSatusCategoriaModal popupStyle=\"primary\" (onClickConfirm)=\"changeStatus()\">\n    <strong>Deseja alterar o status da categoria?</strong>\n</confirm-popup-modal>"
 
 /***/ })
 
