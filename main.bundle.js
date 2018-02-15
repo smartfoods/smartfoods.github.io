@@ -1,4 +1,4 @@
-webpackJsonp([5,9],{
+webpackJsonp([6,10],{
 
 /***/ 133:
 /***/ (function(module, exports, __webpack_require__) {
@@ -48,7 +48,7 @@ var EventEmitterService = (function () {
 }());
 EventEmitterService.emitters = {};
 exports.EventEmitterService = EventEmitterService;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/event-emitter.services.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/event-emitter.services.js.map
 
 /***/ }),
 
@@ -59,11 +59,11 @@ exports.EventEmitterService = EventEmitterService;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.API_CONFIG = {
-    baseUrl: "https://paladarfit.herokuapp.com",
-    //baseUrl: "http://localhost:8080",
+    //baseUrl: "https://paladarfit.herokuapp.com",
+    baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit"
 };
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/api.config.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/api.config.js.map
 
 /***/ }),
 
@@ -81,7 +81,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
 var common_1 = __webpack_require__(28);
-var modal_1 = __webpack_require__(254);
+var modal_1 = __webpack_require__(253);
 // DataTable
 var confirm_popup_modal_component_1 = __webpack_require__(283);
 var PopupModalModule = (function () {
@@ -104,7 +104,7 @@ PopupModalModule = __decorate([
     })
 ], PopupModalModule);
 exports.PopupModalModule = PopupModalModule;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/popup-modal.module.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/popup-modal.module.js.map
 
 /***/ }),
 
@@ -121,7 +121,7 @@ var TipoMensagemEnum;
     TipoMensagemEnum[TipoMensagemEnum["danger"] = 2] = "danger";
     TipoMensagemEnum[TipoMensagemEnum["info"] = 3] = "info";
 })(TipoMensagemEnum = exports.TipoMensagemEnum || (exports.TipoMensagemEnum = {}));
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/tipo-mensagem.enum.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/tipo-mensagem.enum.js.map
 
 /***/ }),
 
@@ -170,6 +170,11 @@ exports.routes = [
                 path: 'produtos',
                 canActivateChild: [auth_guard_service_1.AuthGuard],
                 loadChildren: './pages/produtos/produtos.module#ProdutosModule'
+            },
+            {
+                path: 'unidademedida',
+                canActivateChild: [auth_guard_service_1.AuthGuard],
+                loadChildren: './pages/config/unidademedida/unidade-medida.module#UnidadeMedidaModule'
             }
         ]
     },
@@ -195,7 +200,7 @@ exports.routes = [
         children: [
             {
                 path: '',
-                loadChildren: './pages/config/config-pages.module#ConfigPagesModule',
+                loadChildren: './pages/config/admin/config-pages.module#ConfigPagesModule',
             }
         ]
     },
@@ -212,7 +217,7 @@ AppRoutingModule = __decorate([
     })
 ], AppRoutingModule);
 exports.AppRoutingModule = AppRoutingModule;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/app.routing.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/app.routing.js.map
 
 /***/ }),
 
@@ -258,7 +263,7 @@ FullLayoutComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], FullLayoutComponent);
 exports.FullLayoutComponent = FullLayoutComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/full-layout.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/full-layout.component.js.map
 
 /***/ }),
 
@@ -292,7 +297,7 @@ SimpleLayoutComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], SimpleLayoutComponent);
 exports.SimpleLayoutComponent = SimpleLayoutComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/simple-layout.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/simple-layout.component.js.map
 
 /***/ }),
 
@@ -335,7 +340,7 @@ AuthModule = __decorate([
     })
 ], AuthModule);
 exports.AuthModule = AuthModule;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/auth.module.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/auth.module.js.map
 
 /***/ }),
 
@@ -396,7 +401,7 @@ LoginComponent = __decorate([
 ], LoginComponent);
 exports.LoginComponent = LoginComponent;
 var _a, _b;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/login.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/login.component.js.map
 
 /***/ }),
 
@@ -428,7 +433,7 @@ RegisterComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], RegisterComponent);
 exports.RegisterComponent = RegisterComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/register.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/register.component.js.map
 
 /***/ }),
 
@@ -476,7 +481,7 @@ AuthGuard = __decorate([
 ], AuthGuard);
 exports.AuthGuard = AuthGuard;
 var _a, _b;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/auth-guard.service.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/auth-guard.service.js.map
 
 /***/ }),
 
@@ -486,7 +491,7 @@ var _a, _b;
 var map = {
 	"./layout/dashboard/dashboard.module": [
 		729,
-		3
+		4
 	],
 	"./pages/auth/auth.module": [
 		143
@@ -495,12 +500,16 @@ var map = {
 		730,
 		1
 	],
-	"./pages/config/config-pages.module": [
+	"./pages/config/admin/config-pages.module": [
 		731,
+		3
+	],
+	"./pages/config/unidademedida/unidade-medida.module": [
+		732,
 		2
 	],
 	"./pages/produtos/produtos.module": [
-		732,
+		733,
 		0
 	]
 };
@@ -534,7 +543,7 @@ if (environment_1.environment.production) {
     core_1.enableProdMode();
 }
 platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/main.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/main.js.map
 
 /***/ }),
 
@@ -553,7 +562,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
 var common_1 = __webpack_require__(28);
 var forms_1 = __webpack_require__(56);
-var angular2_text_mask_1 = __webpack_require__(253);
+var angular2_text_mask_1 = __webpack_require__(254);
 var form_debug_component_1 = __webpack_require__(271);
 var alert_mensagem_component_1 = __webpack_require__(268);
 var foto_component_1 = __webpack_require__(272);
@@ -597,7 +606,7 @@ SharedComponentModule = __decorate([
     })
 ], SharedComponentModule);
 exports.SharedComponentModule = SharedComponentModule;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/shared-component.module.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/shared-component.module.js.map
 
 /***/ }),
 
@@ -611,7 +620,7 @@ exports.STORAGE_KEYS = {
     localUser: "localUser",
     cart: "cursoSpringIonicCart"
 };
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/storage-keys.config.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/storage-keys.config.js.map
 
 /***/ }),
 
@@ -645,7 +654,7 @@ var ToasterMensagem = (function () {
     return ToasterMensagem;
 }());
 exports.ToasterMensagem = ToasterMensagem;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/toater-mensagem.model.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/toater-mensagem.model.js.map
 
 /***/ }),
 
@@ -697,7 +706,7 @@ AppComponent = __decorate([
 ], AppComponent);
 exports.AppComponent = AppComponent;
 var _a;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/app.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/app.component.js.map
 
 /***/ }),
 
@@ -781,7 +790,7 @@ AppModule = __decorate([
     })
 ], AppModule);
 exports.AppModule = AppModule;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/app.module.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/app.module.js.map
 
 /***/ }),
 
@@ -816,7 +825,7 @@ FooterComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], FooterComponent);
 exports.FooterComponent = FooterComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/footer.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/footer.component.js.map
 
 /***/ }),
 
@@ -855,7 +864,7 @@ HeardSideBarComponent = __decorate([
 ], HeardSideBarComponent);
 exports.HeardSideBarComponent = HeardSideBarComponent;
 var _a;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/heard-side-bar.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/heard-side-bar.component.js.map
 
 /***/ }),
 
@@ -927,7 +936,7 @@ LayoutModule = __decorate([
     })
 ], LayoutModule);
 exports.LayoutModule = LayoutModule;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/layout.module.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/layout.module.js.map
 
 /***/ }),
 
@@ -962,7 +971,7 @@ MenuSideBarComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], MenuSideBarComponent);
 exports.MenuSideBarComponent = MenuSideBarComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/menu-side-bar.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/menu-side-bar.component.js.map
 
 /***/ }),
 
@@ -1006,7 +1015,7 @@ UpSideBarComponent = __decorate([
 ], UpSideBarComponent);
 exports.UpSideBarComponent = UpSideBarComponent;
 var _a, _b;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/up-side-bar.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/up-side-bar.component.js.map
 
 /***/ }),
 
@@ -1062,7 +1071,7 @@ AuthRoutingModule = __decorate([
     })
 ], AuthRoutingModule);
 exports.AuthRoutingModule = AuthRoutingModule;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/auth-routing.module.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/auth-routing.module.js.map
 
 /***/ }),
 
@@ -1109,7 +1118,7 @@ AlertMensagemComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], AlertMensagemComponent);
 exports.AlertMensagemComponent = AlertMensagemComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/alert-mensagem.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/alert-mensagem.component.js.map
 
 /***/ }),
 
@@ -1154,7 +1163,7 @@ AsideToggleDirective = __decorate([
     __metadata("design:paramtypes", [])
 ], AsideToggleDirective);
 exports.AsideToggleDirective = AsideToggleDirective;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/aside.directive.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/aside.directive.js.map
 
 /***/ }),
 
@@ -1214,7 +1223,7 @@ BreadcrumbsComponent = __decorate([
 ], BreadcrumbsComponent);
 exports.BreadcrumbsComponent = BreadcrumbsComponent;
 var _a, _b;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/breadcrumb.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/breadcrumb.component.js.map
 
 /***/ }),
 
@@ -1253,7 +1262,7 @@ FormDebugComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], FormDebugComponent);
 exports.FormDebugComponent = FormDebugComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/form-debug.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/form-debug.component.js.map
 
 /***/ }),
 
@@ -1304,7 +1313,7 @@ FotoComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], FotoComponent);
 exports.FotoComponent = FotoComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/foto.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/foto.component.js.map
 
 /***/ }),
 
@@ -1394,7 +1403,7 @@ NavDropdownToggleDirective = __decorate([
 exports.NavDropdownToggleDirective = NavDropdownToggleDirective;
 exports.NAV_DROPDOWN_DIRECTIVES = [NavDropdownDirective, NavDropdownToggleDirective];
 // export const NGB_DROPDOWN_DIRECTIVES = [NgbDropdownToggle, NgbDropdown];
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/nav-dropdown.directive.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/nav-dropdown.directive.js.map
 
 /***/ }),
 
@@ -1510,7 +1519,7 @@ SidebarOffCanvasCloseDirective = __decorate([
 ], SidebarOffCanvasCloseDirective);
 exports.SidebarOffCanvasCloseDirective = SidebarOffCanvasCloseDirective;
 exports.SIDEBAR_TOGGLE_DIRECTIVES = [SidebarToggleDirective, SidebarOffCanvasCloseDirective, MobileSidebarToggleDirective];
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/sidebar.directive.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/sidebar.directive.js.map
 
 /***/ }),
 
@@ -1559,7 +1568,7 @@ SimNaoComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], SimNaoComponent);
 exports.SimNaoComponent = SimNaoComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/sim-nao.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/sim-nao.component.js.map
 
 /***/ }),
 
@@ -1587,6 +1596,7 @@ var StatusComponent = (function () {
             case 'I':
                 this.texto = 'Inativo';
                 this.class = 'danger';
+                break;
             default:
                 this.texto = 'Ativo';
                 this.class = 'success';
@@ -1607,7 +1617,7 @@ StatusComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], StatusComponent);
 exports.StatusComponent = StatusComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/status.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/status.component.js.map
 
 /***/ }),
 
@@ -1715,7 +1725,7 @@ UploadImagemComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], UploadImagemComponent);
 exports.UploadImagemComponent = UploadImagemComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/upload-imagem.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/upload-imagem.component.js.map
 
 /***/ }),
 
@@ -1760,7 +1770,7 @@ AsideToggleDirective = __decorate([
     __metadata("design:paramtypes", [])
 ], AsideToggleDirective);
 exports.AsideToggleDirective = AsideToggleDirective;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/aside.directive.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/aside.directive.js.map
 
 /***/ }),
 
@@ -1802,7 +1812,7 @@ AutofocoDirective = __decorate([
 ], AutofocoDirective);
 exports.AutofocoDirective = AutofocoDirective;
 var _a, _b;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/auto-foco.directive.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/auto-foco.directive.js.map
 
 /***/ }),
 
@@ -1892,7 +1902,7 @@ NavDropdownToggleDirective = __decorate([
 exports.NavDropdownToggleDirective = NavDropdownToggleDirective;
 exports.NAV_DROPDOWN_DIRECTIVES = [NavDropdownDirective, NavDropdownToggleDirective];
 // export const NGB_DROPDOWN_DIRECTIVES = [NgbDropdownToggle, NgbDropdown];
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/nav-dropdown.directive.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/nav-dropdown.directive.js.map
 
 /***/ }),
 
@@ -1948,7 +1958,7 @@ NumberOnlyDirective = __decorate([
 ], NumberOnlyDirective);
 exports.NumberOnlyDirective = NumberOnlyDirective;
 var _a;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/number-only.directive.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/number-only.directive.js.map
 
 /***/ }),
 
@@ -2064,7 +2074,7 @@ SidebarOffCanvasCloseDirective = __decorate([
 ], SidebarOffCanvasCloseDirective);
 exports.SidebarOffCanvasCloseDirective = SidebarOffCanvasCloseDirective;
 exports.SIDEBAR_TOGGLE_DIRECTIVES = [SidebarToggleDirective, SidebarOffCanvasCloseDirective, MobileSidebarToggleDirective];
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/sidebar.directive.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/sidebar.directive.js.map
 
 /***/ }),
 
@@ -2132,7 +2142,7 @@ ConfirmPopupModalComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], ConfirmPopupModalComponent);
 exports.ConfirmPopupModalComponent = ConfirmPopupModalComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/confirm-popup-modal.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/confirm-popup-modal.component.js.map
 
 /***/ }),
 
@@ -2184,7 +2194,7 @@ exports.AuthInterceptorProvider = {
     multi: true
 };
 var _a;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/auth-interceptor.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/auth-interceptor.js.map
 
 /***/ }),
 
@@ -2262,7 +2272,7 @@ exports.ErrorInterceptorProvider = {
     multi: true,
 };
 var _a;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/error-interceptor.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/error-interceptor.js.map
 
 /***/ }),
 
@@ -2279,7 +2289,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.environment = {
     production: false
 };
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/environment.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/environment.js.map
 
 /***/ }),
 
@@ -2343,7 +2353,7 @@ module.exports = "<div class=\"sidebar-header\">\n  <foto\n    src=\"{{urlFotoPe
 /***/ 457:
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav\">\n    <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/dashboard']\">\n              <i class=\"icon-speedometer\"></i>Dashboard\n          </a>\n      </li>\n          <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n            <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"><i class=\"icon-puzzle\"></i>Cadastro</a>\n              <ul class=\"nav-dropdown-items\">\n                <li class=\"nav-item\">\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/listar']\"><i class=\"icon-puzzle\"></i>Usuário</a>\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/categorias/listar']\"><i class=\"icon-puzzle\"></i>Categorias</a>\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/produtos/listar']\"><i class=\"icon-puzzle\"></i>Produtos</a>\n              </li>\n\n          </ul>\n        </li>\n        <li class=\"divider\"></li>\n\n        <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n          <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"><i class=\"icon-star\"></i> Auth Pages</a>\n          <ul class=\"nav-dropdown-items\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/auth/login']\"><i class=\"icon-star\"></i> Login</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/auth/register']\"><i class=\"icon-star\"></i> Register</a>\n            </li>\n          </ul>\n        </li>\n        <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n          <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"><i class=\"icon-star\"></i> Erros Pages</a>\n          <ul class=\"nav-dropdown-items\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/error/404']\"><i class=\"icon-star\"></i> Error 404</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/error/500']\"><i class=\"icon-star\"></i> Error 500</a>\n            </li>\n          </ul>\n        </li>\n\n\n\n</ul>\n"
+module.exports = "<ul class=\"nav\">\n    <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/dashboard']\">\n              <i class=\"icon-speedometer\"></i>Dashboard\n          </a>\n      </li>\n          <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n            <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"><i class=\"icon-puzzle\"></i>Cadastro</a>\n              <ul class=\"nav-dropdown-items\">\n                <li class=\"nav-item\">\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/listar']\"><i class=\"icon-puzzle\"></i>Usuário</a>\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/categorias/listar']\"><i class=\"icon-puzzle\"></i>Categorias</a>\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/produtos/listar']\"><i class=\"icon-puzzle\"></i>Produtos</a>\n              </li>\n\n          </ul>\n        </li>\n        <li class=\"divider\"></li>\n        \n        <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n          <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"><i class=\"icon-star\"></i> Configurações</a>\n          <ul class=\"nav-dropdown-items\">\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/unidademedida/listar']\"><i class=\"icon-puzzle\"></i>Unidade medida</a>\n            </li>\n          </ul>\n        </li>\n        <li class=\"divider\"></li>\n        \n        <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n          <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"><i class=\"icon-star\"></i> Auth Pages</a>\n          <ul class=\"nav-dropdown-items\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/auth/login']\"><i class=\"icon-star\"></i> Login</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/auth/register']\"><i class=\"icon-star\"></i> Register</a>\n            </li>\n          </ul>\n        </li>\n        <li class=\"divider\"></li>\n        <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n          <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"><i class=\"icon-star\"></i> Erros Pages</a>\n          <ul class=\"nav-dropdown-items\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/error/404']\"><i class=\"icon-star\"></i> Error 404</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/error/500']\"><i class=\"icon-star\"></i> Error 500</a>\n            </li>\n          </ul>\n        </li>\n\n\n\n</ul>\n"
 
 /***/ }),
 
@@ -2438,7 +2448,7 @@ AuthService = __decorate([
 ], AuthService);
 exports.AuthService = AuthService;
 var _a, _b;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/auth.service.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/auth.service.js.map
 
 /***/ }),
 
@@ -2499,7 +2509,7 @@ StorageService = __decorate([
     core_1.Injectable()
 ], StorageService);
 exports.StorageService = StorageService;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/storage.service.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/storage.service.js.map
 
 /***/ }),
 

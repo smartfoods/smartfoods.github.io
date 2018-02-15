@@ -1,6 +1,6 @@
-webpackJsonp([0,9],{
+webpackJsonp([0,10],{
 
-/***/ 732:
+/***/ 733:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,26 +12,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var composicao_popup_modal_component_1 = __webpack_require__(759);
+var composicao_popup_modal_component_1 = __webpack_require__(764);
 var core_1 = __webpack_require__(2);
 var common_1 = __webpack_require__(28);
 var forms_1 = __webpack_require__(56);
 var http_1 = __webpack_require__(57);
-var ng2_select_1 = __webpack_require__(778);
-var angular2_ladda_1 = __webpack_require__(762);
-var modal_1 = __webpack_require__(254);
+var ng2_select_1 = __webpack_require__(784);
+var angular2_ladda_1 = __webpack_require__(767);
+var modal_1 = __webpack_require__(253);
 var popup_modal_module_1 = __webpack_require__(135);
-var produtos_service_1 = __webpack_require__(735);
-var categoria_service_1 = __webpack_require__(733);
+var produtos_service_1 = __webpack_require__(738);
+var categoria_service_1 = __webpack_require__(735);
 var shared_component_module_1 = __webpack_require__(250);
-var produtos_routing_module_1 = __webpack_require__(760);
-var listar_produtos_component_1 = __webpack_require__(749);
-var create_produtos_component_1 = __webpack_require__(747);
-var edit_produtos_component_1 = __webpack_require__(748);
+var produtos_routing_module_1 = __webpack_require__(765);
+var listar_produtos_component_1 = __webpack_require__(753);
+var create_produtos_component_1 = __webpack_require__(751);
+var edit_produtos_component_1 = __webpack_require__(752);
 var storage_service_1 = __webpack_require__(58);
-var unidade_service_1 = __webpack_require__(750);
-var angular2_text_mask_1 = __webpack_require__(253);
-var ng2_currency_mask_1 = __webpack_require__(772);
+var angular2_text_mask_1 = __webpack_require__(254);
+var ng2_currency_mask_1 = __webpack_require__(778);
+var unidade_medida_service_1 = __webpack_require__(737);
 var ProdutosModule = (function () {
     function ProdutosModule() {
     }
@@ -62,85 +62,14 @@ ProdutosModule = __decorate([
         providers: [
             produtos_service_1.ProdutosService,
             categoria_service_1.CategoriasService,
-            unidade_service_1.UnidadeMedidaService,
+            unidade_medida_service_1.UnidadeMedidaService,
             storage_service_1.StorageService,
             composicao_popup_modal_component_1.ComposicaoPopupModalComponent
         ]
     })
 ], ProdutosModule);
 exports.ProdutosModule = ProdutosModule;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/produtos.module.js.map
-
-/***/ }),
-
-/***/ 733:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var http_1 = __webpack_require__(57);
-var api_config_1 = __webpack_require__(134);
-var abstract_service_1 = __webpack_require__(736);
-//import { catchError, retry } from 'rxjs/operators';
-var CategoriasService = (function (_super) {
-    __extends(CategoriasService, _super);
-    function CategoriasService(http) {
-        var _this = _super.call(this) || this;
-        _this.http = http;
-        return _this;
-    }
-    CategoriasService.prototype.findById = function (id) {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/" + id, this.getHearderToken());
-    };
-    CategoriasService.prototype.findAll = function () {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/all");
-    };
-    CategoriasService.prototype.salvar = function (categoria) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/categorias", JSON.stringify(categoria), this.getHearderTokenNoResponse());
-    };
-    CategoriasService.prototype.changeStatus = function (categoria) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
-    };
-    CategoriasService.prototype.atualizar = function (categoria) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id, JSON.stringify(categoria), this.getHearderTokenNoResponse());
-    };
-    CategoriasService.prototype.excluir = function (categoria) {
-        var url = api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id;
-        return this.http.delete(url, this.getHearderToken());
-    };
-    CategoriasService.prototype.insert = function (obj) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/pedidos", obj, { observe: 'response', responseType: 'text' });
-    };
-    return CategoriasService;
-}(abstract_service_1.AbstractService));
-CategoriasService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], CategoriasService);
-exports.CategoriasService = CategoriasService;
-var _a;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/categoria.service.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/produtos.module.js.map
 
 /***/ }),
 
@@ -150,8 +79,8 @@ var _a;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var event_emiter_services_1 = __webpack_require__(737);
-var combo_dto_1 = __webpack_require__(738);
+var event_emiter_services_1 = __webpack_require__(739);
+var combo_dto_1 = __webpack_require__(740);
 var AbstractBaseComponent = (function () {
     function AbstractBaseComponent() {
         this.maskCPF = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
@@ -253,11 +182,199 @@ var AbstractBaseComponent = (function () {
     return AbstractBaseComponent;
 }());
 exports.AbstractBaseComponent = AbstractBaseComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/abstract-base.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/abstract-base.component.js.map
 
 /***/ }),
 
 /***/ 735:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(2);
+var http_1 = __webpack_require__(57);
+var api_config_1 = __webpack_require__(134);
+var abstract_service_1 = __webpack_require__(736);
+//import { catchError, retry } from 'rxjs/operators';
+var CategoriasService = (function (_super) {
+    __extends(CategoriasService, _super);
+    function CategoriasService(http) {
+        var _this = _super.call(this) || this;
+        _this.http = http;
+        return _this;
+    }
+    CategoriasService.prototype.findById = function (id) {
+        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/" + id, this.getHearderToken());
+    };
+    CategoriasService.prototype.findAll = function () {
+        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/all");
+    };
+    CategoriasService.prototype.salvar = function (categoria) {
+        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/categorias", JSON.stringify(categoria), this.getHearderTokenNoResponse());
+    };
+    CategoriasService.prototype.changeStatus = function (categoria) {
+        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
+    };
+    CategoriasService.prototype.atualizar = function (categoria) {
+        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id, JSON.stringify(categoria), this.getHearderTokenNoResponse());
+    };
+    CategoriasService.prototype.excluir = function (categoria) {
+        var url = api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id;
+        return this.http.delete(url, this.getHearderToken());
+    };
+    CategoriasService.prototype.insert = function (obj) {
+        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/pedidos", obj, { observe: 'response', responseType: 'text' });
+    };
+    return CategoriasService;
+}(abstract_service_1.AbstractService));
+CategoriasService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
+], CategoriasService);
+exports.CategoriasService = CategoriasService;
+var _a;
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/categoria.service.js.map
+
+/***/ }),
+
+/***/ 736:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var storage_keys_config_1 = __webpack_require__(251);
+var http_1 = __webpack_require__(57);
+var AbstractService = (function () {
+    function AbstractService() {
+    }
+    AbstractService.prototype.getHearderToken = function () {
+        var token = this.getToken().token;
+        var authHeader = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token }) };
+        return authHeader;
+    };
+    AbstractService.prototype.getHearderTokenNoResponse = function () {
+        var token = this.getToken().token;
+        var authHeader = {
+            observe: 'response',
+            responseType: 'text',
+            headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token })
+        };
+        return authHeader;
+    };
+    AbstractService.prototype.getHeaderTokenOnly = function () {
+        var token = this.getToken().token;
+        return new http_1.HttpHeaders({ 'Authorization': 'Bearer ' + token });
+    };
+    AbstractService.prototype.getToken = function () {
+        var usr = localStorage.getItem(storage_keys_config_1.STORAGE_KEYS.localUser);
+        if (usr == null) {
+            return null;
+        }
+        else {
+            return JSON.parse(usr);
+        }
+    };
+    return AbstractService;
+}());
+exports.AbstractService = AbstractService;
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/abstract-service.js.map
+
+/***/ }),
+
+/***/ 737:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var api_config_1 = __webpack_require__(134);
+var http_1 = __webpack_require__(57);
+var core_1 = __webpack_require__(2);
+var abstract_service_1 = __webpack_require__(736);
+var UnidadeMedidaService = (function (_super) {
+    __extends(UnidadeMedidaService, _super);
+    function UnidadeMedidaService(http) {
+        var _this = _super.call(this) || this;
+        _this.http = http;
+        _this.url = api_config_1.API_CONFIG.baseUrl + "/unidademedida";
+        return _this;
+    }
+    UnidadeMedidaService.prototype.findAll = function () {
+        return this.http.get(this.url + "/all", this.getHearderToken());
+    };
+    UnidadeMedidaService.prototype.findAllAtivo = function () {
+        return this.http.get(this.url + "/");
+    };
+    UnidadeMedidaService.prototype.findById = function (id) {
+        return this.http.get(this.url + "/" + id, this.getHearderToken());
+    };
+    UnidadeMedidaService.prototype.salvar = function (unidade) {
+        return this.http.post(this.url + "/", JSON.stringify(unidade), this.getHearderTokenNoResponse());
+    };
+    UnidadeMedidaService.prototype.changeStatus = function (unidade) {
+        console.log('change', unidade);
+        return this.http.put(this.url + "/" + unidade.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
+    };
+    UnidadeMedidaService.prototype.atualizar = function (unidade) {
+        return this.http.put(this.url + "/" + unidade.id, JSON.stringify(unidade), this.getHearderTokenNoResponse());
+    };
+    UnidadeMedidaService.prototype.excluir = function (unidade) {
+        var url = this.url + "/" + unidade.id;
+        return this.http.delete(url, this.getHearderToken());
+    };
+    return UnidadeMedidaService;
+}(abstract_service_1.AbstractService));
+UnidadeMedidaService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
+], UnidadeMedidaService);
+exports.UnidadeMedidaService = UnidadeMedidaService;
+var _a;
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/unidade-medida.service.js.map
+
+/***/ }),
+
+/***/ 738:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -324,52 +441,11 @@ ProdutosService = __decorate([
 ], ProdutosService);
 exports.ProdutosService = ProdutosService;
 var _a;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/produtos.service.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/produtos.service.js.map
 
 /***/ }),
 
-/***/ 736:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var storage_keys_config_1 = __webpack_require__(251);
-var http_1 = __webpack_require__(57);
-var AbstractService = (function () {
-    function AbstractService() {
-    }
-    AbstractService.prototype.getHearderToken = function () {
-        var token = this.getToken().token;
-        var authHeader = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token }) };
-        return authHeader;
-    };
-    AbstractService.prototype.getHearderTokenNoResponse = function () {
-        var token = this.getToken().token;
-        var authHeader = {
-            observe: 'response',
-            responseType: 'text',
-            headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token })
-        };
-        return authHeader;
-    };
-    AbstractService.prototype.getToken = function () {
-        var usr = localStorage.getItem(storage_keys_config_1.STORAGE_KEYS.localUser);
-        if (usr == null) {
-            return null;
-        }
-        else {
-            return JSON.parse(usr);
-        }
-    };
-    return AbstractService;
-}());
-exports.AbstractService = AbstractService;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/abstract-service.js.map
-
-/***/ }),
-
-/***/ 737:
+/***/ 739:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -413,11 +489,11 @@ var EventEmitterService = (function () {
 }());
 EventEmitterService.emitters = {};
 exports.EventEmitterService = EventEmitterService;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/event-emiter.services.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/event-emiter.services.js.map
 
 /***/ }),
 
-/***/ 738:
+/***/ 740:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -431,11 +507,11 @@ var ComboDTO = (function () {
     return ComboDTO;
 }());
 exports.ComboDTO = ComboDTO;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/combo.dto.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/combo.dto.js.map
 
 /***/ }),
 
-/***/ 739:
+/***/ 741:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -448,13 +524,13 @@ exports.escapeRegexp = escapeRegexp;
 
 /***/ }),
 
-/***/ 740:
+/***/ 742:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var core_1 = __webpack_require__(2);
-var common_1 = __webpack_require__(739);
+var common_1 = __webpack_require__(741);
 var HighlightPipe = (function () {
     function HighlightPipe() {
     }
@@ -495,7 +571,104 @@ exports.stripTags = stripTags;
 
 /***/ }),
 
-/***/ 747:
+/***/ 750:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var abstract_base_component_1 = __webpack_require__(734);
+var forms_1 = __webpack_require__(56);
+var AbstractProdutoComponent = (function (_super) {
+    __extends(AbstractProdutoComponent, _super);
+    function AbstractProdutoComponent(fb, location) {
+        var _this = _super.call(this) || this;
+        _this.fb = fb;
+        _this.location = location;
+        _this.checkUsoInterno = false;
+        _this.checkProdutoComposto = false;
+        _this.produtosComposicoes = [];
+        _this.comboCategorias = [];
+        return _this;
+    }
+    AbstractProdutoComponent.prototype.voltar = function () {
+        this.location.back();
+    };
+    AbstractProdutoComponent.prototype.mudarImage = function (evento) {
+        this.atualizarFoto(evento.foto);
+    };
+    AbstractProdutoComponent.prototype.atualizarFoto = function (foto) {
+        this.urlFoto = foto;
+    };
+    AbstractProdutoComponent.prototype.alterarCheckUsoInterno = function (valor) {
+        this.formulario.patchValue({
+            usoInterno: valor ? 'S' : 'N'
+        });
+    };
+    AbstractProdutoComponent.prototype.alterarCheckProdutoComposto = function (valor) {
+        this.checkProdutoComposto = valor;
+        this.formulario.patchValue({
+            produtoComposto: valor ? 'S' : 'N'
+        });
+    };
+    AbstractProdutoComponent.prototype.criarFormulario = function () {
+        this.formulario = this.fb.group({
+            idProduto: [''],
+            nmProduto: ['', [forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(25)]],
+            categoria: ['', forms_1.Validators.required],
+            preco: ['', forms_1.Validators.required],
+            produtoComposto: ['N'],
+            status: ['A'],
+            usoInterno: ['N'],
+            urlImagem: ['']
+        });
+    };
+    AbstractProdutoComponent.prototype.confirmarCompProd = function (value) {
+        var prod = {};
+        prod.idProduto = value.idProdutoPai;
+        prod.idProdutoComposicao = value.produtoComp[0].id;
+        prod.nmProdutoComposicao = value.produtoComp[0].text;
+        prod.idUnidadeMedida = value.unidade[0].id;
+        prod.nmUnidadeMedida = value.unidade[0].text;
+        prod.qtdUtilizada = Number(value.qtdUtilizada);
+        prod.mostrarUnidade = value.mostrarUnidade;
+        prod.emAlteracao = value.emAlteracao;
+        var position = this.produtosComposicoes.findIndex(function (x) { return x.idProdutoComposicao == prod.idProdutoComposicao; });
+        if (position == -1) {
+            this.produtosComposicoes.push(prod);
+        }
+        else {
+            if (prod.emAlteracao) {
+                this.produtosComposicoes[position] = prod;
+            }
+            else {
+                this.produtosComposicoes[position].qtdUtilizada += prod.qtdUtilizada;
+            }
+        }
+    };
+    AbstractProdutoComponent.prototype.excluirItem = function (item) {
+        this.produtosComposicoes =
+            this.produtosComposicoes
+                .filter(function (prod) { return prod.idProdutoComposicao != item.idProdutoComposicao; });
+    };
+    return AbstractProdutoComponent;
+}(abstract_base_component_1.AbstractBaseComponent));
+exports.AbstractProdutoComponent = AbstractProdutoComponent;
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/abstract-produto.component.js.map
+
+/***/ }),
+
+/***/ 751:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -524,42 +697,28 @@ var forms_1 = __webpack_require__(56);
 var core_1 = __webpack_require__(2);
 var router_1 = __webpack_require__(42);
 var common_1 = __webpack_require__(28);
+var produtos_service_1 = __webpack_require__(738);
+var categoria_service_1 = __webpack_require__(735);
+var abstract_produto_component_1 = __webpack_require__(750);
 var event_emitter_services_1 = __webpack_require__(133);
-var abstract_base_component_1 = __webpack_require__(734);
-var categoria_service_1 = __webpack_require__(733);
-var unidade_service_1 = __webpack_require__(750);
-var produtos_service_1 = __webpack_require__(735);
 var CreateProdutosComponent = (function (_super) {
     __extends(CreateProdutosComponent, _super);
-    function CreateProdutosComponent(fb, location, categoriasService, unidadeService, produtosService, router) {
-        var _this = _super.call(this) || this;
+    function CreateProdutosComponent(fb, location, categoriasService, produtosService, router) {
+        var _this = _super.call(this, fb, location) || this;
         _this.fb = fb;
         _this.location = location;
         _this.categoriasService = categoriasService;
-        _this.unidadeService = unidadeService;
         _this.produtosService = produtosService;
         _this.router = router;
-        _this.produtosComposicoes = [];
-        _this.comboCategorias = [];
-        _this.comboCompUnidades = [];
-        _this.comboCompProdutos = [];
-        _this.checkUsoInterno = false;
-        _this.checkProdutoComposto = false;
-        _this.checkMostrar = true;
-        _this.alterarComposicao = false;
-        _this.value = ['Athens'];
         return _this;
     }
     CreateProdutosComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.criarFormulario();
-        this.criarFormProdComp();
         this.categoriasService.findAll()
-            .subscribe(function (response) { _this.comboCategorias = _this.preencharCombo(response, 'id', 'nome'); }, function (error) { return console.log(error); });
-        this.produtosService.findAllProdutoInterno()
-            .subscribe(function (response) { _this.comboCompProdutos = _this.preencharCombo(response, 'id', 'nmProduto'); }, function (error) { return console.log(error); });
-        this.unidadeService.findAllAtivo()
-            .subscribe(function (response) { _this.comboCompUnidades = _this.preencharCombo(response, 'id', 'sigla'); }, function (error) { return console.log(error); });
+            .subscribe(function (response) { _this.comboCategorias = _this.preencharCombo(response, 'id', 'nome'); }
+        //, error => console.log(error)
+        );
     };
     CreateProdutosComponent.prototype.confirmar = function (value) {
         //let categoria: CategoriaDTO = {id:'1', nome:'2das'};
@@ -573,125 +732,32 @@ var CreateProdutosComponent = (function (_super) {
         prod.usoInterno = value.usoInterno;
         prod.categoria = { id: value.categoria[0].id, nome: value.categoria[0].text };
         prod.urlImagem = this.urlFoto;
-        //composicoes: ProdutoComposicaoDTO[],
+        prod.composicoes = this.produtosComposicoes;
         this.produtosService.salvar(prod)
             .subscribe(function (response) {
             event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria incluída com sucesso!!!');
             _this.router.navigate(['/produtos/listar']);
         }, function (error) {
-            console.log('error de validação:', error.error);
+            //console.log('error de validação:', error.error);
         });
-    };
-    CreateProdutosComponent.prototype.voltar = function () {
-        this.location.back();
-    };
-    CreateProdutosComponent.prototype.mudarImage = function (evento) {
-        this.atualizarFoto(evento.foto);
-    };
-    CreateProdutosComponent.prototype.atualizarFoto = function (foto) {
-        this.urlFoto = foto;
-    };
-    CreateProdutosComponent.prototype.criarFormulario = function () {
-        this.formulario = this.fb.group({
-            idProduto: [''],
-            nmProduto: ['', [forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(25)]],
-            categoria: ['', forms_1.Validators.required],
-            preco: ['', forms_1.Validators.required],
-            produtoComposto: ['N'],
-            status: ['A'],
-            usoInterno: ['N'],
-            urlImagem: ['']
-        });
-    };
-    CreateProdutosComponent.prototype.criarFormProdComp = function () {
-        this.formProdComp = this.fb.group({
-            idProdutoPai: [],
-            produtoComp: ['', forms_1.Validators.required],
-            unidade: ['', forms_1.Validators.required],
-            qtdUtilizada: ['', forms_1.Validators.required],
-            mostrarUnidade: ['S']
-        });
-    };
-    CreateProdutosComponent.prototype.alterarCheckUsoInterno = function (valor) {
-        this.formulario.patchValue({
-            usoInterno: valor ? 'S' : 'N'
-        });
-    };
-    CreateProdutosComponent.prototype.alterarCheckProdutoComposto = function (valor) {
-        this.checkProdutoComposto = valor;
-        this.formulario.patchValue({
-            produtoComposto: valor ? 'S' : 'N'
-        });
-    };
-    CreateProdutosComponent.prototype.compProdCheckMostrar = function (valor) {
-        this.formProdComp.patchValue({
-            mostrarUnidade: valor ? 'S' : 'N'
-        });
-    };
-    CreateProdutosComponent.prototype.mostrarPopupCompProd = function () {
-        this.criarFormProdComp();
-        this.modalCompProd.show();
-    };
-    CreateProdutosComponent.prototype.confirmarCompProd = function (value) {
-        var prod = {};
-        prod.idProduto = value.idProdutoPai;
-        prod.idProdutoComposicao = value.produtoComp[0].id;
-        prod.nmProdutoComposicao = value.produtoComp[0].text;
-        prod.idUnidadeMedida = value.unidade[0].id;
-        prod.nmUnidadeMedida = value.unidade[0].text;
-        prod.qtdUtilizada = Number(value.qtdUtilizada);
-        prod.mostrarUnidade = value.mostrarUnidade;
-        var position = this.produtosComposicoes.findIndex(function (x) { return x.idProdutoComposicao == prod.idProdutoComposicao; });
-        if (position == -1) {
-            this.produtosComposicoes.push(prod);
-        }
-        else {
-            if (this.alterarComposicao) {
-                this.produtosComposicoes[position] = prod;
-                this.alterarComposicao = false;
-            }
-            else {
-                this.produtosComposicoes[position].qtdUtilizada += prod.qtdUtilizada;
-            }
-        }
-        this.modalCompProd.hide();
-    };
-    CreateProdutosComponent.prototype.excluirItem = function (item) {
-        this.produtosComposicoes =
-            this.produtosComposicoes
-                .filter(function (prod) { return prod.idProdutoComposicao != item.idProdutoComposicao; });
-    };
-    CreateProdutosComponent.prototype.alterarProdutoComp = function (item) {
-        this.alterarComposicao = true;
-        this.formProdComp.patchValue({
-            produtoComp: [{ id: item.idProdutoComposicao, text: item.nmProdutoComposicao, disabled: true }],
-            unidade: [{ id: item.idUnidadeMedida, text: item.nmUnidadeMedida }],
-            qtdUtilizada: item.qtdUtilizada,
-            mostrarUnidade: item.mostrarUnidade
-        });
-        this.modalCompProd.show();
     };
     return CreateProdutosComponent;
-}(abstract_base_component_1.AbstractBaseComponent));
-__decorate([
-    core_1.ViewChild('ModalCompProd'),
-    __metadata("design:type", Object)
-], CreateProdutosComponent.prototype, "modalCompProd", void 0);
+}(abstract_produto_component_1.AbstractProdutoComponent));
 CreateProdutosComponent = __decorate([
     core_1.Component({
         selector: 'app-create-catetorias',
-        template: __webpack_require__(786),
-        styles: [__webpack_require__(766)]
+        template: __webpack_require__(794),
+        styles: [__webpack_require__(772)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriasService !== "undefined" && categoria_service_1.CategoriasService) === "function" && _c || Object, typeof (_d = typeof unidade_service_1.UnidadeMedidaService !== "undefined" && unidade_service_1.UnidadeMedidaService) === "function" && _d || Object, typeof (_e = typeof produtos_service_1.ProdutosService !== "undefined" && produtos_service_1.ProdutosService) === "function" && _e || Object, typeof (_f = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriasService !== "undefined" && categoria_service_1.CategoriasService) === "function" && _c || Object, typeof (_d = typeof produtos_service_1.ProdutosService !== "undefined" && produtos_service_1.ProdutosService) === "function" && _d || Object, typeof (_e = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _e || Object])
 ], CreateProdutosComponent);
 exports.CreateProdutosComponent = CreateProdutosComponent;
-var _a, _b, _c, _d, _e, _f;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/create-produtos.component.js.map
+var _a, _b, _c, _d, _e;
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/create-produtos.component.js.map
 
 /***/ }),
 
-/***/ 748:
+/***/ 752:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -716,18 +782,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var forms_1 = __webpack_require__(56);
 var core_1 = __webpack_require__(2);
 var router_1 = __webpack_require__(42);
-var forms_1 = __webpack_require__(56);
 var common_1 = __webpack_require__(28);
-var abstract_base_component_1 = __webpack_require__(734);
+var produtos_service_1 = __webpack_require__(738);
+var categoria_service_1 = __webpack_require__(735);
+var abstract_produto_component_1 = __webpack_require__(750);
 var event_emitter_services_1 = __webpack_require__(133);
-var categoria_service_1 = __webpack_require__(733);
-var produtos_service_1 = __webpack_require__(735);
 var EditProdutosComponent = (function (_super) {
     __extends(EditProdutosComponent, _super);
     function EditProdutosComponent(fb, route, location, categoriasService, produtosService, router) {
-        var _this = _super.call(this) || this;
+        var _this = _super.call(this, fb, location) || this;
         _this.fb = fb;
         _this.route = route;
         _this.location = location;
@@ -741,71 +807,67 @@ var EditProdutosComponent = (function (_super) {
         this.criarFormulario();
         this.route.params.forEach(function (params) {
             var id = params['id'];
-            _this.produtosService.findById(id)
-                .subscribe(function (resp) {
-                var prod = resp;
-                console.log(prod);
-                //this.editFormulario(cat);
-            }, function (errors) { return console.log(errors.error); });
+            _this.produtosService.findById(id).subscribe(function (resp) {
+                var produto = resp;
+                _this.formulario = _this.fb.group({
+                    idProduto: [produto.id],
+                    nmProduto: [produto.nmProduto, [forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(25)]],
+                    categoria: [[{ id: produto.categoria.id, text: produto.categoria.nome }], forms_1.Validators.required],
+                    preco: [produto.preco, forms_1.Validators.required],
+                    produtoComposto: [produto.produtoComposto],
+                    status: [produto.status],
+                    usoInterno: [produto.usoInterno]
+                    //urlImagem: [produto.urlImagem]
+                });
+                _this.checkUsoInterno = produto.usoInterno == 'S';
+                if (produto.produtoComposto == 'S') {
+                    _this.checkProdutoComposto = true;
+                    _this.produtosComposicoes = produto.composicoes;
+                }
+            });
         });
+        this.categoriasService.findAll()
+            .subscribe(function (response) { _this.comboCategorias = _this.preencharCombo(response, 'id', 'nome'); }
+        //, error => console.log(error)
+        );
     };
-    EditProdutosComponent.prototype.confirmar = function () {
+    EditProdutosComponent.prototype.confirmar = function (value) {
+        //let categoria: CategoriaDTO = {id:'1', nome:'2das'};
         var _this = this;
-        this.formulario.patchValue({
-            urlImagem: this.urlFoto
-        });
-        this.categoriasService.atualizar(this.formulario.value)
+        var prod = {};
+        prod.id = value.idProduto;
+        prod.nmProduto = value.nmProduto;
+        prod.preco = value.preco;
+        prod.produtoComposto = value.produtoComposto;
+        prod.status = value.status;
+        prod.usoInterno = value.usoInterno;
+        prod.categoria = { id: value.categoria[0].id, nome: value.categoria[0].text };
+        prod.urlImagem = this.urlFoto;
+        prod.composicoes = this.produtosComposicoes;
+        this.produtosService.atualizar(prod)
             .subscribe(function (response) {
-            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria alterada com sucesso!!!');
-            _this.router.navigate(['/categorias/listar']);
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria incluída com sucesso!!!');
+            _this.router.navigate(['/produtos/listar']);
         }, function (error) {
-            console.log(error);
+            //console.log('error de validação:', error.error);
         });
-    };
-    EditProdutosComponent.prototype.voltar = function () {
-        this.location.back();
-    };
-    EditProdutosComponent.prototype.mudarImage = function (evento) {
-        this.atualizarFoto(evento.foto);
-    };
-    EditProdutosComponent.prototype.atualizarFoto = function (foto) {
-        this.urlFoto = foto;
-    };
-    EditProdutosComponent.prototype.criarFormulario = function () {
-        this.formulario = this.fb.group({
-            id: [],
-            nome: ['', forms_1.Validators.required],
-            status: ['A'],
-            comentario: [''],
-            foto: ['']
-        });
-    };
-    EditProdutosComponent.prototype.editFormulario = function (categoria) {
-        this.formulario = this.fb.group({
-            id: [categoria.id],
-            nome: [categoria.nome, [forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(25)]],
-            status: [categoria.status],
-            comentario: [categoria.comentario],
-            urlImagem: [categoria.urlImagem]
-        });
-        this.urlFoto = categoria.urlImagem;
     };
     return EditProdutosComponent;
-}(abstract_base_component_1.AbstractBaseComponent));
+}(abstract_produto_component_1.AbstractProdutoComponent));
 EditProdutosComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(787),
-        styles: [__webpack_require__(767)]
+        template: __webpack_require__(795),
+        styles: [__webpack_require__(773)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _b || Object, typeof (_c = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _c || Object, typeof (_d = typeof categoria_service_1.CategoriasService !== "undefined" && categoria_service_1.CategoriasService) === "function" && _d || Object, typeof (_e = typeof produtos_service_1.ProdutosService !== "undefined" && produtos_service_1.ProdutosService) === "function" && _e || Object, typeof (_f = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _f || Object])
 ], EditProdutosComponent);
 exports.EditProdutosComponent = EditProdutosComponent;
 var _a, _b, _c, _d, _e, _f;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/edit-produtos.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/edit-produtos.component.js.map
 
 /***/ }),
 
-/***/ 749:
+/***/ 753:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -834,7 +896,7 @@ var event_emitter_services_1 = __webpack_require__(133);
 var core_1 = __webpack_require__(2);
 var router_1 = __webpack_require__(42);
 var api_config_1 = __webpack_require__(134);
-var produtos_service_1 = __webpack_require__(735);
+var produtos_service_1 = __webpack_require__(738);
 var abstract_base_component_1 = __webpack_require__(734);
 var ListarProdutosComponent = (function (_super) {
     __extends(ListarProdutosComponent, _super);
@@ -893,58 +955,18 @@ __decorate([
 ], ListarProdutosComponent.prototype, "popupChangeStatus", void 0);
 ListarProdutosComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(788),
-        styles: [__webpack_require__(768)]
+        template: __webpack_require__(796),
+        styles: [__webpack_require__(774)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof produtos_service_1.ProdutosService !== "undefined" && produtos_service_1.ProdutosService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], ListarProdutosComponent);
 exports.ListarProdutosComponent = ListarProdutosComponent;
 var _a, _b;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/listar-produtos.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/listar-produtos.component.js.map
 
 /***/ }),
 
-/***/ 750:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__(134);
-var http_1 = __webpack_require__(57);
-var core_1 = __webpack_require__(2);
-var UnidadeMedidaService = (function () {
-    function UnidadeMedidaService(http) {
-        this.http = http;
-    }
-    UnidadeMedidaService.prototype.findAll = function () {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/unidades/all");
-    };
-    UnidadeMedidaService.prototype.findAllAtivo = function () {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/unidades/");
-    };
-    return UnidadeMedidaService;
-}());
-UnidadeMedidaService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], UnidadeMedidaService);
-exports.UnidadeMedidaService = UnidadeMedidaService;
-var _a;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/unidade.service.js.map
-
-/***/ }),
-
-/***/ 751:
+/***/ 754:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -982,7 +1004,7 @@ exports.LaddaConfig = LaddaConfig;
 
 /***/ }),
 
-/***/ 752:
+/***/ 755:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -990,8 +1012,8 @@ exports.LaddaConfig = LaddaConfig;
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
 var forms_1 = __webpack_require__(56);
-var currency_mask_config_1 = __webpack_require__(773);
-var input_handler_1 = __webpack_require__(775);
+var currency_mask_config_1 = __webpack_require__(779);
+var input_handler_1 = __webpack_require__(781);
 exports.CURRENCYMASKDIRECTIVE_VALUE_ACCESSOR = {
     provide: forms_1.NG_VALUE_ACCESSOR,
     useExisting: core_1.forwardRef(function () { return CurrencyMaskDirective; }),
@@ -1101,7 +1123,7 @@ exports.CurrencyMaskDirective = CurrencyMaskDirective;
 
 /***/ }),
 
-/***/ 753:
+/***/ 756:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1143,7 +1165,7 @@ exports.OffClickDirective = OffClickDirective;
 
 /***/ }),
 
-/***/ 754:
+/***/ 757:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1191,7 +1213,7 @@ exports.SelectItem = SelectItem;
 
 /***/ }),
 
-/***/ 755:
+/***/ 758:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1204,9 +1226,9 @@ var __extends = (this && this.__extends) || function (d, b) {
 var core_1 = __webpack_require__(2);
 var forms_1 = __webpack_require__(56);
 var platform_browser_1 = __webpack_require__(43);
-var select_item_1 = __webpack_require__(754);
-var select_pipes_1 = __webpack_require__(740);
-var common_1 = __webpack_require__(739);
+var select_item_1 = __webpack_require__(757);
+var select_pipes_1 = __webpack_require__(742);
+var common_1 = __webpack_require__(741);
 var styles = "\n  .ui-select-toggle {\n    position: relative;\n  }\n\n  /* Fix caret going into new line in Firefox */\n  .ui-select-placeholder {\n    float: left;\n  }\n  \n  /* Fix Bootstrap dropdown position when inside a input-group */\n  .input-group > .dropdown {\n    /* Instead of relative */\n    position: static;\n  }\n  \n  .ui-select-match > .btn {\n    /* Instead of center because of .btn */\n    text-align: left !important;\n  }\n  \n  .ui-select-match > .caret {\n    position: absolute;\n    top: 45%;\n    right: 15px;\n  }\n  \n  .ui-disabled {\n    background-color: #eceeef;\n    border-radius: 4px;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 5;\n    opacity: 0.6;\n    top: 0;\n    left: 0;\n    cursor: not-allowed;\n  }\n  \n  .ui-select-choices {\n    width: 100%;\n    height: auto;\n    max-height: 200px;\n    overflow-x: hidden;\n    margin-top: 0;\n  }\n  \n  .ui-select-multiple .ui-select-choices {\n    margin-top: 1px;\n  }\n  .ui-select-choices-row>a {\n      display: block;\n      padding: 3px 20px;\n      clear: both;\n      font-weight: 400;\n      line-height: 1.42857143;\n      color: #333;\n      white-space: nowrap;\n  }\n  .ui-select-choices-row.active>a {\n      color: #fff;\n      text-decoration: none;\n      outline: 0;\n      background-color: #428bca;\n  }\n  \n  .ui-select-multiple {\n    height: auto;\n    padding:3px 3px 0 3px;\n  }\n  \n  .ui-select-multiple input.ui-select-search {\n    background-color: transparent !important; /* To prevent double background when disabled */\n    border: none;\n    outline: none;\n    box-shadow: none;\n    height: 1.6666em;\n    padding: 0;\n    margin-bottom: 3px;\n    \n  }\n  .ui-select-match .close {\n      font-size: 1.6em;\n      line-height: 0.75;\n  }\n  \n  .ui-select-multiple .ui-select-match-item {\n    outline: 0;\n    margin: 0 3px 3px 0;\n  }\n  .ui-select-toggle > .caret {\n      position: absolute;\n      height: 10px;\n      top: 50%;\n      right: 10px;\n      margin-top: -2px;\n  }\n";
 var SelectComponent = (function () {
     function SelectComponent(element, sanitizer) {
@@ -1748,11 +1770,21 @@ exports.ChildrenBehavior = ChildrenBehavior;
 
 /***/ }),
 
-/***/ 759:
+/***/ 764:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1764,41 +1796,78 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var ComposicaoPopupModalComponent = (function () {
-    function ComposicaoPopupModalComponent() {
-        this.titulo = "Confirmar";
-        this.popupStyle = '';
-        this.onClickConfirm = new core_1.EventEmitter();
+var forms_1 = __webpack_require__(56);
+var produtos_service_1 = __webpack_require__(738);
+var abstract_base_component_1 = __webpack_require__(734);
+var unidade_medida_service_1 = __webpack_require__(737);
+var ComposicaoPopupModalComponent = (function (_super) {
+    __extends(ComposicaoPopupModalComponent, _super);
+    function ComposicaoPopupModalComponent(fb, unidadeService, produtosService) {
+        var _this = _super.call(this) || this;
+        _this.fb = fb;
+        _this.unidadeService = unidadeService;
+        _this.produtosService = produtosService;
+        _this.titulo = "Confirmar";
+        _this.checkMostrar = true;
+        _this.comboCompUnidades = [];
+        _this.comboCompProdutos = [];
+        _this.onClickConfirm = new core_1.EventEmitter();
+        return _this;
     }
     ComposicaoPopupModalComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.criarFormProdComp();
+        this.produtosService.findAllProdutoInterno()
+            .subscribe(function (response) { _this.comboCompProdutos = _this.preencharCombo(response, 'id', 'nmProduto'); }
+        //, error => 
+        );
+        this.unidadeService.findAllAtivo()
+            .subscribe(function (response) { _this.comboCompUnidades = _this.preencharCombo(response, 'id', 'sigla'); }
+        //, error => console.log(error)
+        );
     };
     ComposicaoPopupModalComponent.prototype.show = function () {
+        this.criarFormProdComp();
         this.confirma.show();
     };
-    ComposicaoPopupModalComponent.prototype.btnConfirmar = function () {
-        this.confirma.hide();
-        this.onClickConfirm.emit(true);
+    ComposicaoPopupModalComponent.prototype.showAlteracao = function (item) {
+        this.alterarProdutoComp(item);
+        this.confirma.show();
     };
-    ComposicaoPopupModalComponent.prototype.getPopupStyle = function () {
-        var cssClasses = {};
-        if (this.popupStyle == '') {
-            cssClasses['modal-primary'] = true;
-        }
-        else {
-            cssClasses['modal-' + this.popupStyle] = true;
-        }
-        return cssClasses;
+    ComposicaoPopupModalComponent.prototype.btnConfirmar = function (value) {
+        this.onClickConfirm.emit(value);
+        this.confirma.hide();
+    };
+    ComposicaoPopupModalComponent.prototype.criarFormProdComp = function () {
+        this.formProdComp = this.fb.group({
+            idProdutoPai: [],
+            produtoComp: ['', forms_1.Validators.required],
+            unidade: ['', forms_1.Validators.required],
+            qtdUtilizada: ['', forms_1.Validators.required],
+            mostrarUnidade: ['S'],
+            emAlteracao: [false]
+        });
+    };
+    ComposicaoPopupModalComponent.prototype.compProdCheckMostrar = function (valor) {
+        this.formProdComp.patchValue({
+            mostrarUnidade: valor ? 'S' : 'N'
+        });
+    };
+    ComposicaoPopupModalComponent.prototype.alterarProdutoComp = function (item) {
+        this.formProdComp.patchValue({
+            produtoComp: [{ id: item.idProdutoComposicao, text: item.nmProdutoComposicao }],
+            unidade: [{ id: item.idUnidadeMedida, text: item.nmUnidadeMedida }],
+            qtdUtilizada: item.qtdUtilizada,
+            mostrarUnidade: item.mostrarUnidade,
+            emAlteracao: true
+        });
     };
     return ComposicaoPopupModalComponent;
-}());
+}(abstract_base_component_1.AbstractBaseComponent));
 __decorate([
     core_1.ViewChild('modalConfirm'),
     __metadata("design:type", Object)
 ], ComposicaoPopupModalComponent.prototype, "confirma", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ComposicaoPopupModalComponent.prototype, "popupStyle", void 0);
 __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
@@ -1806,17 +1875,18 @@ __decorate([
 ComposicaoPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'composicao-popup-modal',
-        styles: [__webpack_require__(769)],
-        template: __webpack_require__(789)
+        styles: [__webpack_require__(775)],
+        template: __webpack_require__(797)
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _b || Object, typeof (_c = typeof produtos_service_1.ProdutosService !== "undefined" && produtos_service_1.ProdutosService) === "function" && _c || Object])
 ], ComposicaoPopupModalComponent);
 exports.ComposicaoPopupModalComponent = ComposicaoPopupModalComponent;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/composicao-popup-modal.component.js.map
+var _a, _b, _c;
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/composicao-popup-modal.component.js.map
 
 /***/ }),
 
-/***/ 760:
+/***/ 765:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1830,9 +1900,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
 var router_1 = __webpack_require__(42);
-var create_produtos_component_1 = __webpack_require__(747);
-var listar_produtos_component_1 = __webpack_require__(749);
-var edit_produtos_component_1 = __webpack_require__(748);
+var create_produtos_component_1 = __webpack_require__(751);
+var listar_produtos_component_1 = __webpack_require__(753);
+var edit_produtos_component_1 = __webpack_require__(752);
 var routes = [
     {
         path: '',
@@ -1881,19 +1951,19 @@ ProdutosRoutingModule = __decorate([
     })
 ], ProdutosRoutingModule);
 exports.ProdutosRoutingModule = ProdutosRoutingModule;
-//# sourceMappingURL=H:/paladar-fit/frontend-web/src/produtos-routing.module.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-web/src/produtos-routing.module.js.map
 
 /***/ }),
 
-/***/ 761:
+/***/ 766:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var ladda_config_1 = __webpack_require__(751);
-var Ladda = __webpack_require__(770);
+var ladda_config_1 = __webpack_require__(754);
+var Ladda = __webpack_require__(776);
 var LaddaDirective = (function () {
     function LaddaDirective(el, config) {
         this.el = el.nativeElement;
@@ -1977,15 +2047,15 @@ exports.LaddaDirective = LaddaDirective;
 
 /***/ }),
 
-/***/ 762:
+/***/ 767:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var ladda_directive_1 = __webpack_require__(761);
-var ladda_config_1 = __webpack_require__(751);
+var ladda_directive_1 = __webpack_require__(766);
+var ladda_config_1 = __webpack_require__(754);
 var LaddaModule = (function () {
     function LaddaModule() {
     }
@@ -2012,7 +2082,7 @@ exports.LaddaModule = LaddaModule;
 
 /***/ }),
 
-/***/ 766:
+/***/ 772:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(71)();
@@ -2030,7 +2100,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 767:
+/***/ 773:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(71)();
@@ -2048,7 +2118,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 768:
+/***/ 774:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(71)();
@@ -2066,7 +2136,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 769:
+/***/ 775:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(71)();
@@ -2084,7 +2154,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 770:
+/***/ 776:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -2095,11 +2165,11 @@ module.exports = module.exports.toString();
  * Copyright (C) 2017 Hakim El Hattab, http://hakim.se
  */
 
-!function(t,e){"use strict"; true?module.exports=e(__webpack_require__(771)):"function"==typeof define&&define.amd?define(["spin"],e):t.Ladda=e(t.Spinner)}(this,function(t){"use strict";function e(t){if(void 0!==t){if(/ladda-button/i.test(t.className)||(t.className+=" ladda-button"),t.hasAttribute("data-style")||t.setAttribute("data-style","expand-right"),!t.querySelector(".ladda-label")){var e=document.createElement("span");e.className="ladda-label",r(t,e)}var a,u=t.querySelector(".ladda-spinner");u||((u=document.createElement("span")).className="ladda-spinner"),t.appendChild(u);var i,o={start:function(){return a||(a=n(t)),t.disabled=!0,t.setAttribute("data-loading",""),clearTimeout(i),a.spin(u),this.setProgress(0),this},startAfter:function(t){return clearTimeout(i),i=setTimeout(function(){o.start()},t),this},stop:function(){return o.isLoading()&&(t.disabled=!1,t.removeAttribute("data-loading")),clearTimeout(i),a&&(i=setTimeout(function(){a.stop()},1e3)),this},toggle:function(){return this.isLoading()?this.stop():this.start()},setProgress:function(e){e=Math.max(Math.min(e,1),0);var a=t.querySelector(".ladda-progress");0===e&&a&&a.parentNode?a.parentNode.removeChild(a):(a||((a=document.createElement("div")).className="ladda-progress",t.appendChild(a)),a.style.width=(e||0)*t.offsetWidth+"px")},enable:function(){return this.stop()},disable:function(){return this.stop(),t.disabled=!0,this},isLoading:function(){return t.hasAttribute("data-loading")},remove:function(){clearTimeout(i),t.disabled=!1,t.removeAttribute("data-loading"),a&&(a.stop(),a=null),d.splice(d.indexOf(o),1)}};return d.push(o),o}console.warn("Ladda button target must be defined.")}function a(t,e){for(;t.parentNode&&t.tagName!==e;)t=t.parentNode;return e===t.tagName?t:void 0}function u(t){var e=[];return["input","textarea","select"].forEach(function(a){for(var u=t.getElementsByTagName(a),n=0;n<u.length;n++)u[n].hasAttribute("required")&&e.push(u[n])}),e}function n(e){var a,u,n=e.offsetHeight;0===n&&(n=parseFloat(window.getComputedStyle(e).height)),n>32&&(n*=.8),e.hasAttribute("data-spinner-size")&&(n=parseInt(e.getAttribute("data-spinner-size"),10)),e.hasAttribute("data-spinner-color")&&(a=e.getAttribute("data-spinner-color")),e.hasAttribute("data-spinner-lines")&&(u=parseInt(e.getAttribute("data-spinner-lines"),10));var r=.2*n,i=.6*r,d=r<7?2:3;return new t({color:a||"#fff",lines:u||12,radius:r,length:i,width:d,zIndex:"auto",top:"auto",left:"auto",className:""})}function r(t,e){var a=document.createRange();a.selectNodeContents(t),a.surroundContents(e),t.appendChild(e)}function i(t,n){if("function"==typeof t.addEventListener){var r=e(t),i=-1;t.addEventListener("click",function(){var e=!0,d=a(t,"FORM");if(void 0!==d)if("function"==typeof d.checkValidity)e=d.checkValidity();else for(var o=u(d),s=0;s<o.length;s++){var F=o[s],l=F.getAttribute("type");if(""===F.value.replace(/^\s+|\s+$/g,"")&&(e=!1),"checkbox"!==l&&"radio"!==l||F.checked||(e=!1),"email"===l&&(e=/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i.test(F.value)),"url"===l&&(e=/^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(F.value)),!e)break}e&&(r.startAfter(1),"number"==typeof n.timeout&&(clearTimeout(i),i=setTimeout(r.stop,n.timeout)),"function"==typeof n.callback&&n.callback.apply(null,[r]))},!1)}}var d=[];return{bind:function(t,e){var a;if("string"==typeof t)a=document.querySelectorAll(t);else{if("object"!=typeof t)throw new Error("target must be string or object");a=[t]}e=e||{};for(var u=0;u<a.length;u++)i(a[u],e)},create:e,stopAll:function(){for(var t=0,e=d.length;t<e;t++)d[t].stop()}}});
+!function(t,e){"use strict"; true?module.exports=e(__webpack_require__(777)):"function"==typeof define&&define.amd?define(["spin"],e):t.Ladda=e(t.Spinner)}(this,function(t){"use strict";function e(t){if(void 0!==t){if(/ladda-button/i.test(t.className)||(t.className+=" ladda-button"),t.hasAttribute("data-style")||t.setAttribute("data-style","expand-right"),!t.querySelector(".ladda-label")){var e=document.createElement("span");e.className="ladda-label",r(t,e)}var a,u=t.querySelector(".ladda-spinner");u||((u=document.createElement("span")).className="ladda-spinner"),t.appendChild(u);var i,o={start:function(){return a||(a=n(t)),t.disabled=!0,t.setAttribute("data-loading",""),clearTimeout(i),a.spin(u),this.setProgress(0),this},startAfter:function(t){return clearTimeout(i),i=setTimeout(function(){o.start()},t),this},stop:function(){return o.isLoading()&&(t.disabled=!1,t.removeAttribute("data-loading")),clearTimeout(i),a&&(i=setTimeout(function(){a.stop()},1e3)),this},toggle:function(){return this.isLoading()?this.stop():this.start()},setProgress:function(e){e=Math.max(Math.min(e,1),0);var a=t.querySelector(".ladda-progress");0===e&&a&&a.parentNode?a.parentNode.removeChild(a):(a||((a=document.createElement("div")).className="ladda-progress",t.appendChild(a)),a.style.width=(e||0)*t.offsetWidth+"px")},enable:function(){return this.stop()},disable:function(){return this.stop(),t.disabled=!0,this},isLoading:function(){return t.hasAttribute("data-loading")},remove:function(){clearTimeout(i),t.disabled=!1,t.removeAttribute("data-loading"),a&&(a.stop(),a=null),d.splice(d.indexOf(o),1)}};return d.push(o),o}console.warn("Ladda button target must be defined.")}function a(t,e){for(;t.parentNode&&t.tagName!==e;)t=t.parentNode;return e===t.tagName?t:void 0}function u(t){var e=[];return["input","textarea","select"].forEach(function(a){for(var u=t.getElementsByTagName(a),n=0;n<u.length;n++)u[n].hasAttribute("required")&&e.push(u[n])}),e}function n(e){var a,u,n=e.offsetHeight;0===n&&(n=parseFloat(window.getComputedStyle(e).height)),n>32&&(n*=.8),e.hasAttribute("data-spinner-size")&&(n=parseInt(e.getAttribute("data-spinner-size"),10)),e.hasAttribute("data-spinner-color")&&(a=e.getAttribute("data-spinner-color")),e.hasAttribute("data-spinner-lines")&&(u=parseInt(e.getAttribute("data-spinner-lines"),10));var r=.2*n,i=.6*r,d=r<7?2:3;return new t({color:a||"#fff",lines:u||12,radius:r,length:i,width:d,zIndex:"auto",top:"auto",left:"auto",className:""})}function r(t,e){var a=document.createRange();a.selectNodeContents(t),a.surroundContents(e),t.appendChild(e)}function i(t,n){if("function"==typeof t.addEventListener){var r=e(t),i=-1;t.addEventListener("click",function(){var e=!0,d=a(t,"FORM");if(void 0!==d)if("function"==typeof d.checkValidity)e=d.checkValidity();else for(var o=u(d),s=0;s<o.length;s++){var F=o[s],l=F.getAttribute("type");if(""===F.value.replace(/^\s+|\s+$/g,"")&&(e=!1),"checkbox"!==l&&"radio"!==l||F.checked||(e=!1),"email"===l&&(e=/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i.test(F.value)),"url"===l&&(e=/^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(F.value)),!e)break}e&&(r.startAfter(1),"number"==typeof n.timeout&&(clearTimeout(i),i=setTimeout(r.stop,n.timeout)),"function"==typeof n.callback&&n.callback.apply(null,[r]))},!1)}}var d=[];return{bind:function(t,e){var a;if("string"==typeof t)a=document.querySelectorAll(t);else{if("object"!=typeof t)throw new Error("target must be string or object");a=[t]}e=e||{};for(var u=0;u<a.length;u++)i(a[u],e)},create:e,stopAll:function(){for(var t=0,e=d.length;t<e;t++)d[t].stop()}}});
 
 /***/ }),
 
-/***/ 771:
+/***/ 777:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -2460,7 +2530,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 772:
+/***/ 778:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2469,13 +2539,13 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(752));
-__export(__webpack_require__(774));
+__export(__webpack_require__(755));
+__export(__webpack_require__(780));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 773:
+/***/ 779:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2487,7 +2557,7 @@ exports.CURRENCY_MASK_CONFIG = new core_1.InjectionToken("currency.mask.config")
 
 /***/ }),
 
-/***/ 774:
+/***/ 780:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2496,7 +2566,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(28);
 var forms_1 = __webpack_require__(56);
 var core_1 = __webpack_require__(2);
-var currency_mask_directive_1 = __webpack_require__(752);
+var currency_mask_directive_1 = __webpack_require__(755);
 var CurrencyMaskModule = (function () {
     function CurrencyMaskModule() {
     }
@@ -2523,13 +2593,13 @@ exports.CurrencyMaskModule = CurrencyMaskModule;
 
 /***/ }),
 
-/***/ 775:
+/***/ 781:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_service_1 = __webpack_require__(777);
+var input_service_1 = __webpack_require__(783);
 var InputHandler = (function () {
     function InputHandler(htmlInputElement, options) {
         this.inputService = new input_service_1.InputService(htmlInputElement, options);
@@ -2657,7 +2727,7 @@ exports.InputHandler = InputHandler;
 
 /***/ }),
 
-/***/ 776:
+/***/ 782:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2766,13 +2836,13 @@ exports.InputManager = InputManager;
 
 /***/ }),
 
-/***/ 777:
+/***/ 783:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_manager_1 = __webpack_require__(776);
+var input_manager_1 = __webpack_require__(782);
 var InputService = (function () {
     function InputService(htmlInputElement, options) {
         this.htmlInputElement = htmlInputElement;
@@ -2900,7 +2970,7 @@ exports.InputService = InputService;
 
 /***/ }),
 
-/***/ 778:
+/***/ 784:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2908,26 +2978,26 @@ exports.InputService = InputService;
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-__export(__webpack_require__(739));
-__export(__webpack_require__(753));
-__export(__webpack_require__(779));
-__export(__webpack_require__(755));
-__export(__webpack_require__(754));
-__export(__webpack_require__(740));
+__export(__webpack_require__(741));
+__export(__webpack_require__(756));
+__export(__webpack_require__(785));
+__export(__webpack_require__(758));
+__export(__webpack_require__(757));
+__export(__webpack_require__(742));
 
 
 /***/ }),
 
-/***/ 779:
+/***/ 785:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var core_1 = __webpack_require__(2);
 var common_1 = __webpack_require__(28);
-var select_1 = __webpack_require__(755);
-var select_pipes_1 = __webpack_require__(740);
-var off_click_1 = __webpack_require__(753);
+var select_1 = __webpack_require__(758);
+var select_pipes_1 = __webpack_require__(742);
+var off_click_1 = __webpack_require__(756);
 var SelectModule = (function () {
     function SelectModule() {
     }
@@ -2947,31 +3017,31 @@ exports.SelectModule = SelectModule;
 
 /***/ }),
 
-/***/ 786:
+/***/ 794:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-sm-12\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <strong>Produto</strong>\n        <small> - inclusão de um novo produto</small>\n      </div>\n\n      <div class=\"card-block\">\n        <div class=\"form-group\">\n          <div class=\"row\">\n            <div class=\"col-sm-4 col-md-4\">\n              <div class=\"card\">\n                <div class=\"card-header\">\n                  <strong>Imagens do produto</strong>\n                </div>\n                <div class=\"card-block\">\n                  <div class=\"row\">\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\n                  </div>\n\n                </div>\n                <div class=\"card-footer\">\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\n                    (onSelecionarImagem)=\"mudarImage($event)\">\n                  </upload-imagem>\n                </div>\n              </div>\n            </div>\n            <!--/.col-->\n\n            <div class=\"col-md-8 col-sm-8\">\n              <form [formGroup]=\"formulario\" (ngSubmit)=\"confirmar()\">\n\n                <div class=\"card\">\n                  <div class=\"card-header\">\n                    <strong>Descrição do produto</strong>\n                  </div>\n                  <div class=\"card-block\">\n\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\n                      <div class=\"col-sm-10\">\n                        <input [autoFoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\n                          maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\n                        </alert-mensagem>\n                      </div>\n                    </div>\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Categoria</label>\n                      <div class=\"col-sm-10\">\n                        <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\n                        </ng-select>\n                      </div>\n                    </div>\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('preco'))\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Valor</label>\n                      <div class=\"col-sm-4\">\n                        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('preco'))\"\n                          name=\"nmProduto\" maxlength=\"10\" formControlName=\"preco\">\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('preco'))\" titulo=\"Erro:\" mensagem=\"o campo valor é preenchimento obrigatório\">\n                        </alert-mensagem>\n                      </div>\n                    </div>\n\n                    <div class=\"from-group row\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Uso interno</label>\n                      <div class=\"col-sm-10\">\n                        <label class=\"switch switch-lg switch-text switch-primary\">\n                          <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\n                          />\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\n                          <span class=\"switch-handle\"></span>\n                        </label>\n                      </div>\n                    </div>\n\n                    <div class=\"from-group row\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composto</label>\n                      <div class=\"col-sm-10\">\n                        <label class=\"switch switch-lg switch-text switch-primary\">\n                          <input #chkProdutoComposto type=\"checkbox\" class=\"switch-input\" [checked]=\"checkProdutoComposto\" (change)=\"alterarCheckProdutoComposto(chkProdutoComposto.checked)\"\n                          />\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\n                          <span class=\"switch-handle\"></span>\n                        </label>\n                      </div>\n                    </div>\n\n\n                    <div class=\"from-group row\" *ngIf=\"checkProdutoComposto\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composição</label>\n                      <div class=\"col-sm-10\">\n                        <div class=\"card\">\n                          <div class=\"card-header\">\n                            <strong>Composição do produto</strong>\n                            <div class=\"card-actions\">\n                              <button type=\"button\" (click)=\"mostrarPopupCompProd()\">\n                                <i class=\"icon-plus\"></i>\n                              </button>\n                            </div>\n                          </div>\n                          <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\n                            <div class=\"row\">\n\n                              <table class=\"table table-striped\">\n                                <thead>\n                                  <th class=\"text-left\">Produto</th>\n                                  <th class=\"text-right\">Quantidade</th>\n                                  <th class=\"text-center\">Mostrar</th>\n                                  <th class=\"text-right\">Ação</th>\n                                </thead>\n                                <tbody>\n                                  <tr *ngFor=\"let item of produtosComposicoes\">\n                                    <td class=\"text-left\">\n                                      <div>{{item.nmProdutoComposicao}}</div>\n                                    </td>\n                                    <td class=\"text-right\">\n                                      {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\n                                    </td>\n                                    <td class=\"text-center\">\n                                      <simnao valor={{item.mostrarUnidade}}></simnao>\n                                    </td>\n\n\n                                    <td class=\"text-right\">\n                                      <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"alterarProdutoComp(item)\">\n                                        <i class=\"fa fa fa-edit\"> </i>\n                                      </button>\n                                      <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\n                                        <i class=\"fa fa-eraser\"> </i>\n                                      </button>\n                                    </td>\n                                  </tr>\n                                </tbody>\n                              </table>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n              </form>\n            </div>\n\n          </div>\n          <div class=\"card-footer\">\n            <div style=\"float: right;\">\n              <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\n                <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\n              </button>\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmConfirmarModalUsuario.show()\">\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\n              </button>\n\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <confirm-popup-modal #confirmConfirmarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\n    <strong>Confirma inclusão do Produto?</strong>\n  </confirm-popup-modal>\n\n\n  <div bsModal #ModalCompProd=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-primary\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h4 class=\"modal-title\">Composição do produto</h4>\n          <button type=\"button\" class=\"close\" (click)=\"dangerModal.hide()\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form [formGroup]=\"formProdComp\" (ngSubmit)=\"confirmarCompProd()\">\n            <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('produtoComp'))\">\n              <label class=\"col-sm-4 form-control-label\" for=\"input-small\">Produto</label>\n              <div class=\"col-sm-8\">\n                <ng-select [multiple]=\"false\" formControlName=\"produtoComp\" [items]=\"comboCompProdutos\" placeholder=\"{{label.selecione}}\"\n                  [disabled]=\"alterarComposicao\">\n                </ng-select>\n              </div>\n            </div>\n            <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('qtdUtilizada'))\">\n              <label class=\"col-sm-4 form-control-label\" for=\"input-normal\">Quantidade</label>\n              <div class=\"col-sm-4\">\n                <input numberOnly type=\"text\" formControlName=\"qtdUtilizada\" class=\"form-control input-sm\" name=\"qtdUtilizada\" formControlName=\"qtdUtilizada\"\n                  maxlength=\"4\">\n              </div>\n            </div>\n            <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('unidade'))\">\n              <label class=\"col-sm-4 form-control-label\" for=\"input-large\">Unidade de medida</label>\n              <div class=\"col-sm-4\">\n                <ng-select [multiple]=\"false\" formControlName=\"unidade\" [items]=\"comboCompUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\n              </div>\n            </div>\n            <div class=\"form-group row\">\n              <label class=\"col-sm-4 form-control-label\">Mostar Unid e Qtd</label>\n              <div class=\"col-sm-8\">\n                <label class=\"switch switch-lg switch-text switch-primary\">\n                  <input #checkMostrar type=\"checkbox\" class=\"switch-input\" [checked]=\"checkMostrar\" (change)=\"compProdCheckMostrar(checkMostrar.checked)\"\n                  />\n                  <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\n                  <span class=\"switch-handle\"></span>\n                </label>\n              </div>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button class=\"btn btn-secondary\" (click)=\"ModalCompProd.hide()\">\n            <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\n          </button>\n          <button [disabled]=\"!formProdComp.valid\" type=\"button\" class=\"btn btn-md btn-success\" (click)=\"confirmarCompProd(formProdComp.value)\">\n            <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-sm-12\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <strong>Produto</strong>\n        <small> - inclusão de um novo produto</small>\n      </div>\n\n      <div class=\"card-block\">\n        <div class=\"form-group\">\n          <div class=\"row\">\n            <div class=\"col-sm-4 col-md-4\">\n              <div class=\"card\">\n                <div class=\"card-header\">\n                  <strong>Imagens do produto</strong>\n                </div>\n                <div class=\"card-block\">\n                  <div class=\"row\">\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\n                  </div>\n\n                </div>\n                <div class=\"card-footer\">\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\n                    (onSelecionarImagem)=\"mudarImage($event)\">\n                  </upload-imagem>\n                </div>\n              </div>\n            </div>\n            <!--/.col-->\n\n            <div class=\"col-md-8 col-sm-8\">\n              <form [formGroup]=\"formulario\" (ngSubmit)=\"confirmar()\">\n\n                <div class=\"card\">\n                  <div class=\"card-header\">\n                    <strong>Descrição do produto</strong>\n                  </div>\n                  <div class=\"card-block\">\n\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\n                      <div class=\"col-sm-10\">\n                        <input [autoFoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\n                          maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\n                        </alert-mensagem>\n                      </div>\n                    </div>\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Categoria</label>\n                      <div class=\"col-sm-10\">\n                        <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\n                        </ng-select>\n                      </div>\n                    </div>\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('preco'))\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Valor</label>\n                      <div class=\"col-sm-4\">\n                        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('preco'))\"\n                          name=\"nmProduto\" maxlength=\"10\" formControlName=\"preco\">\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('preco'))\" titulo=\"Erro:\" mensagem=\"o campo valor é preenchimento obrigatório\">\n                        </alert-mensagem>\n                      </div>\n                    </div>\n\n                    <div class=\"from-group row\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Uso interno</label>\n                      <div class=\"col-sm-10\">\n                        <label class=\"switch switch-lg switch-text switch-primary\">\n                          <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\n                          />\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\n                          <span class=\"switch-handle\"></span>\n                        </label>\n                      </div>\n                    </div>\n\n                    <div class=\"from-group row\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composto</label>\n                      <div class=\"col-sm-10\">\n                        <label class=\"switch switch-lg switch-text switch-primary\">\n                          <input #chkProdutoComposto type=\"checkbox\" class=\"switch-input\" [checked]=\"checkProdutoComposto\" (change)=\"alterarCheckProdutoComposto(chkProdutoComposto.checked)\"\n                          />\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\n                          <span class=\"switch-handle\"></span>\n                        </label>\n                      </div>\n                    </div>\n\n\n                    <div class=\"from-group row\" *ngIf=\"checkProdutoComposto\">\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composição</label>\n                      <div class=\"col-sm-10\">\n                        <div class=\"card\">\n                          <div class=\"card-header\">\n                            <strong>Composição do produto</strong>\n                            <div class=\"card-actions\">\n                              <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\n                                <i class=\"icon-plus\"></i>\n                              </button>\n                            </div>\n                          </div>\n                          <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\n                            <div class=\"row\">\n\n                              <table class=\"table table-striped\">\n                                <thead>\n                                  <th class=\"text-left\">Produto</th>\n                                  <th class=\"text-right\">Quantidade</th>\n                                  <th class=\"text-center\">Mostrar</th>\n                                  <th class=\"text-right\">Ação</th>\n                                </thead>\n                                <tbody>\n                                  <tr *ngFor=\"let item of produtosComposicoes\">\n                                    <td class=\"text-left\">\n                                      <div>{{item.nmProdutoComposicao}}</div>\n                                    </td>\n                                    <td class=\"text-right\">\n                                      {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\n                                    </td>\n                                    <td class=\"text-center\">\n                                      <simnao valor={{item.mostrarUnidade}}></simnao>\n                                    </td>\n\n\n                                    <td class=\"text-right\">\n                                      <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\n                                        <i class=\"fa fa fa-edit\"> </i>\n                                      </button>\n                                      <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\n                                        <i class=\"fa fa-eraser\"> </i>\n                                      </button>\n                                    </td>\n                                  </tr>\n                                </tbody>\n                              </table>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n              </form>\n            </div>\n\n          </div>\n          <div class=\"card-footer\">\n            <div style=\"float: right;\">\n              <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\n                <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\n              </button>\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmConfirmarModalUsuario.show();\">\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\n              </button>\n\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <confirm-popup-modal #confirmConfirmarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\n  </confirm-popup-modal>\n\n  <composicao-popup-modal #composicaoModalUsuario (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-popup-modal>"
 
 /***/ }),
 
-/***/ 787:
+/***/ 795:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-sm-12\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <strong>Categoria</strong>\n        <small> - alteração da categoria selecionada</small>\n      </div>\n      <div class=\"card-block\">\n        <div class=\"form-group\">\n          <div class=\"row\">\n            <div class=\"col-sm-4 col-md-4\">\n              <div class=\"card\">\n                <div class=\"card-header\">\n                  <strong>Imagem da categoria</strong>\n                </div>\n                <div class=\"card-block\">\n                  <div class=\"row\">\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\n                  </div>\n\n                </div>\n                <div class=\"card-footer\">\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\n                    (onSelecionarImagem)=\"mudarImage($event)\">\n                  </upload-imagem>\n                </div>\n              </div>\n            </div>\n            <!--/.col-->\n\n            <div class=\"col-md-8 col-sm-8\">\n              <form [formGroup]=\"formulario\" novalidade (ngSubmit)=\"confirmar()\">\n\n                <div class=\"card\">\n                  <div class=\"card-header\">\n                    <strong>Descrição</strong>\n                  </div>\n                  <div class=\"card-block\">\n                    <div [ngClass]=\"aplicarCssGroup(formulario.get('nome'))\">\n                      <label for=\"nome\">Nome da categoria</label>\n                      <input type=\"text\" [ngClass]=\"aplicarCssForm(formulario.get('nome'))\" name=\"nome\" maxlength=\"25\" placeholder=\"Digite o nome da categoria\"\n                        formControlName=\"nome\">\n                      <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nome'))\" titulo=\"Erro:\" mensagem=\"o campo Nome da categoria deve ter entre 5 a 25 caracteres\">\n                      </alert-mensagem>\n                    </div>\n                    <div class=\"form-group\">\n                      <label for=\"comentario\">Descrição da categoria</label>\n                      <textarea type=\"textarea\" maxlength=\"100\" rows=\"7\" [ngClass]=\"aplicarCssForm(formulario.get('comentario'))\" name=\"comentario\"\n                        placeholder=\"Digite o texto descritivo da categoria\" formControlName=\"comentario\"></textarea>\n                    </div>\n                  </div>\n                </div>\n\n              </form>\n            </div>\n\n          </div>\n          <div class=\"card-footer\">\n            <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmEditarModalUsuario.show()\">\n              <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\n            </button>\n            <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\n              <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\n            </button>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <confirm-popup-modal #confirmEditarModalUsuario popupStyle=\"warning\" (onClickConfirm)=\"confirmar()\">\n    <strong>Confirma alteração da categoria?</strong>\n  </confirm-popup-modal>"
+module.exports = "<div class=\"row\">\n    <div class=\"col-sm-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <strong>Produto</strong>\n          <small> - alteração do produto </small>\n        </div>\n  \n        <div class=\"card-block\">\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-sm-4 col-md-4\">\n                <div class=\"card\">\n                  <div class=\"card-header\">\n                    <strong>Imagens do produto</strong>\n                  </div>\n                  <div class=\"card-block\">\n                    <div class=\"row\">\n                      <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\n                    </div>\n  \n                  </div>\n                  <div class=\"card-footer\">\n                    <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\n                      (onSelecionarImagem)=\"mudarImage($event)\">\n                    </upload-imagem>\n                  </div>\n                </div>\n              </div>\n              <!--/.col-->\n  \n              <div class=\"col-md-8 col-sm-8\">\n                <form [formGroup]=\"formulario\" (ngSubmit)=\"confirmar()\">\n  \n                  <div class=\"card\">\n                    <div class=\"card-header\">\n                      <strong>Descrição do produto</strong>\n                    </div>\n                    <div class=\"card-block\">\n  \n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\n                        <div class=\"col-sm-10\">\n                          <input [autoFoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\n                            maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\n                          </alert-mensagem>\n                        </div>\n                      </div>\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Categoria</label>\n                        <div class=\"col-sm-10\">\n                          <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\n                          </ng-select>\n                        </div>\n                      </div>\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('preco'))\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Valor</label>\n                        <div class=\"col-sm-4\">\n                          <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('preco'))\"\n                            name=\"nmProduto\" maxlength=\"10\" formControlName=\"preco\">\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('preco'))\" titulo=\"Erro:\" mensagem=\"o campo valor é preenchimento obrigatório\">\n                          </alert-mensagem>\n                        </div>\n                      </div>\n  \n                      <div class=\"from-group row\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Uso interno</label>\n                        <div class=\"col-sm-10\">\n                          <label class=\"switch switch-lg switch-text switch-primary\">\n                            <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\n                            />\n                            <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\n                            <span class=\"switch-handle\"></span>\n                          </label>\n                        </div>\n                      </div>\n  \n                      <div class=\"from-group row\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composto</label>\n                        <div class=\"col-sm-10\">\n                          <label class=\"switch switch-lg switch-text switch-primary\">\n                            <input #chkProdutoComposto type=\"checkbox\" class=\"switch-input\" [checked]=\"checkProdutoComposto\" (change)=\"alterarCheckProdutoComposto(chkProdutoComposto.checked)\"\n                            />\n                            <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\n                            <span class=\"switch-handle\"></span>\n                          </label>\n                        </div>\n                      </div>\n  \n  \n                      <div class=\"from-group row\" *ngIf=\"checkProdutoComposto\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composição</label>\n                        <div class=\"col-sm-10\">\n                          <div class=\"card\">\n                            <div class=\"card-header\">\n                              <strong>Composição do produto</strong>\n                              <div class=\"card-actions\">\n                                <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\n                                  <i class=\"icon-plus\"></i>\n                                </button>\n                              </div>\n                            </div>\n                            <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\n                              <div class=\"row\">\n  \n                                <table class=\"table table-striped\">\n                                  <thead>\n                                    <th class=\"text-left\">Produto</th>\n                                    <th class=\"text-right\">Quantidade</th>\n                                    <th class=\"text-center\">Mostrar</th>\n                                    <th class=\"text-right\">Ação</th>\n                                  </thead>\n                                  <tbody>\n                                    <tr *ngFor=\"let item of produtosComposicoes\">\n                                      <td class=\"text-left\">\n                                        <div>{{item.nmProdutoComposicao}}</div>\n                                      </td>\n                                      <td class=\"text-right\">\n                                        {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\n                                      </td>\n                                      <td class=\"text-center\">\n                                        <simnao valor={{item.mostrarUnidade}}></simnao>\n                                      </td>\n  \n  \n                                      <td class=\"text-right\">\n                                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\n                                          <i class=\"fa fa fa-edit\"> </i>\n                                        </button>\n                                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\n                                          <i class=\"fa fa-eraser\"> </i>\n                                        </button>\n                                      </td>\n                                    </tr>\n                                  </tbody>\n                                </table>\n                              </div>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </form>\n              </div>\n  \n            </div>\n            <div class=\"card-footer\">\n              <div style=\"float: right;\">\n                <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\n                  <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\n                </button>\n                <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmConfirmarModalUsuario.show();\">\n                  <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\n                </button>\n  \n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  \n    <confirm-popup-modal #confirmConfirmarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\n    </confirm-popup-modal>\n  \n    <composicao-popup-modal #composicaoModalUsuario (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-popup-modal>"
 
 /***/ }),
 
-/***/ 788:
+/***/ 796:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"col-md-1\"></div>\n<button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/produtos/novo']\">\n    <i class=\"icon-plus\"></i> Novo\n</button>\n\n<table class=\"table table-hover table-outline mb-0 hidden-sm-down\">\n    <thead class=\"thead-default\">\n        <tr>\n            <th class=\"text-center\">\n                <i class=\"icon-people\"></i>\n            </th>\n            <th>Descrição do produto</th>\n            <th class=\"text-center\">Categoria</th>\n            <th class=\"text-center\">Uso interno</th>\n            <th class=\"text-center\">Situação</th>\n            <th class=\"text-center\">Preço</th>\n            <th class=\"text-center\">Ação</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let item of items\">\n            <td class=\"text-center\">\n                <div class=\"avatar\">\n                    <foto src=\"{{bucketUrl}}/produtos/prd{{item.id}}.jpg\" classCss=\"img-avatar\" alt=\"Avatar\"></foto>\n                </div>\n            </td>\n            <td>\n                <div>{{item.nmProduto}}</div>\n            </td>\n            <td class=\"text-center\">\n                {{item?.categoria?.nome}}\n            </td>\n            <td class=\"text-center\">\n                <simnao valor={{item.usoInterno}}></simnao>\n            </td>\n            <td class=\"text-center\">\n                <status status={{item.status}}></status>\n            </td>\n            <td class=\"text-rigth\">\n                {{item.preco | currency:'BRL':true}}\n            </td>\n            <td class=\"text-center\">\n                <button type=\"button\" class=\"btn btn-md btn-primary\" style=\"cursor:pointer\" (click)=\"alterarProduto(item)\">\n                    <i class=\"fa fa fa-edit\"> </i> </button>\n                <button type=\"button\" class=\"btn btn-md btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\n                    <i class=\"fa fa-eraser\"> </i></button>\n                <button type=\"button\" class=\"btn btn-md btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\n                    <i class=\"fa fa-exclamation\"> </i></button>\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n<confirm-popup-modal #ExcluirCategoriaModal popupStyle=\"danger\" (onClickConfirm)=\"excluirCategoria()\">\n    <strong>Deseja excluir a categoria?</strong>\n</confirm-popup-modal>\n\n<confirm-popup-modal #ChangeSatusCategoriaModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\n    <strong>Deseja alterar o status da categoria?</strong>\n</confirm-popup-modal>\n"
 
 /***/ }),
 
-/***/ 789:
+/***/ 797:
 /***/ (function(module, exports) {
 
-module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog\" \r\n        [ngClass]=\"getPopupStyle()\" \r\n        role=\"document\">\r\n\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">{{titulo}}</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"modalConfirm.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <ng-content></ng-content>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-secondary\" (click)=\"modalConfirm.hide()\">Fechar</button>\r\n        <button type=\"button\" class=\"btn btn-primary\"   (click)=\"btnConfirmar()\">Confirmar</button>\r\n      </div>\r\n    </div><!-- /.modal-content -->\r\n  </div><!-- /.modal-dialog -->\r\n</div><!-- /.modal -->"
+module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n  aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-primary\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Composição do produto</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"dangerModal.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <form [formGroup]=\"formProdComp\" (ngSubmit)=\"confirmarCompProd()\">\r\n          <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('produtoComp'))\">\r\n            <label class=\"col-sm-4 form-control-label\" for=\"input-small\">Produto</label>\r\n            <div class=\"col-sm-8\" *ngIf=\"!formProdComp.get('emAlteracao').value\" >\r\n              <ng-select [multiple]=\"false\" formControlName=\"produtoComp\" [items]=\"comboCompProdutos\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n            </div>\r\n            <div class=\"col-sm-8\" *ngIf=\"formProdComp.get('emAlteracao').value\" >\r\n                <input type=\"text\" id=\"disabled-input\" name=\"disabled-input\" class=\"form-control\" placeholder=\"Disabled\" disabled=\"\" value=\"{{formProdComp.get('produtoComp').value[0].text}}\">\r\n            </div>\r\n          </div>\r\n          <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('qtdUtilizada'))\">\r\n            <label class=\"col-sm-4 form-control-label\" for=\"input-normal\">Quantidade</label>\r\n            <div class=\"col-sm-4\">\r\n              <input numberOnly type=\"text\" formControlName=\"qtdUtilizada\" class=\"form-control input-sm\" name=\"qtdUtilizada\" formControlName=\"qtdUtilizada\"\r\n                maxlength=\"4\">\r\n            </div>\r\n          </div>\r\n          <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('unidade'))\">\r\n            <label class=\"col-sm-4 form-control-label\" for=\"input-large\">Unidade de medida</label>\r\n            <div class=\"col-sm-4\">\r\n              <ng-select [multiple]=\"false\" formControlName=\"unidade\" [items]=\"comboCompUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-sm-4 form-control-label\">Mostar Unid e Qtd</label>\r\n            <div class=\"col-sm-8\">\r\n              <label class=\"switch switch-lg switch-text switch-primary\">\r\n                <input #checkMostrar type=\"checkbox\" class=\"switch-input\" [checked]=\"checkMostrar\" (change)=\"compProdCheckMostrar(checkMostrar.checked)\"\r\n                />\r\n                <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                <span class=\"switch-handle\"></span>\r\n              </label>\r\n            </div>\r\n          </div>\r\n        </form>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button class=\"btn btn-secondary\" (click)=\"modalConfirm.hide()\">\r\n          <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n        </button>\r\n        <button [disabled]=\"!formProdComp.valid\" type=\"button\" class=\"btn btn-md btn-success\" (click)=\"btnConfirmar(formProdComp.value)\">\r\n          <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ })
 
