@@ -59,8 +59,8 @@ exports.EventEmitterService = EventEmitterService;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.API_CONFIG = {
-    //baseUrl: "https://paladarfit.herokuapp.com",
-    baseUrl: "http://localhost:8080",
+    baseUrl: "https://paladarfit.herokuapp.com",
+    //baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit"
 };
 //# sourceMappingURL=e:/paladar-fit/frontend-web/src/api.config.js.map
