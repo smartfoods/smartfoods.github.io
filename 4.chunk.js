@@ -1,6 +1,6 @@
-webpackJsonp([4,10],{
+webpackJsonp([4,12],{
 
-/***/ 729:
+/***/ 739:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,28 +12,168 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var modal_1 = __webpack_require__(253);
+var storage_service_1 = __webpack_require__(58);
 var core_1 = __webpack_require__(2);
-var ng2_charts_1 = __webpack_require__(255);
-var dropdown_1 = __webpack_require__(137);
-var dashboard_component_1 = __webpack_require__(743);
-var dashboard_routing_module_1 = __webpack_require__(759);
-var DashboardModule = (function () {
-    function DashboardModule() {
+var common_1 = __webpack_require__(28);
+var forms_1 = __webpack_require__(48);
+var http_1 = __webpack_require__(57);
+var popup_modal_module_1 = __webpack_require__(135);
+var categoria_service_1 = __webpack_require__(746);
+var shared_component_module_1 = __webpack_require__(250);
+var categoria_routing_module_1 = __webpack_require__(780);
+var listar_categoria_component_1 = __webpack_require__(765);
+var categoria_popup_modal_component_1 = __webpack_require__(781);
+var CategoriaModule = (function () {
+    function CategoriaModule() {
     }
-    return DashboardModule;
+    return CategoriaModule;
 }());
-DashboardModule = __decorate([
+CategoriaModule = __decorate([
     core_1.NgModule({
         imports: [
-            dashboard_routing_module_1.DashboardRoutingModule,
-            ng2_charts_1.ChartsModule,
-            dropdown_1.BsDropdownModule
+            common_1.CommonModule,
+            forms_1.FormsModule,
+            modal_1.ModalModule.forRoot(),
+            shared_component_module_1.SharedComponentModule,
+            forms_1.ReactiveFormsModule,
+            popup_modal_module_1.PopupModalModule,
+            http_1.HttpClientModule,
+            categoria_routing_module_1.CategoriaRoutingModule
         ],
-        declarations: [dashboard_component_1.DashboardComponent]
+        declarations: [
+            listar_categoria_component_1.ListarCategoriaComponent,
+            categoria_popup_modal_component_1.CategoriaPopupModalComponent
+        ],
+        providers: [
+            categoria_service_1.CategoriaService,
+            storage_service_1.StorageService
+        ]
     })
-], DashboardModule);
-exports.DashboardModule = DashboardModule;
-//# sourceMappingURL=e:/paladar-fit/frontend-web/src/dashboard.module.js.map
+], CategoriaModule);
+exports.CategoriaModule = CategoriaModule;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria.module.js.map
+
+/***/ }),
+
+/***/ 742:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var event_emiter_services_1 = __webpack_require__(744);
+var combo_dto_1 = __webpack_require__(745);
+var AbstractBaseComponent = (function () {
+    function AbstractBaseComponent() {
+        this.maskCPF = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+        this.maskCNPJ = [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+        this.maskCEP = [/[0-9]/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
+        this.maskFoneResidencial = ['(', /[0-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+        this.maskFoneCelular = ['(', /[0-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+        this.maskData = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+        this.urlFotoAvatar = 'assets/img/noimage/prod.jpg';
+        this.urlClienteAvatar = 'assets/img/noimage/noimagem.jpg';
+        this.urlFoto = '';
+        this.label = {
+            selecione: ':: selecione ::'
+        };
+        this.btn = {
+            btnSalvar: 'Salvar',
+            btnEditar: 'Editar',
+            btnLimpar: 'Limpar',
+            btnVoltar: 'Voltar',
+            btnExcluir: 'Excluir',
+            btnAtivar: 'Ativar',
+            btnAlterarPerfil: 'Alterar perfil',
+            btnAlterarSenha: 'Alterar senha',
+            btnInativar: 'Inativar',
+            btnNovo: 'Novo'
+        };
+        this.msg = {
+            msgRegistroIncluido: 'Registro incluído com sucesso!!!',
+            msgRegistroAlterado: 'Registro alterado com sucesso!!!',
+            msgRegistroExcluido: 'Registro excluído com sucesso!!!',
+            msgSenhaAlterada: 'Senha alterada com sucesso!!!'
+        };
+        this.casoDeUso = {
+            frmCadastroUsuarioTitulo: 'Cadastro de usuário',
+            frmCadastroUsuarioNovo: 'Formulário de cadastro de usuário',
+            frmCadastroUsuarioLista: 'Listar usuários',
+        };
+    }
+    AbstractBaseComponent.prototype.isInvalido = function (campo) {
+        return !campo.valid && !campo.pristine;
+    };
+    AbstractBaseComponent.prototype.isValido = function (campo) {
+        return campo.valid && !campo.pristine;
+    };
+    AbstractBaseComponent.prototype.getClassFormControl = function (campo) {
+        return {
+            'form-control': true,
+            'form-control-danger': this.isInvalido(campo),
+            'form-control-success': this.isValido(campo)
+        };
+    };
+    AbstractBaseComponent.prototype.getClassFormGroup = function (campo) {
+        return {
+            'form-group': true,
+            'has-danger': this.isInvalido(campo),
+            'has-success': this.isValido(campo)
+        };
+    };
+    AbstractBaseComponent.prototype.mensagemSucesso = function (titulo, mensagem) {
+        event_emiter_services_1.EventEmitterService
+            .emitirMensagemToasterSucesso(titulo, mensagem);
+    };
+    AbstractBaseComponent.prototype.log = function (message) {
+        var optionalParams = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            optionalParams[_i - 1] = arguments[_i];
+        }
+        //console.log(message, optionalParams)
+    };
+    AbstractBaseComponent.prototype.aplicarCssGroupRow = function (campo) {
+        return {
+            'form-group row ': true,
+            'has-danger': this.isInvalido(campo),
+            'has-success': this.isValido(campo)
+        };
+    };
+    AbstractBaseComponent.prototype.aplicarCssGroup = function (campo) {
+        return {
+            'form-group': true,
+            'has-danger': this.isInvalido(campo),
+            'has-success': this.isValido(campo)
+        };
+    };
+    AbstractBaseComponent.prototype.aplicarCssForm = function (campo) {
+        return {
+            'form-control': true,
+            'form-control-danger': this.isInvalido(campo),
+            'form-control-success': this.isValido(campo)
+        };
+    };
+    AbstractBaseComponent.prototype.isCampoVazio = function (campo) {
+        return campo.value == null || campo.value == '';
+    };
+    AbstractBaseComponent.prototype.preencharCombo = function (response, compoId, campoValor) {
+        var combo = [];
+        for (var _i = 0, response_1 = response; _i < response_1.length; _i++) {
+            var cat = response_1[_i];
+            combo.push(new combo_dto_1.ComboDTO(cat[compoId], cat[campoValor]));
+        }
+        return combo;
+    };
+    AbstractBaseComponent.prototype.fieldFocus = function (campo) {
+        setTimeout(function () {
+            campo.nativeElement.focus();
+        }, 500);
+    };
+    return AbstractBaseComponent;
+}());
+exports.AbstractBaseComponent = AbstractBaseComponent;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/abstract-base.component.js.map
 
 /***/ }),
 
@@ -42,6 +182,127 @@ exports.DashboardModule = DashboardModule;
 
 "use strict";
 
+Object.defineProperty(exports, "__esModule", { value: true });
+var storage_keys_config_1 = __webpack_require__(251);
+var http_1 = __webpack_require__(57);
+var AbstractService = (function () {
+    function AbstractService() {
+    }
+    AbstractService.prototype.getHearderToken = function () {
+        var token = this.getToken().token;
+        var authHeader = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token }) };
+        return authHeader;
+    };
+    AbstractService.prototype.getHearderTokenNoResponse = function () {
+        var token = this.getToken().token;
+        var authHeader = {
+            observe: 'response',
+            responseType: 'text',
+            headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token })
+        };
+        return authHeader;
+    };
+    AbstractService.prototype.getHeaderTokenOnly = function () {
+        var token = this.getToken().token;
+        return new http_1.HttpHeaders({ 'Authorization': 'Bearer ' + token });
+    };
+    AbstractService.prototype.getToken = function () {
+        var usr = localStorage.getItem(storage_keys_config_1.STORAGE_KEYS.localUser);
+        if (usr == null) {
+            return null;
+        }
+        else {
+            return JSON.parse(usr);
+        }
+    };
+    return AbstractService;
+}());
+exports.AbstractService = AbstractService;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/abstract-service.js.map
+
+/***/ }),
+
+/***/ 744:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(2);
+var toater_mensagem_model_1 = __webpack_require__(252);
+var tipo_mensagem_enum_1 = __webpack_require__(136);
+var EventEmitterService = (function () {
+    function EventEmitterService() {
+    }
+    EventEmitterService.get = function (nomeEvento) {
+        if (!this.emitters[nomeEvento]) {
+            this.emitters[nomeEvento] = new core_1.EventEmitter();
+        }
+        return this.emitters[nomeEvento];
+    };
+    EventEmitterService.unsubscribeEvent = function () {
+        this.emitters = {};
+        this.getToater();
+    };
+    EventEmitterService.getToater = function () {
+        return this.get('showToasterEvent');
+    };
+    EventEmitterService.emitirMensagemToaster = function (tm) {
+        return this.get('showToasterEvent').emit(tm);
+    };
+    EventEmitterService.emitirMensagemToasterSucesso = function (titulo, mensagem) {
+        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.success, titulo, mensagem);
+        return this.get('showToasterEvent').emit(tm);
+    };
+    EventEmitterService.emitirMensagemToasterAlerta = function (titulo, mensagem) {
+        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.warning, titulo, mensagem);
+        return this.get('showToasterEvent').emit(tm);
+    };
+    EventEmitterService.emitirMensagemToasterInfo = function (titulo, mensagem) {
+        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.warning, titulo, mensagem);
+        return this.get('showToasterEvent').emit(tm);
+    };
+    return EventEmitterService;
+}());
+EventEmitterService.emitters = {};
+exports.EventEmitterService = EventEmitterService;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/event-emiter.services.js.map
+
+/***/ }),
+
+/***/ 745:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ComboDTO = (function () {
+    function ComboDTO(id, text) {
+        this.id = id;
+        this.text = text;
+    }
+    return ComboDTO;
+}());
+exports.ComboDTO = ComboDTO;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/combo.dto.js.map
+
+/***/ }),
+
+/***/ 746:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -53,452 +314,163 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var DashboardComponent = (function () {
-    function DashboardComponent() {
-        this.brandPrimary = '#20a8d8';
-        this.brandSuccess = '#4dbd74';
-        this.brandInfo = '#63c2de';
-        this.brandWarning = '#f8cb00';
-        this.brandDanger = '#f86c6b';
-        // dropdown buttons
-        this.status = { isopen: false };
-        // lineChart1
-        this.lineChart1Data = [
-            {
-                data: [65, 59, 84, 84, 51, 55, 40],
-                label: 'Series A'
-            }
-        ];
-        this.lineChart1Labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-        this.lineChart1Options = {
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                        gridLines: {
-                            color: 'transparent',
-                            zeroLineColor: 'transparent'
-                        },
-                        ticks: {
-                            fontSize: 2,
-                            fontColor: 'transparent',
-                        }
-                    }],
-                yAxes: [{
-                        display: false,
-                        ticks: {
-                            display: false,
-                            min: 40 - 5,
-                            max: 84 + 5,
-                        }
-                    }],
-            },
-            elements: {
-                line: {
-                    borderWidth: 1
-                },
-                point: {
-                    radius: 4,
-                    hitRadius: 10,
-                    hoverRadius: 4,
-                },
-            },
-            legend: {
-                display: false
-            }
-        };
-        this.lineChart1Colours = [
-            {
-                backgroundColor: this.brandPrimary,
-                borderColor: 'rgba(255,255,255,.55)'
-            }
-        ];
-        this.lineChart1Legend = false;
-        this.lineChart1Type = 'line';
-        // lineChart2
-        this.lineChart2Data = [
-            {
-                data: [1, 18, 9, 17, 34, 22, 11],
-                label: 'Series A'
-            }
-        ];
-        this.lineChart2Labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-        this.lineChart2Options = {
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                        gridLines: {
-                            color: 'transparent',
-                            zeroLineColor: 'transparent'
-                        },
-                        ticks: {
-                            fontSize: 2,
-                            fontColor: 'transparent',
-                        }
-                    }],
-                yAxes: [{
-                        display: false,
-                        ticks: {
-                            display: false,
-                            min: 1 - 5,
-                            max: 34 + 5,
-                        }
-                    }],
-            },
-            elements: {
-                line: {
-                    tension: 0.00001,
-                    borderWidth: 1
-                },
-                point: {
-                    radius: 4,
-                    hitRadius: 10,
-                    hoverRadius: 4,
-                },
-            },
-            legend: {
-                display: false
-            }
-        };
-        this.lineChart2Colours = [
-            {
-                backgroundColor: this.brandInfo,
-                borderColor: 'rgba(255,255,255,.55)'
-            }
-        ];
-        this.lineChart2Legend = false;
-        this.lineChart2Type = 'line';
-        // lineChart3
-        this.lineChart3Data = [
-            {
-                data: [78, 81, 80, 45, 34, 12, 40],
-                label: 'Series A'
-            }
-        ];
-        this.lineChart3Labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-        this.lineChart3Options = {
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                        display: false
-                    }],
-                yAxes: [{
-                        display: false
-                    }]
-            },
-            elements: {
-                line: {
-                    borderWidth: 2
-                },
-                point: {
-                    radius: 0,
-                    hitRadius: 10,
-                    hoverRadius: 4,
-                },
-            },
-            legend: {
-                display: false
-            }
-        };
-        this.lineChart3Colours = [
-            {
-                backgroundColor: 'rgba(255,255,255,.2)',
-                borderColor: 'rgba(255,255,255,.55)',
-            }
-        ];
-        this.lineChart3Legend = false;
-        this.lineChart3Type = 'line';
-        // barChart1
-        this.barChart1Data = [
-            {
-                data: [78, 81, 80, 45, 34, 12, 40, 78, 81, 80, 45, 34, 12, 40, 12, 40],
-                label: 'Series A'
-            }
-        ];
-        this.barChart1Labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
-        this.barChart1Options = {
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                        display: false,
-                        barPercentage: 0.6,
-                    }],
-                yAxes: [{
-                        display: false
-                    }]
-            },
-            legend: {
-                display: false
-            }
-        };
-        this.barChart1Colours = [
-            {
-                backgroundColor: 'rgba(255,255,255,.3)',
-                borderWidth: 0
-            }
-        ];
-        this.barChart1Legend = false;
-        this.barChart1Type = 'bar';
-        this.mainChartElements = 27;
-        this.mainChartData1 = [];
-        this.mainChartData2 = [];
-        this.mainChartData3 = [];
-        this.mainChartData = [
-            {
-                data: this.mainChartData1,
-                label: 'Current'
-            },
-            {
-                data: this.mainChartData2,
-                label: 'Previous'
-            },
-            {
-                data: this.mainChartData3,
-                label: 'BEP'
-            }
-        ];
-        this.mainChartLabels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Thursday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        this.mainChartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                        gridLines: {
-                            drawOnChartArea: false,
-                        },
-                        ticks: {
-                            callback: function (value) {
-                                return value.charAt(0);
-                            }
-                        }
-                    }],
-                yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            maxTicksLimit: 5,
-                            stepSize: Math.ceil(250 / 5),
-                            max: 250
-                        }
-                    }]
-            },
-            elements: {
-                line: {
-                    borderWidth: 2
-                },
-                point: {
-                    radius: 0,
-                    hitRadius: 10,
-                    hoverRadius: 4,
-                    hoverBorderWidth: 3,
-                }
-            },
-            legend: {
-                display: false
-            }
-        };
-        this.mainChartColours = [
-            {
-                backgroundColor: this.convertHex(this.brandInfo, 10),
-                borderColor: this.brandInfo,
-                pointHoverBackgroundColor: '#fff'
-            },
-            {
-                backgroundColor: 'transparent',
-                borderColor: this.brandSuccess,
-                pointHoverBackgroundColor: '#fff'
-            },
-            {
-                backgroundColor: 'transparent',
-                borderColor: this.brandDanger,
-                pointHoverBackgroundColor: '#fff',
-                borderWidth: 1,
-                borderDash: [8, 5]
-            }
-        ];
-        this.mainChartLegend = false;
-        this.mainChartType = 'line';
-        // social box charts
-        this.socialChartData1 = [
-            {
-                data: [65, 59, 84, 84, 51, 55, 40],
-                label: 'Facebook'
-            }
-        ];
-        this.socialChartData2 = [
-            {
-                data: [1, 13, 9, 17, 34, 41, 38],
-                label: 'Twitter'
-            }
-        ];
-        this.socialChartData3 = [
-            {
-                data: [78, 81, 80, 45, 34, 12, 40],
-                label: 'LinkedIn'
-            }
-        ];
-        this.socialChartData4 = [
-            {
-                data: [35, 23, 56, 22, 97, 23, 64],
-                label: 'Google+'
-            }
-        ];
-        this.socialChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-        this.socialChartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                        display: false,
-                    }],
-                yAxes: [{
-                        display: false,
-                    }]
-            },
-            elements: {
-                line: {
-                    borderWidth: 2
-                },
-                point: {
-                    radius: 0,
-                    hitRadius: 10,
-                    hoverRadius: 4,
-                    hoverBorderWidth: 3,
-                }
-            },
-            legend: {
-                display: false
-            }
-        };
-        this.socialChartColours = [
-            {
-                backgroundColor: 'rgba(255,255,255,.1)',
-                borderColor: 'rgba(255,255,255,.55)',
-                pointHoverBackgroundColor: '#fff'
-            }
-        ];
-        this.socialChartLegend = false;
-        this.socialChartType = 'line';
-        // sparkline charts
-        this.sparklineChartData1 = [
-            {
-                data: [35, 23, 56, 22, 97, 23, 64],
-                label: 'Clients'
-            }
-        ];
-        this.sparklineChartData2 = [
-            {
-                data: [65, 59, 84, 84, 51, 55, 40],
-                label: 'Clients'
-            }
-        ];
-        this.sparklineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-        this.sparklineChartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                        display: false,
-                    }],
-                yAxes: [{
-                        display: false,
-                    }]
-            },
-            elements: {
-                line: {
-                    borderWidth: 2
-                },
-                point: {
-                    radius: 0,
-                    hitRadius: 10,
-                    hoverRadius: 4,
-                    hoverBorderWidth: 3,
-                }
-            },
-            legend: {
-                display: false
-            }
-        };
-        this.sparklineChartDefault = [
-            {
-                backgroundColor: 'transparent',
-                borderColor: '#d1d4d7',
-            }
-        ];
-        this.sparklineChartPrimary = [
-            {
-                backgroundColor: 'transparent',
-                borderColor: this.brandPrimary,
-            }
-        ];
-        this.sparklineChartInfo = [
-            {
-                backgroundColor: 'transparent',
-                borderColor: this.brandInfo,
-            }
-        ];
-        this.sparklineChartDanger = [
-            {
-                backgroundColor: 'transparent',
-                borderColor: this.brandDanger,
-            }
-        ];
-        this.sparklineChartWarning = [
-            {
-                backgroundColor: 'transparent',
-                borderColor: this.brandWarning,
-            }
-        ];
-        this.sparklineChartSuccess = [
-            {
-                backgroundColor: 'transparent',
-                borderColor: this.brandSuccess,
-            }
-        ];
-        this.sparklineChartLegend = false;
-        this.sparklineChartType = 'line';
+var http_1 = __webpack_require__(57);
+var api_config_1 = __webpack_require__(133);
+var abstract_service_1 = __webpack_require__(743);
+//import { catchError, retry } from 'rxjs/operators';
+var CategoriaService = (function (_super) {
+    __extends(CategoriaService, _super);
+    function CategoriaService(http) {
+        var _this = _super.call(this) || this;
+        _this.http = http;
+        return _this;
     }
-    DashboardComponent.prototype.toggleDropdown = function ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        this.status.isopen = !this.status.isopen;
+    CategoriaService.prototype.findById = function (id) {
+        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/" + id, this.getHearderToken());
     };
-    //convert Hex to RGBA
-    DashboardComponent.prototype.convertHex = function (hex, opacity) {
-        hex = hex.replace('#', '');
-        var r = parseInt(hex.substring(0, 2), 16);
-        var g = parseInt(hex.substring(2, 4), 16);
-        var b = parseInt(hex.substring(4, 6), 16);
-        var rgba = 'rgba(' + r + ',' + g + ',' + b + ',' + opacity / 100 + ')';
-        return rgba;
+    CategoriaService.prototype.findAll = function () {
+        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/all");
     };
-    // events
-    DashboardComponent.prototype.chartClicked = function (e) { };
-    DashboardComponent.prototype.chartHovered = function (e) { };
-    // mainChart
-    DashboardComponent.prototype.random = function (min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
+    CategoriaService.prototype.salvar = function (categoria) {
+        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/categorias", JSON.stringify(categoria), this.getHearderTokenNoResponse());
     };
-    DashboardComponent.prototype.ngOnInit = function () {
-        //generate random values for mainChart
-        for (var i = 0; i <= this.mainChartElements; i++) {
-            this.mainChartData1.push(this.random(50, 200));
-            this.mainChartData2.push(this.random(80, 100));
-            this.mainChartData3.push(65);
-        }
+    CategoriaService.prototype.changeStatus = function (categoria) {
+        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
     };
-    return DashboardComponent;
-}());
-DashboardComponent = __decorate([
-    core_1.Component({
-        template: __webpack_require__(786)
-    }),
-    __metadata("design:paramtypes", [])
-], DashboardComponent);
-exports.DashboardComponent = DashboardComponent;
-//# sourceMappingURL=e:/paladar-fit/frontend-web/src/dashboard.component.js.map
+    CategoriaService.prototype.atualizar = function (categoria) {
+        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id, JSON.stringify(categoria), this.getHearderTokenNoResponse());
+    };
+    CategoriaService.prototype.excluir = function (categoria) {
+        var url = api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id;
+        return this.http.delete(url, this.getHearderToken());
+    };
+    CategoriaService.prototype.insert = function (obj) {
+        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/pedidos", obj, { observe: 'response', responseType: 'text' });
+    };
+    return CategoriaService;
+}(abstract_service_1.AbstractService));
+CategoriaService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
+], CategoriaService);
+exports.CategoriaService = CategoriaService;
+var _a;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria.service.js.map
 
 /***/ }),
 
-/***/ 759:
+/***/ 765:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var event_emitter_services_1 = __webpack_require__(134);
+var core_1 = __webpack_require__(2);
+var api_config_1 = __webpack_require__(133);
+var categoria_service_1 = __webpack_require__(746);
+var abstract_base_component_1 = __webpack_require__(742);
+var router_1 = __webpack_require__(42);
+var ListarCategoriaComponent = (function (_super) {
+    __extends(ListarCategoriaComponent, _super);
+    function ListarCategoriaComponent(categoriaService, router) {
+        var _this = _super.call(this) || this;
+        _this.categoriaService = categoriaService;
+        _this.router = router;
+        _this.urlFotoCategoria = api_config_1.API_CONFIG.bucketBaseUrl + "/categorias/cat";
+        return _this;
+    }
+    ListarCategoriaComponent.prototype.ngOnInit = function () {
+        this.carregarTodos();
+    };
+    ListarCategoriaComponent.prototype.selecionarItem = function (item) {
+        this.item = item;
+        this.popupExclusao.show();
+    };
+    ListarCategoriaComponent.prototype.selecionarItemChangeStatus = function (item) {
+        this.item = item;
+        this.popupChangeStatus.show();
+    };
+    ListarCategoriaComponent.prototype.changeStatus = function () {
+        var _this = this;
+        this.categoriaService.changeStatus(this.item)
+            .subscribe(function (res) {
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Status da categoria alterado com sucesso!!!');
+            _this.carregarTodos();
+        }, function (error) { });
+    };
+    ListarCategoriaComponent.prototype.excluir = function () {
+        var _this = this;
+        this.categoriaService.excluir(this.item)
+            .subscribe(function (res) {
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria excluída com sucesso!!!');
+            _this.carregarTodos();
+        }, function (error) { });
+    };
+    ListarCategoriaComponent.prototype.carregarTodos = function () {
+        var _this = this;
+        this.categoriaService.findAll().subscribe(function (response) { return _this.items = response; }, function (error) { });
+    };
+    ListarCategoriaComponent.prototype.salvarCategoria = function (categoria) {
+        var _this = this;
+        if (categoria.emAlteracao) {
+            this.categoriaService.atualizar(categoria)
+                .subscribe(function (response) {
+                _this.carregarTodos();
+                event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria alterada com sucesso!!!');
+            }, function (error) { });
+        }
+        else {
+            this.categoriaService.salvar(categoria)
+                .subscribe(function (response) {
+                _this.carregarTodos();
+                event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria incluída com sucesso!!!');
+            }, function (error) { });
+        }
+    };
+    return ListarCategoriaComponent;
+}(abstract_base_component_1.AbstractBaseComponent));
+__decorate([
+    core_1.ViewChild('excluirModal'),
+    __metadata("design:type", Object)
+], ListarCategoriaComponent.prototype, "popupExclusao", void 0);
+__decorate([
+    core_1.ViewChild('changeSatusModal'),
+    __metadata("design:type", Object)
+], ListarCategoriaComponent.prototype, "popupChangeStatus", void 0);
+ListarCategoriaComponent = __decorate([
+    core_1.Component({
+        template: __webpack_require__(815),
+        styles: [__webpack_require__(792)]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
+], ListarCategoriaComponent);
+exports.ListarCategoriaComponent = ListarCategoriaComponent;
+var _a, _b;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/listar-categoria.component.js.map
+
+/***/ }),
+
+/***/ 780:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -512,36 +484,205 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
 var router_1 = __webpack_require__(42);
-var dashboard_component_1 = __webpack_require__(743);
+var listar_categoria_component_1 = __webpack_require__(765);
 var routes = [
     {
         path: '',
-        component: dashboard_component_1.DashboardComponent,
+        redirectTo: 'listar',
+        pathMatch: 'full',
+    },
+    {
+        path: '',
         data: {
-            title: 'Dashboard'
-        }
+            title: 'Categorias'
+        },
+        children: [
+            {
+                path: 'listar',
+                component: listar_categoria_component_1.ListarCategoriaComponent,
+                data: {
+                    title: 'Listar'
+                }
+            }
+        ]
     }
 ];
-var DashboardRoutingModule = (function () {
-    function DashboardRoutingModule() {
+var CategoriaRoutingModule = (function () {
+    function CategoriaRoutingModule() {
     }
-    return DashboardRoutingModule;
+    return CategoriaRoutingModule;
 }());
-DashboardRoutingModule = __decorate([
+CategoriaRoutingModule = __decorate([
     core_1.NgModule({
         imports: [router_1.RouterModule.forChild(routes)],
         exports: [router_1.RouterModule]
     })
-], DashboardRoutingModule);
-exports.DashboardRoutingModule = DashboardRoutingModule;
-//# sourceMappingURL=e:/paladar-fit/frontend-web/src/dashboard-routing.module.js.map
+], CategoriaRoutingModule);
+exports.CategoriaRoutingModule = CategoriaRoutingModule;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria-routing.module.js.map
 
 /***/ }),
 
-/***/ 786:
+/***/ 781:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var forms_1 = __webpack_require__(48);
+var core_1 = __webpack_require__(2);
+var abstract_base_component_1 = __webpack_require__(742);
+var CategoriaPopupModalComponent = (function (_super) {
+    __extends(CategoriaPopupModalComponent, _super);
+    function CategoriaPopupModalComponent(fb) {
+        var _this = _super.call(this) || this;
+        _this.fb = fb;
+        _this.titulo = "";
+        _this.onClickConfirm = new core_1.EventEmitter();
+        return _this;
+    }
+    CategoriaPopupModalComponent.prototype.ngOnInit = function () {
+        this.criarForm();
+    };
+    CategoriaPopupModalComponent.prototype.show = function () {
+        this.titulo = "Cadastra categoria";
+        this.criarForm();
+        this.confirma.show();
+        this.fieldFocus(this.campo);
+    };
+    CategoriaPopupModalComponent.prototype.showAlteracao = function (item) {
+        this.titulo = "Alterar categoria";
+        this.alterarForm(item);
+        this.confirma.show();
+        this.fieldFocus(this.campo);
+    };
+    CategoriaPopupModalComponent.prototype.btnConfirmar = function (categoria) {
+        categoria.urlImagem = this.urlFoto;
+        this.onClickConfirm.emit(categoria);
+        this.confirma.hide();
+    };
+    CategoriaPopupModalComponent.prototype.mudarImage = function (evento) {
+        this.atualizarFoto(evento.foto);
+    };
+    CategoriaPopupModalComponent.prototype.alterarForm = function (categoria) {
+        this.formulario = this.fb.group({
+            id: [categoria.id],
+            nome: [categoria.nome, [forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(25)]],
+            status: [categoria.status],
+            comentario: [categoria.comentario],
+            urlImagem: [categoria.urlImagem],
+            emAlteracao: [true]
+        });
+        this.urlFoto = categoria.urlImagem;
+    };
+    CategoriaPopupModalComponent.prototype.criarForm = function () {
+        this.formulario = this.fb.group({
+            id: [],
+            nome: ['', forms_1.Validators.required],
+            status: ['A'],
+            comentario: [''],
+            foto: [''],
+            emAlteracao: [false]
+        });
+        this.urlFoto = this.urlFotoAvatar;
+    };
+    CategoriaPopupModalComponent.prototype.atualizarFoto = function (foto) {
+        this.urlFoto = foto;
+    };
+    return CategoriaPopupModalComponent;
+}(abstract_base_component_1.AbstractBaseComponent));
+__decorate([
+    core_1.ViewChild('modalConfirm'),
+    __metadata("design:type", Object)
+], CategoriaPopupModalComponent.prototype, "confirma", void 0);
+__decorate([
+    core_1.ViewChild('campoNome'),
+    __metadata("design:type", Object)
+], CategoriaPopupModalComponent.prototype, "campo", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], CategoriaPopupModalComponent.prototype, "onClickConfirm", void 0);
+CategoriaPopupModalComponent = __decorate([
+    core_1.Component({
+        selector: 'categoria-popup-modal',
+        template: __webpack_require__(816),
+        styles: [__webpack_require__(793)]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object])
+], CategoriaPopupModalComponent);
+exports.CategoriaPopupModalComponent = CategoriaPopupModalComponent;
+var _a;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria-popup-modal.component.js.map
+
+/***/ }),
+
+/***/ 792:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(71)();
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 793:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(71)();
+// imports
+
+
+// module
+exports.push([module.i, ".img-avatar-160 {\n  height: 160px;\n  width: 160px;\n  margin: 20px auto 10px;\n  border-radius: 50em; }\n\n.modal-dialog {\n  padding-top: 5%; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 815:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"animated fadeIn\">\n  <div class=\"row\">\n    <div class=\"col-sm-6 col-lg-3\">\n      <div class=\"card card-inverse card-primary\">\n        <div class=\"card-block pb-0\">\n          <div class=\"btn-group float-right\" dropdown placement=\"bottom right\">\n            <button type=\"button\" class=\"btn btn-transparent dropdown-toggle p-0\" dropdownToggle>\n              <i class=\"icon-settings\"></i>\n            </button>\n            <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu>\n              <a class=\"dropdown-item\" href=\"#\">Action</a>\n              <a class=\"dropdown-item\" href=\"#\">Another action</a>\n              <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n            </div>\n          </div>\n          <h4 class=\"mb-0\">9.823</h4>\n          <p>Members online</p>\n        </div>\n        <div class=\"chart-wrapper px-1\" style=\"height:70px;\">\n          <canvas baseChart class=\"chart\"\n          [datasets]=\"lineChart1Data\"\n          [labels]=\"lineChart1Labels\"\n          [options]=\"lineChart1Options\"\n          [colors]=\"lineChart1Colours\"\n          [legend]=\"lineChart1Legend\"\n          [chartType]=\"lineChart1Type\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n        </div>\n      </div>\n    </div><!--/.col-->\n    <div class=\"col-sm-6 col-lg-3\">\n      <div class=\"card card-inverse card-info\">\n        <div class=\"card-block pb-0\">\n          <button type=\"button\" class=\"btn btn-transparent p-0 float-right\">\n            <i class=\"icon-location-pin\"></i>\n          </button>\n          <h4 class=\"mb-0\">9.823</h4>\n          <p>Members online</p>\n        </div>\n        <div class=\"chart-wrapper px-1\" style=\"height:70px;\">\n          <canvas baseChart class=\"chart\"\n          [datasets]=\"lineChart2Data\"\n          [labels]=\"lineChart2Labels\"\n          [options]=\"lineChart2Options\"\n          [colors]=\"lineChart2Colours\"\n          [legend]=\"lineChart2Legend\"\n          [chartType]=\"lineChart2Type\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n        </div>\n      </div>\n    </div><!--/.col-->\n    <div class=\"col-sm-6 col-lg-3\">\n      <div class=\"card card-inverse card-warning\">\n        <div class=\"card-block pb-0\">\n          <div class=\"btn-group float-right\">\n            <button type=\"button\" class=\"btn btn-transparent dropdown-toggle p-0\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n              <i class=\"icon-settings\"></i>\n            </button>\n            <div class=\"dropdown-menu dropdown-menu-right\">\n              <a class=\"dropdown-item\" href=\"#\">Action</a>\n              <a class=\"dropdown-item\" href=\"#\">Another action</a>\n              <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n            </div>\n          </div>\n          <h4 class=\"mb-0\">9.823</h4>\n          <p>Members online</p>\n        </div>\n        <div class=\"chart-wrapper\" style=\"height:70px;\">\n          <canvas baseChart class=\"chart\"\n          [datasets]=\"lineChart3Data\"\n          [labels]=\"lineChart3Labels\"\n          [options]=\"lineChart3Options\"\n          [colors]=\"lineChart3Colours\"\n          [legend]=\"lineChart3Legend\"\n          [chartType]=\"lineChart3Type\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n        </div>\n      </div>\n    </div><!--/.col-->\n    <div class=\"col-sm-6 col-lg-3\">\n      <div class=\"card card-inverse card-danger\">\n        <div class=\"card-block pb-0\">\n          <div class=\"btn-group float-right\" dropdown placement=\"bottom right\">\n            <button type=\"button\" class=\"btn btn-transparent dropdown-toggle p-0\" dropdownToggle>\n              <i class=\"icon-settings\"></i>\n            </button>\n            <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu>\n              <a class=\"dropdown-item\" href=\"#\">Action</a>\n              <a class=\"dropdown-item\" href=\"#\">Another action</a>\n              <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n            </div>\n          </div>\n          <h4 class=\"mb-0\">9.823</h4>\n          <p>Members online</p>\n        </div>\n        <div class=\"chart-wrapper px-1\" style=\"height:70px;\">\n          <canvas baseChart class=\"chart\"\n          [datasets]=\"barChart1Data\"\n          [labels]=\"barChart1Labels\"\n          [options]=\"barChart1Options\"\n          [colors]=\"barChart1Colours\"\n          [legend]=\"barChart1Legend\"\n          [chartType]=\"barChart1Type\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n        </div>\n      </div>\n    </div><!--/.col-->\n  </div><!--/.row-->\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <div class=\"row\">\n        <div class=\"col-sm-5\">\n          <h4 class=\"card-title mb-0\">Traffic</h4>\n          <div class=\"small text-muted\">November 2015</div>\n        </div><!--/.col-->\n        <div class=\"col-sm-7 hidden-sm-down\">\n          <button type=\"button\" class=\"btn btn-primary float-right\"><i class=\"icon-cloud-download\"></i></button>\n          <div class=\"btn-toolbar float-right\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n            <div class=\"btn-group mr-1\" data-toggle=\"buttons\" aria-label=\"First group\">\n              <label class=\"btn btn-outline-secondary\">\n                <input type=\"radio\" name=\"options\" id=\"option1\"> Day\n              </label>\n              <label class=\"btn btn-outline-secondary active\">\n                <input type=\"radio\" name=\"options\" id=\"option2\" checked> Month\n              </label>\n              <label class=\"btn btn-outline-secondary\">\n                <input type=\"radio\" name=\"options\" id=\"option3\"> Year\n              </label>\n            </div>\n          </div>\n        </div><!--/.col-->\n      </div><!--/.row-->\n      <div class=\"chart-wrapper\" style=\"height:300px;margin-top:40px;\">\n        <canvas baseChart class=\"chart\"\n        [datasets]=\"mainChartData\"\n        [labels]=\"mainChartLabels\"\n        [options]=\"mainChartOptions\"\n        [colors]=\"mainChartColours\"\n        [legend]=\"mainChartLegend\"\n        [chartType]=\"mainChartType\"\n        (chartHover)=\"chartHovered($event)\"\n        (chartClick)=\"chartClicked($event)\"></canvas>\n      </div>\n    </div>\n    <div class=\"card-footer\">\n      <ul>\n        <li>\n          <div class=\"text-muted\">Visits</div>\n          <strong>29.703 Users (40%)</strong>\n          <div class=\"progress progress-xs mt-h\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 40%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n          </div>\n        </li>\n        <li class=\"hidden-sm-down\">\n          <div class=\"text-muted\">Unique</div>\n          <strong>24.093 Users (20%)</strong>\n          <div class=\"progress progress-xs mt-h\">\n            <div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: 20%\" aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n          </div>\n        </li>\n        <li>\n          <div class=\"text-muted\">Pageviews</div>\n          <strong>78.706 Views (60%)</strong>\n          <div class=\"progress progress-xs mt-h\">\n            <div class=\"progress-bar bg-warning\" role=\"progressbar\" style=\"width: 60%\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n          </div>\n        </li>\n        <li class=\"hidden-sm-down\">\n          <div class=\"text-muted\">New Users</div>\n          <strong>22.123 Users (80%)</strong>\n          <div class=\"progress progress-xs mt-h\">\n            <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: 80%\" aria-valuenow=\"80\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n          </div>\n        </li>\n        <li class=\"hidden-sm-down\">\n          <div class=\"text-muted\">Bounce Rate</div>\n          <strong>40.15%</strong>\n          <div class=\"progress progress-xs mt-h\">\n            <div class=\"progress-bar\" role=\"progressbar\" style=\"width: 40%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n          </div>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <!--/.card-->\n  <div class=\"row\">\n    <div class=\"col-sm-6 col-lg-3\">\n      <div class=\"social-box facebook\">\n        <i class=\"fa fa-facebook\"></i>\n        <div class=\"chart-wrapper\">\n          <canvas baseChart class=\"chart\"\n          [datasets]=\"socialChartData1\"\n          [labels]=\"socialChartLabels\"\n          [options]=\"socialChartOptions\"\n          [colors]=\"socialChartColours\"\n          [legend]=\"socialChartLegend\"\n          [chartType]=\"socialChartType\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n        </div>\n        <ul>\n          <li>\n            <strong>89k</strong>\n            <span>friends</span>\n          </li>\n          <li>\n            <strong>459</strong>\n            <span>feeds</span>\n          </li>\n        </ul>\n      </div>\n      <!--/.social-box-->\n    </div><!--/.col-->\n    <div class=\"col-sm-6 col-lg-3\">\n      <div class=\"social-box twitter\">\n        <i class=\"fa fa-twitter\"></i>\n        <div class=\"chart-wrapper\">\n          <canvas baseChart class=\"chart\"\n          [datasets]=\"socialChartData2\"\n          [labels]=\"socialChartLabels\"\n          [options]=\"socialChartOptions\"\n          [colors]=\"socialChartColours\"\n          [legend]=\"socialChartLegend\"\n          [chartType]=\"socialChartType\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n        </div>\n        <ul>\n          <li>\n            <strong>973k</strong>\n            <span>followers</span>\n          </li>\n          <li>\n            <strong>1.792</strong>\n            <span>tweets</span>\n          </li>\n        </ul>\n      </div>\n      <!--/.social-box-->\n    </div><!--/.col-->\n    <div class=\"col-sm-6 col-lg-3\">\n      <div class=\"social-box linkedin\">\n        <i class=\"fa fa-linkedin\"></i>\n        <div class=\"chart-wrapper\">\n          <canvas baseChart class=\"chart\"\n          [datasets]=\"socialChartData3\"\n          [labels]=\"socialChartLabels\"\n          [options]=\"socialChartOptions\"\n          [colors]=\"socialChartColours\"\n          [legend]=\"socialChartLegend\"\n          [chartType]=\"socialChartType\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n        </div>\n        <ul>\n          <li>\n            <strong>500+</strong>\n            <span>contacts</span>\n          </li>\n          <li>\n            <strong>292</strong>\n            <span>feeds</span>\n          </li>\n        </ul>\n      </div>\n      <!--/.social-box-->\n    </div><!--/.col-->\n    <div class=\"col-sm-6 col-lg-3\">\n      <div class=\"social-box google-plus\">\n        <i class=\"fa fa-google-plus\"></i>\n        <div class=\"chart-wrapper\">\n          <canvas baseChart class=\"chart\"\n          [datasets]=\"socialChartData4\"\n          [labels]=\"socialChartLabels\"\n          [options]=\"socialChartOptions\"\n          [colors]=\"socialChartColours\"\n          [legend]=\"socialChartLegend\"\n          [chartType]=\"socialChartType\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n        </div>\n        <ul>\n          <li>\n            <strong>894</strong>\n            <span>followers</span>\n          </li>\n          <li>\n            <strong>92</strong>\n            <span>circles</span>\n          </li>\n        </ul>\n      </div>\n      <!--/.social-box-->\n    </div><!--/.col-->\n  </div><!--/.row-->\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          Traffic &amp; Sales\n        </div>\n        <div class=\"card-block\">\n          <div class=\"row\">\n            <div class=\"col-sm-12 col-lg-4\">\n              <div class=\"row\">\n                <div class=\"col-sm-6\">\n                  <div class=\"callout callout-info\">\n                    <small class=\"text-muted\">New Clients</small>\n                    <br>\n                    <strong class=\"h4\">9,123</strong>\n                    <div class=\"chart-wrapper\" style=\"width:100px;height:30px;\">\n                      <canvas baseChart class=\"chart\"\n                      [datasets]=\"sparklineChartData1\"\n                      [labels]=\"sparklineChartLabels\"\n                      [options]=\"sparklineChartOptions\"\n                      [colors]=\"sparklineChartInfo\"\n                      [legend]=\"sparklineChartLegend\"\n                      [chartType]=\"sparklineChartType\"\n                      (chartHover)=\"chartHovered($event)\"\n                      (chartClick)=\"chartClicked($event)\"></canvas>\n                    </div>\n                  </div>\n                </div><!--/.col-->\n                <div class=\"col-sm-6\">\n                  <div class=\"callout callout-danger\">\n                    <small class=\"text-muted\">Recuring Clients</small>\n                    <br>\n                    <strong class=\"h4\">22,643</strong>\n                    <div class=\"chart-wrapper\" style=\"width:100px;height:30px;\">\n                      <canvas baseChart class=\"chart\"\n                      [datasets]=\"sparklineChartData2\"\n                      [labels]=\"sparklineChartLabels\"\n                      [options]=\"sparklineChartOptions\"\n                      [colors]=\"sparklineChartDanger\"\n                      [legend]=\"sparklineChartLegend\"\n                      [chartType]=\"sparklineChartType\"\n                      (chartHover)=\"chartHovered($event)\"\n                      (chartClick)=\"chartClicked($event)\"></canvas>\n                    </div>\n                  </div>\n                </div><!--/.col-->\n              </div><!--/.row-->\n              <hr class=\"mt-0\">\n              <ul class=\"horizontal-bars\">\n                <li>\n                  <div class=\"title\">\n                    Monday\n                  </div>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: 34%\" aria-valuenow=\"34\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: 78%\" aria-valuenow=\"78\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li>\n                  <div class=\"title\">\n                    Tuesday\n                  </div>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: 56%\" aria-valuenow=\"56\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: 94%\" aria-valuenow=\"94\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li>\n                  <div class=\"title\">\n                    Wednesday\n                  </div>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: 12%\" aria-valuenow=\"12\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: 67%\" aria-valuenow=\"67\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li>\n                  <div class=\"title\">\n                    Thursday\n                  </div>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: 43%\" aria-valuenow=\"43\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: 91%\" aria-valuenow=\"91\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li>\n                  <div class=\"title\">\n                    Friday\n                  </div>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: 22%\" aria-valuenow=\"22\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: 73%\" aria-valuenow=\"73\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li>\n                  <div class=\"title\">\n                    Saturday\n                  </div>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: 53%\" aria-valuenow=\"53\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: 82%\" aria-valuenow=\"82\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li>\n                  <div class=\"title\">\n                    Sunday\n                  </div>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: 9%\" aria-valuenow=\"9\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: 69%\" aria-valuenow=\"69\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li class=\"legend\">\n                  <span class=\"badge badge-pill badge-info\"></span> <small>New clients</small> &nbsp; <span class=\"badge badge-pill badge-danger\"></span> <small>Recurring clients</small>\n                </li>\n              </ul>\n            </div><!--/.col-->\n            <div class=\"col-sm-6 col-lg-4\">\n              <div class=\"row\">\n                <div class=\"col-sm-6\">\n                  <div class=\"callout callout-warning\">\n                    <small class=\"text-muted\">Pageviews</small>\n                    <br>\n                    <strong class=\"h4\">78,623</strong>\n                    <div class=\"chart-wrapper\" style=\"width:100px;height:30px;\">\n                      <canvas baseChart class=\"chart\"\n                      [datasets]=\"sparklineChartData1\"\n                      [labels]=\"sparklineChartLabels\"\n                      [options]=\"sparklineChartOptions\"\n                      [colors]=\"sparklineChartWarning\"\n                      [legend]=\"sparklineChartLegend\"\n                      [chartType]=\"sparklineChartType\"\n                      (chartHover)=\"chartHovered($event)\"\n                      (chartClick)=\"chartClicked($event)\"></canvas>\n                    </div>\n                  </div>\n                </div><!--/.col-->\n                <div class=\"col-sm-6\">\n                  <div class=\"callout callout-success\">\n                    <small class=\"text-muted\">Organic</small>\n                    <br>\n                    <strong class=\"h4\">49,123</strong>\n                    <div class=\"chart-wrapper\" style=\"width:100px;height:30px;\">\n                      <canvas baseChart class=\"chart\"\n                      [datasets]=\"sparklineChartData2\"\n                      [labels]=\"sparklineChartLabels\"\n                      [options]=\"sparklineChartOptions\"\n                      [colors]=\"sparklineChartSuccess\"\n                      [legend]=\"sparklineChartLegend\"\n                      [chartType]=\"sparklineChartType\"\n                      (chartHover)=\"chartHovered($event)\"\n                      (chartClick)=\"chartClicked($event)\"></canvas>\n                    </div>\n                  </div>\n                </div><!--/.col-->\n              </div><!--/.row-->\n              <hr class=\"mt-0\">\n              <ul class=\"horizontal-bars type-2\">\n                <li>\n                  <i class=\"icon-user\"></i>\n                  <span class=\"title\">Male</span>\n                  <span class=\"value\">43%</span>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-warning\" role=\"progressbar\" style=\"width: 43%\" aria-valuenow=\"43\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li>\n                  <i class=\"icon-user-female\"></i>\n                  <span class=\"title\">Female</span>\n                  <span class=\"value\">37%</span>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-warning\" role=\"progressbar\" style=\"width: 37%\" aria-valuenow=\"37\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li class=\"divider\"></li>\n                <li>\n                  <i class=\"icon-globe\"></i>\n                  <span class=\"title\">Organic Search</span>\n                  <span class=\"value\">191,235 <span class=\"text-muted small\">(56%)</span></span>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 56%\" aria-valuenow=\"56\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li>\n                  <i class=\"icon-social-facebook\"></i>\n                  <span class=\"title\">Facebook</span>\n                  <span class=\"value\">51,223 <span class=\"text-muted small\">(15%)</span></span>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 15%\" aria-valuenow=\"15\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li>\n                  <i class=\"icon-social-twitter\"></i>\n                  <span class=\"title\">Twitter</span>\n                  <span class=\"value\">37,564 <span class=\"text-muted small\">(11%)</span></span>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 11%\" aria-valuenow=\"11\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li>\n                  <i class=\"icon-social-linkedin\"></i>\n                  <span class=\"title\">LinkedIn</span>\n                  <span class=\"value\">27,319 <span class=\"text-muted small\">(8%)</span></span>\n                  <div class=\"bars\">\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 8%\" aria-valuenow=\"8\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                    </div>\n                  </div>\n                </li>\n                <li class=\"divider text-center\">\n                  <button type=\"button\" class=\"btn btn-sm btn-link text-muted\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"\" data-original-title=\"show more\"><i class=\"icon-options\"></i></button>\n                </li>\n              </ul>\n            </div><!--/.col-->\n            <div class=\"col-sm-6 col-lg-4\">\n              <div class=\"row\">\n                <div class=\"col-sm-6\">\n                  <div class=\"callout\">\n                    <small class=\"text-muted\">CTR</small>\n                    <br>\n                    <strong class=\"h4\">23%</strong>\n                    <div class=\"chart-wrapper\" style=\"width:100px;height:30px;\">\n                      <canvas baseChart class=\"chart\"\n                      [datasets]=\"sparklineChartData1\"\n                      [labels]=\"sparklineChartLabels\"\n                      [options]=\"sparklineChartOptions\"\n                      [colors]=\"sparklineChartDefault\"\n                      [legend]=\"sparklineChartLegend\"\n                      [chartType]=\"sparklineChartType\"\n                      (chartHover)=\"chartHovered($event)\"\n                      (chartClick)=\"chartClicked($event)\"></canvas>\n                    </div>\n                  </div>\n                </div><!--/.col-->\n                <div class=\"col-sm-6\">\n                  <div class=\"callout callout-primary\">\n                    <small class=\"text-muted\">Bounce Rate</small>\n                    <br>\n                    <strong class=\"h4\">5%</strong>\n                    <div class=\"chart-wrapper\" style=\"width:100px;height:30px;\">\n                      <canvas baseChart class=\"chart\"\n                      [datasets]=\"sparklineChartData2\"\n                      [labels]=\"sparklineChartLabels\"\n                      [options]=\"sparklineChartOptions\"\n                      [colors]=\"sparklineChartPrimary\"\n                      [legend]=\"sparklineChartLegend\"\n                      [chartType]=\"sparklineChartType\"\n                      (chartHover)=\"chartHovered($event)\"\n                      (chartClick)=\"chartClicked($event)\"></canvas>\n                    </div>\n                  </div>\n                </div><!--/.col-->\n              </div><!--/.row-->\n              <hr class=\"mt-0\">\n              <ul class=\"icons-list\">\n                <li>\n                  <i class=\"icon-screen-desktop bg-primary\"></i>\n                  <div class=\"desc\">\n                    <div class=\"title\">iMac 4k</div>\n                    <small>Lorem ipsum dolor sit amet</small>\n                  </div>\n                  <div class=\"value\">\n                    <div class=\"small text-muted\">Sold this week</div>\n                    <strong>1.924</strong>\n                  </div>\n                  <div class=\"actions\">\n                    <button type=\"button\" class=\"btn btn-link text-muted\"><i class=\"icon-settings\"></i></button>\n                  </div>\n                </li>\n                <li>\n                  <i class=\"icon-screen-smartphone bg-info\"></i>\n                  <div class=\"desc\">\n                    <div class=\"title\">Samsung Galaxy Edge</div>\n                    <small>Lorem ipsum dolor sit amet</small>\n                  </div>\n                  <div class=\"value\">\n                    <div class=\"small text-muted\">Sold this week</div>\n                    <strong>1.224</strong>\n                  </div>\n                  <div class=\"actions\">\n                    <button type=\"button\" class=\"btn btn-link text-muted\"><i class=\"icon-settings\"></i></button>\n                  </div>\n                </li>\n                <li>\n                  <i class=\"icon-screen-smartphone bg-warning\"></i>\n                  <div class=\"desc\">\n                    <div class=\"title\">iPhone 6S</div>\n                    <small>Lorem ipsum dolor sit amet</small>\n                  </div>\n                  <div class=\"value\">\n                    <div class=\"small text-muted\">Sold this week</div>\n                    <strong>1.163</strong>\n                  </div>\n                  <div class=\"actions\">\n                    <button type=\"button\" class=\"btn btn-link text-muted\"><i class=\"icon-settings\"></i></button>\n                  </div>\n                </li>\n                <li>\n                  <i class=\"icon-user bg-danger\"></i>\n                  <div class=\"desc\">\n                    <div class=\"title\">Premium accounts</div>\n                    <small>Lorem ipsum dolor sit amet</small>\n                  </div>\n                  <div class=\"value\">\n                    <div class=\"small text-muted\">Sold this week</div>\n                    <strong>928</strong>\n                  </div>\n                  <div class=\"actions\">\n                    <button type=\"button\" class=\"btn btn-link text-muted\"><i class=\"icon-settings\"></i></button>\n                  </div>\n                </li>\n                <li>\n                  <i class=\"icon-social-spotify bg-success\"></i>\n                  <div class=\"desc\">\n                    <div class=\"title\">Spotify Subscriptions</div>\n                    <small>Lorem ipsum dolor sit amet</small>\n                  </div>\n                  <div class=\"value\">\n                    <div class=\"small text-muted\">Sold this week</div>\n                    <strong>893</strong>\n                  </div>\n                  <div class=\"actions\">\n                    <button type=\"button\" class=\"btn btn-link text-muted\"><i class=\"icon-settings\"></i></button>\n                  </div>\n                </li>\n                <li>\n                  <i class=\"icon-cloud-download bg-danger\"></i>\n                  <div class=\"desc\">\n                    <div class=\"title\">Ebook</div>\n                    <small>Lorem ipsum dolor sit amet</small>\n                  </div>\n                  <div class=\"value\">\n                    <div class=\"small text-muted\">Downloads</div>\n                    <strong>121.924</strong>\n                  </div>\n                  <div class=\"actions\">\n                    <button type=\"button\" class=\"btn btn-link text-muted\"><i class=\"icon-settings\"></i></button>\n                  </div>\n                </li>\n                <li>\n                  <i class=\"icon-camera bg-warning\"></i>\n                  <div class=\"desc\">\n                    <div class=\"title\">Photos</div>\n                    <small>Lorem ipsum dolor sit amet</small>\n                  </div>\n                  <div class=\"value\">\n                    <div class=\"small text-muted\">Uploaded</div>\n                    <strong>12.125</strong>\n                  </div>\n                  <div class=\"actions\">\n                    <button type=\"button\" class=\"btn btn-link text-muted\"><i class=\"icon-settings\"></i></button>\n                  </div>\n                </li>\n                <li class=\"divider text-center\">\n                  <button type=\"button\" class=\"btn btn-sm btn-link text-muted\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"show more\"><i class=\"icon-options\"></i></button>\n                </li>\n              </ul>\n            </div><!--/.col-->\n          </div><!--/.row-->\n          <br>\n          <table class=\"table table-hover table-outline mb-0 hidden-sm-down\">\n            <thead class=\"thead-default\">\n              <tr>\n                <th class=\"text-center\"><i class=\"icon-people\"></i></th>\n                <th>User</th>\n                <th class=\"text-center\">Country</th>\n                <th>Usage</th>\n                <th class=\"text-center\">Payment Method</th>\n                <th>Activity</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <td class=\"text-center\">\n                  <div class=\"avatar\">\n                    <img src=\"assets/img/avatars/1.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" src=\"assets/img/avatars/1.jpg\">\n                    <span class=\"avatar-status badge-success\"></span>\n                  </div>\n                </td>\n                <td>\n                  <div>Yiorgos Avraamu</div>\n                  <div class=\"small text-muted\">\n                    <span>New</span> | Registered: Jan 1, 2015\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <img src=\"assets/img/flags/USA.png\" alt=\"USA\" style=\"height:24px;\" src=\"assets/img/flags/USA.png\">\n                </td>\n                <td>\n                  <div class=\"clearfix\">\n                    <div class=\"float-left\">\n                      <strong>50%</strong>\n                    </div>\n                    <div class=\"float-right\">\n                      <small class=\"text-muted\">Jun 11, 2015 - Jul 10, 2015</small>\n                    </div>\n                  </div>\n                  <div class=\"progress progress-xs\">\n                    <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <i class=\"fa fa-cc-mastercard\" style=\"font-size:24px\"></i>\n                </td>\n                <td>\n                  <div class=\"small text-muted\">Last login</div>\n                  <strong>10 sec ago</strong>\n                </td>\n              </tr>\n              <tr>\n                <td class=\"text-center\">\n                  <div class=\"avatar\">\n                    <img src=\"assets/img/avatars/2.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" src=\"assets/img/avatars/2.jpg\">\n                    <span class=\"avatar-status badge-danger\"></span>\n                  </div>\n                </td>\n                <td>\n                  <div>Avram Tarasios</div>\n                  <div class=\"small text-muted\">\n\n                    <span>Recurring</span> | Registered: Jan 1, 2015\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <img src=\"assets/img/flags/Brazil.png\" alt=\"Brazil\" style=\"height:24px;\" src=\"assets/img/flags/Brazil.png\">\n                </td>\n                <td>\n                  <div class=\"clearfix\">\n                    <div class=\"float-left\">\n                      <strong>10%</strong>\n                    </div>\n                    <div class=\"float-right\">\n                      <small class=\"text-muted\">Jun 11, 2015 - Jul 10, 2015</small>\n                    </div>\n                  </div>\n                  <div class=\"progress progress-xs\">\n                    <div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: 10%\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <i class=\"fa fa-cc-visa\" style=\"font-size:24px\"></i>\n                </td>\n                <td>\n                  <div class=\"small text-muted\">Last login</div>\n                  <strong>5 minutes ago</strong>\n                </td>\n              </tr>\n              <tr>\n                <td class=\"text-center\">\n                  <div class=\"avatar\">\n                    <img src=\"assets/img/avatars/3.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" src=\"assets/img/avatars/3.jpg\">\n                    <span class=\"avatar-status badge-warning\"></span>\n                  </div>\n                </td>\n                <td>\n                  <div>Quintin Ed</div>\n                  <div class=\"small text-muted\">\n                    <span>New</span> | Registered: Jan 1, 2015\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <img src=\"assets/img/flags/India.png\" alt=\"India\" style=\"height:24px;\" src=\"assets/img/flags/India.png\">\n                </td>\n                <td>\n                  <div class=\"clearfix\">\n                    <div class=\"float-left\">\n                      <strong>74%</strong>\n                    </div>\n                    <div class=\"float-right\">\n                      <small class=\"text-muted\">Jun 11, 2015 - Jul 10, 2015</small>\n                    </div>\n                  </div>\n                  <div class=\"progress progress-xs\">\n                    <div class=\"progress-bar bg-warning\" role=\"progressbar\" style=\"width: 74%\" aria-valuenow=\"74\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <i class=\"fa fa-cc-stripe\" style=\"font-size:24px\"></i>\n                </td>\n                <td>\n                  <div class=\"small text-muted\">Last login</div>\n                  <strong>1 hour ago</strong>\n                </td>\n              </tr>\n              <tr>\n                <td class=\"text-center\">\n                  <div class=\"avatar\">\n                    <img src=\"assets/img/avatars/4.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" src=\"assets/img/avatars/4.jpg\">\n                    <span class=\"avatar-status badge-default\"></span>\n                  </div>\n                </td>\n                <td>\n                  <div>Enéas Kwadwo</div>\n                  <div class=\"small text-muted\">\n                    <span>New</span> | Registered: Jan 1, 2015\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <img src=\"assets/img/flags/France.png\" alt=\"France\" style=\"height:24px;\" src=\"assets/img/flags/France.png\">\n                </td>\n                <td>\n                  <div class=\"clearfix\">\n                    <div class=\"float-left\">\n                      <strong>98%</strong>\n                    </div>\n                    <div class=\"float-right\">\n                      <small class=\"text-muted\">Jun 11, 2015 - Jul 10, 2015</small>\n                    </div>\n                  </div>\n                  <div class=\"progress progress-xs\">\n                    <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: 98%\" aria-valuenow=\"98\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <i class=\"fa fa-paypal\" style=\"font-size:24px\"></i>\n                </td>\n                <td>\n                  <div class=\"small text-muted\">Last login</div>\n                  <strong>Last month</strong>\n                </td>\n              </tr>\n              <tr>\n                <td class=\"text-center\">\n                  <div class=\"avatar\">\n                    <img src=\"assets/img/avatars/5.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" src=\"assets/img/avatars/5.jpg\">\n                    <span class=\"avatar-status badge-success\"></span>\n                  </div>\n                </td>\n                <td>\n                  <div>Agapetus Tadeáš</div>\n                  <div class=\"small text-muted\">\n                    <span>New</span> | Registered: Jan 1, 2015\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <img src=\"assets/img/flags/Spain.png\" alt=\"Spain\" style=\"height:24px;\" src=\"assets/img/flags/Spain.png\">\n                </td>\n                <td>\n                  <div class=\"clearfix\">\n                    <div class=\"float-left\">\n                      <strong>22%</strong>\n                    </div>\n                    <div class=\"float-right\">\n                      <small class=\"text-muted\">Jun 11, 2015 - Jul 10, 2015</small>\n                    </div>\n                  </div>\n                  <div class=\"progress progress-xs\">\n                    <div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: 22%\" aria-valuenow=\"22\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <i class=\"fa fa-google-wallet\" style=\"font-size:24px\"></i>\n                </td>\n                <td>\n                  <div class=\"small text-muted\">Last login</div>\n                  <strong>Last week</strong>\n                </td>\n              </tr>\n              <tr>\n                <td class=\"text-center\">\n                  <div class=\"avatar\">\n                    <img src=\"assets/img/avatars/6.jpg\" class=\"img-avatar\" alt=\"admin@bootstrapmaster.com\" src=\"assets/img/avatars/6.jpg\">\n                    <span class=\"avatar-status badge-danger\"></span>\n                  </div>\n                </td>\n                <td>\n                  <div>Friderik Dávid</div>\n                  <div class=\"small text-muted\">\n                    <span>New</span> | Registered: Jan 1, 2015\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <img src=\"assets/img/flags/Poland.png\" alt=\"Poland\" style=\"height:24px;\" src=\"assets/img/flags/Poland.png\">\n                </td>\n                <td>\n                  <div class=\"clearfix\">\n                    <div class=\"float-left\">\n                      <strong>43%</strong>\n                    </div>\n                    <div class=\"float-right\">\n                      <small class=\"text-muted\">Jun 11, 2015 - Jul 10, 2015</small>\n                    </div>\n                  </div>\n                  <div class=\"progress progress-xs\">\n                    <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 43%\" aria-valuenow=\"43\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                  </div>\n                </td>\n                <td class=\"text-center\">\n                  <i class=\"fa fa-cc-amex\" style=\"font-size:24px\"></i>\n                </td>\n                <td>\n                  <div class=\"small text-muted\">Last login</div>\n                  <strong>Yesterday</strong>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div><!--/.col-->\n  </div><!--/.row-->\n</div>\n"
+module.exports = "<div class=\"col-md-1\"></div>\n\n<button type=\"button\" class=\"btn btn-success\" (click)=\"categoriaModal.show()\">\n    <i class=\"icon-plus\"></i> Novo</button>\n<div class=\"card\">\n    <div class=\"card-header\">\n        <i class=\"fa fa-align-justify\"></i> Listagem de categorias\n    </div>\n    <div class=\"card-block\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th class=\"text-center\" style=\"width: 10%\">\n                        <i class=\"icon-people\"></i>\n                    </th>\n                    <th style=\"width: 60%\">Categorias</th>\n                    <th class=\"text-center\" style=\"width: 15%\">Situação</th>\n                    <th class=\"text-center\" style=\"width: 15%\">Ação</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let item of items\">\n                    <td class=\"text-center\">\n                        <div class=\"avatar\">\n                            <foto src=\"{{urlFotoCategoria}}{{item.id}}.jpg\" classCss=\"img-avatar\" alt=\"Avatar\"></foto>\n                        </div>\n                    </td>\n                    <td>\n                        <div>{{item.nome}}</div>\n                        <div class=\"small text-muted\">\n                            {{item.comentario}}\n                        </div>\n                    </td>\n                    <td class=\"text-center\">\n                        <status status={{item.status}}></status>\n                    </td>\n                    <td class=\"text-center\">\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"categoriaModal.showAlteracao(item)\">\n                            <i class=\"fa fa fa-edit\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\n                            <i class=\"fa fa-eraser\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\n                            <i class=\"fa fa-exclamation\"> </i>\n                        </button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<confirm-popup-modal #excluirModal popupStyle=\"primary\" (onClickConfirm)=\"excluir()\">\n    <strong>Deseja excluir a categoria?</strong>\n</confirm-popup-modal>\n\n<confirm-popup-modal #changeSatusModal popupStyle=\"primary\" (onClickConfirm)=\"changeStatus()\">\n    <strong>Deseja alterar o status da categoria?</strong>\n</confirm-popup-modal>\n\n\n<categoria-popup-modal #categoriaModal (onClickConfirm)=\"salvarCategoria($event)\"></categoria-popup-modal>"
+
+/***/ }),
+
+/***/ 816:
+/***/ (function(module, exports) {
+
+module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" \r\n      role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n  aria-hidden=\"true\">\r\n  \r\n  \r\n  <div class=\"modal-dialog modal-primary modal-lg\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">{{titulo}}</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"modalConfirm.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n          \r\n\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-4 col-md-4\">\r\n                <div class=\"card\">\r\n                  <div class=\"card-header\">\r\n                    <strong>Imagem da categoria</strong>\r\n                  </div>\r\n                  <div class=\"card-block\">\r\n                    <div class=\"row\">\r\n                      <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                    </div>\r\n  \r\n                  </div>\r\n                  <div class=\"card-footer\">\r\n                    <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                      (onSelecionarImagem)=\"mudarImage($event)\">\r\n                    </upload-imagem>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n          <!--/.col-->\r\n          <div class=\"col-md-8 col-sm-8\">\r\n              <form [formGroup]=\"formulario\" novalidade (ngSubmit)=\"confirmar()\">\r\n                <div class=\"card\">\r\n                  <div class=\"card-header\">\r\n                    <strong>Descrição</strong>\r\n                  </div>\r\n                  <div class=\"card-block\">\r\n                    <div [ngClass]=\"aplicarCssGroup(formulario.get('nome'))\">\r\n                      <label for=\"nome\">Nome da categoria</label>\r\n                      <input #campoNome type=\"text\" [ngClass]=\"aplicarCssForm(formulario.get('nome'))\" name=\"nome\" maxlength=\"25\" placeholder=\"Digite o nome da categoria\"\r\n                        formControlName=\"nome\">\r\n                      <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nome'))\" titulo=\"Erro:\" mensagem=\"o campo Nome da categoria deve ter entre 5 a 25 caracteres\">\r\n                      </alert-mensagem>\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                      <label for=\"comentario\">Descrição da categoria</label>\r\n                      <textarea type=\"textarea\" maxlength=\"100\" rows=\"7\" [ngClass]=\"aplicarCssForm(formulario.get('comentario'))\" name=\"comentario\"\r\n                        placeholder=\"Digite o texto descritivo da categoria\" formControlName=\"comentario\"></textarea>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              </form>\r\n            </div>\r\n      </div>\r\n\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button class=\"btn btn-secondary\" (click)=\"modalConfirm.hide()\">\r\n          <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n        </button>\r\n          <button [disabled]=\"!formulario.valid\" type=\"button\" class=\"btn btn-md btn-success\" (click)=\"btnConfirmar(formulario.value)\">\r\n            <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n          </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ })
 
