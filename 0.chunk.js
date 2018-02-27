@@ -1,6 +1,6 @@
 webpackJsonp([0,12],{
 
-/***/ 737:
+/***/ 743:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,27 +12,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var composicao_popup_modal_component_1 = __webpack_require__(777);
+var creates_produtos_component_1 = __webpack_require__(783);
+var composicao_popup_modal_component_1 = __webpack_require__(784);
 var core_1 = __webpack_require__(2);
 var common_1 = __webpack_require__(28);
 var forms_1 = __webpack_require__(48);
 var http_1 = __webpack_require__(57);
-var ng2_select_1 = __webpack_require__(804);
-var angular2_ladda_1 = __webpack_require__(752);
-var modal_1 = __webpack_require__(253);
-var popup_modal_module_1 = __webpack_require__(135);
-var produto_service_1 = __webpack_require__(747);
-var categoria_service_1 = __webpack_require__(746);
-var shared_component_module_1 = __webpack_require__(250);
-var produto_routing_module_1 = __webpack_require__(778);
-var listar_produtos_component_1 = __webpack_require__(762);
-var create_produtos_component_1 = __webpack_require__(760);
-var edit_produtos_component_1 = __webpack_require__(761);
-var storage_service_1 = __webpack_require__(58);
-var angular2_text_mask_1 = __webpack_require__(254);
-var ng2_currency_mask_1 = __webpack_require__(798);
-var unidade_medida_service_1 = __webpack_require__(748);
-var tabs_1 = __webpack_require__(255);
+var ng2_select_1 = __webpack_require__(812);
+var angular2_ladda_1 = __webpack_require__(760);
+var modal_1 = __webpack_require__(254);
+var popup_modal_module_1 = __webpack_require__(253);
+var produto_service_1 = __webpack_require__(753);
+var categoria_service_1 = __webpack_require__(752);
+var shared_component_module_1 = __webpack_require__(135);
+var produto_routing_module_1 = __webpack_require__(785);
+var listar_produtos_component_1 = __webpack_require__(769);
+var create_produtos_component_1 = __webpack_require__(767);
+var edit_produtos_component_1 = __webpack_require__(768);
+var storage_service_1 = __webpack_require__(59);
+var angular2_text_mask_1 = __webpack_require__(255);
+var ng2_currency_mask_1 = __webpack_require__(806);
+var unidade_medida_service_1 = __webpack_require__(754);
+var tabs_1 = __webpack_require__(256);
 var ProdutoModule = (function () {
     function ProdutoModule() {
     }
@@ -58,6 +59,7 @@ ProdutoModule = __decorate([
         declarations: [
             listar_produtos_component_1.ListarProdutosComponent,
             create_produtos_component_1.CreateProdutosComponent,
+            creates_produtos_component_1.CreatesProdutosComponent,
             edit_produtos_component_1.EditProdutosComponent,
             composicao_popup_modal_component_1.ComposicaoPopupModalComponent
         ],
@@ -75,14 +77,14 @@ exports.ProdutoModule = ProdutoModule;
 
 /***/ }),
 
-/***/ 742:
+/***/ 748:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var event_emiter_services_1 = __webpack_require__(744);
-var combo_dto_1 = __webpack_require__(745);
+var event_emitter_services_1 = __webpack_require__(72);
+var combo_dto_1 = __webpack_require__(751);
 var AbstractBaseComponent = (function () {
     function AbstractBaseComponent() {
         this.maskCPF = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
@@ -142,7 +144,7 @@ var AbstractBaseComponent = (function () {
         };
     };
     AbstractBaseComponent.prototype.mensagemSucesso = function (titulo, mensagem) {
-        event_emiter_services_1.EventEmitterService
+        event_emitter_services_1.EventEmitterService
             .emitirMensagemToasterSucesso(titulo, mensagem);
     };
     AbstractBaseComponent.prototype.log = function (message) {
@@ -196,13 +198,13 @@ exports.AbstractBaseComponent = AbstractBaseComponent;
 
 /***/ }),
 
-/***/ 743:
+/***/ 749:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var storage_keys_config_1 = __webpack_require__(251);
+var storage_keys_config_1 = __webpack_require__(136);
 var http_1 = __webpack_require__(57);
 var AbstractService = (function () {
     function AbstractService() {
@@ -241,55 +243,82 @@ exports.AbstractService = AbstractService;
 
 /***/ }),
 
-/***/ 744:
+/***/ 750:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var trata_error_service_1 = __webpack_require__(252);
+var abstract_base_component_1 = __webpack_require__(748);
 var core_1 = __webpack_require__(2);
-var toater_mensagem_model_1 = __webpack_require__(252);
-var tipo_mensagem_enum_1 = __webpack_require__(136);
-var EventEmitterService = (function () {
-    function EventEmitterService() {
+var event_emitter_services_1 = __webpack_require__(72);
+var AbstractPopupComponent = (function (_super) {
+    __extends(AbstractPopupComponent, _super);
+    function AbstractPopupComponent() {
+        var _this = _super.call(this) || this;
+        _this.onClickConfirm = new core_1.EventEmitter();
+        _this.titulo = "";
+        return _this;
     }
-    EventEmitterService.get = function (nomeEvento) {
-        if (!this.emitters[nomeEvento]) {
-            this.emitters[nomeEvento] = new core_1.EventEmitter();
+    AbstractPopupComponent.prototype.ngOnInit = function () {
+    };
+    AbstractPopupComponent.prototype.tratarSucesso = function () {
+        event_emitter_services_1.EventEmitterService.getClosePopup().emit(true);
+        this.onClickConfirm.emit();
+    };
+    AbstractPopupComponent.prototype.showPopup = function (titulo) {
+        event_emitter_services_1.EventEmitterService.getError422().emit(null);
+        event_emitter_services_1.EventEmitterService.getShowPopup().emit();
+        this.titulo = titulo;
+        this.fieldFocus(this.campo);
+    };
+    AbstractPopupComponent.prototype.acao = function (item, service) {
+        var _this = this;
+        if (item.emAlteracao) {
+            service.atualizar(item)
+                .subscribe(function (res) { return _this.tratarSucesso(); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
         }
-        return this.emitters[nomeEvento];
+        else {
+            service.salvar(item)
+                .subscribe(function (res) { return _this.tratarSucesso(); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+        }
     };
-    EventEmitterService.unsubscribeEvent = function () {
-        this.emitters = {};
-        this.getToater();
-    };
-    EventEmitterService.getToater = function () {
-        return this.get('showToasterEvent');
-    };
-    EventEmitterService.emitirMensagemToaster = function (tm) {
-        return this.get('showToasterEvent').emit(tm);
-    };
-    EventEmitterService.emitirMensagemToasterSucesso = function (titulo, mensagem) {
-        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.success, titulo, mensagem);
-        return this.get('showToasterEvent').emit(tm);
-    };
-    EventEmitterService.emitirMensagemToasterAlerta = function (titulo, mensagem) {
-        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.warning, titulo, mensagem);
-        return this.get('showToasterEvent').emit(tm);
-    };
-    EventEmitterService.emitirMensagemToasterInfo = function (titulo, mensagem) {
-        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.warning, titulo, mensagem);
-        return this.get('showToasterEvent').emit(tm);
-    };
-    return EventEmitterService;
-}());
-EventEmitterService.emitters = {};
-exports.EventEmitterService = EventEmitterService;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/event-emiter.services.js.map
+    return AbstractPopupComponent;
+}(abstract_base_component_1.AbstractBaseComponent));
+__decorate([
+    core_1.ViewChild('campoNome'),
+    __metadata("design:type", Object)
+], AbstractPopupComponent.prototype, "campo", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], AbstractPopupComponent.prototype, "onClickConfirm", void 0);
+exports.AbstractPopupComponent = AbstractPopupComponent;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/abstract-popup.component.js.map
 
 /***/ }),
 
-/***/ 745:
+/***/ 751:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -307,7 +336,7 @@ exports.ComboDTO = ComboDTO;
 
 /***/ }),
 
-/***/ 746:
+/***/ 752:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -334,8 +363,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
 var http_1 = __webpack_require__(57);
-var api_config_1 = __webpack_require__(133);
-var abstract_service_1 = __webpack_require__(743);
+var api_config_1 = __webpack_require__(134);
+var abstract_service_1 = __webpack_require__(749);
 //import { catchError, retry } from 'rxjs/operators';
 var CategoriaService = (function (_super) {
     __extends(CategoriaService, _super);
@@ -378,7 +407,7 @@ var _a;
 
 /***/ }),
 
-/***/ 747:
+/***/ 753:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -405,8 +434,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
 var http_1 = __webpack_require__(57);
-var api_config_1 = __webpack_require__(133);
-var abstract_service_1 = __webpack_require__(743);
+var api_config_1 = __webpack_require__(134);
+var abstract_service_1 = __webpack_require__(749);
 //import { catchError, retry } from 'rxjs/operators';
 var ProdutoService = (function (_super) {
     __extends(ProdutoService, _super);
@@ -449,7 +478,7 @@ var _a;
 
 /***/ }),
 
-/***/ 748:
+/***/ 754:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -474,10 +503,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__(133);
+var api_config_1 = __webpack_require__(134);
 var http_1 = __webpack_require__(57);
 var core_1 = __webpack_require__(2);
-var abstract_service_1 = __webpack_require__(743);
+var abstract_service_1 = __webpack_require__(749);
 var UnidadeMedidaService = (function (_super) {
     __extends(UnidadeMedidaService, _super);
     function UnidadeMedidaService(http) {
@@ -520,7 +549,7 @@ var _a;
 
 /***/ }),
 
-/***/ 749:
+/***/ 755:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -558,15 +587,113 @@ exports.LaddaConfig = LaddaConfig;
 
 /***/ }),
 
-/***/ 751:
+/***/ 757:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var abstract_base_component_1 = __webpack_require__(748);
+var forms_1 = __webpack_require__(48);
+var AbstractProdutoComponent = (function (_super) {
+    __extends(AbstractProdutoComponent, _super);
+    function AbstractProdutoComponent(fb, location) {
+        var _this = _super.call(this) || this;
+        _this.fb = fb;
+        _this.location = location;
+        _this.checkUsoInterno = false;
+        _this.checkProdutoComposto = false;
+        _this.produtosComposicoes = [];
+        _this.comboCategorias = [];
+        return _this;
+    }
+    AbstractProdutoComponent.prototype.voltar = function () {
+        this.location.back();
+    };
+    AbstractProdutoComponent.prototype.mudarImage = function (evento) {
+        this.atualizarFoto(evento.foto);
+    };
+    AbstractProdutoComponent.prototype.atualizarFoto = function (foto) {
+        this.urlFoto = foto;
+    };
+    AbstractProdutoComponent.prototype.alterarCheckUsoInterno = function (valor) {
+        this.formulario.patchValue({
+            usoInterno: valor ? 'S' : 'N'
+        });
+    };
+    AbstractProdutoComponent.prototype.alterarCheckProdutoComposto = function (valor) {
+        this.checkProdutoComposto = valor;
+        this.formulario.patchValue({
+            produtoComposto: valor ? 'S' : 'N'
+        });
+    };
+    AbstractProdutoComponent.prototype.criarFormulario = function () {
+        this.formulario = this.fb.group({
+            idProduto: [''],
+            nmProduto: ['', [forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(25)]],
+            categoria: ['', forms_1.Validators.required],
+            preco: ['', forms_1.Validators.required],
+            produtoComposto: ['N'],
+            status: ['A'],
+            usoInterno: ['N'],
+            urlImagem: ['']
+        });
+        this.urlFoto = this.urlFotoAvatar;
+    };
+    AbstractProdutoComponent.prototype.confirmarCompProd = function (value) {
+        var prod = {};
+        prod.idProduto = value.idProdutoPai;
+        prod.idProdutoComposicao = value.produtoComp[0].id;
+        prod.nmProdutoComposicao = value.produtoComp[0].text;
+        prod.idUnidadeMedida = value.unidade[0].id;
+        prod.nmUnidadeMedida = value.unidade[0].text;
+        prod.qtdUtilizada = Number(value.qtdUtilizada);
+        prod.mostrarUnidade = value.mostrarUnidade;
+        prod.emAlteracao = value.emAlteracao;
+        var position = this.produtosComposicoes.findIndex(function (x) { return x.idProdutoComposicao == prod.idProdutoComposicao; });
+        if (position == -1) {
+            this.produtosComposicoes.push(prod);
+        }
+        else {
+            if (prod.emAlteracao) {
+                this.produtosComposicoes[position] = prod;
+            }
+            else {
+                this.produtosComposicoes[position].qtdUtilizada += prod.qtdUtilizada;
+            }
+        }
+    };
+    AbstractProdutoComponent.prototype.excluirItem = function (item) {
+        this.produtosComposicoes =
+            this.produtosComposicoes
+                .filter(function (prod) { return prod.idProdutoComposicao != item.idProdutoComposicao; });
+    };
+    return AbstractProdutoComponent;
+}(abstract_base_component_1.AbstractBaseComponent));
+exports.AbstractProdutoComponent = AbstractProdutoComponent;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/abstract-produto.component.js.map
+
+/***/ }),
+
+/***/ 759:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var ladda_config_1 = __webpack_require__(749);
-var Ladda = __webpack_require__(753);
+var ladda_config_1 = __webpack_require__(755);
+var Ladda = __webpack_require__(761);
 var LaddaDirective = (function () {
     function LaddaDirective(el, config) {
         this.el = el.nativeElement;
@@ -650,15 +777,15 @@ exports.LaddaDirective = LaddaDirective;
 
 /***/ }),
 
-/***/ 752:
+/***/ 760:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var ladda_directive_1 = __webpack_require__(751);
-var ladda_config_1 = __webpack_require__(749);
+var ladda_directive_1 = __webpack_require__(759);
+var ladda_config_1 = __webpack_require__(755);
 var LaddaModule = (function () {
     function LaddaModule() {
     }
@@ -685,7 +812,7 @@ exports.LaddaModule = LaddaModule;
 
 /***/ }),
 
-/***/ 753:
+/***/ 761:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -696,11 +823,11 @@ exports.LaddaModule = LaddaModule;
  * Copyright (C) 2017 Hakim El Hattab, http://hakim.se
  */
 
-!function(t,e){"use strict"; true?module.exports=e(__webpack_require__(754)):"function"==typeof define&&define.amd?define(["spin"],e):t.Ladda=e(t.Spinner)}(this,function(t){"use strict";function e(t){if(void 0!==t){if(/ladda-button/i.test(t.className)||(t.className+=" ladda-button"),t.hasAttribute("data-style")||t.setAttribute("data-style","expand-right"),!t.querySelector(".ladda-label")){var e=document.createElement("span");e.className="ladda-label",r(t,e)}var a,u=t.querySelector(".ladda-spinner");u||((u=document.createElement("span")).className="ladda-spinner"),t.appendChild(u);var i,o={start:function(){return a||(a=n(t)),t.disabled=!0,t.setAttribute("data-loading",""),clearTimeout(i),a.spin(u),this.setProgress(0),this},startAfter:function(t){return clearTimeout(i),i=setTimeout(function(){o.start()},t),this},stop:function(){return o.isLoading()&&(t.disabled=!1,t.removeAttribute("data-loading")),clearTimeout(i),a&&(i=setTimeout(function(){a.stop()},1e3)),this},toggle:function(){return this.isLoading()?this.stop():this.start()},setProgress:function(e){e=Math.max(Math.min(e,1),0);var a=t.querySelector(".ladda-progress");0===e&&a&&a.parentNode?a.parentNode.removeChild(a):(a||((a=document.createElement("div")).className="ladda-progress",t.appendChild(a)),a.style.width=(e||0)*t.offsetWidth+"px")},enable:function(){return this.stop()},disable:function(){return this.stop(),t.disabled=!0,this},isLoading:function(){return t.hasAttribute("data-loading")},remove:function(){clearTimeout(i),t.disabled=!1,t.removeAttribute("data-loading"),a&&(a.stop(),a=null),d.splice(d.indexOf(o),1)}};return d.push(o),o}console.warn("Ladda button target must be defined.")}function a(t,e){for(;t.parentNode&&t.tagName!==e;)t=t.parentNode;return e===t.tagName?t:void 0}function u(t){var e=[];return["input","textarea","select"].forEach(function(a){for(var u=t.getElementsByTagName(a),n=0;n<u.length;n++)u[n].hasAttribute("required")&&e.push(u[n])}),e}function n(e){var a,u,n=e.offsetHeight;0===n&&(n=parseFloat(window.getComputedStyle(e).height)),n>32&&(n*=.8),e.hasAttribute("data-spinner-size")&&(n=parseInt(e.getAttribute("data-spinner-size"),10)),e.hasAttribute("data-spinner-color")&&(a=e.getAttribute("data-spinner-color")),e.hasAttribute("data-spinner-lines")&&(u=parseInt(e.getAttribute("data-spinner-lines"),10));var r=.2*n,i=.6*r,d=r<7?2:3;return new t({color:a||"#fff",lines:u||12,radius:r,length:i,width:d,zIndex:"auto",top:"auto",left:"auto",className:""})}function r(t,e){var a=document.createRange();a.selectNodeContents(t),a.surroundContents(e),t.appendChild(e)}function i(t,n){if("function"==typeof t.addEventListener){var r=e(t),i=-1;t.addEventListener("click",function(){var e=!0,d=a(t,"FORM");if(void 0!==d)if("function"==typeof d.checkValidity)e=d.checkValidity();else for(var o=u(d),s=0;s<o.length;s++){var F=o[s],l=F.getAttribute("type");if(""===F.value.replace(/^\s+|\s+$/g,"")&&(e=!1),"checkbox"!==l&&"radio"!==l||F.checked||(e=!1),"email"===l&&(e=/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i.test(F.value)),"url"===l&&(e=/^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(F.value)),!e)break}e&&(r.startAfter(1),"number"==typeof n.timeout&&(clearTimeout(i),i=setTimeout(r.stop,n.timeout)),"function"==typeof n.callback&&n.callback.apply(null,[r]))},!1)}}var d=[];return{bind:function(t,e){var a;if("string"==typeof t)a=document.querySelectorAll(t);else{if("object"!=typeof t)throw new Error("target must be string or object");a=[t]}e=e||{};for(var u=0;u<a.length;u++)i(a[u],e)},create:e,stopAll:function(){for(var t=0,e=d.length;t<e;t++)d[t].stop()}}});
+!function(t,e){"use strict"; true?module.exports=e(__webpack_require__(762)):"function"==typeof define&&define.amd?define(["spin"],e):t.Ladda=e(t.Spinner)}(this,function(t){"use strict";function e(t){if(void 0!==t){if(/ladda-button/i.test(t.className)||(t.className+=" ladda-button"),t.hasAttribute("data-style")||t.setAttribute("data-style","expand-right"),!t.querySelector(".ladda-label")){var e=document.createElement("span");e.className="ladda-label",r(t,e)}var a,u=t.querySelector(".ladda-spinner");u||((u=document.createElement("span")).className="ladda-spinner"),t.appendChild(u);var i,o={start:function(){return a||(a=n(t)),t.disabled=!0,t.setAttribute("data-loading",""),clearTimeout(i),a.spin(u),this.setProgress(0),this},startAfter:function(t){return clearTimeout(i),i=setTimeout(function(){o.start()},t),this},stop:function(){return o.isLoading()&&(t.disabled=!1,t.removeAttribute("data-loading")),clearTimeout(i),a&&(i=setTimeout(function(){a.stop()},1e3)),this},toggle:function(){return this.isLoading()?this.stop():this.start()},setProgress:function(e){e=Math.max(Math.min(e,1),0);var a=t.querySelector(".ladda-progress");0===e&&a&&a.parentNode?a.parentNode.removeChild(a):(a||((a=document.createElement("div")).className="ladda-progress",t.appendChild(a)),a.style.width=(e||0)*t.offsetWidth+"px")},enable:function(){return this.stop()},disable:function(){return this.stop(),t.disabled=!0,this},isLoading:function(){return t.hasAttribute("data-loading")},remove:function(){clearTimeout(i),t.disabled=!1,t.removeAttribute("data-loading"),a&&(a.stop(),a=null),d.splice(d.indexOf(o),1)}};return d.push(o),o}console.warn("Ladda button target must be defined.")}function a(t,e){for(;t.parentNode&&t.tagName!==e;)t=t.parentNode;return e===t.tagName?t:void 0}function u(t){var e=[];return["input","textarea","select"].forEach(function(a){for(var u=t.getElementsByTagName(a),n=0;n<u.length;n++)u[n].hasAttribute("required")&&e.push(u[n])}),e}function n(e){var a,u,n=e.offsetHeight;0===n&&(n=parseFloat(window.getComputedStyle(e).height)),n>32&&(n*=.8),e.hasAttribute("data-spinner-size")&&(n=parseInt(e.getAttribute("data-spinner-size"),10)),e.hasAttribute("data-spinner-color")&&(a=e.getAttribute("data-spinner-color")),e.hasAttribute("data-spinner-lines")&&(u=parseInt(e.getAttribute("data-spinner-lines"),10));var r=.2*n,i=.6*r,d=r<7?2:3;return new t({color:a||"#fff",lines:u||12,radius:r,length:i,width:d,zIndex:"auto",top:"auto",left:"auto",className:""})}function r(t,e){var a=document.createRange();a.selectNodeContents(t),a.surroundContents(e),t.appendChild(e)}function i(t,n){if("function"==typeof t.addEventListener){var r=e(t),i=-1;t.addEventListener("click",function(){var e=!0,d=a(t,"FORM");if(void 0!==d)if("function"==typeof d.checkValidity)e=d.checkValidity();else for(var o=u(d),s=0;s<o.length;s++){var F=o[s],l=F.getAttribute("type");if(""===F.value.replace(/^\s+|\s+$/g,"")&&(e=!1),"checkbox"!==l&&"radio"!==l||F.checked||(e=!1),"email"===l&&(e=/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i.test(F.value)),"url"===l&&(e=/^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(F.value)),!e)break}e&&(r.startAfter(1),"number"==typeof n.timeout&&(clearTimeout(i),i=setTimeout(r.stop,n.timeout)),"function"==typeof n.callback&&n.callback.apply(null,[r]))},!1)}}var d=[];return{bind:function(t,e){var a;if("string"==typeof t)a=document.querySelectorAll(t);else{if("object"!=typeof t)throw new Error("target must be string or object");a=[t]}e=e||{};for(var u=0;u<a.length;u++)i(a[u],e)},create:e,stopAll:function(){for(var t=0,e=d.length;t<e;t++)d[t].stop()}}});
 
 /***/ }),
 
-/***/ 754:
+/***/ 762:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -1061,7 +1188,7 @@ exports.LaddaModule = LaddaModule;
 
 /***/ }),
 
-/***/ 755:
+/***/ 763:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1074,13 +1201,13 @@ exports.escapeRegexp = escapeRegexp;
 
 /***/ }),
 
-/***/ 756:
+/***/ 764:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var core_1 = __webpack_require__(2);
-var common_1 = __webpack_require__(755);
+var common_1 = __webpack_require__(763);
 var HighlightPipe = (function () {
     function HighlightPipe() {
     }
@@ -1121,119 +1248,7 @@ exports.stripTags = stripTags;
 
 /***/ }),
 
-/***/ 759:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var abstract_base_component_1 = __webpack_require__(742);
-var forms_1 = __webpack_require__(48);
-var core_1 = __webpack_require__(2);
-var AbstractProdutoComponent = (function (_super) {
-    __extends(AbstractProdutoComponent, _super);
-    function AbstractProdutoComponent(fb, location) {
-        var _this = _super.call(this) || this;
-        _this.fb = fb;
-        _this.location = location;
-        _this.checkUsoInterno = false;
-        _this.checkProdutoComposto = false;
-        _this.produtosComposicoes = [];
-        _this.comboCategorias = [];
-        return _this;
-    }
-    AbstractProdutoComponent.prototype.voltar = function () {
-        this.location.back();
-    };
-    AbstractProdutoComponent.prototype.mudarImage = function (evento) {
-        this.atualizarFoto(evento.foto);
-    };
-    AbstractProdutoComponent.prototype.atualizarFoto = function (foto) {
-        this.urlFoto = foto;
-    };
-    AbstractProdutoComponent.prototype.alterarCheckUsoInterno = function (valor) {
-        this.formulario.patchValue({
-            usoInterno: valor ? 'S' : 'N'
-        });
-    };
-    AbstractProdutoComponent.prototype.alterarCheckProdutoComposto = function (valor) {
-        this.checkProdutoComposto = valor;
-        this.formulario.patchValue({
-            produtoComposto: valor ? 'S' : 'N'
-        });
-    };
-    AbstractProdutoComponent.prototype.criarFormulario = function () {
-        this.formulario = this.fb.group({
-            idProduto: [''],
-            nmProduto: ['', [forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(25)]],
-            categoria: ['', forms_1.Validators.required],
-            preco: ['', forms_1.Validators.required],
-            produtoComposto: ['N'],
-            status: ['A'],
-            usoInterno: ['N'],
-            urlImagem: ['']
-        });
-        this.urlFoto = this.urlFotoAvatar;
-    };
-    AbstractProdutoComponent.prototype.confirmarCompProd = function (value) {
-        var prod = {};
-        prod.idProduto = value.idProdutoPai;
-        prod.idProdutoComposicao = value.produtoComp[0].id;
-        prod.nmProdutoComposicao = value.produtoComp[0].text;
-        prod.idUnidadeMedida = value.unidade[0].id;
-        prod.nmUnidadeMedida = value.unidade[0].text;
-        prod.qtdUtilizada = Number(value.qtdUtilizada);
-        prod.mostrarUnidade = value.mostrarUnidade;
-        prod.emAlteracao = value.emAlteracao;
-        var position = this.produtosComposicoes.findIndex(function (x) { return x.idProdutoComposicao == prod.idProdutoComposicao; });
-        if (position == -1) {
-            this.produtosComposicoes.push(prod);
-        }
-        else {
-            if (prod.emAlteracao) {
-                this.produtosComposicoes[position] = prod;
-            }
-            else {
-                this.produtosComposicoes[position].qtdUtilizada += prod.qtdUtilizada;
-            }
-        }
-    };
-    AbstractProdutoComponent.prototype.excluirItem = function (item) {
-        this.produtosComposicoes =
-            this.produtosComposicoes
-                .filter(function (prod) { return prod.idProdutoComposicao != item.idProdutoComposicao; });
-    };
-    return AbstractProdutoComponent;
-}(abstract_base_component_1.AbstractBaseComponent));
-__decorate([
-    core_1.ViewChild('tabComposicao'),
-    __metadata("design:type", Object)
-], AbstractProdutoComponent.prototype, "tabcomposicao", void 0);
-exports.AbstractProdutoComponent = AbstractProdutoComponent;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/abstract-produto.component.js.map
-
-/***/ }),
-
-/***/ 760:
+/***/ 767:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1262,10 +1277,10 @@ var forms_1 = __webpack_require__(48);
 var core_1 = __webpack_require__(2);
 var router_1 = __webpack_require__(42);
 var common_1 = __webpack_require__(28);
-var produto_service_1 = __webpack_require__(747);
-var categoria_service_1 = __webpack_require__(746);
-var abstract_produto_component_1 = __webpack_require__(759);
-var event_emitter_services_1 = __webpack_require__(134);
+var produto_service_1 = __webpack_require__(753);
+var categoria_service_1 = __webpack_require__(752);
+var abstract_produto_component_1 = __webpack_require__(757);
+var event_emitter_services_1 = __webpack_require__(72);
 var CreateProdutosComponent = (function (_super) {
     __extends(CreateProdutosComponent, _super);
     function CreateProdutosComponent(fb, location, categoriaService, produtoService, router) {
@@ -1311,8 +1326,8 @@ var CreateProdutosComponent = (function (_super) {
 CreateProdutosComponent = __decorate([
     core_1.Component({
         selector: 'app-create-catetorias',
-        template: __webpack_require__(809),
-        styles: [__webpack_require__(788)]
+        template: __webpack_require__(817),
+        styles: [__webpack_require__(795)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _c || Object, typeof (_d = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _d || Object, typeof (_e = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _e || Object])
 ], CreateProdutosComponent);
@@ -1322,7 +1337,7 @@ var _a, _b, _c, _d, _e;
 
 /***/ }),
 
-/***/ 761:
+/***/ 768:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1351,10 +1366,10 @@ var forms_1 = __webpack_require__(48);
 var core_1 = __webpack_require__(2);
 var router_1 = __webpack_require__(42);
 var common_1 = __webpack_require__(28);
-var produto_service_1 = __webpack_require__(747);
-var categoria_service_1 = __webpack_require__(746);
-var abstract_produto_component_1 = __webpack_require__(759);
-var event_emitter_services_1 = __webpack_require__(134);
+var produto_service_1 = __webpack_require__(753);
+var categoria_service_1 = __webpack_require__(752);
+var abstract_produto_component_1 = __webpack_require__(757);
+var event_emitter_services_1 = __webpack_require__(72);
 var EditProdutosComponent = (function (_super) {
     __extends(EditProdutosComponent, _super);
     function EditProdutosComponent(fb, route, location, categoriaService, produtoService, router) {
@@ -1421,8 +1436,8 @@ var EditProdutosComponent = (function (_super) {
 }(abstract_produto_component_1.AbstractProdutoComponent));
 EditProdutosComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(810),
-        styles: [__webpack_require__(789)]
+        template: __webpack_require__(819),
+        styles: [__webpack_require__(797)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _b || Object, typeof (_c = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _c || Object, typeof (_d = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _d || Object, typeof (_e = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _e || Object, typeof (_f = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _f || Object])
 ], EditProdutosComponent);
@@ -1432,7 +1447,7 @@ var _a, _b, _c, _d, _e, _f;
 
 /***/ }),
 
-/***/ 762:
+/***/ 769:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1457,12 +1472,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var event_emitter_services_1 = __webpack_require__(134);
+var event_emitter_services_1 = __webpack_require__(72);
 var core_1 = __webpack_require__(2);
 var router_1 = __webpack_require__(42);
-var api_config_1 = __webpack_require__(133);
-var produto_service_1 = __webpack_require__(747);
-var abstract_base_component_1 = __webpack_require__(742);
+var api_config_1 = __webpack_require__(134);
+var produto_service_1 = __webpack_require__(753);
+var abstract_base_component_1 = __webpack_require__(748);
 var ListarProdutosComponent = (function (_super) {
     __extends(ListarProdutosComponent, _super);
     function ListarProdutosComponent(produtoService, router) {
@@ -1520,8 +1535,8 @@ __decorate([
 ], ListarProdutosComponent.prototype, "popupChangeStatus", void 0);
 ListarProdutosComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(811),
-        styles: [__webpack_require__(790)]
+        template: __webpack_require__(820),
+        styles: [__webpack_require__(798)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], ListarProdutosComponent);
@@ -1531,7 +1546,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 770:
+/***/ 776:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1539,8 +1554,8 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
 var forms_1 = __webpack_require__(48);
-var currency_mask_config_1 = __webpack_require__(799);
-var input_handler_1 = __webpack_require__(801);
+var currency_mask_config_1 = __webpack_require__(807);
+var input_handler_1 = __webpack_require__(809);
 exports.CURRENCYMASKDIRECTIVE_VALUE_ACCESSOR = {
     provide: forms_1.NG_VALUE_ACCESSOR,
     useExisting: core_1.forwardRef(function () { return CurrencyMaskDirective; }),
@@ -1650,7 +1665,7 @@ exports.CurrencyMaskDirective = CurrencyMaskDirective;
 
 /***/ }),
 
-/***/ 771:
+/***/ 777:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1692,7 +1707,7 @@ exports.OffClickDirective = OffClickDirective;
 
 /***/ }),
 
-/***/ 772:
+/***/ 778:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1740,7 +1755,7 @@ exports.SelectItem = SelectItem;
 
 /***/ }),
 
-/***/ 773:
+/***/ 779:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1753,9 +1768,9 @@ var __extends = (this && this.__extends) || function (d, b) {
 var core_1 = __webpack_require__(2);
 var forms_1 = __webpack_require__(48);
 var platform_browser_1 = __webpack_require__(43);
-var select_item_1 = __webpack_require__(772);
-var select_pipes_1 = __webpack_require__(756);
-var common_1 = __webpack_require__(755);
+var select_item_1 = __webpack_require__(778);
+var select_pipes_1 = __webpack_require__(764);
+var common_1 = __webpack_require__(763);
 var styles = "\n  .ui-select-toggle {\n    position: relative;\n  }\n\n  /* Fix caret going into new line in Firefox */\n  .ui-select-placeholder {\n    float: left;\n  }\n  \n  /* Fix Bootstrap dropdown position when inside a input-group */\n  .input-group > .dropdown {\n    /* Instead of relative */\n    position: static;\n  }\n  \n  .ui-select-match > .btn {\n    /* Instead of center because of .btn */\n    text-align: left !important;\n  }\n  \n  .ui-select-match > .caret {\n    position: absolute;\n    top: 45%;\n    right: 15px;\n  }\n  \n  .ui-disabled {\n    background-color: #eceeef;\n    border-radius: 4px;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 5;\n    opacity: 0.6;\n    top: 0;\n    left: 0;\n    cursor: not-allowed;\n  }\n  \n  .ui-select-choices {\n    width: 100%;\n    height: auto;\n    max-height: 200px;\n    overflow-x: hidden;\n    margin-top: 0;\n  }\n  \n  .ui-select-multiple .ui-select-choices {\n    margin-top: 1px;\n  }\n  .ui-select-choices-row>a {\n      display: block;\n      padding: 3px 20px;\n      clear: both;\n      font-weight: 400;\n      line-height: 1.42857143;\n      color: #333;\n      white-space: nowrap;\n  }\n  .ui-select-choices-row.active>a {\n      color: #fff;\n      text-decoration: none;\n      outline: 0;\n      background-color: #428bca;\n  }\n  \n  .ui-select-multiple {\n    height: auto;\n    padding:3px 3px 0 3px;\n  }\n  \n  .ui-select-multiple input.ui-select-search {\n    background-color: transparent !important; /* To prevent double background when disabled */\n    border: none;\n    outline: none;\n    box-shadow: none;\n    height: 1.6666em;\n    padding: 0;\n    margin-bottom: 3px;\n    \n  }\n  .ui-select-match .close {\n      font-size: 1.6em;\n      line-height: 0.75;\n  }\n  \n  .ui-select-multiple .ui-select-match-item {\n    outline: 0;\n    margin: 0 3px 3px 0;\n  }\n  .ui-select-toggle > .caret {\n      position: absolute;\n      height: 10px;\n      top: 50%;\n      right: 10px;\n      margin-top: -2px;\n  }\n";
 var SelectComponent = (function () {
     function SelectComponent(element, sanitizer) {
@@ -2297,7 +2312,96 @@ exports.ChildrenBehavior = ChildrenBehavior;
 
 /***/ }),
 
-/***/ 777:
+/***/ 783:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var forms_1 = __webpack_require__(48);
+var core_1 = __webpack_require__(2);
+var router_1 = __webpack_require__(42);
+var common_1 = __webpack_require__(28);
+var produto_service_1 = __webpack_require__(753);
+var categoria_service_1 = __webpack_require__(752);
+var abstract_produto_component_1 = __webpack_require__(757);
+var event_emitter_services_1 = __webpack_require__(72);
+var CreatesProdutosComponent = (function (_super) {
+    __extends(CreatesProdutosComponent, _super);
+    function CreatesProdutosComponent(fb, location, categoriaService, produtoService, router) {
+        var _this = _super.call(this, fb, location) || this;
+        _this.fb = fb;
+        _this.location = location;
+        _this.categoriaService = categoriaService;
+        _this.produtoService = produtoService;
+        _this.router = router;
+        return _this;
+    }
+    CreatesProdutosComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.criarFormulario();
+        this.categoriaService.findAll()
+            .subscribe(function (response) { _this.comboCategorias = _this.preencharCombo(response, 'id', 'nome'); }
+        //, error => console.log(error)
+        );
+    };
+    CreatesProdutosComponent.prototype.confirmar = function (value) {
+        //let categoria: CategoriaDTO = {id:'1', nome:'2das'};
+        var _this = this;
+        var prod = {};
+        prod.id = value.idProduto;
+        prod.nmProduto = value.nmProduto;
+        prod.preco = value.preco;
+        prod.produtoComposto = value.produtoComposto;
+        prod.status = 'A';
+        prod.usoInterno = value.usoInterno;
+        prod.categoria = { id: value.categoria[0].id, nome: value.categoria[0].text };
+        prod.urlImagem = this.urlFoto;
+        prod.composicoes = this.produtosComposicoes;
+        this.produtoService.salvar(prod)
+            .subscribe(function (response) {
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria incluída com sucesso!!!');
+            _this.router.navigate(['/produtos/listar']);
+        }, function (error) {
+            //console.log('error de validação:', error.error);
+        });
+    };
+    return CreatesProdutosComponent;
+}(abstract_produto_component_1.AbstractProdutoComponent));
+CreatesProdutosComponent = __decorate([
+    core_1.Component({
+        selector: 'app-creates-catetorias',
+        template: __webpack_require__(818),
+        styles: [__webpack_require__(796)]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _c || Object, typeof (_d = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _d || Object, typeof (_e = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _e || Object])
+], CreatesProdutosComponent);
+exports.CreatesProdutosComponent = CreatesProdutosComponent;
+var _a, _b, _c, _d, _e;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/creates-produtos.component.js.map
+
+/***/ }),
+
+/***/ 784:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2324,9 +2428,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
 var forms_1 = __webpack_require__(48);
-var produto_service_1 = __webpack_require__(747);
-var abstract_base_component_1 = __webpack_require__(742);
-var unidade_medida_service_1 = __webpack_require__(748);
+var produto_service_1 = __webpack_require__(753);
+var abstract_popup_component_1 = __webpack_require__(750);
+var unidade_medida_service_1 = __webpack_require__(754);
 var ComposicaoPopupModalComponent = (function (_super) {
     __extends(ComposicaoPopupModalComponent, _super);
     function ComposicaoPopupModalComponent(fb, unidadeService, produtoService) {
@@ -2334,11 +2438,9 @@ var ComposicaoPopupModalComponent = (function (_super) {
         _this.fb = fb;
         _this.unidadeService = unidadeService;
         _this.produtoService = produtoService;
-        _this.titulo = "Confirmar";
         _this.checkMostrar = true;
         _this.comboCompUnidades = [];
         _this.comboCompProdutos = [];
-        _this.onClickConfirm = new core_1.EventEmitter();
         return _this;
     }
     ComposicaoPopupModalComponent.prototype.ngOnInit = function () {
@@ -2355,17 +2457,15 @@ var ComposicaoPopupModalComponent = (function (_super) {
     };
     ComposicaoPopupModalComponent.prototype.show = function () {
         this.criarFormProdComp();
-        this.confirma.show();
-        this.fieldFocus(this.campo);
+        this.showPopup("Inclusão de produto na composição");
     };
     ComposicaoPopupModalComponent.prototype.showAlteracao = function (item) {
         this.alterarProdutoComp(item);
-        this.confirma.show();
-        this.fieldFocus(this.campo);
+        this.showPopup("Inclusão de produto na composição");
     };
     ComposicaoPopupModalComponent.prototype.btnConfirmar = function (value) {
         this.onClickConfirm.emit(value);
-        this.confirma.hide();
+        //this.confirma.hide();
     };
     ComposicaoPopupModalComponent.prototype.criarFormProdComp = function () {
         this.formProdComp = this.fb.group({
@@ -2392,24 +2492,12 @@ var ComposicaoPopupModalComponent = (function (_super) {
         });
     };
     return ComposicaoPopupModalComponent;
-}(abstract_base_component_1.AbstractBaseComponent));
-__decorate([
-    core_1.ViewChild('modalConfirm'),
-    __metadata("design:type", Object)
-], ComposicaoPopupModalComponent.prototype, "confirma", void 0);
-__decorate([
-    core_1.ViewChild('campoNome'),
-    __metadata("design:type", Object)
-], ComposicaoPopupModalComponent.prototype, "campo", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ComposicaoPopupModalComponent.prototype, "onClickConfirm", void 0);
+}(abstract_popup_component_1.AbstractPopupComponent));
 ComposicaoPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'composicao-popup-modal',
-        styles: [__webpack_require__(791)],
-        template: __webpack_require__(812)
+        styles: [__webpack_require__(799)],
+        template: __webpack_require__(821)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _b || Object, typeof (_c = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _c || Object])
 ], ComposicaoPopupModalComponent);
@@ -2419,7 +2507,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 778:
+/***/ 785:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2433,9 +2521,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
 var router_1 = __webpack_require__(42);
-var create_produtos_component_1 = __webpack_require__(760);
-var listar_produtos_component_1 = __webpack_require__(762);
-var edit_produtos_component_1 = __webpack_require__(761);
+var create_produtos_component_1 = __webpack_require__(767);
+var listar_produtos_component_1 = __webpack_require__(769);
+var edit_produtos_component_1 = __webpack_require__(768);
 var routes = [
     {
         path: '',
@@ -2488,10 +2576,10 @@ exports.ProdutoRoutingModule = ProdutoRoutingModule;
 
 /***/ }),
 
-/***/ 788:
+/***/ 795:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(71)();
+exports = module.exports = __webpack_require__(58)();
 // imports
 
 
@@ -2506,10 +2594,28 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 789:
+/***/ 796:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(71)();
+exports = module.exports = __webpack_require__(58)();
+// imports
+
+
+// module
+exports.push([module.i, ".img-avatar-160 {\n  height: 160px;\n  width: 160px;\n  margin: 20px auto 10px;\n  border-radius: 50em; }\n\n.modal-dialog {\n  padding-top: 10%; }\n\n.table th, .table td {\n  padding: 0.20rem; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 797:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(58)();
 // imports
 
 
@@ -2524,10 +2630,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 790:
+/***/ 798:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(71)();
+exports = module.exports = __webpack_require__(58)();
 // imports
 
 
@@ -2542,10 +2648,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 791:
+/***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(71)();
+exports = module.exports = __webpack_require__(58)();
 // imports
 
 
@@ -2560,7 +2666,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 798:
+/***/ 806:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2569,13 +2675,13 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(770));
-__export(__webpack_require__(800));
+__export(__webpack_require__(776));
+__export(__webpack_require__(808));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 799:
+/***/ 807:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2587,7 +2693,7 @@ exports.CURRENCY_MASK_CONFIG = new core_1.InjectionToken("currency.mask.config")
 
 /***/ }),
 
-/***/ 800:
+/***/ 808:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2596,7 +2702,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(28);
 var forms_1 = __webpack_require__(48);
 var core_1 = __webpack_require__(2);
-var currency_mask_directive_1 = __webpack_require__(770);
+var currency_mask_directive_1 = __webpack_require__(776);
 var CurrencyMaskModule = (function () {
     function CurrencyMaskModule() {
     }
@@ -2623,13 +2729,13 @@ exports.CurrencyMaskModule = CurrencyMaskModule;
 
 /***/ }),
 
-/***/ 801:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_service_1 = __webpack_require__(803);
+var input_service_1 = __webpack_require__(811);
 var InputHandler = (function () {
     function InputHandler(htmlInputElement, options) {
         this.inputService = new input_service_1.InputService(htmlInputElement, options);
@@ -2757,7 +2863,7 @@ exports.InputHandler = InputHandler;
 
 /***/ }),
 
-/***/ 802:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2866,13 +2972,13 @@ exports.InputManager = InputManager;
 
 /***/ }),
 
-/***/ 803:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_manager_1 = __webpack_require__(802);
+var input_manager_1 = __webpack_require__(810);
 var InputService = (function () {
     function InputService(htmlInputElement, options) {
         this.htmlInputElement = htmlInputElement;
@@ -3000,7 +3106,7 @@ exports.InputService = InputService;
 
 /***/ }),
 
-/***/ 804:
+/***/ 812:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3008,26 +3114,26 @@ exports.InputService = InputService;
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-__export(__webpack_require__(755));
-__export(__webpack_require__(771));
-__export(__webpack_require__(805));
-__export(__webpack_require__(773));
-__export(__webpack_require__(772));
-__export(__webpack_require__(756));
+__export(__webpack_require__(763));
+__export(__webpack_require__(777));
+__export(__webpack_require__(813));
+__export(__webpack_require__(779));
+__export(__webpack_require__(778));
+__export(__webpack_require__(764));
 
 
 /***/ }),
 
-/***/ 805:
+/***/ 813:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var core_1 = __webpack_require__(2);
 var common_1 = __webpack_require__(28);
-var select_1 = __webpack_require__(773);
-var select_pipes_1 = __webpack_require__(756);
-var off_click_1 = __webpack_require__(771);
+var select_1 = __webpack_require__(779);
+var select_pipes_1 = __webpack_require__(764);
+var off_click_1 = __webpack_require__(777);
 var SelectModule = (function () {
     function SelectModule() {
     }
@@ -3047,28 +3153,35 @@ exports.SelectModule = SelectModule;
 
 /***/ }),
 
-/***/ 809:
+/***/ 817:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Produto</strong>\r\n        <small> - inclusão de um novo produto</small>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4 col-md-4\">\r\n              <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                  <strong>Imagens do produto</strong>\r\n                </div>\r\n                <div class=\"card-block\">\r\n                  <div class=\"row\">\r\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                  </div>\r\n\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                    (onSelecionarImagem)=\"mudarImage($event)\">\r\n                  </upload-imagem>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-8 col-sm-8\">\r\n              <form [formGroup]=\"formulario\" (ngSubmit)=\"confirmar()\">\r\n                <tabset>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-list\"></i> Menu &nbsp;\r\n                      <span class=\"badge badge-success\">New</span>\r\n                    </ng-template>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\r\n                          maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Categoria</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\r\n                        </ng-select>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('preco'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Valor</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('preco'))\"\r\n                          name=\"nmProduto\" maxlength=\"10\" formControlName=\"preco\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('preco'))\" titulo=\"Erro:\" mensagem=\"o campo valor é preenchimento obrigatório\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Uso interno</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composto</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkProdutoComposto type=\"checkbox\" class=\"switch-input\" [checked]=\"checkProdutoComposto\" (change)=\"alterarCheckProdutoComposto(chkProdutoComposto.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                  </tab>\r\n                  <tab [disabled]=\"!checkProdutoComposto\">\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-calculator\"></i> Composição &nbsp;\r\n                    </ng-template>\r\n                    <div class=\"from-group row\" >\r\n                      \r\n                      <div class=\"col-sm-12\">\r\n                        <div class=\"card\">\r\n                          <div class=\"card-header\">\r\n                            <strong>Composição do produto</strong>\r\n                            <div class=\"card-actions\">\r\n                              <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                <i class=\"icon-plus\"></i>\r\n                              </button>\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                            <div class=\"row\">\r\n\r\n                              <table class=\"table table-striped\">\r\n                                <thead>\r\n                                  <th class=\"text-left\">Produto</th>\r\n                                  <th class=\"text-right\">Quantidade</th>\r\n                                  <th class=\"text-center\">Mostrar</th>\r\n                                  <th class=\"text-right\">Ação</th>\r\n                                </thead>\r\n                                <tbody>\r\n                                  <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                    <td class=\"text-left\">\r\n                                      <div>{{item.nmProdutoComposicao}}</div>\r\n                                    </td>\r\n                                    <td class=\"text-right\">\r\n                                      {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                    </td>\r\n                                    <td class=\"text-center\">\r\n                                      <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                    </td>\r\n\r\n\r\n                                    <td class=\"text-right\">\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                        <i class=\"fa fa fa-edit\"> </i>\r\n                                      </button>\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                        <i class=\"fa fa-eraser\"> </i>\r\n                                      </button>\r\n                                    </td>\r\n                                  </tr>\r\n                                </tbody>\r\n                              </table>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Informações adicionais\r\n                    </ng-template>\r\n                    4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est\r\n                    laborum.\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Informações nutricionais\r\n                    </ng-template>\r\n                    4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est\r\n                    laborum.\r\n                  </tab>\r\n                </tabset>\r\n              </form>\r\n              <!-- \r\n\r\n                <form [formGroup]=\"formulario\" (ngSubmit)=\"confirmar()\">\r\n                  \r\n                  <div class=\"card\">\r\n                    <div class=\"card-header\">\r\n                      <strong>Descrição do produto</strong>\r\n                    </div>\r\n                    <div class=\"card-block\">\r\n                      \r\n                      \r\n                      \r\n                      <div class=\"from-group row\" *ngIf=\"checkProdutoComposto\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composição</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                              <strong>Composição do produto</strong>\r\n                              <div class=\"card-actions\">\r\n                                <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                              </div>\r\n                            </div>\r\n                            <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                              <div class=\"row\">\r\n                                \r\n                                <table class=\"table table-striped\">\r\n                                  <thead>\r\n                                    <th class=\"text-left\">Produto</th>\r\n                                    <th class=\"text-right\">Quantidade</th>\r\n                                    <th class=\"text-center\">Mostrar</th>\r\n                                    <th class=\"text-right\">Ação</th>\r\n                                  </thead>\r\n                                  <tbody>\r\n                                    <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                      <td class=\"text-left\">\r\n                                        <div>{{item.nmProdutoComposicao}}</div>\r\n                                      </td>\r\n                                      <td class=\"text-right\">\r\n                                        {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                      </td>\r\n                                      <td class=\"text-center\">\r\n                                        <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                      </td>\r\n                                      \r\n                                      \r\n                                      <td class=\"text-right\">\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                          <i class=\"fa fa fa-edit\"> </i>\r\n                                        </button>\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                          <i class=\"fa fa-eraser\"> </i>\r\n                                        </button>\r\n                                      </td>\r\n                                    </tr>\r\n                                  </tbody>\r\n                                </table>\r\n                              </div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n              -->\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n              </button>\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmConfirmarModalUsuario.show();\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <confirm-popup-modal #confirmConfirmarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n  </confirm-popup-modal>\r\n\r\n  <composicao-popup-modal #composicaoModalUsuario (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-popup-modal>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Produto</strong>\r\n        <small> - inclusão de um novo produto</small>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4 col-md-4\">\r\n              <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                  <strong>Imagens do produto</strong>\r\n                </div>\r\n                <div class=\"card-block\">\r\n                  <div class=\"row\">\r\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                  </div>\r\n\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                    (onSelecionarImagem)=\"mudarImage($event)\">\r\n                  </upload-imagem>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-8 col-sm-8\">\r\n              <form [formGroup]=\"formulario\" >\r\n                <tabset>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-list\"></i> Menu &nbsp;\r\n                      <span class=\"badge badge-success\">New</span>\r\n                    </ng-template>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Nome</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\r\n                          maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Categoria</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\r\n                        </ng-select>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('preco'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Valor</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('preco'))\"\r\n                          name=\"nmProduto\" maxlength=\"10\" formControlName=\"preco\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('preco'))\" titulo=\"Erro:\" mensagem=\"o campo valor é preenchimento obrigatório\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Uso interno</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Composto</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkProdutoComposto type=\"checkbox\" class=\"switch-input\" [checked]=\"checkProdutoComposto\" (change)=\"alterarCheckProdutoComposto(chkProdutoComposto.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                  </tab>\r\n                  <tab [disabled]=\"!checkProdutoComposto\">\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-calculator\"></i> Composição &nbsp;\r\n                    </ng-template>\r\n                    <div class=\"from-group row\" >\r\n                      \r\n                      <div class=\"col-sm-12\">\r\n                        <div class=\"card\">\r\n                          <div class=\"card-header\">\r\n                            <strong>Composição do produto</strong>\r\n                            <div class=\"card-actions\">\r\n                              <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                <i class=\"icon-plus\"></i>\r\n                              </button>\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                            <div class=\"row\">\r\n\r\n                              <table class=\"table table-striped\">\r\n                                <thead>\r\n                                  <th class=\"text-left\">Produto</th>\r\n                                  <th class=\"text-right\">Quantidade</th>\r\n                                  <th class=\"text-center\">Mostrar</th>\r\n                                  <th class=\"text-right\">Ação</th>\r\n                                </thead>\r\n                                <tbody>\r\n                                  <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                    <td class=\"text-left\">\r\n                                      <div>{{item.nmProdutoComposicao}}</div>\r\n                                    </td>\r\n                                    <td class=\"text-right\">\r\n                                      {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                    </td>\r\n                                    <td class=\"text-center\">\r\n                                      <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                    </td>\r\n\r\n\r\n                                    <td class=\"text-right\">\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                        <i class=\"fa fa fa-edit\"> </i>\r\n                                      </button>\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                        <i class=\"fa fa-eraser\"> </i>\r\n                                      </button>\r\n                                    </td>\r\n                                  </tr>\r\n                                </tbody>\r\n                              </table>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Informações adicionais\r\n                    </ng-template>\r\n                    4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est\r\n                    laborum.\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Informações nutricionais\r\n                    </ng-template>\r\n                    4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est\r\n                    laborum.\r\n                  </tab>\r\n                </tabset>\r\n              </form>\r\n              <!-- \r\n\r\n                <form [formGroup]=\"formulario\" >\r\n                  \r\n                  <div class=\"card\">\r\n                    <div class=\"card-header\">\r\n                      <strong>Descrição do produto</strong>\r\n                    </div>\r\n                    <div class=\"card-block\">\r\n                      \r\n                      \r\n                      \r\n                      <div class=\"from-group row\" *ngIf=\"checkProdutoComposto\">\r\n                        <label class=\"col-sm-2 form-control-label\" >Composição</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                              <strong>Composição do produto</strong>\r\n                              <div class=\"card-actions\">\r\n                                <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                              </div>\r\n                            </div>\r\n                            <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                              <div class=\"row\">\r\n                                \r\n                                <table class=\"table table-striped\">\r\n                                  <thead>\r\n                                    <th class=\"text-left\">Produto</th>\r\n                                    <th class=\"text-right\">Quantidade</th>\r\n                                    <th class=\"text-center\">Mostrar</th>\r\n                                    <th class=\"text-right\">Ação</th>\r\n                                  </thead>\r\n                                  <tbody>\r\n                                    <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                      <td class=\"text-left\">\r\n                                        <div>{{item.nmProdutoComposicao}}</div>\r\n                                      </td>\r\n                                      <td class=\"text-right\">\r\n                                        {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                      </td>\r\n                                      <td class=\"text-center\">\r\n                                        <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                      </td>\r\n                                      \r\n                                      \r\n                                      <td class=\"text-right\">\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                          <i class=\"fa fa fa-edit\"> </i>\r\n                                        </button>\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                          <i class=\"fa fa-eraser\"> </i>\r\n                                        </button>\r\n                                      </td>\r\n                                    </tr>\r\n                                  </tbody>\r\n                                </table>\r\n                              </div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n              -->\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n              </button>\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmConfirmarModalUsuario.show();\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <confirm-popup-modal #confirmConfirmarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n  </confirm-popup-modal>\r\n\r\n  <composicao-popup-modal #composicaoModalUsuario (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-popup-modal>"
 
 /***/ }),
 
-/***/ 810:
+/***/ 818:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-sm-12\">\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <strong>Produto</strong>\n          <small> - alteração do produto </small>\n        </div>\n  \n        <div class=\"card-block\">\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-sm-4 col-md-4\">\n                <div class=\"card\">\n                  <div class=\"card-header\">\n                    <strong>Imagens do produto</strong>\n                  </div>\n                  <div class=\"card-block\">\n                    <div class=\"row\">\n                      <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\n                    </div>\n  \n                  </div>\n                  <div class=\"card-footer\">\n                    <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\n                      (onSelecionarImagem)=\"mudarImage($event)\">\n                    </upload-imagem>\n                  </div>\n                </div>\n              </div>\n              <!--/.col-->\n  \n              <div class=\"col-md-8 col-sm-8\">\n                <form [formGroup]=\"formulario\" (ngSubmit)=\"confirmar()\">\n  \n                  <div class=\"card\">\n                    <div class=\"card-header\">\n                      <strong>Descrição do produto</strong>\n                    </div>\n                    <div class=\"card-block\">\n  \n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\n                        <div class=\"col-sm-10\">\n                          <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\n                            maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\n                          </alert-mensagem>\n                        </div>\n                      </div>\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Categoria</label>\n                        <div class=\"col-sm-10\">\n                          <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\n                          </ng-select>\n                        </div>\n                      </div>\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('preco'))\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Valor</label>\n                        <div class=\"col-sm-4\">\n                          <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('preco'))\"\n                            name=\"nmProduto\" maxlength=\"10\" formControlName=\"preco\">\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('preco'))\" titulo=\"Erro:\" mensagem=\"o campo valor é preenchimento obrigatório\">\n                          </alert-mensagem>\n                        </div>\n                      </div>\n  \n                      <div class=\"from-group row\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Uso interno</label>\n                        <div class=\"col-sm-10\">\n                          <label class=\"switch switch-lg switch-text switch-primary\">\n                            <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\n                            />\n                            <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\n                            <span class=\"switch-handle\"></span>\n                          </label>\n                        </div>\n                      </div>\n  \n                      <div class=\"from-group row\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composto</label>\n                        <div class=\"col-sm-10\">\n                          <label class=\"switch switch-lg switch-text switch-primary\">\n                            <input #chkProdutoComposto type=\"checkbox\" class=\"switch-input\" [checked]=\"checkProdutoComposto\" (change)=\"alterarCheckProdutoComposto(chkProdutoComposto.checked)\"\n                            />\n                            <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\n                            <span class=\"switch-handle\"></span>\n                          </label>\n                        </div>\n                      </div>\n  \n  \n                      <div class=\"from-group row\" *ngIf=\"checkProdutoComposto\">\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composição</label>\n                        <div class=\"col-sm-10\">\n                          <div class=\"card\">\n                            <div class=\"card-header\">\n                              <strong>Composição do produto</strong>\n                              <div class=\"card-actions\">\n                                <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\n                                  <i class=\"icon-plus\"></i>\n                                </button>\n                              </div>\n                            </div>\n                            <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\n                              <div class=\"row\">\n  \n                                <table class=\"table table-striped\">\n                                  <thead>\n                                    <th class=\"text-left\">Produto</th>\n                                    <th class=\"text-right\">Quantidade</th>\n                                    <th class=\"text-center\">Mostrar</th>\n                                    <th class=\"text-right\">Ação</th>\n                                  </thead>\n                                  <tbody>\n                                    <tr *ngFor=\"let item of produtosComposicoes\">\n                                      <td class=\"text-left\">\n                                        <div>{{item.nmProdutoComposicao}}</div>\n                                      </td>\n                                      <td class=\"text-right\">\n                                        {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\n                                      </td>\n                                      <td class=\"text-center\">\n                                        <simnao valor={{item.mostrarUnidade}}></simnao>\n                                      </td>\n  \n  \n                                      <td class=\"text-right\">\n                                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\n                                          <i class=\"fa fa fa-edit\"> </i>\n                                        </button>\n                                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\n                                          <i class=\"fa fa-eraser\"> </i>\n                                        </button>\n                                      </td>\n                                    </tr>\n                                  </tbody>\n                                </table>\n                              </div>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </form>\n              </div>\n  \n            </div>\n            <div class=\"card-footer\">\n              <div style=\"float: right;\">\n                <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\n                  <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\n                </button>\n                <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmConfirmarModalUsuario.show();\">\n                  <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\n                </button>\n  \n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  \n    <confirm-popup-modal #confirmConfirmarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\n    </confirm-popup-modal>\n  \n    <composicao-popup-modal #composicaoModalUsuario (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-popup-modal>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Produto</strong>\r\n        <small> - inclusão de um novo produto</small>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4 col-md-4\">\r\n              <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                  <strong>Imagens do produto</strong>\r\n                </div>\r\n                <div class=\"card-block\">\r\n                  <div class=\"row\">\r\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                  </div>\r\n\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                    (onSelecionarImagem)=\"mudarImage($event)\">\r\n                  </upload-imagem>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-8 col-sm-8\">\r\n              <form [formGroup]=\"formulario\" >\r\n                <tabset>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-list\"></i> Menu &nbsp;\r\n                      <span class=\"badge badge-success\">New</span>\r\n                    </ng-template>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Nome</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\r\n                          maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Categoria</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\r\n                        </ng-select>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('preco'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Valor</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('preco'))\"\r\n                          name=\"nmProduto\" maxlength=\"10\" formControlName=\"preco\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('preco'))\" titulo=\"Erro:\" mensagem=\"o campo valor é preenchimento obrigatório\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Uso interno</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Composto</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkProdutoComposto type=\"checkbox\" class=\"switch-input\" [checked]=\"checkProdutoComposto\" (change)=\"alterarCheckProdutoComposto(chkProdutoComposto.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-calculator\"></i> Composição &nbsp;\r\n                    </ng-template>\r\n                    <div class=\"from-group row\" >\r\n                      \r\n                      <div class=\"col-sm-12\">\r\n                        <div class=\"card\">\r\n                          <div class=\"card-header\">\r\n                            <strong>Composição do produto</strong>\r\n                            <div class=\"card-actions\">\r\n                              <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                <i class=\"icon-plus\"></i>\r\n                              </button>\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                            <div class=\"row\">\r\n\r\n                              <table class=\"table table-striped\">\r\n                                <thead>\r\n                                  <th class=\"text-left\">Produto</th>\r\n                                  <th class=\"text-right\">Quantidade</th>\r\n                                  <th class=\"text-center\">Mostrar</th>\r\n                                  <th class=\"text-right\">Ação</th>\r\n                                </thead>\r\n                                <tbody>\r\n                                  <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                    <td class=\"text-left\">\r\n                                      <div>{{item.nmProdutoComposicao}}</div>\r\n                                    </td>\r\n                                    <td class=\"text-right\">\r\n                                      {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                    </td>\r\n                                    <td class=\"text-center\">\r\n                                      <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                    </td>\r\n\r\n\r\n                                    <td class=\"text-right\">\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                        <i class=\"fa fa fa-edit\"> </i>\r\n                                      </button>\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                        <i class=\"fa fa-eraser\"> </i>\r\n                                      </button>\r\n                                    </td>\r\n                                  </tr>\r\n                                </tbody>\r\n                              </table>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Informações adicionais\r\n                    </ng-template>\r\n                    4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est\r\n                    laborum.\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Informações nutricionais\r\n                    </ng-template>\r\n                    4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est\r\n                    laborum.\r\n                  </tab>\r\n                </tabset>\r\n              </form>\r\n              <!-- \r\n\r\n                <form [formGroup]=\"formulario\" >\r\n                  \r\n                  <div class=\"card\">\r\n                    <div class=\"card-header\">\r\n                      <strong>Descrição do produto</strong>\r\n                    </div>\r\n                    <div class=\"card-block\">\r\n                      \r\n                      \r\n                      \r\n                      <div class=\"from-group row\" *ngIf=\"checkProdutoComposto\">\r\n                        <label class=\"col-sm-2 form-control-label\" >Composição</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                              <strong>Composição do produto</strong>\r\n                              <div class=\"card-actions\">\r\n                                <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                              </div>\r\n                            </div>\r\n                            <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                              <div class=\"row\">\r\n                                \r\n                                <table class=\"table table-striped\">\r\n                                  <thead>\r\n                                    <th class=\"text-left\">Produto</th>\r\n                                    <th class=\"text-right\">Quantidade</th>\r\n                                    <th class=\"text-center\">Mostrar</th>\r\n                                    <th class=\"text-right\">Ação</th>\r\n                                  </thead>\r\n                                  <tbody>\r\n                                    <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                      <td class=\"text-left\">\r\n                                        <div>{{item.nmProdutoComposicao}}</div>\r\n                                      </td>\r\n                                      <td class=\"text-right\">\r\n                                        {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                      </td>\r\n                                      <td class=\"text-center\">\r\n                                        <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                      </td>\r\n                                      \r\n                                      \r\n                                      <td class=\"text-right\">\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                          <i class=\"fa fa fa-edit\"> </i>\r\n                                        </button>\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                          <i class=\"fa fa-eraser\"> </i>\r\n                                        </button>\r\n                                      </td>\r\n                                    </tr>\r\n                                  </tbody>\r\n                                </table>\r\n                              </div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n              -->\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n              </button>\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmConfirmarModalUsuario.show();\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <confirm-popup-modal #confirmConfirmarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n  </confirm-popup-modal>\r\n\r\n  <composicao-popup-modal #composicaoModalUsuario (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-popup-modal>"
 
 /***/ }),
 
-/***/ 811:
+/***/ 819:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-12\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <strong>Produto</strong>\r\n          <small> - alteração do produto </small>\r\n        </div>\r\n  \r\n        <div class=\"card-block\">\r\n          <div class=\"form-group\">\r\n            <div class=\"row\">\r\n              <div class=\"col-sm-4 col-md-4\">\r\n                <div class=\"card\">\r\n                  <div class=\"card-header\">\r\n                    <strong>Imagens do produto</strong>\r\n                  </div>\r\n                  <div class=\"card-block\">\r\n                    <div class=\"row\">\r\n                      <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                    </div>\r\n  \r\n                  </div>\r\n                  <div class=\"card-footer\">\r\n                    <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                      (onSelecionarImagem)=\"mudarImage($event)\">\r\n                    </upload-imagem>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <!--/.col-->\r\n  \r\n              <div class=\"col-md-8 col-sm-8\">\r\n                <form [formGroup]=\"formulario\" (ngSubmit)=\"confirmar()\">\r\n  \r\n                  <div class=\"card\">\r\n                    <div class=\"card-header\">\r\n                      <strong>Descrição do produto</strong>\r\n                    </div>\r\n                    <div class=\"card-block\">\r\n  \r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\r\n                            maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\r\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\r\n                          </alert-mensagem>\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Categoria</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\r\n                          </ng-select>\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('preco'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Valor</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('preco'))\"\r\n                            name=\"nmProduto\" maxlength=\"10\" formControlName=\"preco\">\r\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('preco'))\" titulo=\"Erro:\" mensagem=\"o campo valor é preenchimento obrigatório\">\r\n                          </alert-mensagem>\r\n                        </div>\r\n                      </div>\r\n  \r\n                      <div class=\"from-group row\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Uso interno</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <label class=\"switch switch-lg switch-text switch-primary\">\r\n                            <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\r\n                            />\r\n                            <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                            <span class=\"switch-handle\"></span>\r\n                          </label>\r\n                        </div>\r\n                      </div>\r\n  \r\n                      <div class=\"from-group row\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composto</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <label class=\"switch switch-lg switch-text switch-primary\">\r\n                            <input #chkProdutoComposto type=\"checkbox\" class=\"switch-input\" [checked]=\"checkProdutoComposto\" (change)=\"alterarCheckProdutoComposto(chkProdutoComposto.checked)\"\r\n                            />\r\n                            <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                            <span class=\"switch-handle\"></span>\r\n                          </label>\r\n                        </div>\r\n                      </div>\r\n  \r\n  \r\n                      <div class=\"from-group row\" *ngIf=\"checkProdutoComposto\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composição</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                              <strong>Composição do produto</strong>\r\n                              <div class=\"card-actions\">\r\n                                <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                              </div>\r\n                            </div>\r\n                            <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                              <div class=\"row\">\r\n  \r\n                                <table class=\"table table-striped\">\r\n                                  <thead>\r\n                                    <th class=\"text-left\">Produto</th>\r\n                                    <th class=\"text-right\">Quantidade</th>\r\n                                    <th class=\"text-center\">Mostrar</th>\r\n                                    <th class=\"text-right\">Ação</th>\r\n                                  </thead>\r\n                                  <tbody>\r\n                                    <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                      <td class=\"text-left\">\r\n                                        <div>{{item.nmProdutoComposicao}}</div>\r\n                                      </td>\r\n                                      <td class=\"text-right\">\r\n                                        {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                      </td>\r\n                                      <td class=\"text-center\">\r\n                                        <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                      </td>\r\n  \r\n  \r\n                                      <td class=\"text-right\">\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                          <i class=\"fa fa fa-edit\"> </i>\r\n                                        </button>\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                          <i class=\"fa fa-eraser\"> </i>\r\n                                        </button>\r\n                                      </td>\r\n                                    </tr>\r\n                                  </tbody>\r\n                                </table>\r\n                              </div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n              </div>\r\n  \r\n            </div>\r\n            <div class=\"card-footer\">\r\n              <div style=\"float: right;\">\r\n                <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                  <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n                </button>\r\n                <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmConfirmarModalUsuario.show();\">\r\n                  <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n                </button>\r\n  \r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <confirm-popup-modal #confirmConfirmarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n    </confirm-popup-modal>\r\n  \r\n    <composicao-popup-modal #composicaoModalUsuario (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-popup-modal>"
+
+/***/ }),
+
+/***/ 820:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"col-md-1\"></div>\n<button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/produtos/novo']\">\n    <i class=\"icon-plus\"></i> Novo\n</button>\n<div class=\"card\">\n    <div class=\"card-header\">\n        <i class=\"fa fa-align-justify\"></i> Listagem de informações nutricional\n    </div>\n    <div class=\"card-block\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th class=\"text-center\" style=\"width: 5%\">\n                        <i class=\"icon-people\"></i>\n                    </th>\n                    <th style=\"width: 40%\" >Descrição do produto</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Categoria</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Uso interno</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Situação</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Preço</th>\n                    <th style=\"width: 15%\" class=\"text-center\">Ação</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let item of items\">\n                    <td class=\"text-center\">\n                        <div class=\"avatar\">\n                            <foto src=\"{{bucketUrl}}/produtos/prd{{item.id}}.jpg\" classCss=\"img-avatar\" alt=\"Avatar\"></foto>\n                        </div>\n                    </td>\n                    <td>\n                        <div>{{item.nmProduto}}</div>\n                    </td>\n                    <td class=\"text-center\">\n                        {{item?.categoria?.nome}}\n                    </td>\n                    <td class=\"text-center\">\n                        <simnao valor={{item.usoInterno}}></simnao>\n                    </td>\n                    <td class=\"text-center\">\n                        <status status={{item.status}}></status>\n                    </td>\n                    <td class=\"text-right\">\n                        {{item.preco | currency:'BRL':true}}\n                    </td>\n                    <td class=\"text-right\">\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"alterarProduto(item)\">\n                            <i class=\"fa fa fa-edit\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\n                            <i class=\"fa fa-eraser\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\n                            <i class=\"fa fa-exclamation\"> </i>\n                        </button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n<confirm-popup-modal #ExcluirCategoriaModal popupStyle=\"danger\" (onClickConfirm)=\"excluirCategoria()\">\n    <strong>Deseja excluir a categoria?</strong>\n</confirm-popup-modal>\n\n<confirm-popup-modal #ChangeSatusCategoriaModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\n    <strong>Deseja alterar o status da categoria?</strong>\n</confirm-popup-modal>"
 
 /***/ }),
 
-/***/ 812:
+/***/ 821:
 /***/ (function(module, exports) {
 
 module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n  aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-primary\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Composição do produto</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"dangerModal.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <form [formGroup]=\"formProdComp\" (ngSubmit)=\"confirmarCompProd()\">\r\n          <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('produtoComp'))\">\r\n            <label class=\"col-sm-4 form-control-label\" for=\"input-small\">Produto</label>\r\n            <div class=\"col-sm-8\" *ngIf=\"!formProdComp.get('emAlteracao').value\" >\r\n              <ng-select  [multiple]=\"false\" formControlName=\"produtoComp\" [items]=\"comboCompProdutos\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n            </div>\r\n            <div class=\"col-sm-8\" *ngIf=\"formProdComp.get('emAlteracao').value\" >\r\n                <input type=\"text\" id=\"disabled-input\" name=\"disabled-input\" class=\"form-control\" placeholder=\"Disabled\" disabled=\"\" value=\"{{formProdComp.get('produtoComp').value[0].text}}\">\r\n            </div>\r\n          </div>\r\n          <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('qtdUtilizada'))\">\r\n            <label class=\"col-sm-4 form-control-label\" for=\"input-normal\">Quantidade</label>\r\n            <div class=\"col-sm-4\">\r\n              <input #campoNome numberOnly type=\"text\" formControlName=\"qtdUtilizada\" class=\"form-control input-sm\" name=\"qtdUtilizada\" formControlName=\"qtdUtilizada\"\r\n                maxlength=\"4\">\r\n            </div>\r\n          </div>\r\n          <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('unidade'))\">\r\n            <label class=\"col-sm-4 form-control-label\" for=\"input-large\">Unidade de medida</label>\r\n            <div class=\"col-sm-4\">\r\n              <ng-select [multiple]=\"false\" formControlName=\"unidade\" [items]=\"comboCompUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-sm-4 form-control-label\">Mostar Unid e Qtd</label>\r\n            <div class=\"col-sm-8\">\r\n              <label class=\"switch switch-lg switch-text switch-primary\">\r\n                <input #checkMostrar type=\"checkbox\" class=\"switch-input\" [checked]=\"checkMostrar\" (change)=\"compProdCheckMostrar(checkMostrar.checked)\"\r\n                />\r\n                <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                <span class=\"switch-handle\"></span>\r\n              </label>\r\n            </div>\r\n          </div>\r\n        </form>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button class=\"btn btn-secondary\" (click)=\"modalConfirm.hide()\">\r\n          <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n        </button>\r\n        <button [disabled]=\"!formProdComp.valid\" type=\"button\" class=\"btn btn-md btn-success\" (click)=\"btnConfirmar(formProdComp.value)\">\r\n          <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"

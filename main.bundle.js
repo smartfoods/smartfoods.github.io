@@ -1,6 +1,6 @@
 webpackJsonp([8,12],{
 
-/***/ 133:
+/***/ 134:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,58 +12,6 @@ exports.API_CONFIG = {
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit"
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
-
-/***/ }),
-
-/***/ 134:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var toater_mensagem_model_1 = __webpack_require__(252);
-var tipo_mensagem_enum_1 = __webpack_require__(136);
-var EventEmitterService = (function () {
-    function EventEmitterService() {
-    }
-    EventEmitterService.get = function (nomeEvento) {
-        if (!this.emitters[nomeEvento]) {
-            this.emitters[nomeEvento] = new core_1.EventEmitter();
-        }
-        return this.emitters[nomeEvento];
-    };
-    EventEmitterService.unsubscribeEvent = function () {
-        this.emitters = {};
-        this.getToater();
-    };
-    EventEmitterService.getToater = function () {
-        return this.get('showToasterEvent');
-    };
-    EventEmitterService.emitirMensagemToaster = function (tm) {
-        return this.get('showToasterEvent').emit(tm);
-    };
-    EventEmitterService.emitirMensagemToasterSucesso = function (titulo, mensagem) {
-        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.success, titulo, mensagem);
-        return this.get('showToasterEvent').emit(tm);
-    };
-    EventEmitterService.emitirMensagemToasterAlerta = function (titulo, mensagem) {
-        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.warning, titulo, mensagem);
-        return this.get('showToasterEvent').emit(tm);
-    };
-    EventEmitterService.emitirMensagemToasterDanger = function (titulo, mensagem) {
-        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.danger, titulo, mensagem);
-        return this.get('showToasterEvent').emit(tm);
-    };
-    EventEmitterService.emitirMensagemToasterInfo = function (titulo, mensagem) {
-        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.info, titulo, mensagem);
-        return this.get('showToasterEvent').emit(tm);
-    };
-    return EventEmitterService;
-}());
-EventEmitterService.emitters = {};
-exports.EventEmitterService = EventEmitterService;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/event-emitter.services.js.map
 
 /***/ }),
 
@@ -79,32 +27,75 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
+var alert_field_mensagem_component_1 = __webpack_require__(270);
+var disabled_control_directive_1 = __webpack_require__(283);
+var lower_case_directive_1 = __webpack_require__(284);
+var upper_case_directive_1 = __webpack_require__(288);
 var common_1 = __webpack_require__(28);
-var modal_1 = __webpack_require__(253);
-// DataTable
-var confirm_popup_modal_component_1 = __webpack_require__(287);
-var PopupModalModule = (function () {
-    function PopupModalModule() {
+var forms_1 = __webpack_require__(48);
+var angular2_text_mask_1 = __webpack_require__(255);
+var form_debug_component_1 = __webpack_require__(274);
+var alert_mensagem_component_1 = __webpack_require__(271);
+var foto_component_1 = __webpack_require__(275);
+var sim_nao_component_1 = __webpack_require__(278);
+var status_component_1 = __webpack_require__(279);
+var upload_imagem_component_1 = __webpack_require__(280);
+var auto_foco_directive_1 = __webpack_require__(282);
+var number_only_directive_1 = __webpack_require__(286);
+var data_pipe_1 = __webpack_require__(291);
+var cnpj_pipe_1 = __webpack_require__(289);
+var core_1 = __webpack_require__(2);
+var cpf_pipe_1 = __webpack_require__(290);
+var SharedComponentModule = (function () {
+    function SharedComponentModule() {
     }
-    return PopupModalModule;
+    return SharedComponentModule;
 }());
-PopupModalModule = __decorate([
+SharedComponentModule = __decorate([
     core_1.NgModule({
         imports: [
             common_1.CommonModule,
-            modal_1.ModalModule.forRoot()
+            forms_1.FormsModule,
+            angular2_text_mask_1.TextMaskModule
         ],
         declarations: [
-            confirm_popup_modal_component_1.ConfirmPopupModalComponent,
+            foto_component_1.FotoComponent,
+            alert_mensagem_component_1.AlertMensagemComponent,
+            alert_field_mensagem_component_1.AlertFieldMensagemComponent,
+            form_debug_component_1.FormDebugComponent,
+            upload_imagem_component_1.UploadImagemComponent,
+            status_component_1.StatusComponent,
+            sim_nao_component_1.SimNaoComponent,
+            auto_foco_directive_1.AutoFocoDirective,
+            number_only_directive_1.NumberOnlyDirective,
+            cpf_pipe_1.CpfPipe,
+            cnpj_pipe_1.CnpjPipe,
+            data_pipe_1.DataPipe,
+            upper_case_directive_1.UpperCaseTextDirective,
+            lower_case_directive_1.LowerCaseTextDirective,
+            disabled_control_directive_1.DisableControlDirective,
         ],
         exports: [
-            confirm_popup_modal_component_1.ConfirmPopupModalComponent
+            foto_component_1.FotoComponent,
+            alert_mensagem_component_1.AlertMensagemComponent,
+            alert_field_mensagem_component_1.AlertFieldMensagemComponent,
+            form_debug_component_1.FormDebugComponent,
+            upload_imagem_component_1.UploadImagemComponent,
+            status_component_1.StatusComponent,
+            sim_nao_component_1.SimNaoComponent,
+            auto_foco_directive_1.AutoFocoDirective,
+            number_only_directive_1.NumberOnlyDirective,
+            cpf_pipe_1.CpfPipe,
+            cnpj_pipe_1.CnpjPipe,
+            data_pipe_1.DataPipe,
+            upper_case_directive_1.UpperCaseTextDirective,
+            lower_case_directive_1.LowerCaseTextDirective,
+            disabled_control_directive_1.DisableControlDirective
         ]
     })
-], PopupModalModule);
-exports.PopupModalModule = PopupModalModule;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/popup-modal.module.js.map
+], SharedComponentModule);
+exports.SharedComponentModule = SharedComponentModule;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/shared-component.module.js.map
 
 /***/ }),
 
@@ -114,14 +105,11 @@ exports.PopupModalModule = PopupModalModule;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var TipoMensagemEnum;
-(function (TipoMensagemEnum) {
-    TipoMensagemEnum[TipoMensagemEnum["success"] = 0] = "success";
-    TipoMensagemEnum[TipoMensagemEnum["warning"] = 1] = "warning";
-    TipoMensagemEnum[TipoMensagemEnum["danger"] = 2] = "danger";
-    TipoMensagemEnum[TipoMensagemEnum["info"] = 3] = "info";
-})(TipoMensagemEnum = exports.TipoMensagemEnum || (exports.TipoMensagemEnum = {}));
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/tipo-mensagem.enum.js.map
+exports.STORAGE_KEYS = {
+    localUser: "localUser",
+    cart: "cursoSpringIonicCart"
+};
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/storage-keys.config.js.map
 
 /***/ }),
 
@@ -266,8 +254,8 @@ var FullLayoutComponent = (function () {
 FullLayoutComponent = __decorate([
     core_1.Component({
         selector: 'app-dashboard',
-        styles: [__webpack_require__(447)],
-        template: __webpack_require__(461),
+        styles: [__webpack_require__(452)],
+        template: __webpack_require__(466),
         providers: []
     }),
     __metadata("design:paramtypes", [])
@@ -323,9 +311,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var storage_service_1 = __webpack_require__(58);
+var storage_service_1 = __webpack_require__(59);
 var http_1 = __webpack_require__(57);
-var auth_routing_module_1 = __webpack_require__(268);
+var auth_routing_module_1 = __webpack_require__(269);
 var core_1 = __webpack_require__(2);
 var forms_1 = __webpack_require__(48);
 var login_component_1 = __webpack_require__(144);
@@ -369,14 +357,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var trata_error_service_1 = __webpack_require__(252);
+var log_service_1 = __webpack_require__(148);
 var auth_service_1 = __webpack_require__(49);
 var core_1 = __webpack_require__(2);
 var router_1 = __webpack_require__(42);
-var event_emitter_services_1 = __webpack_require__(134);
 var LoginComponent = (function () {
-    function LoginComponent(auth, router) {
+    function LoginComponent(auth, router, log) {
         this.auth = auth;
         this.router = router;
+        this.log = log;
         this.creds = {
             login: "",
             senha: ""
@@ -397,20 +387,18 @@ var LoginComponent = (function () {
             .subscribe(function (response) {
             _this.auth.successfulLogin(response.headers.get('Authorization'));
             _this.router.navigate(['dashboard']);
-        }, function (error) {
-            event_emitter_services_1.EventEmitterService.emitirMensagemToasterInfo("Login", "Erro: " + error.status + " - Messagem: " + error.message);
-        });
+        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
     return LoginComponent;
 }());
 LoginComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(465)
+        template: __webpack_require__(470)
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object, typeof (_c = typeof log_service_1.LogService !== "undefined" && log_service_1.LogService) === "function" && _c || Object])
 ], LoginComponent);
 exports.LoginComponent = LoginComponent;
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/login.component.js.map
 
 /***/ }),
@@ -438,7 +426,7 @@ var RegisterComponent = (function () {
 }());
 RegisterComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(466)
+        template: __webpack_require__(471)
     }),
     __metadata("design:paramtypes", [])
 ], RegisterComponent);
@@ -495,206 +483,24 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 244:
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./layout/dashboard/dashboard.module": [
-		735,
-		6
-	],
-	"./pages/auth/auth.module": [
-		143
-	],
-	"./pages/cadastros/cliente/cliente.module": [
-		736,
-		1
-	],
-	"./pages/cadastros/produto/produto.module": [
-		737,
-		0
-	],
-	"./pages/config/admin/config-pages.module": [
-		738,
-		5
-	],
-	"./pages/config/categoria/categoria.module": [
-		739,
-		4
-	],
-	"./pages/config/infonutricional/info-nutricional.module": [
-		740,
-		3
-	],
-	"./pages/config/unidademedida/unidade-medida.module": [
-		741,
-		2
-	]
-};
-function webpackAsyncContext(req) {
-	var ids = map[req];	if(!ids)
-		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
-		return __webpack_require__(ids[0]);
-	});
-};
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-module.exports = webpackAsyncContext;
-webpackAsyncContext.id = 244;
-
-
-/***/ }),
-
-/***/ 245:
+/***/ 147:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var platform_browser_dynamic_1 = __webpack_require__(259);
-var app_module_1 = __webpack_require__(262);
-var environment_1 = __webpack_require__(293);
-if (environment_1.environment.production) {
-    core_1.enableProdMode();
-}
-platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/main.js.map
+var TipoMensagemEnum;
+(function (TipoMensagemEnum) {
+    TipoMensagemEnum[TipoMensagemEnum["success"] = 0] = "success";
+    TipoMensagemEnum[TipoMensagemEnum["warning"] = 1] = "warning";
+    TipoMensagemEnum[TipoMensagemEnum["danger"] = 2] = "danger";
+    TipoMensagemEnum[TipoMensagemEnum["info"] = 3] = "info";
+})(TipoMensagemEnum = exports.TipoMensagemEnum || (exports.TipoMensagemEnum = {}));
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/tipo-mensagem.enum.js.map
 
 /***/ }),
 
-/***/ 250:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var disabled_control_directive_1 = __webpack_require__(281);
-var lower_case_directive_1 = __webpack_require__(282);
-var upper_case_directive_1 = __webpack_require__(286);
-var data_pipe_1 = __webpack_require__(290);
-var cnpj_pipe_1 = __webpack_require__(288);
-var core_1 = __webpack_require__(2);
-var common_1 = __webpack_require__(28);
-var forms_1 = __webpack_require__(48);
-var angular2_text_mask_1 = __webpack_require__(254);
-var form_debug_component_1 = __webpack_require__(272);
-var alert_mensagem_component_1 = __webpack_require__(269);
-var foto_component_1 = __webpack_require__(273);
-var sim_nao_component_1 = __webpack_require__(276);
-var status_component_1 = __webpack_require__(277);
-var upload_imagem_component_1 = __webpack_require__(278);
-var auto_foco_directive_1 = __webpack_require__(280);
-var number_only_directive_1 = __webpack_require__(284);
-var cpf_pipe_1 = __webpack_require__(289);
-var SharedComponentModule = (function () {
-    function SharedComponentModule() {
-    }
-    return SharedComponentModule;
-}());
-SharedComponentModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            common_1.CommonModule,
-            forms_1.FormsModule,
-            angular2_text_mask_1.TextMaskModule
-        ],
-        declarations: [
-            foto_component_1.FotoComponent,
-            alert_mensagem_component_1.AlertMensagemComponent,
-            form_debug_component_1.FormDebugComponent,
-            upload_imagem_component_1.UploadImagemComponent,
-            status_component_1.StatusComponent,
-            sim_nao_component_1.SimNaoComponent,
-            auto_foco_directive_1.AutoFocoDirective,
-            number_only_directive_1.NumberOnlyDirective,
-            cpf_pipe_1.CpfPipe,
-            cnpj_pipe_1.CnpjPipe,
-            data_pipe_1.DataPipe,
-            upper_case_directive_1.UpperCaseTextDirective,
-            lower_case_directive_1.LowerCaseTextDirective,
-            disabled_control_directive_1.DisableControlDirective
-        ],
-        exports: [
-            foto_component_1.FotoComponent,
-            alert_mensagem_component_1.AlertMensagemComponent,
-            form_debug_component_1.FormDebugComponent,
-            upload_imagem_component_1.UploadImagemComponent,
-            status_component_1.StatusComponent,
-            sim_nao_component_1.SimNaoComponent,
-            auto_foco_directive_1.AutoFocoDirective,
-            number_only_directive_1.NumberOnlyDirective,
-            cpf_pipe_1.CpfPipe,
-            cnpj_pipe_1.CnpjPipe,
-            data_pipe_1.DataPipe,
-            upper_case_directive_1.UpperCaseTextDirective,
-            lower_case_directive_1.LowerCaseTextDirective,
-            disabled_control_directive_1.DisableControlDirective
-        ]
-    })
-], SharedComponentModule);
-exports.SharedComponentModule = SharedComponentModule;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/shared-component.module.js.map
-
-/***/ }),
-
-/***/ 251:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.STORAGE_KEYS = {
-    localUser: "localUser",
-    cart: "cursoSpringIonicCart"
-};
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/storage-keys.config.js.map
-
-/***/ }),
-
-/***/ 252:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tipo_mensagem_enum_1 = __webpack_require__(136);
-var ToasterMensagem = (function () {
-    function ToasterMensagem(tipo, titulo, mensagem) {
-        this.tipo = tipo;
-        this.titulo = titulo;
-        this.mensagem = mensagem;
-    }
-    ToasterMensagem.prototype.getTipoMensagem = function () {
-        var array = [];
-        array[tipo_mensagem_enum_1.TipoMensagemEnum.success] = 'success';
-        array[tipo_mensagem_enum_1.TipoMensagemEnum.warning] = 'warning';
-        array[tipo_mensagem_enum_1.TipoMensagemEnum.danger] = 'danger';
-        array[tipo_mensagem_enum_1.TipoMensagemEnum.info] = 'info';
-        return array[this.tipo];
-    };
-    ToasterMensagem.prototype.getTitulo = function () {
-        return this.titulo;
-    };
-    ToasterMensagem.prototype.getMensagem = function () {
-        return this.mensagem;
-    };
-    return ToasterMensagem;
-}());
-exports.ToasterMensagem = ToasterMensagem;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/toater-mensagem.model.js.map
-
-/***/ }),
-
-/***/ 261:
+/***/ 148:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -710,8 +516,209 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var angular2_toaster_1 = __webpack_require__(147);
-var event_emitter_services_1 = __webpack_require__(134);
+var LogService = (function () {
+    function LogService() {
+    }
+    LogService.prototype.consoleLog = function (msg) {
+        console.log(msg);
+    };
+    return LogService;
+}());
+LogService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [])
+], LogService);
+exports.LogService = LogService;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/log.service.js.map
+
+/***/ }),
+
+/***/ 246:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./layout/dashboard/dashboard.module": [
+		741,
+		6
+	],
+	"./pages/auth/auth.module": [
+		143
+	],
+	"./pages/cadastros/cliente/cliente.module": [
+		742,
+		1
+	],
+	"./pages/cadastros/produto/produto.module": [
+		743,
+		0
+	],
+	"./pages/config/admin/config-pages.module": [
+		744,
+		5
+	],
+	"./pages/config/categoria/categoria.module": [
+		745,
+		4
+	],
+	"./pages/config/infonutricional/info-nutricional.module": [
+		746,
+		3
+	],
+	"./pages/config/unidademedida/unidade-medida.module": [
+		747,
+		2
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+module.exports = webpackAsyncContext;
+webpackAsyncContext.id = 246;
+
+
+/***/ }),
+
+/***/ 247:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(2);
+var platform_browser_dynamic_1 = __webpack_require__(260);
+var app_module_1 = __webpack_require__(263);
+var environment_1 = __webpack_require__(296);
+if (environment_1.environment.production) {
+    core_1.enableProdMode();
+}
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/main.js.map
+
+/***/ }),
+
+/***/ 252:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var storage_keys_config_1 = __webpack_require__(136);
+var event_emitter_services_1 = __webpack_require__(72);
+var TrataErrorService = (function () {
+    function TrataErrorService() {
+    }
+    TrataErrorService.tratarError = function (error) {
+        var errorObj = error;
+        if (errorObj.error) {
+            errorObj = errorObj.error;
+        }
+        if (!errorObj.status) {
+            errorObj = JSON.parse(errorObj);
+        }
+        switch (errorObj.status) {
+            case 401:
+                this.handle401();
+                break;
+            case 403:
+                this.handle403();
+                break;
+            case 422:
+                event_emitter_services_1.EventEmitterService.getError422().emit(errorObj.errors);
+                break;
+            default:
+                this.handleDefaultEror(errorObj);
+        }
+    };
+    TrataErrorService.handle401 = function () {
+        event_emitter_services_1.EventEmitterService.emitirMensagemToasterDanger("Login", "Erro: 401 - Messagem: Email ou senha incorreto");
+    };
+    TrataErrorService.handle403 = function () {
+        localStorage.removeItem(storage_keys_config_1.STORAGE_KEYS.localUser);
+    };
+    TrataErrorService.handle422 = function (errorObj) {
+        return errorObj.errors;
+    };
+    TrataErrorService.handleDefaultEror = function (errorObj) {
+        event_emitter_services_1.EventEmitterService.emitirMensagemToasterAlerta("Alerta", "Erro: " + errorObj.status + " - Messagem: " + errorObj.message);
+    };
+    return TrataErrorService;
+}());
+exports.TrataErrorService = TrataErrorService;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/trata-error.service.js.map
+
+/***/ }),
+
+/***/ 253:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var base_popup_modal_component_1 = __webpack_require__(293);
+var confirm_popup_modal_component_1 = __webpack_require__(292);
+var core_1 = __webpack_require__(2);
+var common_1 = __webpack_require__(28);
+var modal_1 = __webpack_require__(254);
+var shared_component_module_1 = __webpack_require__(135);
+// DataTable
+var PopupModalModule = (function () {
+    function PopupModalModule() {
+    }
+    return PopupModalModule;
+}());
+PopupModalModule = __decorate([
+    core_1.NgModule({
+        imports: [
+            common_1.CommonModule,
+            modal_1.ModalModule.forRoot(),
+            shared_component_module_1.SharedComponentModule
+        ],
+        declarations: [
+            confirm_popup_modal_component_1.ConfirmPopupModalComponent,
+            base_popup_modal_component_1.BasePopupModalComponent
+        ],
+        exports: [
+            confirm_popup_modal_component_1.ConfirmPopupModalComponent,
+            base_popup_modal_component_1.BasePopupModalComponent
+        ]
+    })
+], PopupModalModule);
+exports.PopupModalModule = PopupModalModule;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/popup-modal.module.js.map
+
+/***/ }),
+
+/***/ 262:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(2);
+var angular2_toaster_1 = __webpack_require__(149);
+var event_emitter_services_1 = __webpack_require__(72);
 var AppComponent = (function () {
     function AppComponent(toasterService) {
         this.toasterService = toasterService;
@@ -719,7 +726,7 @@ var AppComponent = (function () {
             tapToDismiss: true,
             newestOnTop: true,
             positionClass: 'toast-top-full-width',
-            timeout: 2500
+            timeout: 3500
         });
         this.toasterService = toasterService;
     }
@@ -736,7 +743,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'body',
-        template: __webpack_require__(460)
+        template: __webpack_require__(465)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof angular2_toaster_1.ToasterService !== "undefined" && angular2_toaster_1.ToasterService) === "function" && _a || Object])
 ], AppComponent);
@@ -746,7 +753,7 @@ var _a;
 
 /***/ }),
 
-/***/ 262:
+/***/ 263:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -758,31 +765,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var log_service_1 = __webpack_require__(148);
 var core_1 = __webpack_require__(2);
 var forms_1 = __webpack_require__(48);
 var http_1 = __webpack_require__(57);
 var platform_browser_1 = __webpack_require__(43);
-var animations_1 = __webpack_require__(260);
+var animations_1 = __webpack_require__(261);
 var common_1 = __webpack_require__(28);
 var auth_module_1 = __webpack_require__(143);
-var app_component_1 = __webpack_require__(261);
+var app_component_1 = __webpack_require__(262);
 var dropdown_1 = __webpack_require__(137);
-var tabs_1 = __webpack_require__(255);
-var nav_dropdown_directive_1 = __webpack_require__(274);
-var ng2_charts_1 = __webpack_require__(256);
-var sidebar_directive_1 = __webpack_require__(275);
-var aside_directive_1 = __webpack_require__(270);
-var angular2_toaster_1 = __webpack_require__(147);
+var tabs_1 = __webpack_require__(256);
+var nav_dropdown_directive_1 = __webpack_require__(276);
+var ng2_charts_1 = __webpack_require__(257);
+var sidebar_directive_1 = __webpack_require__(277);
+var aside_directive_1 = __webpack_require__(272);
+var angular2_toaster_1 = __webpack_require__(149);
 var auth_guard_service_1 = __webpack_require__(146);
-var storage_service_1 = __webpack_require__(58);
+var storage_service_1 = __webpack_require__(59);
 var auth_service_1 = __webpack_require__(49);
 // Routing Module
 var app_routing_1 = __webpack_require__(140);
 //Layouts
-var layout_module_1 = __webpack_require__(265);
-var popup_modal_module_1 = __webpack_require__(135);
-var error_interceptor_1 = __webpack_require__(292);
-var auth_interceptor_1 = __webpack_require__(291);
+var layout_module_1 = __webpack_require__(266);
+var error_interceptor_1 = __webpack_require__(295);
+var auth_interceptor_1 = __webpack_require__(294);
 var AppModule = (function () {
     function AppModule() {
     }
@@ -801,8 +808,7 @@ AppModule = __decorate([
             angular2_toaster_1.ToasterModule,
             http_1.HttpClientModule,
             layout_module_1.LayoutModule,
-            auth_module_1.AuthModule,
-            popup_modal_module_1.PopupModalModule
+            auth_module_1.AuthModule
             //5r4e3ewaszweszwsaz\CoreModule.forRoot()
         ],
         declarations: [
@@ -818,6 +824,7 @@ AppModule = __decorate([
             auth_guard_service_1.AuthGuard,
             auth_service_1.AuthService,
             storage_service_1.StorageService,
+            log_service_1.LogService,
             auth_interceptor_1.AuthInterceptorProvider,
             error_interceptor_1.ErrorInterceptorProvider,
             { provide: core_1.LOCALE_ID, useValue: 'pt-BR' }
@@ -830,7 +837,7 @@ exports.AppModule = AppModule;
 
 /***/ }),
 
-/***/ 263:
+/***/ 264:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -865,7 +872,7 @@ exports.FooterComponent = FooterComponent;
 
 /***/ }),
 
-/***/ 264:
+/***/ 265:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -894,7 +901,7 @@ var HeardSideBarComponent = (function () {
 HeardSideBarComponent = __decorate([
     core_1.Component({
         selector: 'heard-side-bar',
-        template: __webpack_require__(462)
+        template: __webpack_require__(467)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _a || Object])
 ], HeardSideBarComponent);
@@ -904,7 +911,7 @@ var _a;
 
 /***/ }),
 
-/***/ 265:
+/***/ 266:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -921,17 +928,17 @@ var common_1 = __webpack_require__(28);
 var http_1 = __webpack_require__(139);
 var forms_1 = __webpack_require__(48);
 var app_routing_1 = __webpack_require__(140);
-var shared_component_module_1 = __webpack_require__(250);
-var popup_modal_module_1 = __webpack_require__(135);
+var shared_component_module_1 = __webpack_require__(135);
+var popup_modal_module_1 = __webpack_require__(253);
 var dropdown_1 = __webpack_require__(137);
-var aside_directive_1 = __webpack_require__(279);
-var sidebar_directive_1 = __webpack_require__(285);
-var nav_dropdown_directive_1 = __webpack_require__(283);
-var breadcrumb_component_1 = __webpack_require__(271);
-var footer_component_1 = __webpack_require__(263);
-var menu_side_bar_component_1 = __webpack_require__(266);
-var heard_side_bar_component_1 = __webpack_require__(264);
-var up_side_bar_component_1 = __webpack_require__(267);
+var aside_directive_1 = __webpack_require__(281);
+var sidebar_directive_1 = __webpack_require__(287);
+var nav_dropdown_directive_1 = __webpack_require__(285);
+var breadcrumb_component_1 = __webpack_require__(273);
+var footer_component_1 = __webpack_require__(264);
+var menu_side_bar_component_1 = __webpack_require__(267);
+var heard_side_bar_component_1 = __webpack_require__(265);
+var up_side_bar_component_1 = __webpack_require__(268);
 var full_layout_component_1 = __webpack_require__(141);
 var simple_layout_component_1 = __webpack_require__(142);
 var auth_service_1 = __webpack_require__(49);
@@ -976,7 +983,7 @@ exports.LayoutModule = LayoutModule;
 
 /***/ }),
 
-/***/ 266:
+/***/ 267:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1002,7 +1009,7 @@ var MenuSideBarComponent = (function () {
 MenuSideBarComponent = __decorate([
     core_1.Component({
         selector: 'menu-side-bar',
-        template: __webpack_require__(463)
+        template: __webpack_require__(468)
     }),
     __metadata("design:paramtypes", [])
 ], MenuSideBarComponent);
@@ -1011,7 +1018,7 @@ exports.MenuSideBarComponent = MenuSideBarComponent;
 
 /***/ }),
 
-/***/ 267:
+/***/ 268:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1045,7 +1052,7 @@ var UpSideBarComponent = (function () {
 UpSideBarComponent = __decorate([
     core_1.Component({
         selector: 'up-side-bar',
-        template: __webpack_require__(464)
+        template: __webpack_require__(469)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], UpSideBarComponent);
@@ -1055,7 +1062,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 268:
+/***/ 269:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1111,7 +1118,50 @@ exports.AuthRoutingModule = AuthRoutingModule;
 
 /***/ }),
 
-/***/ 269:
+/***/ 270:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var event_emitter_services_1 = __webpack_require__(72);
+var core_1 = __webpack_require__(2);
+var AlertFieldMensagemComponent = (function () {
+    function AlertFieldMensagemComponent() {
+    }
+    AlertFieldMensagemComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        event_emitter_services_1.EventEmitterService.getError422().subscribe(function (res) { return _this.fields = res; });
+    };
+    return AlertFieldMensagemComponent;
+}());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Array)
+], AlertFieldMensagemComponent.prototype, "fields", void 0);
+AlertFieldMensagemComponent = __decorate([
+    core_1.Component({
+        selector: 'alert-field-mensagem',
+        styles: ['.alert .alert-icon-col {min-width: 25px;max-width: 25px;} body {padding: 10px;}'],
+        template: "\n        <div *ngIf=\"fields?.length > 0\" class=\"alert alert-danger\" role=\"alert\">\n            <h4 class=\"alert-heading\">Erro de valida\u00E7\u00E3o!</h4>\n            <div class=\"row\">\n            <div class=\"col-1 alert-icon-col\">\n                <span class=\"fa fa-exclamation-triangle fa-fw\"></span>\n            </div>\n            <div class=\"col\">\n              <p *ngFor=\"let error of fields\">\n                <strong>{{error.fieldName}}</strong> - {{error.message}}<br/>\n              </p>\n            </div>\n            </div>\n        </div>\n   "
+    }),
+    __metadata("design:paramtypes", [])
+], AlertFieldMensagemComponent);
+exports.AlertFieldMensagemComponent = AlertFieldMensagemComponent;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/alert-field-mensagem.component.js.map
+
+/***/ }),
+
+/***/ 271:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1167,7 +1217,7 @@ exports.AlertMensagemComponent = AlertMensagemComponent;
 
 /***/ }),
 
-/***/ 270:
+/***/ 272:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1212,7 +1262,7 @@ exports.AsideToggleDirective = AsideToggleDirective;
 
 /***/ }),
 
-/***/ 271:
+/***/ 273:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1229,7 +1279,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
 var router_1 = __webpack_require__(42);
-__webpack_require__(205);
+__webpack_require__(207);
 var BreadcrumbsComponent = (function () {
     function BreadcrumbsComponent(router, route) {
         this.router = router;
@@ -1272,7 +1322,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 272:
+/***/ 274:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1311,7 +1361,7 @@ exports.FormDebugComponent = FormDebugComponent;
 
 /***/ }),
 
-/***/ 273:
+/***/ 275:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1362,7 +1412,7 @@ exports.FotoComponent = FotoComponent;
 
 /***/ }),
 
-/***/ 274:
+/***/ 276:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1452,7 +1502,7 @@ exports.NAV_DROPDOWN_DIRECTIVES = [NavDropdownDirective, NavDropdownToggleDirect
 
 /***/ }),
 
-/***/ 275:
+/***/ 277:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1568,7 +1618,7 @@ exports.SIDEBAR_TOGGLE_DIRECTIVES = [SidebarToggleDirective, SidebarOffCanvasClo
 
 /***/ }),
 
-/***/ 276:
+/***/ 278:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1617,7 +1667,7 @@ exports.SimNaoComponent = SimNaoComponent;
 
 /***/ }),
 
-/***/ 277:
+/***/ 279:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1666,7 +1716,7 @@ exports.StatusComponent = StatusComponent;
 
 /***/ }),
 
-/***/ 278:
+/***/ 280:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1774,7 +1824,7 @@ exports.UploadImagemComponent = UploadImagemComponent;
 
 /***/ }),
 
-/***/ 279:
+/***/ 281:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1819,7 +1869,7 @@ exports.AsideToggleDirective = AsideToggleDirective;
 
 /***/ }),
 
-/***/ 280:
+/***/ 282:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1861,7 +1911,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 281:
+/***/ 283:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1909,7 +1959,7 @@ var _a;
 
 /***/ }),
 
-/***/ 282:
+/***/ 284:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1949,7 +1999,7 @@ var _a;
 
 /***/ }),
 
-/***/ 283:
+/***/ 285:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2039,7 +2089,7 @@ exports.NAV_DROPDOWN_DIRECTIVES = [NavDropdownDirective, NavDropdownToggleDirect
 
 /***/ }),
 
-/***/ 284:
+/***/ 286:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2095,7 +2145,7 @@ var _a;
 
 /***/ }),
 
-/***/ 285:
+/***/ 287:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2211,7 +2261,7 @@ exports.SIDEBAR_TOGGLE_DIRECTIVES = [SidebarToggleDirective, SidebarOffCanvasClo
 
 /***/ }),
 
-/***/ 286:
+/***/ 288:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2251,7 +2301,106 @@ var _a;
 
 /***/ }),
 
-/***/ 287:
+/***/ 289:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(2);
+var CnpjPipe = (function () {
+    function CnpjPipe() {
+    }
+    CnpjPipe.prototype.transform = function (value) {
+        if (value && value.length === 14) {
+            value = value.replace(/\D/g, '');
+            value = value.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
+            return value;
+        }
+    };
+    return CnpjPipe;
+}());
+CnpjPipe = __decorate([
+    core_1.Pipe({ name: 'cnpjMask' })
+], CnpjPipe);
+exports.CnpjPipe = CnpjPipe;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/cnpj.pipe.js.map
+
+/***/ }),
+
+/***/ 290:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(2);
+var CpfPipe = (function () {
+    function CpfPipe() {
+    }
+    CpfPipe.prototype.transform = function (value) {
+        if (value && value.length === 11) {
+            value = value.replace(/\D/g, '');
+            value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+            return value;
+        }
+    };
+    return CpfPipe;
+}());
+CpfPipe = __decorate([
+    core_1.Pipe({ name: 'cpfMask' })
+], CpfPipe);
+exports.CpfPipe = CpfPipe;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/cpf.pipe.js.map
+
+/***/ }),
+
+/***/ 291:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(2);
+var DataPipe = (function () {
+    function DataPipe() {
+    }
+    DataPipe.prototype.transform = function (value) {
+        if (value && value.length === 8) {
+            value = value.replace(/\D/g, '');
+            value = value.replace(/(\d{2})(\d{2})(\d{4})/, "$1/$2/$3");
+            return value;
+        }
+    };
+    return DataPipe;
+}());
+DataPipe = __decorate([
+    core_1.Pipe({ name: 'dataMask' })
+], DataPipe);
+exports.DataPipe = DataPipe;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/data.pipe.js.map
+
+/***/ }),
+
+/***/ 292:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2309,8 +2458,8 @@ __decorate([
 ConfirmPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'confirm-popup-modal',
-        styles: [__webpack_require__(446)],
-        template: __webpack_require__(467)
+        styles: [__webpack_require__(450)],
+        template: __webpack_require__(472)
     }),
     __metadata("design:paramtypes", [])
 ], ConfirmPopupModalComponent);
@@ -2319,106 +2468,7 @@ exports.ConfirmPopupModalComponent = ConfirmPopupModalComponent;
 
 /***/ }),
 
-/***/ 288:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var CnpjPipe = (function () {
-    function CnpjPipe() {
-    }
-    CnpjPipe.prototype.transform = function (value) {
-        if (value && value.length === 14) {
-            value = value.replace(/\D/g, '');
-            value = value.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
-            return value;
-        }
-    };
-    return CnpjPipe;
-}());
-CnpjPipe = __decorate([
-    core_1.Pipe({ name: 'cnpjMask' })
-], CnpjPipe);
-exports.CnpjPipe = CnpjPipe;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/cnpj.pipe.js.map
-
-/***/ }),
-
-/***/ 289:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var CpfPipe = (function () {
-    function CpfPipe() {
-    }
-    CpfPipe.prototype.transform = function (value) {
-        if (value && value.length === 11) {
-            value = value.replace(/\D/g, '');
-            value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-            return value;
-        }
-    };
-    return CpfPipe;
-}());
-CpfPipe = __decorate([
-    core_1.Pipe({ name: 'cpfMask' })
-], CpfPipe);
-exports.CpfPipe = CpfPipe;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/cpf.pipe.js.map
-
-/***/ }),
-
-/***/ 290:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var DataPipe = (function () {
-    function DataPipe() {
-    }
-    DataPipe.prototype.transform = function (value) {
-        if (value && value.length === 8) {
-            value = value.replace(/\D/g, '');
-            value = value.replace(/(\d{2})(\d{2})(\d{4})/, "$1/$2/$3");
-            return value;
-        }
-    };
-    return DataPipe;
-}());
-DataPipe = __decorate([
-    core_1.Pipe({ name: 'dataMask' })
-], DataPipe);
-exports.DataPipe = DataPipe;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/data.pipe.js.map
-
-/***/ }),
-
-/***/ 291:
+/***/ 293:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2433,8 +2483,72 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__(133);
-var storage_service_1 = __webpack_require__(58);
+var event_emitter_services_1 = __webpack_require__(72);
+var core_1 = __webpack_require__(2);
+var BasePopupModalComponent = (function () {
+    function BasePopupModalComponent() {
+        this.desabilitarBtnConfirmar = false;
+        this.onClickBaseConfirm = new core_1.EventEmitter();
+    }
+    BasePopupModalComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        event_emitter_services_1.EventEmitterService.getClosePopup().subscribe(function (x) { return _this.confirma.hide(); });
+        event_emitter_services_1.EventEmitterService.getShowPopup().subscribe(function (x) { return _this.confirma.show(); });
+    };
+    BasePopupModalComponent.prototype.show = function () {
+        this.confirma.show();
+    };
+    BasePopupModalComponent.prototype.btnBaseConfirmar = function () {
+        this.onClickBaseConfirm.emit(true);
+    };
+    return BasePopupModalComponent;
+}());
+__decorate([
+    core_1.ViewChild('modalConfirm'),
+    __metadata("design:type", Object)
+], BasePopupModalComponent.prototype, "confirma", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], BasePopupModalComponent.prototype, "titulo", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], BasePopupModalComponent.prototype, "desabilitarBtnConfirmar", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], BasePopupModalComponent.prototype, "onClickBaseConfirm", void 0);
+BasePopupModalComponent = __decorate([
+    core_1.Component({
+        selector: 'base-popup-modal',
+        styles: [__webpack_require__(451)],
+        template: __webpack_require__(473)
+    }),
+    __metadata("design:paramtypes", [])
+], BasePopupModalComponent);
+exports.BasePopupModalComponent = BasePopupModalComponent;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/base-popup-modal.component.js.map
+
+/***/ }),
+
+/***/ 294:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var api_config_1 = __webpack_require__(134);
+var storage_service_1 = __webpack_require__(59);
 var core_1 = __webpack_require__(2);
 var http_1 = __webpack_require__(57);
 var AuthInterceptor = (function () {
@@ -2470,7 +2584,7 @@ var _a;
 
 /***/ }),
 
-/***/ 292:
+/***/ 295:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2485,10 +2599,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var storage_service_1 = __webpack_require__(58);
+var storage_service_1 = __webpack_require__(59);
 var core_1 = __webpack_require__(2);
 var http_1 = __webpack_require__(57);
-var Rx_1 = __webpack_require__(469); // IMPORTANTE: IMPORT ATUALIZADO
+var Rx_1 = __webpack_require__(475); // IMPORTANTE: IMPORT ATUALIZADO
 var ErrorInterceptor = (function () {
     function ErrorInterceptor(storage) {
         this.storage = storage;
@@ -2548,27 +2662,57 @@ var _a;
 
 /***/ }),
 
-/***/ 293:
+/***/ 296:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `angular-cli.json`.
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.environment = {
-    production: false
+    production: true
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/environment.js.map
 
 /***/ }),
 
-/***/ 446:
+/***/ 297:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(71)();
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tipo_mensagem_enum_1 = __webpack_require__(147);
+var ToasterMensagem = (function () {
+    function ToasterMensagem(tipo, titulo, mensagem) {
+        this.tipo = tipo;
+        this.titulo = titulo;
+        this.mensagem = mensagem;
+    }
+    ToasterMensagem.prototype.getTipoMensagem = function () {
+        var array = [];
+        array[tipo_mensagem_enum_1.TipoMensagemEnum.success] = 'success';
+        array[tipo_mensagem_enum_1.TipoMensagemEnum.warning] = 'warning';
+        array[tipo_mensagem_enum_1.TipoMensagemEnum.danger] = 'error';
+        array[tipo_mensagem_enum_1.TipoMensagemEnum.info] = 'info';
+        return array[this.tipo];
+    };
+    ToasterMensagem.prototype.getTitulo = function () {
+        return this.titulo;
+    };
+    ToasterMensagem.prototype.getMensagem = function () {
+        return this.mensagem;
+    };
+    return ToasterMensagem;
+}());
+exports.ToasterMensagem = ToasterMensagem;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/toater-mensagem.model.js.map
+
+/***/ }),
+
+/***/ 450:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(58)();
 // imports
 
 
@@ -2583,10 +2727,28 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 447:
+/***/ 451:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(71)();
+exports = module.exports = __webpack_require__(58)();
+// imports
+
+
+// module
+exports.push([module.i, ".modal-dialog {\n  padding-top: 10%; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 452:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(58)();
 // imports
 
 
@@ -2601,59 +2763,66 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 460:
+/***/ 465:
 /***/ (function(module, exports) {
 
 module.exports = "<router-outlet></router-outlet>\r\n\r\n<toaster-container [toasterconfig]=\"toasterconfig\"></toaster-container>\r\n"
 
 /***/ }),
 
-/***/ 461:
+/***/ 466:
 /***/ (function(module, exports) {
 
 module.exports = "<up-side-bar>\r\n</up-side-bar>\r\n<div class=\"app-body\">\r\n    <div class=\"sidebar\">\r\n        <heard-side-bar></heard-side-bar>\r\n        <nav class=\"sidebar-nav\">\r\n            <menu-side-bar></menu-side-bar>\r\n        </nav>\r\n    </div>\r\n\r\n    <!-- Main content -->\r\n    <main class=\"main\">\r\n\r\n        <!-- Breadcrumb -->\r\n        <ol class=\"breadcrumb\">\r\n            <breadcrumbs></breadcrumbs>\r\n        </ol>\r\n        <div class=\"container-fluid\">\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n        <!-- /.conainer-fluid -->\r\n    </main>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
-/***/ 462:
+/***/ 467:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"sidebar-header\">\n  <foto\n    src=\"{{urlFotoPerfil}}\"\n    classCss=\"img-avatar\"\n    alt=\"Avatar\"\n    ></foto>\n  <div><strong> DANIEL AGUIAR</strong></div>\n  <div class=\"text-muted\"><small> CEO</small></div>\n</div>\n"
 
 /***/ }),
 
-/***/ 463:
+/***/ 468:
 /***/ (function(module, exports) {
 
 module.exports = "<ul class=\"nav\">\n    <li class=\"nav-item\">\n          <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/dashboard']\">\n              <i class=\"icon-speedometer\"></i>Dashboard\n          </a>\n      </li>\n          <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n            <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"><i class=\"icon-puzzle\"></i>Cadastro</a>\n              <ul class=\"nav-dropdown-items\">\n                <li class=\"nav-item\">\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/listar']\"><i class=\"icon-puzzle\"></i>Usuário</a>\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/clientes/listar']\"><i class=\"icon-puzzle\"></i>Clientes</a>\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/produtos/listar']\"><i class=\"icon-puzzle\"></i>Produtos</a>\n                </li>\n                \n              </ul>\n            </li>\n            <li class=\"divider\"></li>\n            \n            <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n              <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"><i class=\"icon-star\"></i> Configurações</a>\n              <ul class=\"nav-dropdown-items\">\n                <li class=\"nav-item\">\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/unidades/listar']\"><i class=\"icon-puzzle\"></i>Unidade medida</a>\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/categorias/listar']\"><i class=\"icon-puzzle\"></i>Categorias</a>\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/infonutricional/listar']\"><i class=\"icon-puzzle\"></i>Info Nutricional</a>\n            </li>\n          </ul>\n        </li>\n        <li class=\"divider\"></li>\n        \n        <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n          <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"><i class=\"icon-star\"></i> Auth Pages</a>\n          <ul class=\"nav-dropdown-items\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/auth/login']\"><i class=\"icon-star\"></i> Login</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/auth/register']\"><i class=\"icon-star\"></i> Register</a>\n            </li>\n          </ul>\n        </li>\n        <li class=\"divider\"></li>\n        <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n          <a class=\"nav-link nav-dropdown-toggle\" href=\"#\"><i class=\"icon-star\"></i> Erros Pages</a>\n          <ul class=\"nav-dropdown-items\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/error/404']\"><i class=\"icon-star\"></i> Error 404</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/error/500']\"><i class=\"icon-star\"></i> Error 500</a>\n            </li>\n          </ul>\n        </li>\n\n\n\n</ul>\n"
 
 /***/ }),
 
-/***/ 464:
+/***/ 469:
 /***/ (function(module, exports) {
 
 module.exports = "<header class=\"app-header navbar\">\n    <button class=\"navbar-toggler mobile-sidebar-toggler hidden-lg-up\" type=\"button\">&#9776;</button>\n\n    <a class=\"navbar-brand\" href=\"#\"></a>\n    <ul class=\"nav navbar-nav hidden-md-down\">\n      <li class=\"nav-item\">\n            <a class=\"nav-link navbar-toggler sidebar-toggler\" href=\"#\">&#9776;</a>\n          </li>\n          <li class=\"nav-item px-1\">\n            <a class=\"nav-link\" href=\"#\">Dashboard</a>\n          </li>\n    </ul>\n\n<ul class=\"nav navbar-nav ml-auto\">\n    <li class=\"nav-item dropdown hidden-md-down\" dropdown placement=\"bottom right\">\n      <a class=\"nav-link\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" dropdownToggle>\n        <i class=\"icon-bell\"></i><span class=\"badge badge-pill badge-danger\">5</span>\n      </a>\n\n      <div class=\"dropdown-menu dropdown-menu-right dropdown-menu-lg\" *dropdownMenu aria-labelledby=\"simple-dropdown\">\n\n        <div class=\"dropdown-header text-center\"><strong>You have 5 notifications</strong></div>\n\n        <a href=\"#\" class=\"dropdown-item\">\n          <i class=\"icon-user-follow text-success\"></i> New user registered\n        </a>\n        <a href=\"#\" class=\"dropdown-item\">\n          <i class=\"icon-user-unfollow text-danger\"></i> User deleted\n        </a>\n        <a href=\"#\" class=\"dropdown-item\">\n          <i class=\"icon-chart text-info\"></i> Sales report is ready\n        </a>\n        <a href=\"#\" class=\"dropdown-item\">\n          <i class=\"icon-basket-loaded text-primary\"></i> New client\n        </a>\n        <a href=\"#\" class=\"dropdown-item\">\n          <i class=\"icon-speedometer text-warning\"></i> Server overloaded\n        </a>\n\n      </div>\n    </li>\n\n    <li class=\"nav-item dropdown\" dropdown placement=\"bottom right\">\n      <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" dropdownToggle>\n        <a class=\"nav-link navbar-toggler aside-menu-toggler\" href=\"#\">&#9776;</a>\n      </a>\n      <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu aria-labelledby=\"simple-dropdown\">\n\n        <div class=\"dropdown-header text-center\"><strong>Contas</strong></div>\n\n        <a class=\"dropdown-item\" href=\"#\"><i class=\"fa fa-bell-o\"></i> Atualizações<span class=\"badge badge-info\">42</span></a>\n        <a class=\"dropdown-item\" href=\"#\"><i class=\"fa fa-envelope-o\"></i> Mensagens<span class=\"badge badge-success\">42</span></a>\n        <a class=\"dropdown-item\" href=\"#\"><i class=\"fa fa-tasks\"></i> Tarefas<span class=\"badge badge-danger\">42</span></a>\n        <a class=\"dropdown-item\" href=\"#\"><i class=\"fa fa-comments\"></i> Comentários<span class=\"badge badge-warning\">42</span></a>\n\n        <div class=\"dropdown-header text-center\"><strong>Configurações</strong></div>\n\n        <a class=\"dropdown-item\" [routerLink]=\"['/usuarios/perfil/', uid]\" ><i class=\"fa fa-user\"></i> Perfil</a>\n        <a class=\"dropdown-item\" [routerLink]=\"['/usuarios/alterarsenha/', uid]\" ><i class=\"fa fa-wrench\"></i> Alterar senha</a>\n        <div class=\"divider\"></div>\n        <a class=\"dropdown-item\" href=\"#\" (click)=\"logout()\"><i class=\"fa fa-lock\"></i> Sair</a>\n      </div>\n    </li>\n  </ul>\n\n</header>\n"
 
 /***/ }),
 
-/***/ 465:
+/***/ 470:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-4\">\n        <div class=\"card-group mb-0\">\n          <div class=\"card p-2\">\n            <form>\n                <div class=\"card-block\">\n                  <h1>Login</h1>\n                      <p class=\"text-muted\">Entrar na sua conta</p>\n                      <div class=\"input-group mb-1\">\n                        <span class=\"input-group-addon\"><i class=\"icon-user\"></i></span>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"login\"  [(ngModel)]=\"creds.login\" name=\"login\" >\n                      </div>\n                      <div class=\"input-group mb-2\">\n                        <span class=\"input-group-addon\"><i class=\"icon-lock\"></i></span>\n                        <input type=\"password\" class=\"form-control\" placeholder=\"senha\"  [(ngModel)]=\"creds.senha\" name = \"senha\">\n                      </div>\n                      <div class=\"row\">\n                        <div class=\"col-6\">\n                          <button type=\"button\" class=\"btn btn-primary px-2\" (click)=\"login()\">Login</button>\n                        </div>\n                        <div class=\"col-6 text-right\">\n                          <button type=\"button\" class=\"btn btn-link px-0\">Esqueceu a senha?</button>\n                        </div>\n                      </div>\n                </div>\n            </form>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 466:
+/***/ 471:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-6\">\n        <div class=\"card mx-2\">\n          <div class=\"card-block p-2\">\n            <h1>Register</h1>\n            <p class=\"text-muted\">Create your account</p>\n            <div class=\"input-group mb-1\">\n              <span class=\"input-group-addon\"><i class=\"icon-user\"></i></span>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Username\">\n            </div>\n\n            <div class=\"input-group mb-1\">\n              <span class=\"input-group-addon\">@</span>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Email\">\n            </div>\n\n            <div class=\"input-group mb-1\">\n              <span class=\"input-group-addon\"><i class=\"icon-lock\"></i></span>\n              <input type=\"password\" class=\"form-control\" placeholder=\"Password\">\n            </div>\n\n            <div class=\"input-group mb-2\">\n              <span class=\"input-group-addon\"><i class=\"icon-lock\"></i></span>\n              <input type=\"password\" class=\"form-control\" placeholder=\"Repeat password\">\n            </div>\n\n            <button type=\"button\" class=\"btn btn-block btn-success\">Create Account</button>\n          </div>\n          <div class=\"card-footer p-2\">\n            <div class=\"row\">\n              <div class=\"col-6\">\n                <button class=\"btn btn-block btn-facebook\" type=\"button\"><span>facebook</span></button>\n              </div>\n              <div class=\"col-6\">\n                <button class=\"btn btn-block btn-twitter\" type=\"button\"><span>twitter</span></button>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 467:
+/***/ 472:
 /***/ (function(module, exports) {
 
 module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog\" \r\n        [ngClass]=\"getPopupStyle()\" \r\n        role=\"document\">\r\n\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">{{titulo}}</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"modalConfirm.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <ng-content></ng-content>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-secondary\" (click)=\"modalConfirm.hide()\">Fechar</button>\r\n        <button type=\"button\" class=\"btn btn-primary\"   (click)=\"btnConfirmar()\">Confirmar</button>\r\n      </div>\r\n    </div><!-- /.modal-content -->\r\n  </div><!-- /.modal-dialog -->\r\n</div><!-- /.modal -->"
+
+/***/ }),
+
+/***/ 473:
+/***/ (function(module, exports) {
+
+module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n  aria-hidden=\"true\">\r\n\r\n\r\n  <div class=\"modal-dialog modal-primary modal-lg\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">{{titulo}}</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"modalConfirm.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <alert-field-mensagem ></alert-field-mensagem>   \r\n        <ng-content></ng-content>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button style=\"cursor:pointer\" class=\"btn btn-secondary\" (click)=\"modalConfirm.hide()\">\r\n          <i class=\"fa fa-history\"></i> voltar\r\n        </button>\r\n        <button style=\"cursor:pointer\" [disabled]=\"desabilitarBtnConfirmar\" type=\"button\" class=\"btn btn-md btn-success\" (click)=\"btnBaseConfirmar()\">\r\n          <i class=\"fa fa-save\"> </i> salvar\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -2674,9 +2843,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var http_1 = __webpack_require__(57);
 var core_1 = __webpack_require__(2);
-var api_config_1 = __webpack_require__(133);
-var storage_service_1 = __webpack_require__(58);
-var angular2_jwt_1 = __webpack_require__(294);
+var api_config_1 = __webpack_require__(134);
+var storage_service_1 = __webpack_require__(59);
+var angular2_jwt_1 = __webpack_require__(298);
 var AuthService = (function () {
     function AuthService(http, storage) {
         this.http = http;
@@ -2724,7 +2893,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 58:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2736,7 +2905,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var storage_keys_config_1 = __webpack_require__(251);
+var storage_keys_config_1 = __webpack_require__(136);
 var core_1 = __webpack_require__(2);
 var StorageService = (function () {
     function StorageService() {
@@ -2785,13 +2954,77 @@ exports.StorageService = StorageService;
 
 /***/ }),
 
-/***/ 731:
+/***/ 72:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(245);
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(2);
+var toater_mensagem_model_1 = __webpack_require__(297);
+var tipo_mensagem_enum_1 = __webpack_require__(147);
+var EventEmitterService = (function () {
+    function EventEmitterService() {
+    }
+    EventEmitterService.get = function (nomeEvento) {
+        if (!this.emitters[nomeEvento]) {
+            this.emitters[nomeEvento] = new core_1.EventEmitter();
+        }
+        return this.emitters[nomeEvento];
+    };
+    EventEmitterService.unsubscribeEvent = function () {
+        this.emitters = {};
+        this.getToater();
+    };
+    EventEmitterService.getToater = function () {
+        return this.get('showToasterEvent');
+    };
+    EventEmitterService.getError422 = function () {
+        return this.get('showError422');
+    };
+    EventEmitterService.getClosePopup = function () {
+        return this.get('ClosePopupEvent');
+    };
+    EventEmitterService.getShowPopup = function () {
+        return this.get('showPopupEvent');
+    };
+    EventEmitterService.emitirError422 = function (errors) {
+        return this.get('showError422').emit(errors);
+    };
+    EventEmitterService.emitirMensagemToaster = function (tm) {
+        return this.get('showToasterEvent').emit(tm);
+    };
+    EventEmitterService.emitirMensagemToasterSucesso = function (titulo, mensagem) {
+        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.success, titulo, mensagem);
+        return this.get('showToasterEvent').emit(tm);
+    };
+    EventEmitterService.emitirMensagemToasterAlerta = function (titulo, mensagem) {
+        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.warning, titulo, mensagem);
+        return this.get('showToasterEvent').emit(tm);
+    };
+    EventEmitterService.emitirMensagemToasterDanger = function (titulo, mensagem) {
+        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.danger, titulo, mensagem);
+        return this.get('showToasterEvent').emit(tm);
+    };
+    EventEmitterService.emitirMensagemToasterInfo = function (titulo, mensagem) {
+        var tm = new toater_mensagem_model_1.ToasterMensagem(tipo_mensagem_enum_1.TipoMensagemEnum.info, titulo, mensagem);
+        return this.get('showToasterEvent').emit(tm);
+    };
+    return EventEmitterService;
+}());
+EventEmitterService.emitters = {};
+exports.EventEmitterService = EventEmitterService;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/event-emitter.services.js.map
+
+/***/ }),
+
+/***/ 737:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(247);
 
 
 /***/ })
 
-},[731]);
+},[737]);
 //# sourceMappingURL=main.bundle.js.map
