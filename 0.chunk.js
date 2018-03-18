@@ -1,6 +1,6 @@
-webpackJsonp([0,12],{
+webpackJsonp([0,14],{
 
-/***/ 743:
+/***/ 778:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,28 +12,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var creates_produtos_component_1 = __webpack_require__(783);
-var composicao_popup_modal_component_1 = __webpack_require__(784);
-var core_1 = __webpack_require__(2);
-var common_1 = __webpack_require__(28);
-var forms_1 = __webpack_require__(48);
-var http_1 = __webpack_require__(57);
-var ng2_select_1 = __webpack_require__(812);
-var angular2_ladda_1 = __webpack_require__(760);
-var modal_1 = __webpack_require__(254);
-var popup_modal_module_1 = __webpack_require__(253);
-var produto_service_1 = __webpack_require__(753);
-var categoria_service_1 = __webpack_require__(752);
-var shared_component_module_1 = __webpack_require__(135);
-var produto_routing_module_1 = __webpack_require__(785);
-var listar_produtos_component_1 = __webpack_require__(769);
-var create_produtos_component_1 = __webpack_require__(767);
-var edit_produtos_component_1 = __webpack_require__(768);
-var storage_service_1 = __webpack_require__(59);
-var angular2_text_mask_1 = __webpack_require__(255);
-var ng2_currency_mask_1 = __webpack_require__(806);
-var unidade_medida_service_1 = __webpack_require__(754);
-var tabs_1 = __webpack_require__(256);
+var info_nutricional_service_1 = __webpack_require__(789);
+var composicao_produto_popup_modal_component_1 = __webpack_require__(813);
+var core_1 = __webpack_require__(1);
+var common_1 = __webpack_require__(24);
+var forms_1 = __webpack_require__(23);
+var http_1 = __webpack_require__(30);
+var ng2_select_1 = __webpack_require__(272);
+var angular2_ladda_1 = __webpack_require__(271);
+var modal_1 = __webpack_require__(146);
+var popup_modal_module_1 = __webpack_require__(145);
+var produto_service_1 = __webpack_require__(788);
+var categoria_service_1 = __webpack_require__(786);
+var shared_component_module_1 = __webpack_require__(76);
+var produto_routing_module_1 = __webpack_require__(815);
+var listar_produtos_component_1 = __webpack_require__(802);
+var create_produto_component_1 = __webpack_require__(800);
+var edit_produtos_component_1 = __webpack_require__(801);
+var storage_service_1 = __webpack_require__(62);
+var angular2_text_mask_1 = __webpack_require__(100);
+var ng2_currency_mask_1 = __webpack_require__(839);
+var unidade_medida_service_1 = __webpack_require__(785);
+var tabs_1 = __webpack_require__(148);
+var info_nutricional_produto_popup_modal_component_1 = __webpack_require__(814);
 var ProdutoModule = (function () {
     function ProdutoModule() {
     }
@@ -58,17 +59,17 @@ ProdutoModule = __decorate([
         ],
         declarations: [
             listar_produtos_component_1.ListarProdutosComponent,
-            create_produtos_component_1.CreateProdutosComponent,
-            creates_produtos_component_1.CreatesProdutosComponent,
+            create_produto_component_1.CreateProdutoComponent,
             edit_produtos_component_1.EditProdutosComponent,
-            composicao_popup_modal_component_1.ComposicaoPopupModalComponent
+            composicao_produto_popup_modal_component_1.ComposicaoProdutoPopupModalComponent,
+            info_nutricional_produto_popup_modal_component_1.InfoNutricionalProdutoPopupModalComponent
         ],
         providers: [
             produto_service_1.ProdutoService,
             categoria_service_1.CategoriaService,
             unidade_medida_service_1.UnidadeMedidaService,
             storage_service_1.StorageService,
-            composicao_popup_modal_component_1.ComposicaoPopupModalComponent
+            info_nutricional_service_1.InfoNutricionalService
         ]
     })
 ], ProdutoModule);
@@ -77,173 +78,7 @@ exports.ProdutoModule = ProdutoModule;
 
 /***/ }),
 
-/***/ 748:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var event_emitter_services_1 = __webpack_require__(72);
-var combo_dto_1 = __webpack_require__(751);
-var AbstractBaseComponent = (function () {
-    function AbstractBaseComponent() {
-        this.maskCPF = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
-        this.maskCNPJ = [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
-        this.maskCEP = [/[0-9]/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
-        this.maskFoneResidencial = ['(', /[0-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-        this.maskFoneCelular = ['(', /[0-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-        this.maskData = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
-        this.urlFotoAvatar = 'assets/img/noimage/prod.jpg';
-        this.urlClienteAvatar = 'assets/img/noimage/noimagem.jpg';
-        this.urlFoto = '';
-        this.label = {
-            selecione: ':: selecione ::'
-        };
-        this.btn = {
-            btnSalvar: 'Salvar',
-            btnEditar: 'Editar',
-            btnLimpar: 'Limpar',
-            btnVoltar: 'Voltar',
-            btnExcluir: 'Excluir',
-            btnAtivar: 'Ativar',
-            btnAlterarPerfil: 'Alterar perfil',
-            btnAlterarSenha: 'Alterar senha',
-            btnInativar: 'Inativar',
-            btnNovo: 'Novo'
-        };
-        this.msg = {
-            msgRegistroIncluido: 'Registro incluído com sucesso!!!',
-            msgRegistroAlterado: 'Registro alterado com sucesso!!!',
-            msgRegistroExcluido: 'Registro excluído com sucesso!!!',
-            msgSenhaAlterada: 'Senha alterada com sucesso!!!'
-        };
-        this.casoDeUso = {
-            frmCadastroUsuarioTitulo: 'Cadastro de usuário',
-            frmCadastroUsuarioNovo: 'Formulário de cadastro de usuário',
-            frmCadastroUsuarioLista: 'Listar usuários',
-        };
-    }
-    AbstractBaseComponent.prototype.isInvalido = function (campo) {
-        return !campo.valid && !campo.pristine;
-    };
-    AbstractBaseComponent.prototype.isValido = function (campo) {
-        return campo.valid && !campo.pristine;
-    };
-    AbstractBaseComponent.prototype.getClassFormControl = function (campo) {
-        return {
-            'form-control': true,
-            'form-control-danger': this.isInvalido(campo),
-            'form-control-success': this.isValido(campo)
-        };
-    };
-    AbstractBaseComponent.prototype.getClassFormGroup = function (campo) {
-        return {
-            'form-group': true,
-            'has-danger': this.isInvalido(campo),
-            'has-success': this.isValido(campo)
-        };
-    };
-    AbstractBaseComponent.prototype.mensagemSucesso = function (titulo, mensagem) {
-        event_emitter_services_1.EventEmitterService
-            .emitirMensagemToasterSucesso(titulo, mensagem);
-    };
-    AbstractBaseComponent.prototype.log = function (message) {
-        var optionalParams = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            optionalParams[_i - 1] = arguments[_i];
-        }
-        //console.log(message, optionalParams)
-    };
-    AbstractBaseComponent.prototype.aplicarCssGroupRow = function (campo) {
-        return {
-            'form-group row ': true,
-            'has-danger': this.isInvalido(campo),
-            'has-success': this.isValido(campo)
-        };
-    };
-    AbstractBaseComponent.prototype.aplicarCssGroup = function (campo) {
-        return {
-            'form-group': true,
-            'has-danger': this.isInvalido(campo),
-            'has-success': this.isValido(campo)
-        };
-    };
-    AbstractBaseComponent.prototype.aplicarCssForm = function (campo) {
-        return {
-            'form-control': true,
-            'form-control-danger': this.isInvalido(campo),
-            'form-control-success': this.isValido(campo)
-        };
-    };
-    AbstractBaseComponent.prototype.isCampoVazio = function (campo) {
-        return campo.value == null || campo.value == '';
-    };
-    AbstractBaseComponent.prototype.preencharCombo = function (response, compoId, campoValor) {
-        var combo = [];
-        for (var _i = 0, response_1 = response; _i < response_1.length; _i++) {
-            var cat = response_1[_i];
-            combo.push(new combo_dto_1.ComboDTO(cat[compoId], cat[campoValor]));
-        }
-        return combo;
-    };
-    AbstractBaseComponent.prototype.fieldFocus = function (campo) {
-        setTimeout(function () {
-            campo.nativeElement.focus();
-        }, 500);
-    };
-    return AbstractBaseComponent;
-}());
-exports.AbstractBaseComponent = AbstractBaseComponent;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/abstract-base.component.js.map
-
-/***/ }),
-
-/***/ 749:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var storage_keys_config_1 = __webpack_require__(136);
-var http_1 = __webpack_require__(57);
-var AbstractService = (function () {
-    function AbstractService() {
-    }
-    AbstractService.prototype.getHearderToken = function () {
-        var token = this.getToken().token;
-        var authHeader = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token }) };
-        return authHeader;
-    };
-    AbstractService.prototype.getHearderTokenNoResponse = function () {
-        var token = this.getToken().token;
-        var authHeader = {
-            observe: 'response',
-            responseType: 'text',
-            headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token })
-        };
-        return authHeader;
-    };
-    AbstractService.prototype.getHeaderTokenOnly = function () {
-        var token = this.getToken().token;
-        return new http_1.HttpHeaders({ 'Authorization': 'Bearer ' + token });
-    };
-    AbstractService.prototype.getToken = function () {
-        var usr = localStorage.getItem(storage_keys_config_1.STORAGE_KEYS.localUser);
-        if (usr == null) {
-            return null;
-        }
-        else {
-            return JSON.parse(usr);
-        }
-    };
-    return AbstractService;
-}());
-exports.AbstractService = AbstractService;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/abstract-service.js.map
-
-/***/ }),
-
-/***/ 750:
+/***/ 785:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -268,245 +103,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var trata_error_service_1 = __webpack_require__(252);
-var abstract_base_component_1 = __webpack_require__(748);
-var core_1 = __webpack_require__(2);
-var event_emitter_services_1 = __webpack_require__(72);
-var AbstractPopupComponent = (function (_super) {
-    __extends(AbstractPopupComponent, _super);
-    function AbstractPopupComponent() {
-        var _this = _super.call(this) || this;
-        _this.onClickConfirm = new core_1.EventEmitter();
-        _this.titulo = "";
-        return _this;
-    }
-    AbstractPopupComponent.prototype.ngOnInit = function () {
-    };
-    AbstractPopupComponent.prototype.tratarSucesso = function () {
-        event_emitter_services_1.EventEmitterService.getClosePopup().emit(true);
-        this.onClickConfirm.emit();
-    };
-    AbstractPopupComponent.prototype.showPopup = function (titulo) {
-        event_emitter_services_1.EventEmitterService.getError422().emit(null);
-        event_emitter_services_1.EventEmitterService.getShowPopup().emit();
-        this.titulo = titulo;
-        this.fieldFocus(this.campo);
-    };
-    AbstractPopupComponent.prototype.acao = function (item, service) {
-        var _this = this;
-        if (item.emAlteracao) {
-            service.atualizar(item)
-                .subscribe(function (res) { return _this.tratarSucesso(); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
-        }
-        else {
-            service.salvar(item)
-                .subscribe(function (res) { return _this.tratarSucesso(); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
-        }
-    };
-    return AbstractPopupComponent;
-}(abstract_base_component_1.AbstractBaseComponent));
-__decorate([
-    core_1.ViewChild('campoNome'),
-    __metadata("design:type", Object)
-], AbstractPopupComponent.prototype, "campo", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], AbstractPopupComponent.prototype, "onClickConfirm", void 0);
-exports.AbstractPopupComponent = AbstractPopupComponent;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/abstract-popup.component.js.map
-
-/***/ }),
-
-/***/ 751:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var ComboDTO = (function () {
-    function ComboDTO(id, text) {
-        this.id = id;
-        this.text = text;
-    }
-    return ComboDTO;
-}());
-exports.ComboDTO = ComboDTO;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/combo.dto.js.map
-
-/***/ }),
-
-/***/ 752:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var http_1 = __webpack_require__(57);
-var api_config_1 = __webpack_require__(134);
-var abstract_service_1 = __webpack_require__(749);
-//import { catchError, retry } from 'rxjs/operators';
-var CategoriaService = (function (_super) {
-    __extends(CategoriaService, _super);
-    function CategoriaService(http) {
-        var _this = _super.call(this) || this;
-        _this.http = http;
-        return _this;
-    }
-    CategoriaService.prototype.findById = function (id) {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/" + id, this.getHearderToken());
-    };
-    CategoriaService.prototype.findAll = function () {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/all");
-    };
-    CategoriaService.prototype.salvar = function (categoria) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/categorias", JSON.stringify(categoria), this.getHearderTokenNoResponse());
-    };
-    CategoriaService.prototype.changeStatus = function (categoria) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
-    };
-    CategoriaService.prototype.atualizar = function (categoria) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id, JSON.stringify(categoria), this.getHearderTokenNoResponse());
-    };
-    CategoriaService.prototype.excluir = function (categoria) {
-        var url = api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id;
-        return this.http.delete(url, this.getHearderToken());
-    };
-    CategoriaService.prototype.insert = function (obj) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/pedidos", obj, { observe: 'response', responseType: 'text' });
-    };
-    return CategoriaService;
-}(abstract_service_1.AbstractService));
-CategoriaService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], CategoriaService);
-exports.CategoriaService = CategoriaService;
-var _a;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria.service.js.map
-
-/***/ }),
-
-/***/ 753:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var http_1 = __webpack_require__(57);
-var api_config_1 = __webpack_require__(134);
-var abstract_service_1 = __webpack_require__(749);
-//import { catchError, retry } from 'rxjs/operators';
-var ProdutoService = (function (_super) {
-    __extends(ProdutoService, _super);
-    function ProdutoService(http) {
-        var _this = _super.call(this) || this;
-        _this.http = http;
-        return _this;
-    }
-    ProdutoService.prototype.findById = function (id) {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/produtos/" + id, this.getHearderToken());
-    };
-    ProdutoService.prototype.findAll = function () {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/produtos/");
-    };
-    ProdutoService.prototype.findAllProdutoInterno = function () {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/produtos/internos");
-    };
-    ProdutoService.prototype.salvar = function (produto) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/produtos", JSON.stringify(produto), this.getHearderTokenNoResponse());
-    };
-    ProdutoService.prototype.changeStatus = function (produto) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/produtos/" + produto.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
-    };
-    ProdutoService.prototype.atualizar = function (produto) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/produtos/" + produto.id, JSON.stringify(produto), this.getHearderTokenNoResponse());
-    };
-    ProdutoService.prototype.excluir = function (produto) {
-        var url = api_config_1.API_CONFIG.baseUrl + "/produtos/" + produto.id;
-        return this.http.delete(url, this.getHearderToken());
-    };
-    return ProdutoService;
-}(abstract_service_1.AbstractService));
-ProdutoService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], ProdutoService);
-exports.ProdutoService = ProdutoService;
-var _a;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/produto.service.js.map
-
-/***/ }),
-
-/***/ 754:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__(134);
-var http_1 = __webpack_require__(57);
-var core_1 = __webpack_require__(2);
-var abstract_service_1 = __webpack_require__(749);
+var api_config_1 = __webpack_require__(61);
+var http_1 = __webpack_require__(30);
+var core_1 = __webpack_require__(1);
+var abstract_service_1 = __webpack_require__(143);
 var UnidadeMedidaService = (function (_super) {
     __extends(UnidadeMedidaService, _super);
     function UnidadeMedidaService(http) {
@@ -549,45 +149,220 @@ var _a;
 
 /***/ }),
 
-/***/ 755:
+/***/ 786:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var LaddaConfigArgs = (function () {
-    function LaddaConfigArgs() {
-    }
-    return LaddaConfigArgs;
-}());
-exports.LaddaConfigArgs = LaddaConfigArgs;
-exports.configAttributes = {
-    "data-style": "style",
-    "data-spinner-size": "spinnerSize",
-    "data-spinner-color": "spinnerColor",
-    "data-spinner-lines": "spinnerLines",
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var LaddaConfig = (function () {
-    function LaddaConfig(config) {
-        if (config === void 0) { config = {}; }
-        Object.assign(this, config);
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var http_1 = __webpack_require__(30);
+var api_config_1 = __webpack_require__(61);
+var abstract_service_1 = __webpack_require__(143);
+//import { catchError, retry } from 'rxjs/operators';
+var CategoriaService = (function (_super) {
+    __extends(CategoriaService, _super);
+    function CategoriaService(http) {
+        var _this = _super.call(this) || this;
+        _this.http = http;
+        return _this;
     }
-    return LaddaConfig;
-}());
-LaddaConfig.decorators = [
-    { type: core_1.Injectable },
-];
-/** @nocollapse */
-LaddaConfig.ctorParameters = function () { return [
-    { type: LaddaConfigArgs, },
-]; };
-exports.LaddaConfig = LaddaConfig;
-//# sourceMappingURL=ladda-config.js.map
+    CategoriaService.prototype.findById = function (id) {
+        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/" + id, this.getHearderToken());
+    };
+    CategoriaService.prototype.findAll = function () {
+        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/all");
+    };
+    CategoriaService.prototype.salvar = function (categoria) {
+        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/categorias", JSON.stringify(categoria), this.getHearderTokenNoResponse());
+    };
+    CategoriaService.prototype.changeStatus = function (categoria) {
+        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
+    };
+    CategoriaService.prototype.atualizar = function (categoria) {
+        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id, JSON.stringify(categoria), this.getHearderTokenNoResponse());
+    };
+    CategoriaService.prototype.excluir = function (categoria) {
+        var url = api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id;
+        return this.http.delete(url, this.getHearderToken());
+    };
+    CategoriaService.prototype.insert = function (obj) {
+        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/pedidos", obj, { observe: 'response', responseType: 'text' });
+    };
+    return CategoriaService;
+}(abstract_service_1.AbstractService));
+CategoriaService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
+], CategoriaService);
+exports.CategoriaService = CategoriaService;
+var _a;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria.service.js.map
 
 /***/ }),
 
-/***/ 757:
+/***/ 788:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var http_1 = __webpack_require__(30);
+var api_config_1 = __webpack_require__(61);
+var abstract_service_1 = __webpack_require__(143);
+//import { catchError, retry } from 'rxjs/operators';
+var ProdutoService = (function (_super) {
+    __extends(ProdutoService, _super);
+    function ProdutoService(http) {
+        var _this = _super.call(this) || this;
+        _this.http = http;
+        return _this;
+    }
+    ProdutoService.prototype.findById = function (id) {
+        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/produtos/" + id, this.getHearderToken());
+    };
+    ProdutoService.prototype.findAll = function () {
+        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/produtos/");
+    };
+    ProdutoService.prototype.findAllProdutoInterno = function () {
+        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/produtos/internos");
+    };
+    ProdutoService.prototype.salvar = function (produto) {
+        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/produtos", JSON.stringify(produto), this.getHearderTokenNoResponse());
+    };
+    ProdutoService.prototype.changeStatus = function (produto) {
+        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/produtos/" + produto.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
+    };
+    ProdutoService.prototype.atualizar = function (produto) {
+        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/produtos/" + produto.id, JSON.stringify(produto), this.getHearderTokenNoResponse());
+    };
+    ProdutoService.prototype.excluir = function (produto) {
+        var url = api_config_1.API_CONFIG.baseUrl + "/produtos/" + produto.id;
+        return this.http.delete(url, this.getHearderToken());
+    };
+    return ProdutoService;
+}(abstract_service_1.AbstractService));
+ProdutoService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
+], ProdutoService);
+exports.ProdutoService = ProdutoService;
+var _a;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/produto.service.js.map
+
+/***/ }),
+
+/***/ 789:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var api_config_1 = __webpack_require__(61);
+var http_1 = __webpack_require__(30);
+var core_1 = __webpack_require__(1);
+var abstract_service_1 = __webpack_require__(143);
+var InfoNutricionalService = (function (_super) {
+    __extends(InfoNutricionalService, _super);
+    function InfoNutricionalService(http) {
+        var _this = _super.call(this) || this;
+        _this.http = http;
+        _this.url = api_config_1.API_CONFIG.baseUrl + "/infonutricional";
+        return _this;
+    }
+    InfoNutricionalService.prototype.findAll = function () {
+        return this.http.get(this.url + "/all", this.getHearderToken());
+    };
+    InfoNutricionalService.prototype.findAllAtivo = function () {
+        return this.http.get(this.url + "/");
+    };
+    InfoNutricionalService.prototype.findById = function (id) {
+        return this.http.get(this.url + "/" + id, this.getHearderToken());
+    };
+    InfoNutricionalService.prototype.salvar = function (info) {
+        return this.http.post(this.url + "/", JSON.stringify(info), this.getHearderTokenNoResponse());
+    };
+    InfoNutricionalService.prototype.changeStatus = function (info) {
+        return this.http.put(this.url + "/" + info.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
+    };
+    InfoNutricionalService.prototype.atualizar = function (info) {
+        return this.http.put(this.url + "/" + info.id, JSON.stringify(info), this.getHearderTokenNoResponse());
+    };
+    InfoNutricionalService.prototype.excluir = function (info) {
+        var url = this.url + "/" + info.id;
+        return this.http.delete(url, this.getHearderToken());
+    };
+    return InfoNutricionalService;
+}(abstract_service_1.AbstractService));
+InfoNutricionalService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
+], InfoNutricionalService);
+exports.InfoNutricionalService = InfoNutricionalService;
+var _a;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/info-nutricional.service.js.map
+
+/***/ }),
+
+/***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -603,20 +378,35 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var abstract_base_component_1 = __webpack_require__(748);
-var forms_1 = __webpack_require__(48);
+var trata_error_service_1 = __webpack_require__(48);
+var abstract_base_component_1 = __webpack_require__(144);
+var forms_1 = __webpack_require__(23);
 var AbstractProdutoComponent = (function (_super) {
     __extends(AbstractProdutoComponent, _super);
-    function AbstractProdutoComponent(fb, location) {
+    function AbstractProdutoComponent(fb, location, categoriaService, unidadeService) {
         var _this = _super.call(this) || this;
         _this.fb = fb;
         _this.location = location;
+        _this.categoriaService = categoriaService;
+        _this.unidadeService = unidadeService;
         _this.checkUsoInterno = false;
-        _this.checkProdutoComposto = false;
         _this.produtosComposicoes = [];
+        _this.produtosInfoNutricionais = [];
+        _this.comboUnidades = [];
+        _this.comboUnidadesEmCasa = [];
         _this.comboCategorias = [];
         return _this;
     }
+    AbstractProdutoComponent.prototype.carregarCombosProduto = function () {
+        var _this = this;
+        this.categoriaService.findAll()
+            .subscribe(function (response) { return _this.comboCategorias = _this.preencharCombo(response, 'id', 'nmCategoria'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+        this.unidadeService.findAll()
+            .subscribe(function (response) {
+            _this.comboUnidades = _this.preencharCombo(response, 'id', 'sgUnidadeMedida');
+            _this.comboUnidadesEmCasa = _this.preencharCombo(response, 'id', 'sgUnidadeMedida');
+        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+    };
     AbstractProdutoComponent.prototype.voltar = function () {
         this.location.back();
     };
@@ -631,24 +421,50 @@ var AbstractProdutoComponent = (function (_super) {
             usoInterno: valor ? 'S' : 'N'
         });
     };
-    AbstractProdutoComponent.prototype.alterarCheckProdutoComposto = function (valor) {
-        this.checkProdutoComposto = valor;
-        this.formulario.patchValue({
-            produtoComposto: valor ? 'S' : 'N'
-        });
-    };
     AbstractProdutoComponent.prototype.criarFormulario = function () {
         this.formulario = this.fb.group({
             idProduto: [''],
             nmProduto: ['', [forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(25)]],
-            categoria: ['', forms_1.Validators.required],
-            preco: ['', forms_1.Validators.required],
-            produtoComposto: ['N'],
+            vlVenda: ['', forms_1.Validators.required],
+            vlCompra: [''],
+            stUsoInterno: ['N'],
             status: ['A'],
-            usoInterno: ['N'],
-            urlImagem: ['']
+            urlImagem: [''],
+            categoria: ['', forms_1.Validators.required],
+            unidadeVenda: [''],
+            qtdMinimaEstoque: [''],
+            nrCodigoBarra: [''],
+            dsUrlBlog: [''],
+            dsInfoComplementar: [''],
+            emCada: [''],
+            qtEmcada: [''],
+            composicoes: [''],
+            infoNutricionais: ['']
         });
         this.urlFoto = this.urlFotoAvatar;
+    };
+    AbstractProdutoComponent.prototype.atualizarForm = function (produto) {
+        this.criarFormulario();
+        this.formulario.patchValue({
+            idProduto: produto.id,
+            idEmpresa: produto.idEmpresa,
+            nmProduto: produto.nmProduto,
+            vlVenda: produto.vlVenda,
+            vlCompra: produto.vlCompra,
+            stUsoInterno: produto.stUsoInterno,
+            status: produto.status,
+            urlImagem: produto.urlImagem,
+            categoria: [{ id: produto.categoria.id, text: produto.categoria.nmCategoria }],
+            unidadeVenda: [{ id: produto.unidadeVenda.id, text: produto.unidadeVenda.nmUnidadeMedida }],
+            qtMinimaEstoque: produto.qtMinimaEstoque,
+            dsUrlBlog: produto.dsUrlBlog,
+            qtEmcada: produto.qtEmcada,
+            emCada: [{ id: produto.emCada.id, text: produto.emCada.nmUnidadeMedida }],
+            nrCodigoBarra: produto.nrCodigoBarra,
+            dsInfoComplementar: produto.dsInfoComplementar
+        });
+        this.produtosComposicoes = produto.composicoes;
+        this.produtosInfoNutricionais = produto.infoNutricionais;
     };
     AbstractProdutoComponent.prototype.confirmarCompProd = function (value) {
         var prod = {};
@@ -657,7 +473,7 @@ var AbstractProdutoComponent = (function (_super) {
         prod.nmProdutoComposicao = value.produtoComp[0].text;
         prod.idUnidadeMedida = value.unidade[0].id;
         prod.nmUnidadeMedida = value.unidade[0].text;
-        prod.qtdUtilizada = Number(value.qtdUtilizada);
+        prod.qtUtilizada = Number(value.qtUtilizada);
         prod.mostrarUnidade = value.mostrarUnidade;
         prod.emAlteracao = value.emAlteracao;
         var position = this.produtosComposicoes.findIndex(function (x) { return x.idProdutoComposicao == prod.idProdutoComposicao; });
@@ -669,7 +485,7 @@ var AbstractProdutoComponent = (function (_super) {
                 this.produtosComposicoes[position] = prod;
             }
             else {
-                this.produtosComposicoes[position].qtdUtilizada += prod.qtdUtilizada;
+                this.produtosComposicoes[position].qtUtilizada += prod.qtUtilizada;
             }
         }
     };
@@ -678,6 +494,54 @@ var AbstractProdutoComponent = (function (_super) {
             this.produtosComposicoes
                 .filter(function (prod) { return prod.idProdutoComposicao != item.idProdutoComposicao; });
     };
+    AbstractProdutoComponent.prototype.confirmarInfoNutricional = function (value) {
+        var prod = {};
+        prod.idProduto = value.idProduto;
+        prod.idInfoNutricional = value.infoNutricional[0].id;
+        prod.dsInfoNutricional = value.infoNutricional[0].text;
+        prod.idUnidadeMedida = value.unidade[0].id;
+        prod.sgUnidadeMedida = value.unidade[0].text;
+        prod.qtUtilizada = Number(value.qtUtilizada);
+        var position = this.produtosInfoNutricionais.findIndex(function (x) { return x.idInfoNutricional == prod.idInfoNutricional; });
+        if (position == -1) {
+            this.produtosInfoNutricionais.push(prod);
+        }
+        else {
+            if (prod.emAlteracao) {
+                this.produtosInfoNutricionais[position] = prod;
+            }
+            else {
+                this.produtosInfoNutricionais[position].qtUtilizada += prod.qtUtilizada;
+            }
+        }
+    };
+    AbstractProdutoComponent.prototype.excluirItemInfoNutriciobnal = function (item) {
+        this.produtosInfoNutricionais =
+            this.produtosInfoNutricionais
+                .filter(function (prod) { return prod.idInfoNutricional != item.idInfoNutricional; });
+    };
+    AbstractProdutoComponent.prototype.preencharProduto = function (value) {
+        var prod = {};
+        prod.id = value.idProduto;
+        prod.nmProduto = value.nmProduto;
+        prod.vlVenda = value.vlVenda;
+        prod.vlCompra = value.vlCompra;
+        prod.stProdutoComposto = value.stProdutoComposto;
+        prod.stUsoInterno = value.stUsoInterno;
+        prod.status = 'A';
+        prod.urlImagem = this.urlFoto;
+        prod.categoria = { id: value.categoria[0].id, nmCategoria: value.categoria[0].text };
+        prod.unidadeVenda = { id: value.unidadeVenda[0].id, nmUnidadeMedida: value.unidadeVenda[0].text };
+        prod.qtMinimaEstoque = value.qtMinimaEstoque;
+        prod.nrCodigoBarra = value.nrCodigoBarra;
+        prod.dsUrlBlog = value.dsUrlBlog;
+        prod.dsInfoComplementar = value.dsInfoComplementar;
+        prod.emCada = { id: value.emCada[0].id, nmUnidadeMedida: value.emCada[0].text };
+        prod.qtEmcada = value.qtEmcada;
+        prod.composicoes = this.produtosComposicoes;
+        prod.infoNutricionais = this.produtosInfoNutricionais;
+        return prod;
+    };
     return AbstractProdutoComponent;
 }(abstract_base_component_1.AbstractBaseComponent));
 exports.AbstractProdutoComponent = AbstractProdutoComponent;
@@ -685,570 +549,7 @@ exports.AbstractProdutoComponent = AbstractProdutoComponent;
 
 /***/ }),
 
-/***/ 759:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var ladda_config_1 = __webpack_require__(755);
-var Ladda = __webpack_require__(761);
-var LaddaDirective = (function () {
-    function LaddaDirective(el, config) {
-        this.el = el.nativeElement;
-        if (!config) {
-            return;
-        }
-        // apply default styles if they aren't overwritten by an attribute
-        for (var attribute in ladda_config_1.configAttributes) {
-            var configValue = config[ladda_config_1.configAttributes[attribute]];
-            if (!configValue) {
-                continue; // don't waste time reading the attribute
-            }
-            if (!this.el.getAttribute(attribute)) {
-                // attribute isn't set - apply the default config value
-                var value = (typeof configValue === "number") ? configValue.toString() : configValue;
-                this.el.setAttribute(attribute, value);
-            }
-        }
-    }
-    LaddaDirective.prototype.ngOnChanges = function (changes) {
-        if (!this._ladda) {
-            return; // needed since ngOnChanges is called before ngOnInit
-        }
-        if (changes['loading']) {
-            this.updateLadda(changes['loading'].previousValue);
-        }
-        if (changes['disabled']) {
-            this.updateDisabled();
-        }
-    };
-    LaddaDirective.prototype.ngOnInit = function () {
-        var _this = this;
-        this._ladda = Ladda.create(this.el);
-        // if the initial loading value isn't false, a timeout of 0 ms
-        // is necessary for the calculated spinner size to be correct.
-        setTimeout(function () { _this.updateLadda(false); }, 0);
-    };
-    LaddaDirective.prototype.ngOnDestroy = function () {
-        this._ladda.remove();
-    };
-    LaddaDirective.prototype.updateLadda = function (previousValue) {
-        if (this.loading === false) {
-            if (previousValue !== false) {
-                this._ladda.stop();
-            }
-            return this.updateDisabled();
-        }
-        if (previousValue === false) {
-            this._ladda.start();
-        }
-        if (typeof this.loading === 'number') {
-            this._ladda.setProgress(this.loading);
-        }
-    };
-    LaddaDirective.prototype.updateDisabled = function () {
-        if (this.disabled) {
-            this.el.setAttribute('disabled', '');
-        }
-        else {
-            this.el.removeAttribute('disabled');
-        }
-    };
-    return LaddaDirective;
-}());
-LaddaDirective.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[ladda]'
-            },] },
-];
-/** @nocollapse */
-LaddaDirective.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-    { type: ladda_config_1.LaddaConfigArgs, decorators: [{ type: core_1.Inject, args: [ladda_config_1.LaddaConfig,] }, { type: core_1.Optional },] },
-]; };
-LaddaDirective.propDecorators = {
-    'loading': [{ type: core_1.Input, args: ['ladda',] },],
-    'disabled': [{ type: core_1.Input, args: ['disabled',] },],
-};
-exports.LaddaDirective = LaddaDirective;
-//# sourceMappingURL=ladda.directive.js.map
-
-/***/ }),
-
-/***/ 760:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var ladda_directive_1 = __webpack_require__(759);
-var ladda_config_1 = __webpack_require__(755);
-var LaddaModule = (function () {
-    function LaddaModule() {
-    }
-    LaddaModule.forRoot = function (config) {
-        return {
-            ngModule: LaddaModule,
-            providers: [
-                { provide: ladda_config_1.LaddaConfig, useValue: config }
-            ]
-        };
-    };
-    return LaddaModule;
-}());
-LaddaModule.decorators = [
-    { type: core_1.NgModule, args: [{
-                declarations: [ladda_directive_1.LaddaDirective],
-                exports: [ladda_directive_1.LaddaDirective],
-            },] },
-];
-/** @nocollapse */
-LaddaModule.ctorParameters = function () { return []; };
-exports.LaddaModule = LaddaModule;
-//# sourceMappingURL=module.js.map
-
-/***/ }),
-
-/***/ 761:
-/***/ (function(module, exports, __webpack_require__) {
-
-/*!
- * Ladda 1.0.5 (2017-09-24, 16:55)
- * http://lab.hakim.se/ladda
- * MIT licensed
- *
- * Copyright (C) 2017 Hakim El Hattab, http://hakim.se
- */
-
-!function(t,e){"use strict"; true?module.exports=e(__webpack_require__(762)):"function"==typeof define&&define.amd?define(["spin"],e):t.Ladda=e(t.Spinner)}(this,function(t){"use strict";function e(t){if(void 0!==t){if(/ladda-button/i.test(t.className)||(t.className+=" ladda-button"),t.hasAttribute("data-style")||t.setAttribute("data-style","expand-right"),!t.querySelector(".ladda-label")){var e=document.createElement("span");e.className="ladda-label",r(t,e)}var a,u=t.querySelector(".ladda-spinner");u||((u=document.createElement("span")).className="ladda-spinner"),t.appendChild(u);var i,o={start:function(){return a||(a=n(t)),t.disabled=!0,t.setAttribute("data-loading",""),clearTimeout(i),a.spin(u),this.setProgress(0),this},startAfter:function(t){return clearTimeout(i),i=setTimeout(function(){o.start()},t),this},stop:function(){return o.isLoading()&&(t.disabled=!1,t.removeAttribute("data-loading")),clearTimeout(i),a&&(i=setTimeout(function(){a.stop()},1e3)),this},toggle:function(){return this.isLoading()?this.stop():this.start()},setProgress:function(e){e=Math.max(Math.min(e,1),0);var a=t.querySelector(".ladda-progress");0===e&&a&&a.parentNode?a.parentNode.removeChild(a):(a||((a=document.createElement("div")).className="ladda-progress",t.appendChild(a)),a.style.width=(e||0)*t.offsetWidth+"px")},enable:function(){return this.stop()},disable:function(){return this.stop(),t.disabled=!0,this},isLoading:function(){return t.hasAttribute("data-loading")},remove:function(){clearTimeout(i),t.disabled=!1,t.removeAttribute("data-loading"),a&&(a.stop(),a=null),d.splice(d.indexOf(o),1)}};return d.push(o),o}console.warn("Ladda button target must be defined.")}function a(t,e){for(;t.parentNode&&t.tagName!==e;)t=t.parentNode;return e===t.tagName?t:void 0}function u(t){var e=[];return["input","textarea","select"].forEach(function(a){for(var u=t.getElementsByTagName(a),n=0;n<u.length;n++)u[n].hasAttribute("required")&&e.push(u[n])}),e}function n(e){var a,u,n=e.offsetHeight;0===n&&(n=parseFloat(window.getComputedStyle(e).height)),n>32&&(n*=.8),e.hasAttribute("data-spinner-size")&&(n=parseInt(e.getAttribute("data-spinner-size"),10)),e.hasAttribute("data-spinner-color")&&(a=e.getAttribute("data-spinner-color")),e.hasAttribute("data-spinner-lines")&&(u=parseInt(e.getAttribute("data-spinner-lines"),10));var r=.2*n,i=.6*r,d=r<7?2:3;return new t({color:a||"#fff",lines:u||12,radius:r,length:i,width:d,zIndex:"auto",top:"auto",left:"auto",className:""})}function r(t,e){var a=document.createRange();a.selectNodeContents(t),a.surroundContents(e),t.appendChild(e)}function i(t,n){if("function"==typeof t.addEventListener){var r=e(t),i=-1;t.addEventListener("click",function(){var e=!0,d=a(t,"FORM");if(void 0!==d)if("function"==typeof d.checkValidity)e=d.checkValidity();else for(var o=u(d),s=0;s<o.length;s++){var F=o[s],l=F.getAttribute("type");if(""===F.value.replace(/^\s+|\s+$/g,"")&&(e=!1),"checkbox"!==l&&"radio"!==l||F.checked||(e=!1),"email"===l&&(e=/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i.test(F.value)),"url"===l&&(e=/^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(F.value)),!e)break}e&&(r.startAfter(1),"number"==typeof n.timeout&&(clearTimeout(i),i=setTimeout(r.stop,n.timeout)),"function"==typeof n.callback&&n.callback.apply(null,[r]))},!1)}}var d=[];return{bind:function(t,e){var a;if("string"==typeof t)a=document.querySelectorAll(t);else{if("object"!=typeof t)throw new Error("target must be string or object");a=[t]}e=e||{};for(var u=0;u<a.length;u++)i(a[u],e)},create:e,stopAll:function(){for(var t=0,e=d.length;t<e;t++)d[t].stop()}}});
-
-/***/ }),
-
-/***/ 762:
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Copyright (c) 2011-2014 Felix Gnass
- * Licensed under the MIT license
- */
-(function(root, factory) {
-
-  // CommonJS
-  if (true) {
-    module.exports = factory();
-  }
-  // AMD module
-  else if (typeof define == 'function' && define.amd) {
-    define(factory);
-  }
-  // Browser global
-  else {
-    root.Spinner = factory();
-  }
-
-}
-(this, function() {
-  "use strict";
-
-  var prefixes = ['webkit', 'Moz', 'ms', 'O'] /* Vendor prefixes */
-    , animations = {} /* Animation rules keyed by their name */
-    , useCssAnimations /* Whether to use CSS animations or setTimeout */
-
-  /**
-   * Utility function to create elements. If no tag name is given,
-   * a DIV is created. Optionally properties can be passed.
-   */
-  function createEl(tag, prop) {
-    var el = document.createElement(tag || 'div')
-      , n
-
-    for(n in prop) el[n] = prop[n]
-    return el
-  }
-
-  /**
-   * Appends children and returns the parent.
-   */
-  function ins(parent /* child1, child2, ...*/) {
-    for (var i=1, n=arguments.length; i<n; i++)
-      parent.appendChild(arguments[i])
-
-    return parent
-  }
-
-  /**
-   * Insert a new stylesheet to hold the @keyframe or VML rules.
-   */
-  var sheet = (function() {
-    var el = createEl('style', {type : 'text/css'})
-    ins(document.getElementsByTagName('head')[0], el)
-    return el.sheet || el.styleSheet
-  }())
-
-  /**
-   * Creates an opacity keyframe animation rule and returns its name.
-   * Since most mobile Webkits have timing issues with animation-delay,
-   * we create separate rules for each line/segment.
-   */
-  function addAnimation(alpha, trail, i, lines) {
-    var name = ['opacity', trail, ~~(alpha*100), i, lines].join('-')
-      , start = 0.01 + i/lines * 100
-      , z = Math.max(1 - (1-alpha) / trail * (100-start), alpha)
-      , prefix = useCssAnimations.substring(0, useCssAnimations.indexOf('Animation')).toLowerCase()
-      , pre = prefix && '-' + prefix + '-' || ''
-
-    if (!animations[name]) {
-      sheet.insertRule(
-        '@' + pre + 'keyframes ' + name + '{' +
-        '0%{opacity:' + z + '}' +
-        start + '%{opacity:' + alpha + '}' +
-        (start+0.01) + '%{opacity:1}' +
-        (start+trail) % 100 + '%{opacity:' + alpha + '}' +
-        '100%{opacity:' + z + '}' +
-        '}', sheet.cssRules.length)
-
-      animations[name] = 1
-    }
-
-    return name
-  }
-
-  /**
-   * Tries various vendor prefixes and returns the first supported property.
-   */
-  function vendor(el, prop) {
-    var s = el.style
-      , pp
-      , i
-
-    prop = prop.charAt(0).toUpperCase() + prop.slice(1)
-    for(i=0; i<prefixes.length; i++) {
-      pp = prefixes[i]+prop
-      if(s[pp] !== undefined) return pp
-    }
-    if(s[prop] !== undefined) return prop
-  }
-
-  /**
-   * Sets multiple style properties at once.
-   */
-  function css(el, prop) {
-    for (var n in prop)
-      el.style[vendor(el, n)||n] = prop[n]
-
-    return el
-  }
-
-  /**
-   * Fills in default values.
-   */
-  function merge(obj) {
-    for (var i=1; i < arguments.length; i++) {
-      var def = arguments[i]
-      for (var n in def)
-        if (obj[n] === undefined) obj[n] = def[n]
-    }
-    return obj
-  }
-
-  /**
-   * Returns the absolute page-offset of the given element.
-   */
-  function pos(el) {
-    var o = { x:el.offsetLeft, y:el.offsetTop }
-    while((el = el.offsetParent))
-      o.x+=el.offsetLeft, o.y+=el.offsetTop
-
-    return o
-  }
-
-  /**
-   * Returns the line color from the given string or array.
-   */
-  function getColor(color, idx) {
-    return typeof color == 'string' ? color : color[idx % color.length]
-  }
-
-  // Built-in defaults
-
-  var defaults = {
-    lines: 12,            // The number of lines to draw
-    length: 7,            // The length of each line
-    width: 5,             // The line thickness
-    radius: 10,           // The radius of the inner circle
-    rotate: 0,            // Rotation offset
-    corners: 1,           // Roundness (0..1)
-    color: '#000',        // #rgb or #rrggbb
-    direction: 1,         // 1: clockwise, -1: counterclockwise
-    speed: 1,             // Rounds per second
-    trail: 100,           // Afterglow percentage
-    opacity: 1/4,         // Opacity of the lines
-    fps: 20,              // Frames per second when using setTimeout()
-    zIndex: 2e9,          // Use a high z-index by default
-    className: 'spinner', // CSS class to assign to the element
-    top: '50%',           // center vertically
-    left: '50%',          // center horizontally
-    position: 'absolute'  // element position
-  }
-
-  /** The constructor */
-  function Spinner(o) {
-    this.opts = merge(o || {}, Spinner.defaults, defaults)
-  }
-
-  // Global defaults that override the built-ins:
-  Spinner.defaults = {}
-
-  merge(Spinner.prototype, {
-
-    /**
-     * Adds the spinner to the given target element. If this instance is already
-     * spinning, it is automatically removed from its previous target b calling
-     * stop() internally.
-     */
-    spin: function(target) {
-      this.stop()
-
-      var self = this
-        , o = self.opts
-        , el = self.el = css(createEl(0, {className: o.className}), {position: o.position, width: 0, zIndex: o.zIndex})
-        , mid = o.radius+o.length+o.width
-
-      css(el, {
-        left: o.left,
-        top: o.top
-      })
-        
-      if (target) {
-        target.insertBefore(el, target.firstChild||null)
-      }
-
-      el.setAttribute('role', 'progressbar')
-      self.lines(el, self.opts)
-
-      if (!useCssAnimations) {
-        // No CSS animation support, use setTimeout() instead
-        var i = 0
-          , start = (o.lines - 1) * (1 - o.direction) / 2
-          , alpha
-          , fps = o.fps
-          , f = fps/o.speed
-          , ostep = (1-o.opacity) / (f*o.trail / 100)
-          , astep = f/o.lines
-
-        ;(function anim() {
-          i++;
-          for (var j = 0; j < o.lines; j++) {
-            alpha = Math.max(1 - (i + (o.lines - j) * astep) % f * ostep, o.opacity)
-
-            self.opacity(el, j * o.direction + start, alpha, o)
-          }
-          self.timeout = self.el && setTimeout(anim, ~~(1000/fps))
-        })()
-      }
-      return self
-    },
-
-    /**
-     * Stops and removes the Spinner.
-     */
-    stop: function() {
-      var el = this.el
-      if (el) {
-        clearTimeout(this.timeout)
-        if (el.parentNode) el.parentNode.removeChild(el)
-        this.el = undefined
-      }
-      return this
-    },
-
-    /**
-     * Internal method that draws the individual lines. Will be overwritten
-     * in VML fallback mode below.
-     */
-    lines: function(el, o) {
-      var i = 0
-        , start = (o.lines - 1) * (1 - o.direction) / 2
-        , seg
-
-      function fill(color, shadow) {
-        return css(createEl(), {
-          position: 'absolute',
-          width: (o.length+o.width) + 'px',
-          height: o.width + 'px',
-          background: color,
-          boxShadow: shadow,
-          transformOrigin: 'left',
-          transform: 'rotate(' + ~~(360/o.lines*i+o.rotate) + 'deg) translate(' + o.radius+'px' +',0)',
-          borderRadius: (o.corners * o.width>>1) + 'px'
-        })
-      }
-
-      for (; i < o.lines; i++) {
-        seg = css(createEl(), {
-          position: 'absolute',
-          top: 1+~(o.width/2) + 'px',
-          transform: o.hwaccel ? 'translate3d(0,0,0)' : '',
-          opacity: o.opacity,
-          animation: useCssAnimations && addAnimation(o.opacity, o.trail, start + i * o.direction, o.lines) + ' ' + 1/o.speed + 's linear infinite'
-        })
-
-        if (o.shadow) ins(seg, css(fill('#000', '0 0 4px ' + '#000'), {top: 2+'px'}))
-        ins(el, ins(seg, fill(getColor(o.color, i), '0 0 1px rgba(0,0,0,.1)')))
-      }
-      return el
-    },
-
-    /**
-     * Internal method that adjusts the opacity of a single line.
-     * Will be overwritten in VML fallback mode below.
-     */
-    opacity: function(el, i, val) {
-      if (i < el.childNodes.length) el.childNodes[i].style.opacity = val
-    }
-
-  })
-
-
-  function initVML() {
-
-    /* Utility function to create a VML tag */
-    function vml(tag, attr) {
-      return createEl('<' + tag + ' xmlns="urn:schemas-microsoft.com:vml" class="spin-vml">', attr)
-    }
-
-    // No CSS transforms but VML support, add a CSS rule for VML elements:
-    sheet.addRule('.spin-vml', 'behavior:url(#default#VML)')
-
-    Spinner.prototype.lines = function(el, o) {
-      var r = o.length+o.width
-        , s = 2*r
-
-      function grp() {
-        return css(
-          vml('group', {
-            coordsize: s + ' ' + s,
-            coordorigin: -r + ' ' + -r
-          }),
-          { width: s, height: s }
-        )
-      }
-
-      var margin = -(o.width+o.length)*2 + 'px'
-        , g = css(grp(), {position: 'absolute', top: margin, left: margin})
-        , i
-
-      function seg(i, dx, filter) {
-        ins(g,
-          ins(css(grp(), {rotation: 360 / o.lines * i + 'deg', left: ~~dx}),
-            ins(css(vml('roundrect', {arcsize: o.corners}), {
-                width: r,
-                height: o.width,
-                left: o.radius,
-                top: -o.width>>1,
-                filter: filter
-              }),
-              vml('fill', {color: getColor(o.color, i), opacity: o.opacity}),
-              vml('stroke', {opacity: 0}) // transparent stroke to fix color bleeding upon opacity change
-            )
-          )
-        )
-      }
-
-      if (o.shadow)
-        for (i = 1; i <= o.lines; i++)
-          seg(i, -2, 'progid:DXImageTransform.Microsoft.Blur(pixelradius=2,makeshadow=1,shadowopacity=.3)')
-
-      for (i = 1; i <= o.lines; i++) seg(i)
-      return ins(el, g)
-    }
-
-    Spinner.prototype.opacity = function(el, i, val, o) {
-      var c = el.firstChild
-      o = o.shadow && o.lines || 0
-      if (c && i+o < c.childNodes.length) {
-        c = c.childNodes[i+o]; c = c && c.firstChild; c = c && c.firstChild
-        if (c) c.opacity = val
-      }
-    }
-  }
-
-  var probe = css(createEl('group'), {behavior: 'url(#default#VML)'})
-
-  if (!vendor(probe, 'transform') && probe.adj) initVML()
-  else useCssAnimations = vendor(probe, 'animation')
-
-  return Spinner
-
-}));
-
-
-/***/ }),
-
-/***/ 763:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-function escapeRegexp(queryToEscape) {
-    return queryToEscape.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
-}
-exports.escapeRegexp = escapeRegexp;
-
-
-/***/ }),
-
-/***/ 764:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var core_1 = __webpack_require__(2);
-var common_1 = __webpack_require__(763);
-var HighlightPipe = (function () {
-    function HighlightPipe() {
-    }
-    HighlightPipe.prototype.transform = function (value, query) {
-        if (query.length < 1) {
-            return value;
-        }
-        if (query) {
-            var tagRE = new RegExp('<[^<>]*>', 'ig');
-            // get ist of tags
-            var tagList = value.match(tagRE);
-            // Replace tags with token
-            var tmpValue = value.replace(tagRE, '$!$');
-            // Replace search words
-            value = tmpValue.replace(new RegExp(common_1.escapeRegexp(query), 'gi'), '<strong>$&</strong>');
-            // Reinsert HTML
-            for (var i = 0; value.indexOf('$!$') > -1; i++) {
-                value = value.replace('$!$', tagList[i]);
-            }
-        }
-        return value;
-    };
-    HighlightPipe.decorators = [
-        { type: core_1.Pipe, args: [{ name: 'highlight' },] },
-    ];
-    /** @nocollapse */
-    HighlightPipe.ctorParameters = function () { return []; };
-    return HighlightPipe;
-}());
-exports.HighlightPipe = HighlightPipe;
-function stripTags(input) {
-    var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi;
-    var commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
-    return input.replace(commentsAndPhpTags, '').replace(tags, '');
-}
-exports.stripTags = stripTags;
-
-
-/***/ }),
-
-/***/ 767:
+/***/ 800:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1273,71 +574,57 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var forms_1 = __webpack_require__(48);
-var core_1 = __webpack_require__(2);
-var router_1 = __webpack_require__(42);
-var common_1 = __webpack_require__(28);
-var produto_service_1 = __webpack_require__(753);
-var categoria_service_1 = __webpack_require__(752);
-var abstract_produto_component_1 = __webpack_require__(757);
-var event_emitter_services_1 = __webpack_require__(72);
-var CreateProdutosComponent = (function (_super) {
-    __extends(CreateProdutosComponent, _super);
-    function CreateProdutosComponent(fb, location, categoriaService, produtoService, router) {
-        var _this = _super.call(this, fb, location) || this;
+var trata_error_service_1 = __webpack_require__(48);
+var forms_1 = __webpack_require__(23);
+var core_1 = __webpack_require__(1);
+var router_1 = __webpack_require__(40);
+var common_1 = __webpack_require__(24);
+var produto_service_1 = __webpack_require__(788);
+var categoria_service_1 = __webpack_require__(786);
+var abstract_produto_component_1 = __webpack_require__(799);
+var event_emitter_services_1 = __webpack_require__(42);
+var unidade_medida_service_1 = __webpack_require__(785);
+var CreateProdutoComponent = (function (_super) {
+    __extends(CreateProdutoComponent, _super);
+    function CreateProdutoComponent(fb, location, categoriaService, unidadeService, produtoService, router) {
+        var _this = _super.call(this, fb, location, categoriaService, unidadeService) || this;
         _this.fb = fb;
         _this.location = location;
         _this.categoriaService = categoriaService;
+        _this.unidadeService = unidadeService;
         _this.produtoService = produtoService;
         _this.router = router;
         return _this;
     }
-    CreateProdutosComponent.prototype.ngOnInit = function () {
-        var _this = this;
+    CreateProdutoComponent.prototype.ngOnInit = function () {
         this.criarFormulario();
-        this.categoriaService.findAll()
-            .subscribe(function (response) { _this.comboCategorias = _this.preencharCombo(response, 'id', 'nome'); }
-        //, error => console.log(error)
-        );
+        this.carregarCombosProduto();
     };
-    CreateProdutosComponent.prototype.confirmar = function (value) {
-        //let categoria: CategoriaDTO = {id:'1', nome:'2das'};
+    CreateProdutoComponent.prototype.confirmar = function (value) {
         var _this = this;
-        var prod = {};
-        prod.id = value.idProduto;
-        prod.nmProduto = value.nmProduto;
-        prod.preco = value.preco;
-        prod.produtoComposto = value.produtoComposto;
-        prod.status = 'A';
-        prod.usoInterno = value.usoInterno;
-        prod.categoria = { id: value.categoria[0].id, nome: value.categoria[0].text };
-        prod.urlImagem = this.urlFoto;
-        prod.composicoes = this.produtosComposicoes;
+        var prod = this.preencharProduto(value);
         this.produtoService.salvar(prod)
             .subscribe(function (response) {
-            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria incluída com sucesso!!!');
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Produtos', 'Produto incluído com sucesso!!!');
             _this.router.navigate(['/produtos/listar']);
-        }, function (error) {
-            //console.log('error de validação:', error.error);
-        });
+        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    return CreateProdutosComponent;
+    return CreateProdutoComponent;
 }(abstract_produto_component_1.AbstractProdutoComponent));
-CreateProdutosComponent = __decorate([
+CreateProdutoComponent = __decorate([
     core_1.Component({
-        selector: 'app-create-catetorias',
-        template: __webpack_require__(817),
-        styles: [__webpack_require__(795)]
+        template: __webpack_require__(846),
+        styles: [__webpack_require__(826)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _c || Object, typeof (_d = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _d || Object, typeof (_e = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _e || Object])
-], CreateProdutosComponent);
-exports.CreateProdutosComponent = CreateProdutosComponent;
-var _a, _b, _c, _d, _e;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/create-produtos.component.js.map
+    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _c || Object, typeof (_d = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _d || Object, typeof (_e = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _e || Object, typeof (_f = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _f || Object])
+], CreateProdutoComponent);
+exports.CreateProdutoComponent = CreateProdutoComponent;
+var _a, _b, _c, _d, _e, _f;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/create-produto.component.js.map
 
 /***/ }),
 
-/***/ 768:
+/***/ 801:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1362,22 +649,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var forms_1 = __webpack_require__(48);
-var core_1 = __webpack_require__(2);
-var router_1 = __webpack_require__(42);
-var common_1 = __webpack_require__(28);
-var produto_service_1 = __webpack_require__(753);
-var categoria_service_1 = __webpack_require__(752);
-var abstract_produto_component_1 = __webpack_require__(757);
-var event_emitter_services_1 = __webpack_require__(72);
+var unidade_medida_service_1 = __webpack_require__(785);
+var trata_error_service_1 = __webpack_require__(48);
+var forms_1 = __webpack_require__(23);
+var core_1 = __webpack_require__(1);
+var router_1 = __webpack_require__(40);
+var common_1 = __webpack_require__(24);
+var produto_service_1 = __webpack_require__(788);
+var categoria_service_1 = __webpack_require__(786);
+var abstract_produto_component_1 = __webpack_require__(799);
+var event_emitter_services_1 = __webpack_require__(42);
 var EditProdutosComponent = (function (_super) {
     __extends(EditProdutosComponent, _super);
-    function EditProdutosComponent(fb, route, location, categoriaService, produtoService, router) {
-        var _this = _super.call(this, fb, location) || this;
+    function EditProdutosComponent(fb, route, location, categoriaService, unidadeService, produtoService, router) {
+        var _this = _super.call(this, fb, location, categoriaService, unidadeService) || this;
         _this.fb = fb;
         _this.route = route;
         _this.location = location;
         _this.categoriaService = categoriaService;
+        _this.unidadeService = unidadeService;
         _this.produtoService = produtoService;
         _this.router = router;
         return _this;
@@ -1385,69 +675,40 @@ var EditProdutosComponent = (function (_super) {
     EditProdutosComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.criarFormulario();
+        this.carregarCombosProduto();
         this.route.params.forEach(function (params) {
             var id = params['id'];
             _this.produtoService.findById(id).subscribe(function (resp) {
                 var produto = resp;
-                _this.formulario = _this.fb.group({
-                    idProduto: [produto.id],
-                    nmProduto: [produto.nmProduto, [forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(25)]],
-                    categoria: [[{ id: produto.categoria.id, text: produto.categoria.nome }], forms_1.Validators.required],
-                    preco: [produto.preco, forms_1.Validators.required],
-                    produtoComposto: [produto.produtoComposto],
-                    status: [produto.status],
-                    usoInterno: [produto.usoInterno]
-                    //urlImagem: [produto.urlImagem]
-                });
-                _this.checkUsoInterno = produto.usoInterno == 'S';
-                if (produto.produtoComposto == 'S') {
-                    _this.checkProdutoComposto = true;
-                    _this.produtosComposicoes = produto.composicoes;
-                }
-            });
+                _this.atualizarForm(produto);
+            }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
         });
-        this.categoriaService.findAll()
-            .subscribe(function (response) { _this.comboCategorias = _this.preencharCombo(response, 'id', 'nome'); }
-        //, error => console.log(error)
-        );
     };
     EditProdutosComponent.prototype.confirmar = function (value) {
-        //let categoria: CategoriaDTO = {id:'1', nome:'2das'};
         var _this = this;
-        var prod = {};
-        prod.id = value.idProduto;
-        prod.nmProduto = value.nmProduto;
-        prod.preco = value.preco;
-        prod.produtoComposto = value.produtoComposto;
-        prod.status = value.status;
-        prod.usoInterno = value.usoInterno;
-        prod.categoria = { id: value.categoria[0].id, nome: value.categoria[0].text };
-        prod.urlImagem = this.urlFoto;
-        prod.composicoes = this.produtosComposicoes;
+        var prod = this.preencharProduto(value);
         this.produtoService.atualizar(prod)
             .subscribe(function (response) {
-            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria incluída com sucesso!!!');
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Produtos', 'Produto alterado com sucesso!!!');
             _this.router.navigate(['/produtos/listar']);
-        }, function (error) {
-            //console.log('error de validação:', error.error);
-        });
+        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
     return EditProdutosComponent;
 }(abstract_produto_component_1.AbstractProdutoComponent));
 EditProdutosComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(819),
-        styles: [__webpack_require__(797)]
+        template: __webpack_require__(847),
+        styles: [__webpack_require__(827)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _b || Object, typeof (_c = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _c || Object, typeof (_d = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _d || Object, typeof (_e = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _e || Object, typeof (_f = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _b || Object, typeof (_c = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _c || Object, typeof (_d = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _d || Object, typeof (_e = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _e || Object, typeof (_f = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _f || Object, typeof (_g = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _g || Object])
 ], EditProdutosComponent);
 exports.EditProdutosComponent = EditProdutosComponent;
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/edit-produtos.component.js.map
 
 /***/ }),
 
-/***/ 769:
+/***/ 802:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1472,12 +733,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var event_emitter_services_1 = __webpack_require__(72);
-var core_1 = __webpack_require__(2);
-var router_1 = __webpack_require__(42);
-var api_config_1 = __webpack_require__(134);
-var produto_service_1 = __webpack_require__(753);
-var abstract_base_component_1 = __webpack_require__(748);
+var event_emitter_services_1 = __webpack_require__(42);
+var core_1 = __webpack_require__(1);
+var router_1 = __webpack_require__(40);
+var api_config_1 = __webpack_require__(61);
+var produto_service_1 = __webpack_require__(788);
+var abstract_base_component_1 = __webpack_require__(144);
+var trata_error_service_1 = __webpack_require__(48);
 var ListarProdutosComponent = (function (_super) {
     __extends(ListarProdutosComponent, _super);
     function ListarProdutosComponent(produtoService, router) {
@@ -1504,7 +766,7 @@ var ListarProdutosComponent = (function (_super) {
             .subscribe(function (res) {
             event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Produtos', 'Status do produto alterado com sucesso!!!');
             _this.carregarProdutos();
-        }, function (error) { });
+        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
     ListarProdutosComponent.prototype.excluirCategoria = function () {
         var _this = this;
@@ -1512,31 +774,30 @@ var ListarProdutosComponent = (function (_super) {
             .subscribe(function (res) {
             event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Produtos', 'Produto excluído com sucesso!!!');
             _this.carregarProdutos();
-        }, function (error) { });
+        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
     ListarProdutosComponent.prototype.alterarProduto = function (produto) {
         this.router.navigate(["produtos/editar/" + produto.id]);
     };
     ListarProdutosComponent.prototype.carregarProdutos = function () {
         var _this = this;
-        this.produtoService.findAll().subscribe(function (response) {
-            _this.items = response;
-        }, function (error) { });
+        this.produtoService.findAll()
+            .subscribe(function (res) { return _this.items = res; }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
     return ListarProdutosComponent;
 }(abstract_base_component_1.AbstractBaseComponent));
 __decorate([
-    core_1.ViewChild('ExcluirProdutoModal'),
+    core_1.ViewChild('modalExcluirProduto'),
     __metadata("design:type", Object)
 ], ListarProdutosComponent.prototype, "popupExclusao", void 0);
 __decorate([
-    core_1.ViewChild('ChangeSatusProdutoModal'),
+    core_1.ViewChild('modalChangeSatusProduto'),
     __metadata("design:type", Object)
 ], ListarProdutosComponent.prototype, "popupChangeStatus", void 0);
 ListarProdutosComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(820),
-        styles: [__webpack_require__(798)]
+        template: __webpack_require__(848),
+        styles: [__webpack_require__(828)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], ListarProdutosComponent);
@@ -1546,16 +807,16 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 776:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var forms_1 = __webpack_require__(48);
-var currency_mask_config_1 = __webpack_require__(807);
-var input_handler_1 = __webpack_require__(809);
+var core_1 = __webpack_require__(1);
+var forms_1 = __webpack_require__(23);
+var currency_mask_config_1 = __webpack_require__(840);
+var input_handler_1 = __webpack_require__(842);
 exports.CURRENCYMASKDIRECTIVE_VALUE_ACCESSOR = {
     provide: forms_1.NG_VALUE_ACCESSOR,
     useExisting: core_1.forwardRef(function () { return CurrencyMaskDirective; }),
@@ -1665,654 +926,7 @@ exports.CurrencyMaskDirective = CurrencyMaskDirective;
 
 /***/ }),
 
-/***/ 777:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var core_1 = __webpack_require__(2);
-var OffClickDirective = (function () {
-    function OffClickDirective() {
-    }
-    /* tslint:enable */
-    OffClickDirective.prototype.onClick = function ($event) {
-        $event.stopPropagation();
-    };
-    OffClickDirective.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () { if (typeof document !== 'undefined') {
-            document.addEventListener('click', _this.offClickHandler);
-        } }, 0);
-    };
-    OffClickDirective.prototype.ngOnDestroy = function () {
-        if (typeof document !== 'undefined') {
-            document.removeEventListener('click', this.offClickHandler);
-        }
-    };
-    OffClickDirective.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[offClick]'
-                },] },
-    ];
-    /** @nocollapse */
-    OffClickDirective.ctorParameters = function () { return []; };
-    OffClickDirective.propDecorators = {
-        'offClickHandler': [{ type: core_1.Input, args: ['offClick',] },],
-        'onClick': [{ type: core_1.HostListener, args: ['click', ['$event'],] },],
-    };
-    return OffClickDirective;
-}());
-exports.OffClickDirective = OffClickDirective;
-
-
-/***/ }),
-
-/***/ 778:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var SelectItem = (function () {
-    function SelectItem(source) {
-        var _this = this;
-        if (typeof source === 'string') {
-            this.id = this.text = source;
-        }
-        if (typeof source === 'object') {
-            this.id = source.id || source.text;
-            this.text = source.text;
-            if (source.children && source.text) {
-                this.children = source.children.map(function (c) {
-                    var r = new SelectItem(c);
-                    r.parent = _this;
-                    return r;
-                });
-                this.text = source.text;
-            }
-        }
-    }
-    SelectItem.prototype.fillChildrenHash = function (optionsMap, startIndex) {
-        var i = startIndex;
-        this.children.map(function (child) {
-            optionsMap.set(child.id, i++);
-        });
-        return i;
-    };
-    SelectItem.prototype.hasChildren = function () {
-        return this.children && this.children.length > 0;
-    };
-    SelectItem.prototype.getSimilar = function () {
-        var r = new SelectItem(false);
-        r.id = this.id;
-        r.text = this.text;
-        r.parent = this.parent;
-        return r;
-    };
-    return SelectItem;
-}());
-exports.SelectItem = SelectItem;
-
-
-/***/ }),
-
-/***/ 779:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var core_1 = __webpack_require__(2);
-var forms_1 = __webpack_require__(48);
-var platform_browser_1 = __webpack_require__(43);
-var select_item_1 = __webpack_require__(778);
-var select_pipes_1 = __webpack_require__(764);
-var common_1 = __webpack_require__(763);
-var styles = "\n  .ui-select-toggle {\n    position: relative;\n  }\n\n  /* Fix caret going into new line in Firefox */\n  .ui-select-placeholder {\n    float: left;\n  }\n  \n  /* Fix Bootstrap dropdown position when inside a input-group */\n  .input-group > .dropdown {\n    /* Instead of relative */\n    position: static;\n  }\n  \n  .ui-select-match > .btn {\n    /* Instead of center because of .btn */\n    text-align: left !important;\n  }\n  \n  .ui-select-match > .caret {\n    position: absolute;\n    top: 45%;\n    right: 15px;\n  }\n  \n  .ui-disabled {\n    background-color: #eceeef;\n    border-radius: 4px;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 5;\n    opacity: 0.6;\n    top: 0;\n    left: 0;\n    cursor: not-allowed;\n  }\n  \n  .ui-select-choices {\n    width: 100%;\n    height: auto;\n    max-height: 200px;\n    overflow-x: hidden;\n    margin-top: 0;\n  }\n  \n  .ui-select-multiple .ui-select-choices {\n    margin-top: 1px;\n  }\n  .ui-select-choices-row>a {\n      display: block;\n      padding: 3px 20px;\n      clear: both;\n      font-weight: 400;\n      line-height: 1.42857143;\n      color: #333;\n      white-space: nowrap;\n  }\n  .ui-select-choices-row.active>a {\n      color: #fff;\n      text-decoration: none;\n      outline: 0;\n      background-color: #428bca;\n  }\n  \n  .ui-select-multiple {\n    height: auto;\n    padding:3px 3px 0 3px;\n  }\n  \n  .ui-select-multiple input.ui-select-search {\n    background-color: transparent !important; /* To prevent double background when disabled */\n    border: none;\n    outline: none;\n    box-shadow: none;\n    height: 1.6666em;\n    padding: 0;\n    margin-bottom: 3px;\n    \n  }\n  .ui-select-match .close {\n      font-size: 1.6em;\n      line-height: 0.75;\n  }\n  \n  .ui-select-multiple .ui-select-match-item {\n    outline: 0;\n    margin: 0 3px 3px 0;\n  }\n  .ui-select-toggle > .caret {\n      position: absolute;\n      height: 10px;\n      top: 50%;\n      right: 10px;\n      margin-top: -2px;\n  }\n";
-var SelectComponent = (function () {
-    function SelectComponent(element, sanitizer) {
-        this.sanitizer = sanitizer;
-        this.allowClear = false;
-        this.placeholder = '';
-        this.idField = 'id';
-        this.textField = 'text';
-        this.childrenField = 'children';
-        this.multiple = false;
-        this.data = new core_1.EventEmitter();
-        this.selected = new core_1.EventEmitter();
-        this.removed = new core_1.EventEmitter();
-        this.typed = new core_1.EventEmitter();
-        this.opened = new core_1.EventEmitter();
-        this.options = [];
-        this.itemObjects = [];
-        this.onChange = Function.prototype;
-        this.onTouched = Function.prototype;
-        this.inputMode = false;
-        this._optionsOpened = false;
-        this.inputValue = '';
-        this._items = [];
-        this._disabled = false;
-        this._active = [];
-        this.element = element;
-        this.clickedOutside = this.clickedOutside.bind(this);
-    }
-    Object.defineProperty(SelectComponent.prototype, "items", {
-        set: function (value) {
-            var _this = this;
-            if (!value) {
-                this._items = this.itemObjects = [];
-            }
-            else {
-                this._items = value.filter(function (item) {
-                    if ((typeof item === 'string') || (typeof item === 'object' && item && item[_this.textField] && item[_this.idField])) {
-                        return item;
-                    }
-                });
-                this.itemObjects = this._items.map(function (item) { return (typeof item === 'string' ? new select_item_1.SelectItem(item) : new select_item_1.SelectItem({ id: item[_this.idField], text: item[_this.textField], children: item[_this.childrenField] })); });
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(SelectComponent.prototype, "disabled", {
-        get: function () {
-            return this._disabled;
-        },
-        set: function (value) {
-            this._disabled = value;
-            if (this._disabled === true) {
-                this.hideOptions();
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(SelectComponent.prototype, "active", {
-        get: function () {
-            return this._active;
-        },
-        set: function (selectedItems) {
-            var _this = this;
-            if (!selectedItems || selectedItems.length === 0) {
-                this._active = [];
-            }
-            else {
-                var areItemsStrings_1 = typeof selectedItems[0] === 'string';
-                this._active = selectedItems.map(function (item) {
-                    var data = areItemsStrings_1
-                        ? item
-                        : { id: item[_this.idField], text: item[_this.textField] };
-                    return new select_item_1.SelectItem(data);
-                });
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(SelectComponent.prototype, "optionsOpened", {
-        get: function () {
-            return this._optionsOpened;
-        },
-        set: function (value) {
-            this._optionsOpened = value;
-            this.opened.emit(value);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    SelectComponent.prototype.sanitize = function (html) {
-        return this.sanitizer.bypassSecurityTrustHtml(html);
-    };
-    SelectComponent.prototype.inputEvent = function (e, isUpMode) {
-        if (isUpMode === void 0) { isUpMode = false; }
-        // tab
-        if (e.keyCode === 9) {
-            return;
-        }
-        if (isUpMode && (e.keyCode === 37 || e.keyCode === 39 || e.keyCode === 38 ||
-            e.keyCode === 40 || e.keyCode === 13)) {
-            e.preventDefault();
-            return;
-        }
-        // backspace
-        if (!isUpMode && e.keyCode === 8) {
-            var el = this.element.nativeElement
-                .querySelector('div.ui-select-container > input');
-            if (!el.value || el.value.length <= 0) {
-                if (this.active.length > 0) {
-                    this.remove(this.active[this.active.length - 1]);
-                }
-                e.preventDefault();
-            }
-        }
-        // esc
-        if (!isUpMode && e.keyCode === 27) {
-            this.hideOptions();
-            this.element.nativeElement.children[0].focus();
-            e.preventDefault();
-            return;
-        }
-        // del
-        if (!isUpMode && e.keyCode === 46) {
-            if (this.active.length > 0) {
-                this.remove(this.active[this.active.length - 1]);
-            }
-            e.preventDefault();
-        }
-        // left
-        if (!isUpMode && e.keyCode === 37 && this._items.length > 0) {
-            this.behavior.first();
-            e.preventDefault();
-            return;
-        }
-        // right
-        if (!isUpMode && e.keyCode === 39 && this._items.length > 0) {
-            this.behavior.last();
-            e.preventDefault();
-            return;
-        }
-        // up
-        if (!isUpMode && e.keyCode === 38) {
-            this.behavior.prev();
-            e.preventDefault();
-            return;
-        }
-        // down
-        if (!isUpMode && e.keyCode === 40) {
-            this.behavior.next();
-            e.preventDefault();
-            return;
-        }
-        // enter
-        if (!isUpMode && e.keyCode === 13) {
-            if (this.active.indexOf(this.activeOption) === -1) {
-                this.selectActiveMatch();
-                this.behavior.next();
-            }
-            e.preventDefault();
-            return;
-        }
-        var target = e.target || e.srcElement;
-        if (target && target.value) {
-            this.inputValue = target.value;
-            this.behavior.filter(new RegExp(common_1.escapeRegexp(this.inputValue), 'ig'));
-            this.doEvent('typed', this.inputValue);
-        }
-        else {
-            this.open();
-        }
-    };
-    SelectComponent.prototype.ngOnInit = function () {
-        this.behavior = (this.firstItemHasChildren) ?
-            new ChildrenBehavior(this) : new GenericBehavior(this);
-    };
-    SelectComponent.prototype.remove = function (item) {
-        if (this._disabled === true) {
-            return;
-        }
-        if (this.multiple === true && this.active) {
-            var index = this.active.indexOf(item);
-            this.active.splice(index, 1);
-            this.data.next(this.active);
-            this.doEvent('removed', item);
-        }
-        if (this.multiple === false) {
-            this.active = [];
-            this.data.next(this.active);
-            this.doEvent('removed', item);
-        }
-    };
-    SelectComponent.prototype.doEvent = function (type, value) {
-        if (this[type] && value) {
-            this[type].next(value);
-        }
-        this.onTouched();
-        if (type === 'selected' || type === 'removed') {
-            this.onChange(this.active);
-        }
-    };
-    SelectComponent.prototype.clickedOutside = function () {
-        this.inputMode = false;
-        this.optionsOpened = false;
-    };
-    Object.defineProperty(SelectComponent.prototype, "firstItemHasChildren", {
-        get: function () {
-            return this.itemObjects[0] && this.itemObjects[0].hasChildren();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    SelectComponent.prototype.writeValue = function (val) {
-        this.active = val;
-        this.data.emit(this.active);
-    };
-    SelectComponent.prototype.registerOnChange = function (fn) { this.onChange = fn; };
-    SelectComponent.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
-    SelectComponent.prototype.matchClick = function (e) {
-        if (this._disabled === true) {
-            return;
-        }
-        this.inputMode = !this.inputMode;
-        if (this.inputMode === true && ((this.multiple === true && e) || this.multiple === false)) {
-            this.focusToInput();
-            this.open();
-        }
-    };
-    SelectComponent.prototype.mainClick = function (event) {
-        if (this.inputMode === true || this._disabled === true) {
-            return;
-        }
-        if (event.keyCode === 46) {
-            event.preventDefault();
-            this.inputEvent(event);
-            return;
-        }
-        if (event.keyCode === 8) {
-            event.preventDefault();
-            this.inputEvent(event, true);
-            return;
-        }
-        if (event.keyCode === 9 || event.keyCode === 13 ||
-            event.keyCode === 27 || (event.keyCode >= 37 && event.keyCode <= 40)) {
-            event.preventDefault();
-            return;
-        }
-        this.inputMode = true;
-        var value = String
-            .fromCharCode(96 <= event.keyCode && event.keyCode <= 105 ? event.keyCode - 48 : event.keyCode)
-            .toLowerCase();
-        this.focusToInput(value);
-        this.open();
-        var target = event.target || event.srcElement;
-        target.value = value;
-        this.inputEvent(event);
-    };
-    SelectComponent.prototype.selectActive = function (value) {
-        this.activeOption = value;
-    };
-    SelectComponent.prototype.isActive = function (value) {
-        return this.activeOption.id === value.id;
-    };
-    SelectComponent.prototype.removeClick = function (value, event) {
-        event.stopPropagation();
-        this.remove(value);
-    };
-    SelectComponent.prototype.focusToInput = function (value) {
-        var _this = this;
-        if (value === void 0) { value = ''; }
-        setTimeout(function () {
-            var el = _this.element.nativeElement.querySelector('div.ui-select-container > input');
-            if (el) {
-                el.focus();
-                el.value = value;
-            }
-        }, 0);
-    };
-    SelectComponent.prototype.open = function () {
-        var _this = this;
-        this.options = this.itemObjects
-            .filter(function (option) { return (_this.multiple === false ||
-            _this.multiple === true && !_this.active.find(function (o) { return option.text === o.text; })); });
-        if (this.options.length > 0) {
-            this.behavior.first();
-        }
-        this.optionsOpened = true;
-    };
-    SelectComponent.prototype.hideOptions = function () {
-        this.inputMode = false;
-        this.optionsOpened = false;
-    };
-    SelectComponent.prototype.selectActiveMatch = function () {
-        this.selectMatch(this.activeOption);
-    };
-    SelectComponent.prototype.selectMatch = function (value, e) {
-        if (e === void 0) { e = void 0; }
-        if (e) {
-            e.stopPropagation();
-            e.preventDefault();
-        }
-        if (this.options.length <= 0) {
-            return;
-        }
-        if (this.multiple === true) {
-            this.active.push(value);
-            this.data.next(this.active);
-        }
-        if (this.multiple === false) {
-            this.active[0] = value;
-            this.data.next(this.active[0]);
-        }
-        this.doEvent('selected', value);
-        this.hideOptions();
-        if (this.multiple === true) {
-            this.focusToInput('');
-        }
-        else {
-            this.focusToInput(select_pipes_1.stripTags(value.text));
-            this.element.nativeElement.querySelector('.ui-select-container').focus();
-        }
-    };
-    SelectComponent.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'ng-select',
-                    styles: [styles],
-                    providers: [
-                        {
-                            provide: forms_1.NG_VALUE_ACCESSOR,
-                            /* tslint:disable */
-                            useExisting: core_1.forwardRef(function () { return SelectComponent; }),
-                            /* tslint:enable */
-                            multi: true
-                        }
-                    ],
-                    template: "\n  <div tabindex=\"0\"\n     *ngIf=\"multiple === false\"\n     (keyup)=\"mainClick($event)\"\n     [offClick]=\"clickedOutside\"\n     class=\"ui-select-container dropdown open\">\n    <div [ngClass]=\"{'ui-disabled': disabled}\"></div>\n    <div class=\"ui-select-match\"\n         *ngIf=\"!inputMode\">\n      <span tabindex=\"-1\"\n          class=\"btn btn-default btn-secondary form-control ui-select-toggle\"\n          (click)=\"matchClick($event)\"\n          style=\"outline: 0;\">\n        <span *ngIf=\"active.length <= 0\" class=\"ui-select-placeholder text-muted\">{{placeholder}}</span>\n        <span *ngIf=\"active.length > 0\" class=\"ui-select-match-text pull-left\"\n              [ngClass]=\"{'ui-select-allow-clear': allowClear && active.length > 0}\"\n              [innerHTML]=\"sanitize(active[0].text)\"></span>\n        <i class=\"dropdown-toggle pull-right\"></i>\n        <i class=\"caret pull-right\"></i>\n        <a *ngIf=\"allowClear && active.length>0\" class=\"btn btn-xs btn-link pull-right\" style=\"margin-right: 10px; padding: 0;\" (click)=\"removeClick(active[0], $event)\">\n           <i class=\"glyphicon glyphicon-remove\"></i>\n        </a>\n      </span>\n    </div>\n    <input type=\"text\" autocomplete=\"false\" tabindex=\"-1\"\n           (keydown)=\"inputEvent($event)\"\n           (keyup)=\"inputEvent($event, true)\"\n           [disabled]=\"disabled\"\n           class=\"form-control ui-select-search\"\n           *ngIf=\"inputMode\"\n           placeholder=\"{{active.length <= 0 ? placeholder : ''}}\">\n     <!-- options template -->\n     <ul *ngIf=\"optionsOpened && options && options.length > 0 && !firstItemHasChildren\"\n          class=\"ui-select-choices dropdown-menu\" role=\"menu\">\n        <li *ngFor=\"let o of options\" role=\"menuitem\">\n          <div class=\"ui-select-choices-row\"\n               [class.active]=\"isActive(o)\"\n               (mouseenter)=\"selectActive(o)\"\n               (click)=\"selectMatch(o, $event)\">\n            <a href=\"javascript:void(0)\" class=\"dropdown-item\">\n              <div [innerHtml]=\"sanitize(o.text | highlight:inputValue)\"></div>\n            </a>\n          </div>\n        </li>\n      </ul>\n  \n      <ul *ngIf=\"optionsOpened && options && options.length > 0 && firstItemHasChildren\"\n          class=\"ui-select-choices dropdown-menu\" role=\"menu\">\n        <li *ngFor=\"let c of options; let index=index\" role=\"menuitem\">\n          <div class=\"divider dropdown-divider\" *ngIf=\"index > 0\"></div>\n          <div class=\"dropdown-header\">{{c.text}}</div>\n  \n          <div *ngFor=\"let o of c.children\"\n               class=\"ui-select-choices-row\"\n               [class.active]=\"isActive(o)\"\n               (mouseenter)=\"selectActive(o)\"\n               (click)=\"selectMatch(o, $event)\"\n               [ngClass]=\"{'active': isActive(o)}\">\n            <a href=\"javascript:void(0)\" class=\"dropdown-item\">\n              <div [innerHtml]=\"sanitize(o.text | highlight:inputValue)\"></div>\n            </a>\n          </div>\n        </li>\n      </ul>\n  </div>\n\n  <div tabindex=\"0\"\n     *ngIf=\"multiple === true\"\n     (keyup)=\"mainClick($event)\"\n     (focus)=\"focusToInput('')\"\n     [offClick]=\"clickedOutside\"\n     class=\"ui-select-container ui-select-multiple dropdown form-control open\">\n    <div [ngClass]=\"{'ui-disabled': disabled}\"></div>\n    <span class=\"ui-select-match\">\n        <span *ngFor=\"let a of active\">\n            <span class=\"ui-select-match-item btn btn-default btn-secondary btn-xs\"\n                  tabindex=\"-1\"\n                  type=\"button\"\n                  [ngClass]=\"{'btn-default': true}\">\n               <a class=\"close\"\n                  style=\"margin-left: 5px; padding: 0;\"\n                  (click)=\"removeClick(a, $event)\">&times;</a>\n               <span [innerHtml]=\"sanitize(a.text)\"></span>\n           </span>\n        </span>\n    </span>\n    <input type=\"text\"\n           (keydown)=\"inputEvent($event)\"\n           (keyup)=\"inputEvent($event, true)\"\n           (click)=\"matchClick($event)\"\n           [disabled]=\"disabled\"\n           autocomplete=\"false\"\n           autocorrect=\"off\"\n           autocapitalize=\"off\"\n           spellcheck=\"false\"\n           class=\"form-control ui-select-search\"\n           placeholder=\"{{active.length <= 0 ? placeholder : ''}}\"\n           role=\"combobox\">\n     <!-- options template -->\n     <ul *ngIf=\"optionsOpened && options && options.length > 0 && !firstItemHasChildren\"\n          class=\"ui-select-choices dropdown-menu\" role=\"menu\">\n        <li *ngFor=\"let o of options\" role=\"menuitem\">\n          <div class=\"ui-select-choices-row\"\n               [class.active]=\"isActive(o)\"\n               (mouseenter)=\"selectActive(o)\"\n               (click)=\"selectMatch(o, $event)\">\n            <a href=\"javascript:void(0)\" class=\"dropdown-item\">\n              <div [innerHtml]=\"sanitize(o.text | highlight:inputValue)\"></div>\n            </a>\n          </div>\n        </li>\n      </ul>\n  \n      <ul *ngIf=\"optionsOpened && options && options.length > 0 && firstItemHasChildren\"\n          class=\"ui-select-choices dropdown-menu\" role=\"menu\">\n        <li *ngFor=\"let c of options; let index=index\" role=\"menuitem\">\n          <div class=\"divider dropdown-divider\" *ngIf=\"index > 0\"></div>\n          <div class=\"dropdown-header\">{{c.text}}</div>\n  \n          <div *ngFor=\"let o of c.children\"\n               class=\"ui-select-choices-row\"\n               [class.active]=\"isActive(o)\"\n               (mouseenter)=\"selectActive(o)\"\n               (click)=\"selectMatch(o, $event)\"\n               [ngClass]=\"{'active': isActive(o)}\">\n            <a href=\"javascript:void(0)\" class=\"dropdown-item\">\n              <div [innerHtml]=\"sanitize(o.text | highlight:inputValue)\"></div>\n            </a>\n          </div>\n        </li>\n      </ul>\n  </div>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    SelectComponent.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-        { type: platform_browser_1.DomSanitizer, },
-    ]; };
-    SelectComponent.propDecorators = {
-        'allowClear': [{ type: core_1.Input },],
-        'placeholder': [{ type: core_1.Input },],
-        'idField': [{ type: core_1.Input },],
-        'textField': [{ type: core_1.Input },],
-        'childrenField': [{ type: core_1.Input },],
-        'multiple': [{ type: core_1.Input },],
-        'items': [{ type: core_1.Input },],
-        'disabled': [{ type: core_1.Input },],
-        'active': [{ type: core_1.Input },],
-        'data': [{ type: core_1.Output },],
-        'selected': [{ type: core_1.Output },],
-        'removed': [{ type: core_1.Output },],
-        'typed': [{ type: core_1.Output },],
-        'opened': [{ type: core_1.Output },],
-    };
-    return SelectComponent;
-}());
-exports.SelectComponent = SelectComponent;
-var Behavior = (function () {
-    function Behavior(actor) {
-        this.optionsMap = new Map();
-        this.actor = actor;
-    }
-    Behavior.prototype.fillOptionsMap = function () {
-        var _this = this;
-        this.optionsMap.clear();
-        var startPos = 0;
-        this.actor.itemObjects
-            .map(function (item) {
-            startPos = item.fillChildrenHash(_this.optionsMap, startPos);
-        });
-    };
-    Behavior.prototype.ensureHighlightVisible = function (optionsMap) {
-        if (optionsMap === void 0) { optionsMap = void 0; }
-        var container = this.actor.element.nativeElement.querySelector('.ui-select-choices-content');
-        if (!container) {
-            return;
-        }
-        var choices = container.querySelectorAll('.ui-select-choices-row');
-        if (choices.length < 1) {
-            return;
-        }
-        var activeIndex = this.getActiveIndex(optionsMap);
-        if (activeIndex < 0) {
-            return;
-        }
-        var highlighted = choices[activeIndex];
-        if (!highlighted) {
-            return;
-        }
-        var posY = highlighted.offsetTop + highlighted.clientHeight - container.scrollTop;
-        var height = container.offsetHeight;
-        if (posY > height) {
-            container.scrollTop += posY - height;
-        }
-        else if (posY < highlighted.clientHeight) {
-            container.scrollTop -= highlighted.clientHeight - posY;
-        }
-    };
-    Behavior.prototype.getActiveIndex = function (optionsMap) {
-        if (optionsMap === void 0) { optionsMap = void 0; }
-        var ai = this.actor.options.indexOf(this.actor.activeOption);
-        if (ai < 0 && optionsMap !== void 0) {
-            ai = optionsMap.get(this.actor.activeOption.id);
-        }
-        return ai;
-    };
-    return Behavior;
-}());
-exports.Behavior = Behavior;
-var GenericBehavior = (function (_super) {
-    __extends(GenericBehavior, _super);
-    function GenericBehavior(actor) {
-        _super.call(this, actor);
-    }
-    GenericBehavior.prototype.first = function () {
-        this.actor.activeOption = this.actor.options[0];
-        _super.prototype.ensureHighlightVisible.call(this);
-    };
-    GenericBehavior.prototype.last = function () {
-        this.actor.activeOption = this.actor.options[this.actor.options.length - 1];
-        _super.prototype.ensureHighlightVisible.call(this);
-    };
-    GenericBehavior.prototype.prev = function () {
-        var index = this.actor.options.indexOf(this.actor.activeOption);
-        this.actor.activeOption = this.actor
-            .options[index - 1 < 0 ? this.actor.options.length - 1 : index - 1];
-        _super.prototype.ensureHighlightVisible.call(this);
-    };
-    GenericBehavior.prototype.next = function () {
-        var index = this.actor.options.indexOf(this.actor.activeOption);
-        this.actor.activeOption = this.actor
-            .options[index + 1 > this.actor.options.length - 1 ? 0 : index + 1];
-        _super.prototype.ensureHighlightVisible.call(this);
-    };
-    GenericBehavior.prototype.filter = function (query) {
-        var _this = this;
-        var options = this.actor.itemObjects
-            .filter(function (option) {
-            return select_pipes_1.stripTags(option.text).match(query) &&
-                (_this.actor.multiple === false ||
-                    (_this.actor.multiple === true && _this.actor.active.map(function (item) { return item.id; }).indexOf(option.id) < 0));
-        });
-        this.actor.options = options;
-        if (this.actor.options.length > 0) {
-            this.actor.activeOption = this.actor.options[0];
-            _super.prototype.ensureHighlightVisible.call(this);
-        }
-    };
-    return GenericBehavior;
-}(Behavior));
-exports.GenericBehavior = GenericBehavior;
-var ChildrenBehavior = (function (_super) {
-    __extends(ChildrenBehavior, _super);
-    function ChildrenBehavior(actor) {
-        _super.call(this, actor);
-    }
-    ChildrenBehavior.prototype.first = function () {
-        this.actor.activeOption = this.actor.options[0].children[0];
-        this.fillOptionsMap();
-        this.ensureHighlightVisible(this.optionsMap);
-    };
-    ChildrenBehavior.prototype.last = function () {
-        this.actor.activeOption =
-            this.actor
-                .options[this.actor.options.length - 1]
-                .children[this.actor.options[this.actor.options.length - 1].children.length - 1];
-        this.fillOptionsMap();
-        this.ensureHighlightVisible(this.optionsMap);
-    };
-    ChildrenBehavior.prototype.prev = function () {
-        var _this = this;
-        var indexParent = this.actor.options
-            .findIndex(function (option) { return _this.actor.activeOption.parent && _this.actor.activeOption.parent.id === option.id; });
-        var index = this.actor.options[indexParent].children
-            .findIndex(function (option) { return _this.actor.activeOption && _this.actor.activeOption.id === option.id; });
-        this.actor.activeOption = this.actor.options[indexParent].children[index - 1];
-        if (!this.actor.activeOption) {
-            if (this.actor.options[indexParent - 1]) {
-                this.actor.activeOption = this.actor
-                    .options[indexParent - 1]
-                    .children[this.actor.options[indexParent - 1].children.length - 1];
-            }
-        }
-        if (!this.actor.activeOption) {
-            this.last();
-        }
-        this.fillOptionsMap();
-        this.ensureHighlightVisible(this.optionsMap);
-    };
-    ChildrenBehavior.prototype.next = function () {
-        var _this = this;
-        var indexParent = this.actor.options
-            .findIndex(function (option) { return _this.actor.activeOption.parent && _this.actor.activeOption.parent.id === option.id; });
-        var index = this.actor.options[indexParent].children
-            .findIndex(function (option) { return _this.actor.activeOption && _this.actor.activeOption.id === option.id; });
-        this.actor.activeOption = this.actor.options[indexParent].children[index + 1];
-        if (!this.actor.activeOption) {
-            if (this.actor.options[indexParent + 1]) {
-                this.actor.activeOption = this.actor.options[indexParent + 1].children[0];
-            }
-        }
-        if (!this.actor.activeOption) {
-            this.first();
-        }
-        this.fillOptionsMap();
-        this.ensureHighlightVisible(this.optionsMap);
-    };
-    ChildrenBehavior.prototype.filter = function (query) {
-        var options = [];
-        var optionsMap = new Map();
-        var startPos = 0;
-        for (var _i = 0, _a = this.actor.itemObjects; _i < _a.length; _i++) {
-            var si = _a[_i];
-            var children = si.children.filter(function (option) { return query.test(option.text); });
-            startPos = si.fillChildrenHash(optionsMap, startPos);
-            if (children.length > 0) {
-                var newSi = si.getSimilar();
-                newSi.children = children;
-                options.push(newSi);
-            }
-        }
-        this.actor.options = options;
-        if (this.actor.options.length > 0) {
-            this.actor.activeOption = this.actor.options[0].children[0];
-            _super.prototype.ensureHighlightVisible.call(this, optionsMap);
-        }
-    };
-    return ChildrenBehavior;
-}(Behavior));
-exports.ChildrenBehavior = ChildrenBehavior;
-
-
-/***/ }),
-
-/***/ 783:
+/***/ 813:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2337,104 +951,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var forms_1 = __webpack_require__(48);
-var core_1 = __webpack_require__(2);
-var router_1 = __webpack_require__(42);
-var common_1 = __webpack_require__(28);
-var produto_service_1 = __webpack_require__(753);
-var categoria_service_1 = __webpack_require__(752);
-var abstract_produto_component_1 = __webpack_require__(757);
-var event_emitter_services_1 = __webpack_require__(72);
-var CreatesProdutosComponent = (function (_super) {
-    __extends(CreatesProdutosComponent, _super);
-    function CreatesProdutosComponent(fb, location, categoriaService, produtoService, router) {
-        var _this = _super.call(this, fb, location) || this;
-        _this.fb = fb;
-        _this.location = location;
-        _this.categoriaService = categoriaService;
-        _this.produtoService = produtoService;
-        _this.router = router;
-        return _this;
-    }
-    CreatesProdutosComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.criarFormulario();
-        this.categoriaService.findAll()
-            .subscribe(function (response) { _this.comboCategorias = _this.preencharCombo(response, 'id', 'nome'); }
-        //, error => console.log(error)
-        );
-    };
-    CreatesProdutosComponent.prototype.confirmar = function (value) {
-        //let categoria: CategoriaDTO = {id:'1', nome:'2das'};
-        var _this = this;
-        var prod = {};
-        prod.id = value.idProduto;
-        prod.nmProduto = value.nmProduto;
-        prod.preco = value.preco;
-        prod.produtoComposto = value.produtoComposto;
-        prod.status = 'A';
-        prod.usoInterno = value.usoInterno;
-        prod.categoria = { id: value.categoria[0].id, nome: value.categoria[0].text };
-        prod.urlImagem = this.urlFoto;
-        prod.composicoes = this.produtosComposicoes;
-        this.produtoService.salvar(prod)
-            .subscribe(function (response) {
-            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria incluída com sucesso!!!');
-            _this.router.navigate(['/produtos/listar']);
-        }, function (error) {
-            //console.log('error de validação:', error.error);
-        });
-    };
-    return CreatesProdutosComponent;
-}(abstract_produto_component_1.AbstractProdutoComponent));
-CreatesProdutosComponent = __decorate([
-    core_1.Component({
-        selector: 'app-creates-catetorias',
-        template: __webpack_require__(818),
-        styles: [__webpack_require__(796)]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _c || Object, typeof (_d = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _d || Object, typeof (_e = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _e || Object])
-], CreatesProdutosComponent);
-exports.CreatesProdutosComponent = CreatesProdutosComponent;
-var _a, _b, _c, _d, _e;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/creates-produtos.component.js.map
-
-/***/ }),
-
-/***/ 784:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var forms_1 = __webpack_require__(48);
-var produto_service_1 = __webpack_require__(753);
-var abstract_popup_component_1 = __webpack_require__(750);
-var unidade_medida_service_1 = __webpack_require__(754);
-var ComposicaoPopupModalComponent = (function (_super) {
-    __extends(ComposicaoPopupModalComponent, _super);
-    function ComposicaoPopupModalComponent(fb, unidadeService, produtoService) {
-        var _this = _super.call(this) || this;
+var trata_error_service_1 = __webpack_require__(48);
+var core_1 = __webpack_require__(1);
+var forms_1 = __webpack_require__(23);
+var produto_service_1 = __webpack_require__(788);
+var event_emitter_services_1 = __webpack_require__(42);
+var abstract_popup_component_1 = __webpack_require__(99);
+var unidade_medida_service_1 = __webpack_require__(785);
+var ComposicaoProdutoPopupModalComponent = (function (_super) {
+    __extends(ComposicaoProdutoPopupModalComponent, _super);
+    function ComposicaoProdutoPopupModalComponent(fb, unidadeService, produtoService) {
+        var _this = _super.call(this, 'composicaoProdutoPopupModal') || this;
         _this.fb = fb;
         _this.unidadeService = unidadeService;
         _this.produtoService = produtoService;
@@ -2443,71 +970,169 @@ var ComposicaoPopupModalComponent = (function (_super) {
         _this.comboCompProdutos = [];
         return _this;
     }
-    ComposicaoPopupModalComponent.prototype.ngOnInit = function () {
+    ComposicaoProdutoPopupModalComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.criarFormProdComp();
         this.produtoService.findAllProdutoInterno()
-            .subscribe(function (response) { _this.comboCompProdutos = _this.preencharCombo(response, 'id', 'nmProduto'); }
-        //, error => 
-        );
+            .subscribe(function (response) { return _this.comboCompProdutos = _this.preencharCombo(response, 'id', 'nmProduto'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
         this.unidadeService.findAllAtivo()
-            .subscribe(function (response) { _this.comboCompUnidades = _this.preencharCombo(response, 'id', 'sigla'); }
-        //, error => console.log(error)
-        );
+            .subscribe(function (response) { return _this.comboCompUnidades = _this.preencharCombo(response, 'id', 'sgUnidadeMedida'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    ComposicaoPopupModalComponent.prototype.show = function () {
+    ComposicaoProdutoPopupModalComponent.prototype.show = function () {
         this.criarFormProdComp();
         this.showPopup("Inclusão de produto na composição");
     };
-    ComposicaoPopupModalComponent.prototype.showAlteracao = function (item) {
+    ComposicaoProdutoPopupModalComponent.prototype.showAlteracao = function (item) {
         this.alterarProdutoComp(item);
-        this.showPopup("Inclusão de produto na composição");
+        this.showPopup("Alteração de produto na composição");
     };
-    ComposicaoPopupModalComponent.prototype.btnConfirmar = function (value) {
+    ComposicaoProdutoPopupModalComponent.prototype.btnConfirmar = function (value) {
+        event_emitter_services_1.EventEmitterService.closePopup(this.nomeJanePopup);
         this.onClickConfirm.emit(value);
-        //this.confirma.hide();
     };
-    ComposicaoPopupModalComponent.prototype.criarFormProdComp = function () {
+    ComposicaoProdutoPopupModalComponent.prototype.criarFormProdComp = function () {
         this.formProdComp = this.fb.group({
             idProdutoPai: [],
             produtoComp: ['', forms_1.Validators.required],
             unidade: ['', forms_1.Validators.required],
-            qtdUtilizada: ['', forms_1.Validators.required],
+            qtUtilizada: ['', forms_1.Validators.required],
             mostrarUnidade: ['S'],
             emAlteracao: [false]
         });
     };
-    ComposicaoPopupModalComponent.prototype.compProdCheckMostrar = function (valor) {
+    ComposicaoProdutoPopupModalComponent.prototype.compProdCheckMostrar = function (valor) {
         this.formProdComp.patchValue({
             mostrarUnidade: valor ? 'S' : 'N'
         });
     };
-    ComposicaoPopupModalComponent.prototype.alterarProdutoComp = function (item) {
+    ComposicaoProdutoPopupModalComponent.prototype.alterarProdutoComp = function (item) {
         this.formProdComp.patchValue({
             produtoComp: [{ id: item.idProdutoComposicao, text: item.nmProdutoComposicao }],
             unidade: [{ id: item.idUnidadeMedida, text: item.nmUnidadeMedida }],
-            qtdUtilizada: item.qtdUtilizada,
+            qtUtilizada: item.qtUtilizada,
             mostrarUnidade: item.mostrarUnidade,
             emAlteracao: true
         });
     };
-    return ComposicaoPopupModalComponent;
+    return ComposicaoProdutoPopupModalComponent;
 }(abstract_popup_component_1.AbstractPopupComponent));
-ComposicaoPopupModalComponent = __decorate([
+ComposicaoProdutoPopupModalComponent = __decorate([
     core_1.Component({
-        selector: 'composicao-popup-modal',
-        styles: [__webpack_require__(799)],
-        template: __webpack_require__(821)
+        selector: 'composicao-produto-popup-modal',
+        styles: [__webpack_require__(829)],
+        template: __webpack_require__(849)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _b || Object, typeof (_c = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _c || Object])
-], ComposicaoPopupModalComponent);
-exports.ComposicaoPopupModalComponent = ComposicaoPopupModalComponent;
+], ComposicaoProdutoPopupModalComponent);
+exports.ComposicaoProdutoPopupModalComponent = ComposicaoProdutoPopupModalComponent;
 var _a, _b, _c;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/composicao-popup-modal.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/composicao-produto-popup-modal.component.js.map
 
 /***/ }),
 
-/***/ 785:
+/***/ 814:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var info_nutricional_service_1 = __webpack_require__(789);
+var trata_error_service_1 = __webpack_require__(48);
+var core_1 = __webpack_require__(1);
+var forms_1 = __webpack_require__(23);
+var event_emitter_services_1 = __webpack_require__(42);
+var abstract_popup_component_1 = __webpack_require__(99);
+var unidade_medida_service_1 = __webpack_require__(785);
+var InfoNutricionalProdutoPopupModalComponent = (function (_super) {
+    __extends(InfoNutricionalProdutoPopupModalComponent, _super);
+    function InfoNutricionalProdutoPopupModalComponent(fb, unidadeService, infoService) {
+        var _this = _super.call(this, 'infoNutricionalProdutoPopup') || this;
+        _this.fb = fb;
+        _this.unidadeService = unidadeService;
+        _this.infoService = infoService;
+        _this.checkMostrar = true;
+        _this.comboCompUnidades = [];
+        _this.comboInfoNutriciais = [];
+        return _this;
+    }
+    InfoNutricionalProdutoPopupModalComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.criarFormProdInfo();
+        this.infoService.findAll()
+            .subscribe(function (response) { return _this.comboInfoNutriciais = _this.preencharCombo(response, 'id', 'nmInfoNutricional'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+        this.unidadeService.findAllAtivo()
+            .subscribe(function (response) { return _this.comboCompUnidades = _this.preencharCombo(response, 'id', 'sgUnidadeMedida'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+    };
+    InfoNutricionalProdutoPopupModalComponent.prototype.show = function () {
+        this.criarFormProdInfo();
+        this.showPopup("Inclusão de informações nutricionais");
+    };
+    InfoNutricionalProdutoPopupModalComponent.prototype.showAlteracao = function (item) {
+        this.alterarProdutoComp(item);
+        this.showPopup("Alteração de informações nutricionais");
+    };
+    InfoNutricionalProdutoPopupModalComponent.prototype.btnConfirmar = function (value) {
+        event_emitter_services_1.EventEmitterService.closePopup(this.nomeJanePopup);
+        this.onClickConfirm.emit(value);
+    };
+    InfoNutricionalProdutoPopupModalComponent.prototype.criarFormProdInfo = function () {
+        this.formProdInfo = this.fb.group({
+            idProduto: [],
+            infoNutricional: ['', forms_1.Validators.required],
+            unidade: ['', forms_1.Validators.required],
+            qtUtilizada: ['', forms_1.Validators.required],
+            emAlteracao: [false]
+        });
+    };
+    InfoNutricionalProdutoPopupModalComponent.prototype.compProdCheckMostrar = function (valor) {
+        this.formProdInfo.patchValue({
+            mostrarUnidade: valor ? 'S' : 'N'
+        });
+    };
+    InfoNutricionalProdutoPopupModalComponent.prototype.alterarProdutoComp = function (item) {
+        this.formProdInfo.patchValue({
+            idProduto: item.idProduto,
+            infoNutricional: [{ id: item.idInfoNutricional, text: item.dsInfoNutricional }],
+            unidade: [{ id: item.idUnidadeMedida, text: item.sgUnidadeMedida }],
+            qtUtilizada: ['', forms_1.Validators.required],
+            emAlteracao: [false]
+        });
+    };
+    return InfoNutricionalProdutoPopupModalComponent;
+}(abstract_popup_component_1.AbstractPopupComponent));
+InfoNutricionalProdutoPopupModalComponent = __decorate([
+    core_1.Component({
+        selector: 'info-nutricional-produto-popup-modal',
+        template: __webpack_require__(850)
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _b || Object, typeof (_c = typeof info_nutricional_service_1.InfoNutricionalService !== "undefined" && info_nutricional_service_1.InfoNutricionalService) === "function" && _c || Object])
+], InfoNutricionalProdutoPopupModalComponent);
+exports.InfoNutricionalProdutoPopupModalComponent = InfoNutricionalProdutoPopupModalComponent;
+var _a, _b, _c;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/info-nutricional-produto-popup-modal.component.js.map
+
+/***/ }),
+
+/***/ 815:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2519,11 +1144,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
-var router_1 = __webpack_require__(42);
-var create_produtos_component_1 = __webpack_require__(767);
-var listar_produtos_component_1 = __webpack_require__(769);
-var edit_produtos_component_1 = __webpack_require__(768);
+var core_1 = __webpack_require__(1);
+var router_1 = __webpack_require__(40);
+var listar_produtos_component_1 = __webpack_require__(802);
+var create_produto_component_1 = __webpack_require__(800);
+var edit_produtos_component_1 = __webpack_require__(801);
 var routes = [
     {
         path: '',
@@ -2545,7 +1170,7 @@ var routes = [
             },
             {
                 path: 'novo',
-                component: create_produtos_component_1.CreateProdutosComponent,
+                component: create_produto_component_1.CreateProdutoComponent,
                 data: {
                     title: 'Novo produto'
                 }
@@ -2576,10 +1201,10 @@ exports.ProdutoRoutingModule = ProdutoRoutingModule;
 
 /***/ }),
 
-/***/ 795:
+/***/ 826:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(58)();
+exports = module.exports = __webpack_require__(41)();
 // imports
 
 
@@ -2594,10 +1219,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 796:
+/***/ 827:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(58)();
+exports = module.exports = __webpack_require__(41)();
 // imports
 
 
@@ -2612,28 +1237,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 797:
+/***/ 828:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(58)();
-// imports
-
-
-// module
-exports.push([module.i, ".img-avatar-160 {\n  height: 160px;\n  width: 160px;\n  margin: 20px auto 10px;\n  border-radius: 50em; }\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 798:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(58)();
+exports = module.exports = __webpack_require__(41)();
 // imports
 
 
@@ -2648,10 +1255,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 799:
+/***/ 829:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(58)();
+exports = module.exports = __webpack_require__(41)();
 // imports
 
 
@@ -2666,7 +1273,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 806:
+/***/ 839:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2675,34 +1282,34 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(776));
-__export(__webpack_require__(808));
+__export(__webpack_require__(811));
+__export(__webpack_require__(841));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 807:
+/***/ 840:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(2);
+var core_1 = __webpack_require__(1);
 exports.CURRENCY_MASK_CONFIG = new core_1.InjectionToken("currency.mask.config");
 //# sourceMappingURL=currency-mask.config.js.map
 
 /***/ }),
 
-/***/ 808:
+/***/ 841:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var common_1 = __webpack_require__(28);
-var forms_1 = __webpack_require__(48);
-var core_1 = __webpack_require__(2);
-var currency_mask_directive_1 = __webpack_require__(776);
+var common_1 = __webpack_require__(24);
+var forms_1 = __webpack_require__(23);
+var core_1 = __webpack_require__(1);
+var currency_mask_directive_1 = __webpack_require__(811);
 var CurrencyMaskModule = (function () {
     function CurrencyMaskModule() {
     }
@@ -2729,13 +1336,13 @@ exports.CurrencyMaskModule = CurrencyMaskModule;
 
 /***/ }),
 
-/***/ 809:
+/***/ 842:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_service_1 = __webpack_require__(811);
+var input_service_1 = __webpack_require__(844);
 var InputHandler = (function () {
     function InputHandler(htmlInputElement, options) {
         this.inputService = new input_service_1.InputService(htmlInputElement, options);
@@ -2863,7 +1470,7 @@ exports.InputHandler = InputHandler;
 
 /***/ }),
 
-/***/ 810:
+/***/ 843:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2972,13 +1579,13 @@ exports.InputManager = InputManager;
 
 /***/ }),
 
-/***/ 811:
+/***/ 844:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_manager_1 = __webpack_require__(810);
+var input_manager_1 = __webpack_require__(843);
 var InputService = (function () {
     function InputService(htmlInputElement, options) {
         this.htmlInputElement = htmlInputElement;
@@ -3106,85 +1713,38 @@ exports.InputService = InputService;
 
 /***/ }),
 
-/***/ 812:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-__export(__webpack_require__(763));
-__export(__webpack_require__(777));
-__export(__webpack_require__(813));
-__export(__webpack_require__(779));
-__export(__webpack_require__(778));
-__export(__webpack_require__(764));
-
-
-/***/ }),
-
-/***/ 813:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var core_1 = __webpack_require__(2);
-var common_1 = __webpack_require__(28);
-var select_1 = __webpack_require__(779);
-var select_pipes_1 = __webpack_require__(764);
-var off_click_1 = __webpack_require__(777);
-var SelectModule = (function () {
-    function SelectModule() {
-    }
-    SelectModule.decorators = [
-        { type: core_1.NgModule, args: [{
-                    imports: [common_1.CommonModule],
-                    declarations: [select_1.SelectComponent, select_pipes_1.HighlightPipe, off_click_1.OffClickDirective],
-                    exports: [select_1.SelectComponent, select_pipes_1.HighlightPipe, off_click_1.OffClickDirective]
-                },] },
-    ];
-    /** @nocollapse */
-    SelectModule.ctorParameters = function () { return []; };
-    return SelectModule;
-}());
-exports.SelectModule = SelectModule;
-
-
-/***/ }),
-
-/***/ 817:
+/***/ 846:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Produto</strong>\r\n        <small> - inclusão de um novo produto</small>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4 col-md-4\">\r\n              <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                  <strong>Imagens do produto</strong>\r\n                </div>\r\n                <div class=\"card-block\">\r\n                  <div class=\"row\">\r\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                  </div>\r\n\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                    (onSelecionarImagem)=\"mudarImage($event)\">\r\n                  </upload-imagem>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-8 col-sm-8\">\r\n              <form [formGroup]=\"formulario\" >\r\n                <tabset>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-list\"></i> Menu &nbsp;\r\n                      <span class=\"badge badge-success\">New</span>\r\n                    </ng-template>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Nome</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\r\n                          maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Categoria</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\r\n                        </ng-select>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('preco'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Valor</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('preco'))\"\r\n                          name=\"nmProduto\" maxlength=\"10\" formControlName=\"preco\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('preco'))\" titulo=\"Erro:\" mensagem=\"o campo valor é preenchimento obrigatório\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Uso interno</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Composto</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkProdutoComposto type=\"checkbox\" class=\"switch-input\" [checked]=\"checkProdutoComposto\" (change)=\"alterarCheckProdutoComposto(chkProdutoComposto.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                  </tab>\r\n                  <tab [disabled]=\"!checkProdutoComposto\">\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-calculator\"></i> Composição &nbsp;\r\n                    </ng-template>\r\n                    <div class=\"from-group row\" >\r\n                      \r\n                      <div class=\"col-sm-12\">\r\n                        <div class=\"card\">\r\n                          <div class=\"card-header\">\r\n                            <strong>Composição do produto</strong>\r\n                            <div class=\"card-actions\">\r\n                              <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                <i class=\"icon-plus\"></i>\r\n                              </button>\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                            <div class=\"row\">\r\n\r\n                              <table class=\"table table-striped\">\r\n                                <thead>\r\n                                  <th class=\"text-left\">Produto</th>\r\n                                  <th class=\"text-right\">Quantidade</th>\r\n                                  <th class=\"text-center\">Mostrar</th>\r\n                                  <th class=\"text-right\">Ação</th>\r\n                                </thead>\r\n                                <tbody>\r\n                                  <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                    <td class=\"text-left\">\r\n                                      <div>{{item.nmProdutoComposicao}}</div>\r\n                                    </td>\r\n                                    <td class=\"text-right\">\r\n                                      {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                    </td>\r\n                                    <td class=\"text-center\">\r\n                                      <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                    </td>\r\n\r\n\r\n                                    <td class=\"text-right\">\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                        <i class=\"fa fa fa-edit\"> </i>\r\n                                      </button>\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                        <i class=\"fa fa-eraser\"> </i>\r\n                                      </button>\r\n                                    </td>\r\n                                  </tr>\r\n                                </tbody>\r\n                              </table>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Informações adicionais\r\n                    </ng-template>\r\n                    4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est\r\n                    laborum.\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Informações nutricionais\r\n                    </ng-template>\r\n                    4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est\r\n                    laborum.\r\n                  </tab>\r\n                </tabset>\r\n              </form>\r\n              <!-- \r\n\r\n                <form [formGroup]=\"formulario\" >\r\n                  \r\n                  <div class=\"card\">\r\n                    <div class=\"card-header\">\r\n                      <strong>Descrição do produto</strong>\r\n                    </div>\r\n                    <div class=\"card-block\">\r\n                      \r\n                      \r\n                      \r\n                      <div class=\"from-group row\" *ngIf=\"checkProdutoComposto\">\r\n                        <label class=\"col-sm-2 form-control-label\" >Composição</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                              <strong>Composição do produto</strong>\r\n                              <div class=\"card-actions\">\r\n                                <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                              </div>\r\n                            </div>\r\n                            <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                              <div class=\"row\">\r\n                                \r\n                                <table class=\"table table-striped\">\r\n                                  <thead>\r\n                                    <th class=\"text-left\">Produto</th>\r\n                                    <th class=\"text-right\">Quantidade</th>\r\n                                    <th class=\"text-center\">Mostrar</th>\r\n                                    <th class=\"text-right\">Ação</th>\r\n                                  </thead>\r\n                                  <tbody>\r\n                                    <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                      <td class=\"text-left\">\r\n                                        <div>{{item.nmProdutoComposicao}}</div>\r\n                                      </td>\r\n                                      <td class=\"text-right\">\r\n                                        {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                      </td>\r\n                                      <td class=\"text-center\">\r\n                                        <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                      </td>\r\n                                      \r\n                                      \r\n                                      <td class=\"text-right\">\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                          <i class=\"fa fa fa-edit\"> </i>\r\n                                        </button>\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                          <i class=\"fa fa-eraser\"> </i>\r\n                                        </button>\r\n                                      </td>\r\n                                    </tr>\r\n                                  </tbody>\r\n                                </table>\r\n                              </div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n              -->\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n              </button>\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmConfirmarModalUsuario.show();\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <confirm-popup-modal #confirmConfirmarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n  </confirm-popup-modal>\r\n\r\n  <composicao-popup-modal #composicaoModalUsuario (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-popup-modal>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Produto</strong>\r\n        <small> - inclusão de um novo produto</small>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4 col-md-4\">\r\n              <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                  <strong>Imagens do produto</strong>\r\n                </div>\r\n                <div class=\"card-block\">\r\n                  <div class=\"row\">\r\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                  </div>\r\n\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                    (onSelecionarImagem)=\"mudarImage($event)\">\r\n                  </upload-imagem>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-8 col-sm-8\">\r\n              <form [formGroup]=\"formulario\">\r\n                <tabset>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-list\"></i> Dados &nbsp;\r\n                    </ng-template>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Nome</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\r\n                          maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n\r\n\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Categoria</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\r\n                        </ng-select>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('unidadeVenda'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Unidade de Venda </label>\r\n                      <div class=\"col-sm-4\">\r\n                        <ng-select [multiple]=\"false\" formControlName=\"unidadeVenda\" [items]=\"comboUnidades\" placeholder=\"{{label.selecione}}\">\r\n                        </ng-select>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('vlVenda'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Valor venda</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('vlVenda'))\"\r\n                          name=\"vlVenda\" maxlength=\"10\" formControlName=\"vlVenda\">\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('vlCompra'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Valor compra</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('vlCompra'))\"\r\n                          name=\"vlCompra\" maxlength=\"10\" formControlName=\"vlCompra\">\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('qtdMinimaEstoque'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Qtd minima estoque</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input numberOnly type=\"text\" formControlName=\"qtdMinimaEstoque\" class=\"form-control input-sm\" name=\"qtdMinimaEstoque\" formControlName=\"qtdMinimaEstoque\"\r\n                          maxlength=\"4\">\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nrCodigoBarra'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Cód barra</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input numberOnly type=\"text\" formControlName=\"nrCodigoBarra\" class=\"form-control input\" name=\"codigoBarra\" formControlName=\"nrCodigoBarra\"\r\n                          maxlength=\"20\">\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\">Uso interno</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-calculator\"></i> Composição &nbsp;\r\n                    </ng-template>\r\n                    <div class=\"from-group row\">\r\n\r\n                      <div class=\"col-sm-12\">\r\n                        <div class=\"card\">\r\n                          <div class=\"card-header\">\r\n                            <strong>Composição do produto</strong>\r\n                            <div class=\"card-actions\">\r\n                              <button type=\"button\" (click)=\"composicaoModal.show()\">\r\n                                <i class=\"icon-plus\"></i>\r\n                              </button>\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                            <div class=\"row\">\r\n\r\n                              <table class=\"table table-striped\">\r\n                                <thead>\r\n                                  <th class=\"text-left\">Produto</th>\r\n                                  <th class=\"text-right\">Quantidade</th>\r\n                                  <th class=\"text-center\">Mostrar</th>\r\n                                  <th class=\"text-right\">Ação</th>\r\n                                </thead>\r\n                                <tbody>\r\n                                  <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                    <td class=\"text-left\">\r\n                                      <div>{{item.nmProdutoComposicao}}</div>\r\n                                    </td>\r\n                                    <td class=\"text-right\">\r\n                                      {{item?.qtUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                    </td>\r\n                                    <td class=\"text-center\">\r\n                                      <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                    </td>\r\n\r\n\r\n                                    <td class=\"text-right\">\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModal.showAlteracao(item)\">\r\n                                        <i class=\"fa fa fa-edit\"> </i>\r\n                                      </button>\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                        <i class=\"fa fa-eraser\"> </i>\r\n                                      </button>\r\n                                    </td>\r\n                                  </tr>\r\n                                </tbody>\r\n                              </table>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Inf. adicionais\r\n                    </ng-template>\r\n                    <div [ngClass]=\"aplicarCssGroup(formulario.get('dsUrlBlog'))\">\r\n                      <label for=\"nome\">Url blog de receitas</label>\r\n                      <input #campoNome type=\"text\" [ngClass]=\"aplicarCssForm(formulario.get('dsUrlBlog'))\" name=\"urlBlog\" maxlength=\"120\" placeholder=\"url do blog\"\r\n                        formControlName=\"dsUrlBlog\">\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                      <label for=\"dsInfoComplementar\">Informações extra</label>\r\n                      <textarea type=\"textarea\" maxlength=\"200\" rows=\"7\" [ngClass]=\"aplicarCssForm(formulario.get('dsInfoComplementar'))\" name=\"dsInfoComplementar\"\r\n                        placeholder=\"Digite as informações extra sobre o produto\" formControlName=\"dsInfoComplementar\"></textarea>\r\n                    </div>\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Inf nutricionais\r\n                    </ng-template>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('qtEmcada'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Quantidade</label>\r\n                      <div class=\"col-sm-2\">\r\n                        <input numberOnly type=\"text\" formControlName=\"qtEmcada\" class=\"form-control input\" name=\"qtEmcada\" formControlName=\"qtEmcada\"\r\n                        maxlength=\"3\">\r\n                      </div>\r\n                      <div class=\"col-sm-4\">\r\n                        <ng-select [multiple]=\"false\" formControlName=\"emCada\" [items]=\"comboUnidadesEmCasa\" placeholder=\"{{label.selecione}}\">\r\n                        </ng-select>\r\n                      </div>\r\n                    </div>\r\n                    <div class=\"card\">\r\n                      <div class=\"card-header\">\r\n                        <strong>Tabela nutricional</strong>\r\n                        <div class=\"card-actions\">\r\n                          <button type=\"button\" (click)=\"InfoNutricionalModal.show()\">\r\n                            <i class=\"icon-plus\"></i>\r\n                          </button>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"card-block\" *ngIf=\"produtosInfoNutricionais?.length > 0\">\r\n                        <div class=\"row\">\r\n\r\n                          <table class=\"table table-striped\">\r\n                            <thead>\r\n                              <th class=\"text-left\">Descrição</th>\r\n                              <th class=\"text-right\">Quantidade</th>\r\n                              <th class=\"text-right\">Ação</th>\r\n                            </thead>\r\n                            <tbody>\r\n                              <tr *ngFor=\"let item of produtosInfoNutricionais\">\r\n                                <td class=\"text-left\">\r\n                                  <div>{{item.dsInfoNutricional}}</div>\r\n                                </td>\r\n                                <td class=\"text-right\">\r\n                                  {{item?.qtUtilizada}} - {{item.sgUnidadeMedida}}\r\n                                </td>\r\n                                <td class=\"text-right\">\r\n                                  <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"InfoNutricionalModal.showAlteracao(item)\">\r\n                                    <i class=\"fa fa fa-edit\"> </i>\r\n                                  </button>\r\n                                  <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItemInfoNutriciobnal(item)\">\r\n                                    <i class=\"fa fa-eraser\"> </i>\r\n                                  </button>\r\n                                </td>\r\n                              </tr>\r\n                            </tbody>\r\n                          </table>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </tab>\r\n                </tabset>\r\n              </form>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n              </button>\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmProduto.show();\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <confirm-popup-modal #modalConfirmProduto popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n    <strong>Confirma a inclusão do Produto?</strong>\r\n  </confirm-popup-modal>\r\n\r\n  <composicao-produto-popup-modal #composicaoModal (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-produto-popup-modal>\r\n  <info-nutricional-produto-popup-modal #InfoNutricionalModal (onClickConfirm)=\"confirmarInfoNutricional($event)\"></info-nutricional-produto-popup-modal>\r\n  <!-- \r\n  -->\r\n</div>"
 
 /***/ }),
 
-/***/ 818:
+/***/ 847:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Produto</strong>\r\n        <small> - inclusão de um novo produto</small>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4 col-md-4\">\r\n              <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                  <strong>Imagens do produto</strong>\r\n                </div>\r\n                <div class=\"card-block\">\r\n                  <div class=\"row\">\r\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                  </div>\r\n\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                    (onSelecionarImagem)=\"mudarImage($event)\">\r\n                  </upload-imagem>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-8 col-sm-8\">\r\n              <form [formGroup]=\"formulario\" >\r\n                <tabset>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-list\"></i> Menu &nbsp;\r\n                      <span class=\"badge badge-success\">New</span>\r\n                    </ng-template>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Nome</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\r\n                          maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Categoria</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\r\n                        </ng-select>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('preco'))\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Valor</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('preco'))\"\r\n                          name=\"nmProduto\" maxlength=\"10\" formControlName=\"preco\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('preco'))\" titulo=\"Erro:\" mensagem=\"o campo valor é preenchimento obrigatório\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Uso interno</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\" >Composto</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkProdutoComposto type=\"checkbox\" class=\"switch-input\" [checked]=\"checkProdutoComposto\" (change)=\"alterarCheckProdutoComposto(chkProdutoComposto.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-calculator\"></i> Composição &nbsp;\r\n                    </ng-template>\r\n                    <div class=\"from-group row\" >\r\n                      \r\n                      <div class=\"col-sm-12\">\r\n                        <div class=\"card\">\r\n                          <div class=\"card-header\">\r\n                            <strong>Composição do produto</strong>\r\n                            <div class=\"card-actions\">\r\n                              <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                <i class=\"icon-plus\"></i>\r\n                              </button>\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                            <div class=\"row\">\r\n\r\n                              <table class=\"table table-striped\">\r\n                                <thead>\r\n                                  <th class=\"text-left\">Produto</th>\r\n                                  <th class=\"text-right\">Quantidade</th>\r\n                                  <th class=\"text-center\">Mostrar</th>\r\n                                  <th class=\"text-right\">Ação</th>\r\n                                </thead>\r\n                                <tbody>\r\n                                  <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                    <td class=\"text-left\">\r\n                                      <div>{{item.nmProdutoComposicao}}</div>\r\n                                    </td>\r\n                                    <td class=\"text-right\">\r\n                                      {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                    </td>\r\n                                    <td class=\"text-center\">\r\n                                      <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                    </td>\r\n\r\n\r\n                                    <td class=\"text-right\">\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                        <i class=\"fa fa fa-edit\"> </i>\r\n                                      </button>\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                        <i class=\"fa fa-eraser\"> </i>\r\n                                      </button>\r\n                                    </td>\r\n                                  </tr>\r\n                                </tbody>\r\n                              </table>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Informações adicionais\r\n                    </ng-template>\r\n                    4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est\r\n                    laborum.\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Informações nutricionais\r\n                    </ng-template>\r\n                    4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est\r\n                    laborum.\r\n                  </tab>\r\n                </tabset>\r\n              </form>\r\n              <!-- \r\n\r\n                <form [formGroup]=\"formulario\" >\r\n                  \r\n                  <div class=\"card\">\r\n                    <div class=\"card-header\">\r\n                      <strong>Descrição do produto</strong>\r\n                    </div>\r\n                    <div class=\"card-block\">\r\n                      \r\n                      \r\n                      \r\n                      <div class=\"from-group row\" *ngIf=\"checkProdutoComposto\">\r\n                        <label class=\"col-sm-2 form-control-label\" >Composição</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                              <strong>Composição do produto</strong>\r\n                              <div class=\"card-actions\">\r\n                                <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                              </div>\r\n                            </div>\r\n                            <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                              <div class=\"row\">\r\n                                \r\n                                <table class=\"table table-striped\">\r\n                                  <thead>\r\n                                    <th class=\"text-left\">Produto</th>\r\n                                    <th class=\"text-right\">Quantidade</th>\r\n                                    <th class=\"text-center\">Mostrar</th>\r\n                                    <th class=\"text-right\">Ação</th>\r\n                                  </thead>\r\n                                  <tbody>\r\n                                    <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                      <td class=\"text-left\">\r\n                                        <div>{{item.nmProdutoComposicao}}</div>\r\n                                      </td>\r\n                                      <td class=\"text-right\">\r\n                                        {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                      </td>\r\n                                      <td class=\"text-center\">\r\n                                        <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                      </td>\r\n                                      \r\n                                      \r\n                                      <td class=\"text-right\">\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                          <i class=\"fa fa fa-edit\"> </i>\r\n                                        </button>\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                          <i class=\"fa fa-eraser\"> </i>\r\n                                        </button>\r\n                                      </td>\r\n                                    </tr>\r\n                                  </tbody>\r\n                                </table>\r\n                              </div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n              -->\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n              </button>\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmConfirmarModalUsuario.show();\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <confirm-popup-modal #confirmConfirmarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n  </confirm-popup-modal>\r\n\r\n  <composicao-popup-modal #composicaoModalUsuario (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-popup-modal>"
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-12\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <strong>Produto</strong>\r\n          <small> - alteração do produto</small>\r\n        </div>\r\n  \r\n        <div class=\"card-block\">\r\n          <div class=\"form-group\">\r\n            <div class=\"row\">\r\n              <div class=\"col-sm-4 col-md-4\">\r\n                <div class=\"card\">\r\n                  <div class=\"card-header\">\r\n                    <strong>Imagens do produto</strong>\r\n                  </div>\r\n                  <div class=\"card-block\">\r\n                    <div class=\"row\">\r\n                      <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                    </div>\r\n  \r\n                  </div>\r\n                  <div class=\"card-footer\">\r\n                    <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                      (onSelecionarImagem)=\"mudarImage($event)\">\r\n                    </upload-imagem>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <!--/.col-->\r\n  \r\n              <div class=\"col-md-8 col-sm-8\">\r\n                <form [formGroup]=\"formulario\">\r\n                  <tabset>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-list\"></i> Dados &nbsp;\r\n                      </ng-template>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Nome</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\r\n                            maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\r\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\r\n                          </alert-mensagem>\r\n                        </div>\r\n                      </div>\r\n  \r\n  \r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Categoria</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\r\n                          </ng-select>\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('unidadeVenda'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Unidade de Venda </label>\r\n                        <div class=\"col-sm-4\">\r\n                          <ng-select [multiple]=\"false\" formControlName=\"unidadeVenda\" [items]=\"comboUnidades\" placeholder=\"{{label.selecione}}\">\r\n                          </ng-select>\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('vlVenda'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Valor venda</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('vlVenda'))\"\r\n                            name=\"vlVenda\" maxlength=\"10\" formControlName=\"vlVenda\">\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('vlCompra'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Valor compra</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('vlCompra'))\"\r\n                            name=\"vlCompra\" maxlength=\"10\" formControlName=\"vlCompra\">\r\n                        </div>\r\n                      </div>\r\n  \r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('qtdMinimaEstoque'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Qtd minima estoque</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <input numberOnly type=\"text\" formControlName=\"qtdMinimaEstoque\" class=\"form-control input-sm\" name=\"qtdMinimaEstoque\" formControlName=\"qtdMinimaEstoque\"\r\n                            maxlength=\"4\">\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nrCodigoBarra'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Cód barra</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <input numberOnly type=\"text\" formControlName=\"nrCodigoBarra\" class=\"form-control input\" name=\"codigoBarra\" formControlName=\"nrCodigoBarra\"\r\n                            maxlength=\"20\">\r\n                        </div>\r\n                      </div>\r\n  \r\n                      <div class=\"from-group row\">\r\n                        <label class=\"col-sm-2 form-control-label\">Uso interno</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <label class=\"switch switch-lg switch-text switch-primary\">\r\n                            <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\r\n                            />\r\n                            <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                            <span class=\"switch-handle\"></span>\r\n                          </label>\r\n                        </div>\r\n                      </div>\r\n  \r\n                    </tab>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-calculator\"></i> Composição &nbsp;\r\n                      </ng-template>\r\n                      <div class=\"from-group row\">\r\n  \r\n                        <div class=\"col-sm-12\">\r\n                          <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                              <strong>Composição do produto</strong>\r\n                              <div class=\"card-actions\">\r\n                                <button type=\"button\" (click)=\"composicaoModal.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                              </div>\r\n                            </div>\r\n                            <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                              <div class=\"row\">\r\n  \r\n                                <table class=\"table table-striped\">\r\n                                  <thead>\r\n                                    <th class=\"text-left\">Produto</th>\r\n                                    <th class=\"text-right\">Quantidade</th>\r\n                                    <th class=\"text-center\">Mostrar</th>\r\n                                    <th class=\"text-right\">Ação</th>\r\n                                  </thead>\r\n                                  <tbody>\r\n                                    <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                      <td class=\"text-left\">\r\n                                        <div>{{item.nmProdutoComposicao}}</div>\r\n                                      </td>\r\n                                      <td class=\"text-right\">\r\n                                        {{item?.qtUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                      </td>\r\n                                      <td class=\"text-center\">\r\n                                        <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                      </td>\r\n  \r\n  \r\n                                      <td class=\"text-right\">\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModal.showAlteracao(item)\">\r\n                                          <i class=\"fa fa fa-edit\"> </i>\r\n                                        </button>\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                          <i class=\"fa fa-eraser\"> </i>\r\n                                        </button>\r\n                                      </td>\r\n                                    </tr>\r\n                                  </tbody>\r\n                                </table>\r\n                              </div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </tab>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-pie-chart\"></i> Inf. adicionais\r\n                      </ng-template>\r\n                      <div [ngClass]=\"aplicarCssGroup(formulario.get('dsUrlBlog'))\">\r\n                        <label for=\"nome\">Url blog de receitas</label>\r\n                        <input #campoNome type=\"text\" [ngClass]=\"aplicarCssForm(formulario.get('dsUrlBlog'))\" name=\"urlBlog\" maxlength=\"120\" placeholder=\"url do blog\"\r\n                          formControlName=\"dsUrlBlog\">\r\n                      </div>\r\n  \r\n                      <div class=\"form-group\">\r\n                        <label for=\"dsInfoComplementar\">Informações extra</label>\r\n                        <textarea type=\"textarea\" maxlength=\"200\" rows=\"7\" [ngClass]=\"aplicarCssForm(formulario.get('dsInfoComplementar'))\" name=\"dsInfoComplementar\"\r\n                          placeholder=\"Digite as informações extra sobre o produto\" formControlName=\"dsInfoComplementar\"></textarea>\r\n                      </div>\r\n                    </tab>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-pie-chart\"></i> Inf nutricionais\r\n                      </ng-template>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('qtEmcada'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Quantidade</label>\r\n                        <div class=\"col-sm-2\">\r\n                          <input numberOnly type=\"text\" formControlName=\"qtEmcada\" class=\"form-control input\" name=\"qtEmcada\" formControlName=\"qtEmcada\"\r\n                          maxlength=\"3\">\r\n                        </div>\r\n                        <div class=\"col-sm-4\">\r\n                          <ng-select [multiple]=\"false\" formControlName=\"emCada\" [items]=\"comboUnidadesEmCasa\" placeholder=\"{{label.selecione}}\">\r\n                          </ng-select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"card\">\r\n                        <div class=\"card-header\">\r\n                          <strong>Tabela nutricional</strong>\r\n                          <div class=\"card-actions\">\r\n                            <button type=\"button\" (click)=\"InfoNutricionalModal.show()\">\r\n                              <i class=\"icon-plus\"></i>\r\n                            </button>\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"card-block\" *ngIf=\"produtosInfoNutricionais?.length > 0\">\r\n                          <div class=\"row\">\r\n  \r\n                            <table class=\"table table-striped\">\r\n                              <thead>\r\n                                <th class=\"text-left\">Descrição</th>\r\n                                <th class=\"text-right\">Quantidade</th>\r\n                                <th class=\"text-right\">Ação</th>\r\n                              </thead>\r\n                              <tbody>\r\n                                <tr *ngFor=\"let item of produtosInfoNutricionais\">\r\n                                  <td class=\"text-left\">\r\n                                    <div>{{item.dsInfoNutricional}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    {{item?.qtUtilizada}} - {{item.sgUnidadeMedida}}\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"InfoNutricionalModal.showAlteracao(item)\">\r\n                                      <i class=\"fa fa fa-edit\"> </i>\r\n                                    </button>\r\n                                    <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItemInfoNutriciobnal(item)\">\r\n                                      <i class=\"fa fa-eraser\"> </i>\r\n                                    </button>\r\n                                  </td>\r\n                                </tr>\r\n                              </tbody>\r\n                            </table>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </tab>\r\n                  </tabset>\r\n                </form>\r\n  \r\n              </div>\r\n  \r\n            </div>\r\n            <div class=\"card-footer\">\r\n              <div style=\"float: right;\">\r\n                <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                  <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n                </button>\r\n                <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmProduto.show();\">\r\n                  <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n                </button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <confirm-popup-modal #modalConfirmProduto popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n      <strong>Confirma a inclusão do Produto?</strong>\r\n    </confirm-popup-modal>\r\n  \r\n    <composicao-produto-popup-modal #composicaoModal (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-produto-popup-modal>\r\n    <info-nutricional-produto-popup-modal #InfoNutricionalModal (onClickConfirm)=\"confirmarInfoNutricional($event)\"></info-nutricional-produto-popup-modal>\r\n    <!-- \r\n    -->\r\n  </div>"
 
 /***/ }),
 
-/***/ 819:
+/***/ 848:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-12\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <strong>Produto</strong>\r\n          <small> - alteração do produto </small>\r\n        </div>\r\n  \r\n        <div class=\"card-block\">\r\n          <div class=\"form-group\">\r\n            <div class=\"row\">\r\n              <div class=\"col-sm-4 col-md-4\">\r\n                <div class=\"card\">\r\n                  <div class=\"card-header\">\r\n                    <strong>Imagens do produto</strong>\r\n                  </div>\r\n                  <div class=\"card-block\">\r\n                    <div class=\"row\">\r\n                      <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                    </div>\r\n  \r\n                  </div>\r\n                  <div class=\"card-footer\">\r\n                    <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                      (onSelecionarImagem)=\"mudarImage($event)\">\r\n                    </upload-imagem>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <!--/.col-->\r\n  \r\n              <div class=\"col-md-8 col-sm-8\">\r\n                <form [formGroup]=\"formulario\" (ngSubmit)=\"confirmar()\">\r\n  \r\n                  <div class=\"card\">\r\n                    <div class=\"card-header\">\r\n                      <strong>Descrição do produto</strong>\r\n                    </div>\r\n                    <div class=\"card-block\">\r\n  \r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\r\n                            maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\r\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\r\n                          </alert-mensagem>\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Categoria</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\r\n                          </ng-select>\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('preco'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Valor</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('preco'))\"\r\n                            name=\"nmProduto\" maxlength=\"10\" formControlName=\"preco\">\r\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('preco'))\" titulo=\"Erro:\" mensagem=\"o campo valor é preenchimento obrigatório\">\r\n                          </alert-mensagem>\r\n                        </div>\r\n                      </div>\r\n  \r\n                      <div class=\"from-group row\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Uso interno</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <label class=\"switch switch-lg switch-text switch-primary\">\r\n                            <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\r\n                            />\r\n                            <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                            <span class=\"switch-handle\"></span>\r\n                          </label>\r\n                        </div>\r\n                      </div>\r\n  \r\n                      <div class=\"from-group row\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composto</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <label class=\"switch switch-lg switch-text switch-primary\">\r\n                            <input #chkProdutoComposto type=\"checkbox\" class=\"switch-input\" [checked]=\"checkProdutoComposto\" (change)=\"alterarCheckProdutoComposto(chkProdutoComposto.checked)\"\r\n                            />\r\n                            <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                            <span class=\"switch-handle\"></span>\r\n                          </label>\r\n                        </div>\r\n                      </div>\r\n  \r\n  \r\n                      <div class=\"from-group row\" *ngIf=\"checkProdutoComposto\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Composição</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                              <strong>Composição do produto</strong>\r\n                              <div class=\"card-actions\">\r\n                                <button type=\"button\" (click)=\"composicaoModalUsuario.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                              </div>\r\n                            </div>\r\n                            <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                              <div class=\"row\">\r\n  \r\n                                <table class=\"table table-striped\">\r\n                                  <thead>\r\n                                    <th class=\"text-left\">Produto</th>\r\n                                    <th class=\"text-right\">Quantidade</th>\r\n                                    <th class=\"text-center\">Mostrar</th>\r\n                                    <th class=\"text-right\">Ação</th>\r\n                                  </thead>\r\n                                  <tbody>\r\n                                    <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                      <td class=\"text-left\">\r\n                                        <div>{{item.nmProdutoComposicao}}</div>\r\n                                      </td>\r\n                                      <td class=\"text-right\">\r\n                                        {{item?.qtdUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                      </td>\r\n                                      <td class=\"text-center\">\r\n                                        <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                      </td>\r\n  \r\n  \r\n                                      <td class=\"text-right\">\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModalUsuario.showAlteracao(item)\">\r\n                                          <i class=\"fa fa fa-edit\"> </i>\r\n                                        </button>\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                          <i class=\"fa fa-eraser\"> </i>\r\n                                        </button>\r\n                                      </td>\r\n                                    </tr>\r\n                                  </tbody>\r\n                                </table>\r\n                              </div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n              </div>\r\n  \r\n            </div>\r\n            <div class=\"card-footer\">\r\n              <div style=\"float: right;\">\r\n                <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                  <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n                </button>\r\n                <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"confirmConfirmarModalUsuario.show();\">\r\n                  <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n                </button>\r\n  \r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <confirm-popup-modal #confirmConfirmarModalUsuario popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n    </confirm-popup-modal>\r\n  \r\n    <composicao-popup-modal #composicaoModalUsuario (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-popup-modal>"
+module.exports = "<div class=\"col-md-1\"></div>\n<button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/produtos/novo']\">\n    <i class=\"icon-plus\"></i> Novo\n</button>\n<div class=\"card\">\n    <div class=\"card-header\">\n        <i class=\"fa fa-align-justify\"></i> Listagem de informações nutricional\n    </div>\n    <div class=\"card-block\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th class=\"text-center\" style=\"width: 5%\">\n                        <i class=\"icon-people\"></i>\n                    </th>\n                    <th style=\"width: 40%\">Descrição do produto</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Categoria</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Uso interno</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Situação</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Preço</th>\n                    <th style=\"width: 15%\" class=\"text-center\">Ação</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let item of items\">\n                    <td class=\"text-center\">\n                        <div class=\"avatar\">\n                            <foto-uri id=\"{{item.id}}\" modulo=\"PRD\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\n                        </div>\n                    </td>\n                    <td>\n                        <div>{{item.nmProduto}}</div>\n                    </td>\n                    <td class=\"text-center\">\n                        {{item?.categoria?.nmCategoria}}\n                    </td>\n                    <td class=\"text-center\">\n                        <simnao valor={{item.stUsoInterno}}></simnao>\n                    </td>\n                    <td class=\"text-center\">\n                        <status status={{item.status}}></status>\n                    </td>\n                    <td class=\"text-right\">\n                        {{item.vlVenda | currency:'BRL':true}}\n                    </td>\n                    <td class=\"text-right\">\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"alterarProduto(item)\">\n                            <i class=\"fa fa fa-edit\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\n                            <i class=\"fa fa-eraser\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\n                            <i class=\"fa fa-exclamation\"> </i>\n                        </button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n<confirm-popup-modal #modalExcluirProduto popupStyle=\"danger\" (onClickConfirm)=\"excluirCategoria()\">\n    <strong>Deseja excluir o produto?</strong>\n</confirm-popup-modal>\n\n<confirm-popup-modal #modalChangeSatusProduto popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\n    <strong>Deseja alterar o status do produto?</strong>\n</confirm-popup-modal>"
 
 /***/ }),
 
-/***/ 820:
+/***/ 849:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-1\"></div>\n<button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/produtos/novo']\">\n    <i class=\"icon-plus\"></i> Novo\n</button>\n<div class=\"card\">\n    <div class=\"card-header\">\n        <i class=\"fa fa-align-justify\"></i> Listagem de informações nutricional\n    </div>\n    <div class=\"card-block\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th class=\"text-center\" style=\"width: 5%\">\n                        <i class=\"icon-people\"></i>\n                    </th>\n                    <th style=\"width: 40%\" >Descrição do produto</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Categoria</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Uso interno</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Situação</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Preço</th>\n                    <th style=\"width: 15%\" class=\"text-center\">Ação</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let item of items\">\n                    <td class=\"text-center\">\n                        <div class=\"avatar\">\n                            <foto src=\"{{bucketUrl}}/produtos/prd{{item.id}}.jpg\" classCss=\"img-avatar\" alt=\"Avatar\"></foto>\n                        </div>\n                    </td>\n                    <td>\n                        <div>{{item.nmProduto}}</div>\n                    </td>\n                    <td class=\"text-center\">\n                        {{item?.categoria?.nome}}\n                    </td>\n                    <td class=\"text-center\">\n                        <simnao valor={{item.usoInterno}}></simnao>\n                    </td>\n                    <td class=\"text-center\">\n                        <status status={{item.status}}></status>\n                    </td>\n                    <td class=\"text-right\">\n                        {{item.preco | currency:'BRL':true}}\n                    </td>\n                    <td class=\"text-right\">\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"alterarProduto(item)\">\n                            <i class=\"fa fa fa-edit\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\n                            <i class=\"fa fa-eraser\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\n                            <i class=\"fa fa-exclamation\"> </i>\n                        </button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n<confirm-popup-modal #ExcluirCategoriaModal popupStyle=\"danger\" (onClickConfirm)=\"excluirCategoria()\">\n    <strong>Deseja excluir a categoria?</strong>\n</confirm-popup-modal>\n\n<confirm-popup-modal #ChangeSatusCategoriaModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\n    <strong>Deseja alterar o status da categoria?</strong>\n</confirm-popup-modal>"
+module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"md\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formProdComp.value)\" [desabilitarBtnConfirmar]=\"!formProdComp.valid\">\r\n\r\n        <form [formGroup]=\"formProdComp\" (ngSubmit)=\"confirmarCompProd()\">\r\n                <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('produtoComp'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Produto</label>\r\n                        <div class=\"col-sm-10\">\r\n                            <ng-select  *ngIf=\"!formProdComp.get('emAlteracao').value\" [multiple]=\"false\" formControlName=\"produtoComp\" [items]=\"comboCompProdutos\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n                            <input      *ngIf=\"formProdComp.get('emAlteracao').value\" type=\"text\" id=\"disabled-input\" name=\"disabled-input\" class=\"form-control\" placeholder=\"Disabled\" disabled=\"\" value=\"{{formProdComp.get('produtoComp').value[0].text}}\">\r\n                        </div>\r\n                </div>\r\n                <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('qtUtilizada'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Quantidade</label>\r\n                        <div class=\"col-sm-4\">\r\n                                <input #campoNome numberOnly type=\"text\" formControlName=\"qtUtilizada\" class=\"form-control input-sm\" name=\"qtUtilizada\"\r\n                                        formControlName=\"qtUtilizada\" maxlength=\"4\" >\r\n                        </div>\r\n                        <div class=\"col-sm-6\">\r\n                                <ng-select formControlName=\"unidade\" [items]=\"comboCompUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n                        </div>\r\n                </div>\r\n                <div class=\"form-group row\">\r\n                        <label class=\"col-sm-2 form-control-label\">Mostrar</label>\r\n                        <div class=\"col-sm-8\">\r\n                                <label class=\"switch switch-lg switch-text switch-primary\">\r\n                                        <input #checkMostrar type=\"checkbox\" class=\"switch-input\" [checked]=\"checkMostrar\" (change)=\"compProdCheckMostrar(checkMostrar.checked)\"\r\n                                        />\r\n                                        <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                                        <span class=\"switch-handle\"></span>\r\n                                </label>\r\n                        </div>\r\n                </div>\r\n        </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
-/***/ 821:
+/***/ 850:
 /***/ (function(module, exports) {
 
-module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n  aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-primary\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Composição do produto</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"dangerModal.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <form [formGroup]=\"formProdComp\" (ngSubmit)=\"confirmarCompProd()\">\r\n          <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('produtoComp'))\">\r\n            <label class=\"col-sm-4 form-control-label\" for=\"input-small\">Produto</label>\r\n            <div class=\"col-sm-8\" *ngIf=\"!formProdComp.get('emAlteracao').value\" >\r\n              <ng-select  [multiple]=\"false\" formControlName=\"produtoComp\" [items]=\"comboCompProdutos\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n            </div>\r\n            <div class=\"col-sm-8\" *ngIf=\"formProdComp.get('emAlteracao').value\" >\r\n                <input type=\"text\" id=\"disabled-input\" name=\"disabled-input\" class=\"form-control\" placeholder=\"Disabled\" disabled=\"\" value=\"{{formProdComp.get('produtoComp').value[0].text}}\">\r\n            </div>\r\n          </div>\r\n          <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('qtdUtilizada'))\">\r\n            <label class=\"col-sm-4 form-control-label\" for=\"input-normal\">Quantidade</label>\r\n            <div class=\"col-sm-4\">\r\n              <input #campoNome numberOnly type=\"text\" formControlName=\"qtdUtilizada\" class=\"form-control input-sm\" name=\"qtdUtilizada\" formControlName=\"qtdUtilizada\"\r\n                maxlength=\"4\">\r\n            </div>\r\n          </div>\r\n          <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('unidade'))\">\r\n            <label class=\"col-sm-4 form-control-label\" for=\"input-large\">Unidade de medida</label>\r\n            <div class=\"col-sm-4\">\r\n              <ng-select [multiple]=\"false\" formControlName=\"unidade\" [items]=\"comboCompUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-sm-4 form-control-label\">Mostar Unid e Qtd</label>\r\n            <div class=\"col-sm-8\">\r\n              <label class=\"switch switch-lg switch-text switch-primary\">\r\n                <input #checkMostrar type=\"checkbox\" class=\"switch-input\" [checked]=\"checkMostrar\" (change)=\"compProdCheckMostrar(checkMostrar.checked)\"\r\n                />\r\n                <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                <span class=\"switch-handle\"></span>\r\n              </label>\r\n            </div>\r\n          </div>\r\n        </form>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button class=\"btn btn-secondary\" (click)=\"modalConfirm.hide()\">\r\n          <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n        </button>\r\n        <button [disabled]=\"!formProdComp.valid\" type=\"button\" class=\"btn btn-md btn-success\" (click)=\"btnConfirmar(formProdComp.value)\">\r\n          <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"md\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formProdInfo.value)\"\r\n        [desabilitarBtnConfirmar]=\"!formProdInfo.valid\">\r\n\r\n        <form [formGroup]=\"formProdInfo\" (ngSubmit)=\"confirmarCompProd()\">\r\n                \r\n                <div [ngClass]=\"aplicarCssGroupRow(formProdInfo.get('infoNutricional'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Informação</label>\r\n                        <div class=\"col-sm-10\">\r\n                                <ng-select *ngIf=\"!formProdInfo.get('emAlteracao').value\" [multiple]=\"false\" formControlName=\"infoNutricional\" [items]=\"comboInfoNutriciais\"\r\n                                placeholder=\"{{label.selecione}}\"></ng-select>\r\n                                <input *ngIf=\"formProdInfo.get('emAlteracao').value\" type=\"text\" id=\"disabled-input\" name=\"disabled-input\" class=\"form-control\"\r\n                                placeholder=\"Disabled\" disabled=\"\" value=\"{{formProdInfo.get('infoNutricional').value[0].text}}\">\r\n                        </div>\r\n                </div>\r\n                <div [ngClass]=\"aplicarCssGroupRow(formProdInfo.get('qtUtilizada'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Quantidade</label>\r\n                        <div class=\"col-sm-4\">\r\n                                <input #campoNome numberOnly type=\"text\" formControlName=\"qtUtilizada\" class=\"form-control input-sm\" name=\"qtUtilizada\" formControlName=\"qtUtilizada\"\r\n                                maxlength=\"4\">\r\n                        </div>\r\n                        <div class=\"col-sm-6\">\r\n                                <ng-select formControlName=\"unidade\" [items]=\"comboCompUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n                        </div>\r\n                </div>\r\n        </form>\r\n</base-popup-modal>"
 
 /***/ })
 
