@@ -661,7 +661,6 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        console.log(this.creds);
         this.auth.authenticate(this.creds)
             .subscribe(function (response) {
             _this.auth.successfulLogin(response.headers.get('Authorization'));
@@ -1254,7 +1253,6 @@ var HeardSideBarComponent = (function () {
             .subscribe(function (res) {
             _this.idUsuario = res.id;
             _this.nmUsuario = res.nmPessoa;
-            console.log(_this.idUsuario);
             _this.image.getImageFromBucket(_this.idUsuario, 'CLI').subscribe(function (res) { return _this.urlFotoPerfil = api_config_1.API_CONFIG.bucketBaseUrl + "/clientes/cli" + _this.idUsuario + ".jpg"; });
         }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
@@ -2044,7 +2042,6 @@ var FotoURIComponent = (function () {
     };
     FotoURIComponent.prototype.getImageIfExists = function (id) {
         var _this = this;
-        console.log(id);
         if (id != "" && this.modulo != null && this.modulo != undefined) {
             this.imagem.getImageFromBucket(id, this.modulo)
                 .subscribe(function (res) { return _this.src = _this.imagem.getImage(id, _this.modulo); }, function (error) { return _this.src = _this.imagem.getImage(id, _this.modulo); });
@@ -4037,7 +4034,6 @@ var AuthService = (function (_super) {
         return _this;
     }
     AuthService.prototype.authenticate = function (creds) {
-        console.log(creds);
         return this.http.post(api_config_1.API_CONFIG.baseUrl + "/login", creds, { observe: 'response', responseType: 'text' });
     };
     AuthService.prototype.refreshToken = function () {
