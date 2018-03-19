@@ -12,13 +12,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var modal_1 = __webpack_require__(146);
+var modal_1 = __webpack_require__(147);
 var storage_service_1 = __webpack_require__(62);
 var core_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(24);
 var forms_1 = __webpack_require__(23);
 var http_1 = __webpack_require__(30);
-var popup_modal_module_1 = __webpack_require__(145);
+var popup_modal_module_1 = __webpack_require__(146);
 var categoria_service_1 = __webpack_require__(786);
 var shared_component_module_1 = __webpack_require__(76);
 var categoria_routing_module_1 = __webpack_require__(819);
@@ -84,7 +84,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var http_1 = __webpack_require__(30);
 var api_config_1 = __webpack_require__(61);
-var abstract_service_1 = __webpack_require__(143);
+var abstract_service_1 = __webpack_require__(144);
 //import { catchError, retry } from 'rxjs/operators';
 var CategoriaService = (function (_super) {
     __extends(CategoriaService, _super);
@@ -156,7 +156,7 @@ var trata_error_service_1 = __webpack_require__(48);
 var event_emitter_services_1 = __webpack_require__(42);
 var core_1 = __webpack_require__(1);
 var categoria_service_1 = __webpack_require__(786);
-var abstract_base_component_1 = __webpack_require__(144);
+var abstract_base_component_1 = __webpack_require__(145);
 var router_1 = __webpack_require__(40);
 var ListarCategoriaComponent = (function (_super) {
     __extends(ListarCategoriaComponent, _super);
@@ -301,8 +301,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var categoria_service_1 = __webpack_require__(786);
 var forms_1 = __webpack_require__(23);
 var core_1 = __webpack_require__(1);
-var abstract_popup_component_1 = __webpack_require__(99);
-var image_service_1 = __webpack_require__(149);
+var abstract_popup_component_1 = __webpack_require__(100);
+var image_service_1 = __webpack_require__(77);
 var CategoriaPopupModalComponent = (function (_super) {
     __extends(CategoriaPopupModalComponent, _super);
     function CategoriaPopupModalComponent(categoriaService, image, fb) {

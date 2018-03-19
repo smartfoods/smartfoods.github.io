@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var unidade_medida_popup_modal_component_1 = __webpack_require__(823);
 var core_1 = __webpack_require__(1);
 var http_1 = __webpack_require__(30);
-var popup_modal_module_1 = __webpack_require__(145);
-var modal_1 = __webpack_require__(146);
+var popup_modal_module_1 = __webpack_require__(146);
+var modal_1 = __webpack_require__(147);
 var forms_1 = __webpack_require__(23);
 var common_1 = __webpack_require__(24);
 var shared_component_module_1 = __webpack_require__(76);
@@ -82,7 +82,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var api_config_1 = __webpack_require__(61);
 var http_1 = __webpack_require__(30);
 var core_1 = __webpack_require__(1);
-var abstract_service_1 = __webpack_require__(143);
+var abstract_service_1 = __webpack_require__(144);
 var UnidadeMedidaService = (function (_super) {
     __extends(UnidadeMedidaService, _super);
     function UnidadeMedidaService(http) {
@@ -154,7 +154,7 @@ var trata_error_service_1 = __webpack_require__(48);
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(40);
 var event_emitter_services_1 = __webpack_require__(42);
-var abstract_base_component_1 = __webpack_require__(144);
+var abstract_base_component_1 = __webpack_require__(145);
 var unidade_medida_service_1 = __webpack_require__(785);
 var ListarUnidadeMedidaComponent = (function (_super) {
     __extends(ListarUnidadeMedidaComponent, _super);
@@ -264,7 +264,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var forms_1 = __webpack_require__(23);
 var core_1 = __webpack_require__(1);
-var abstract_popup_component_1 = __webpack_require__(99);
+var abstract_popup_component_1 = __webpack_require__(100);
 var unidade_medida_service_1 = __webpack_require__(785);
 var UnidadeMedidaPopupModalComponent = (function (_super) {
     __extends(UnidadeMedidaPopupModalComponent, _super);

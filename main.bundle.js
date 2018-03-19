@@ -1,6 +1,85 @@
 webpackJsonp([10,14],{
 
-/***/ 101:
+/***/ 100:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var trata_error_service_1 = __webpack_require__(48);
+var abstract_base_component_1 = __webpack_require__(145);
+var core_1 = __webpack_require__(1);
+var event_emitter_services_1 = __webpack_require__(42);
+var AbstractPopupComponent = (function (_super) {
+    __extends(AbstractPopupComponent, _super);
+    function AbstractPopupComponent(nomePopup) {
+        var _this = _super.call(this) || this;
+        _this.onClickConfirm = new core_1.EventEmitter();
+        _this.titulo = "";
+        _this.nomeJanePopup = nomePopup;
+        return _this;
+    }
+    AbstractPopupComponent.prototype.ngOnInit = function () {
+    };
+    AbstractPopupComponent.prototype.tratarSucesso = function () {
+        event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso(this.titulo, 'operação realizada com sucesso!!!');
+        event_emitter_services_1.EventEmitterService.closePopup(this.nomeJanePopup);
+        this.onClickConfirm.emit();
+    };
+    AbstractPopupComponent.prototype.showPopup = function (titulo) {
+        event_emitter_services_1.EventEmitterService.getErrors().emit(null);
+        event_emitter_services_1.EventEmitterService.showPopup(this.nomeJanePopup).emit();
+        this.titulo = titulo;
+        if (this.campo != undefined) {
+            this.fieldFocus(this.campo);
+        }
+    };
+    AbstractPopupComponent.prototype.acao = function (item, service) {
+        var _this = this;
+        if (item.emAlteracao) {
+            service.atualizar(item)
+                .subscribe(function (res) { return _this.tratarSucesso(); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+        }
+        else {
+            service.salvar(item)
+                .subscribe(function (res) { return _this.tratarSucesso(); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+        }
+    };
+    return AbstractPopupComponent;
+}(abstract_base_component_1.AbstractBaseComponent));
+__decorate([
+    core_1.ViewChild('campoNome'),
+    __metadata("design:type", Object)
+], AbstractPopupComponent.prototype, "campo", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], AbstractPopupComponent.prototype, "onClickConfirm", void 0);
+exports.AbstractPopupComponent = AbstractPopupComponent;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/abstract-popup.component.js.map
+
+/***/ }),
+
+/***/ 102:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14,13 +93,13 @@ exports.STORAGE_KEYS = {
 
 /***/ }),
 
-/***/ 143:
+/***/ 144:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var storage_keys_config_1 = __webpack_require__(101);
+var storage_keys_config_1 = __webpack_require__(102);
 var http_1 = __webpack_require__(30);
 var AbstractService = (function () {
     function AbstractService() {
@@ -58,7 +137,7 @@ exports.AbstractService = AbstractService;
 
 /***/ }),
 
-/***/ 144:
+/***/ 145:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -172,7 +251,7 @@ exports.AbstractBaseComponent = AbstractBaseComponent;
 
 /***/ }),
 
-/***/ 145:
+/***/ 146:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -185,14 +264,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var forms_1 = __webpack_require__(23);
-var angular2_text_mask_1 = __webpack_require__(100);
-var consulta_cep_service_1 = __webpack_require__(147);
+var angular2_text_mask_1 = __webpack_require__(101);
+var consulta_cep_service_1 = __webpack_require__(148);
 var cep_popup_modal_component_1 = __webpack_require__(314);
 var base_popup_modal_component_1 = __webpack_require__(316);
 var confirm_popup_modal_component_1 = __webpack_require__(315);
 var core_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(24);
-var modal_1 = __webpack_require__(146);
+var modal_1 = __webpack_require__(147);
 var shared_component_module_1 = __webpack_require__(76);
 // DataTable
 var PopupModalModule = (function () {
@@ -230,7 +309,7 @@ exports.PopupModalModule = PopupModalModule;
 
 /***/ }),
 
-/***/ 147:
+/***/ 148:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -293,56 +372,6 @@ ConsultaCEPService = __decorate([
 exports.ConsultaCEPService = ConsultaCEPService;
 var _a;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/consulta-cep-service.js.map
-
-/***/ }),
-
-/***/ 149:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__(61);
-var core_1 = __webpack_require__(1);
-var http_1 = __webpack_require__(30);
-var ImageService = (function () {
-    function ImageService(http) {
-        this.http = http;
-    }
-    ImageService.prototype.getImageFromBucket = function (id, modulo) {
-        this.id = id;
-        var url = this.recuperarUri(modulo);
-        return this.http.get(url);
-    };
-    ImageService.prototype.getImage = function (id, modulo) {
-        this.id = id;
-        return this.recuperarUri(modulo);
-    };
-    ImageService.prototype.recuperarUri = function (modulo) {
-        switch (modulo) {
-            case 'CLI': return api_config_1.API_CONFIG.bucketBaseUrl + "/clientes/cli" + this.id + ".jpg";
-            case 'PRD': return api_config_1.API_CONFIG.bucketBaseUrl + "/produtos/prd" + this.id + ".jpg";
-            case 'CAT': return api_config_1.API_CONFIG.bucketBaseUrl + "/categorias/cat" + this.id + ".jpg";
-        }
-    };
-    return ImageService;
-}());
-ImageService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], ImageService);
-exports.ImageService = ImageService;
-var _a;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/image.service.js.map
 
 /***/ }),
 
@@ -632,6 +661,7 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
+        console.log(this.creds);
         this.auth.authenticate(this.creds)
             .subscribe(function (response) {
             _this.auth.successfulLogin(response.headers.get('Authorization'));
@@ -712,7 +742,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var usuario_service_1 = __webpack_require__(63);
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(40);
-var abstract_base_component_1 = __webpack_require__(144);
+var abstract_base_component_1 = __webpack_require__(145);
 var trata_error_service_1 = __webpack_require__(48);
 var event_emitter_services_1 = __webpack_require__(42);
 var ListarUsuarioComponent = (function (_super) {
@@ -795,11 +825,11 @@ var common_1 = __webpack_require__(24);
 var forms_1 = __webpack_require__(23);
 var http_1 = __webpack_require__(30);
 var angular2_ladda_1 = __webpack_require__(271);
-var modal_1 = __webpack_require__(146);
-var popup_modal_module_1 = __webpack_require__(145);
+var modal_1 = __webpack_require__(147);
+var popup_modal_module_1 = __webpack_require__(146);
 var shared_component_module_1 = __webpack_require__(76);
-var angular2_text_mask_1 = __webpack_require__(100);
-var tabs_1 = __webpack_require__(148);
+var angular2_text_mask_1 = __webpack_require__(101);
+var tabs_1 = __webpack_require__(149);
 var usuario_popup_modal_component_1 = __webpack_require__(287);
 var usuario_service_1 = __webpack_require__(63);
 var listar_usuario_component_1 = __webpack_require__(159);
@@ -1093,7 +1123,7 @@ var common_1 = __webpack_require__(24);
 var auth_module_1 = __webpack_require__(156);
 var app_component_1 = __webpack_require__(278);
 var dropdown_1 = __webpack_require__(150);
-var tabs_1 = __webpack_require__(148);
+var tabs_1 = __webpack_require__(149);
 var nav_dropdown_directive_1 = __webpack_require__(296);
 var ng2_charts_1 = __webpack_require__(273);
 var sidebar_directive_1 = __webpack_require__(297);
@@ -1205,13 +1235,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var image_service_1 = __webpack_require__(77);
 var api_config_1 = __webpack_require__(61);
 var core_1 = __webpack_require__(1);
 var usuario_service_1 = __webpack_require__(63);
 var trata_error_service_1 = __webpack_require__(48);
 var HeardSideBarComponent = (function () {
-    function HeardSideBarComponent(usuarioService) {
+    function HeardSideBarComponent(usuarioService, image) {
         this.usuarioService = usuarioService;
+        this.image = image;
         this.idUsuario = "";
         this.nmUsuario = "";
         this.urlFotoPerfil = '/assets/img/noimage/noimagem.jpg';
@@ -1220,9 +1252,10 @@ var HeardSideBarComponent = (function () {
         var _this = this;
         this.usuarioService.infoUsuarioLogado()
             .subscribe(function (res) {
-            _this.urlFotoPerfil = api_config_1.API_CONFIG.bucketBaseUrl + "/clientes/cli" + res.id + ".jpg";
             _this.idUsuario = res.id;
             _this.nmUsuario = res.nmPessoa;
+            console.log(_this.idUsuario);
+            _this.image.getImageFromBucket(_this.idUsuario, 'CLI').subscribe(function (res) { return _this.urlFotoPerfil = api_config_1.API_CONFIG.bucketBaseUrl + "/clientes/cli" + _this.idUsuario + ".jpg"; });
         }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
     return HeardSideBarComponent;
@@ -1232,10 +1265,10 @@ HeardSideBarComponent = __decorate([
         selector: 'heard-side-bar',
         template: __webpack_require__(498)
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof usuario_service_1.UsuarioService !== "undefined" && usuario_service_1.UsuarioService) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof usuario_service_1.UsuarioService !== "undefined" && usuario_service_1.UsuarioService) === "function" && _a || Object, typeof (_b = typeof image_service_1.ImageService !== "undefined" && image_service_1.ImageService) === "function" && _b || Object])
 ], HeardSideBarComponent);
 exports.HeardSideBarComponent = HeardSideBarComponent;
-var _a;
+var _a, _b;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/heard-side-bar.component.js.map
 
 /***/ }),
@@ -1252,13 +1285,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var image_service_1 = __webpack_require__(77);
 var core_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(24);
 var http_1 = __webpack_require__(152);
 var forms_1 = __webpack_require__(23);
 var app_routing_1 = __webpack_require__(153);
 var shared_component_module_1 = __webpack_require__(76);
-var popup_modal_module_1 = __webpack_require__(145);
+var popup_modal_module_1 = __webpack_require__(146);
 var dropdown_1 = __webpack_require__(150);
 var aside_directive_1 = __webpack_require__(301);
 var sidebar_directive_1 = __webpack_require__(307);
@@ -1305,7 +1339,8 @@ LayoutModule = __decorate([
             footer_component_1.FooterComponent
         ],
         providers: [
-            auth_service_1.AuthService
+            auth_service_1.AuthService,
+            image_service_1.ImageService
         ]
     })
 ], LayoutModule);
@@ -1478,7 +1513,7 @@ var usuario_service_1 = __webpack_require__(63);
 var trata_error_service_1 = __webpack_require__(48);
 var forms_1 = __webpack_require__(23);
 var core_1 = __webpack_require__(1);
-var abstract_popup_component_1 = __webpack_require__(99);
+var abstract_popup_component_1 = __webpack_require__(100);
 var SenhaPopupModalComponent = (function (_super) {
     __extends(SenhaPopupModalComponent, _super);
     function SenhaPopupModalComponent(fb, usuarioService) {
@@ -1578,7 +1613,7 @@ var usuario_service_1 = __webpack_require__(63);
 var trata_error_service_1 = __webpack_require__(48);
 var forms_1 = __webpack_require__(23);
 var core_1 = __webpack_require__(1);
-var abstract_popup_component_1 = __webpack_require__(99);
+var abstract_popup_component_1 = __webpack_require__(100);
 var UsuarioPopupModalComponent = (function (_super) {
     __extends(UsuarioPopupModalComponent, _super);
     function UsuarioPopupModalComponent(fb, usuarioService) {
@@ -1997,7 +2032,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var image_service_1 = __webpack_require__(149);
+var image_service_1 = __webpack_require__(77);
 var core_1 = __webpack_require__(1);
 var FotoURIComponent = (function () {
     function FotoURIComponent(imagem) {
@@ -3185,11 +3220,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var event_emitter_services_1 = __webpack_require__(42);
-var consulta_cep_service_1 = __webpack_require__(147);
+var consulta_cep_service_1 = __webpack_require__(148);
 var trata_error_service_1 = __webpack_require__(48);
 var forms_1 = __webpack_require__(23);
 var core_1 = __webpack_require__(1);
-var abstract_popup_component_1 = __webpack_require__(99);
+var abstract_popup_component_1 = __webpack_require__(100);
 var CepModalComponent = (function (_super) {
     __extends(CepModalComponent, _super);
     function CepModalComponent(consultaCEPService, fb) {
@@ -3802,7 +3837,7 @@ module.exports = module.exports.toString();
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var storage_keys_config_1 = __webpack_require__(101);
+var storage_keys_config_1 = __webpack_require__(102);
 var event_emitter_services_1 = __webpack_require__(42);
 var TrataErrorService = (function () {
     function TrataErrorService() {
@@ -3922,21 +3957,21 @@ module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=
 /***/ 503:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"usuarioModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo</button>\r\n\r\n\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de usuários\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th style=\"width: 25%\">Nome</th>\r\n                    <th style=\"width: 20%\">CPF / Cnpj </th>\r\n                    <th style=\"width: 20%\">E-mail</th>\r\n                    <th style=\"width: 20%\">Login</th>\r\n                    <th style=\"width: 5%\">Situação</th>\r\n                    <th style=\"width: 10%\" class=\"text-center\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td>\r\n                        {{item.nmPessoa | uppercase}}\r\n                    </td>\r\n                    <td class=\"text-left\">\r\n                        {{item.nrDocumento | cpfCnpj}}\r\n                    </td>\r\n                    <td class=\"text-left\">\r\n                        {{item.edEmail}}\r\n                    </td>\r\n                    <td class=\"text-left\">\r\n                        {{item.dsLogin}}\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"usuarioModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"senhaModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n\r\n            </tbody>\r\n        </table>\r\n\r\n    </div>\r\n</div>\r\n\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeStatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status do cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<usuario-popup-modal #usuarioModal (onClickConfirm)=\"carregarTodos()\"></usuario-popup-modal>\r\n<senha-popup-modal #senhaModal (onClickConfirm)=\"carregarTodos()\"></senha-popup-modal>"
+module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"usuarioModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo</button>\r\n\r\n\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de usuários\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th style=\"width: 25%\">Nome</th>\r\n                    <th style=\"width: 20%\">CPF / Cnpj </th>\r\n                    <th style=\"width: 20%\">E-mail</th>\r\n                    <th style=\"width: 18%\">Login</th>\r\n                    <th style=\"width: 5%\">Situação</th>\r\n                    <th style=\"width: 12%\" class=\"text-center\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td>\r\n                        {{item.nmPessoa | uppercase}}\r\n                    </td>\r\n                    <td class=\"text-left\">\r\n                        {{item.nrDocumento | cpfCnpj}}\r\n                    </td>\r\n                    <td class=\"text-left\">\r\n                        {{item.edEmail}}\r\n                    </td>\r\n                    <td class=\"text-left\">\r\n                        {{item.dsLogin}}\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"usuarioModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"senhaModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n\r\n            </tbody>\r\n        </table>\r\n\r\n    </div>\r\n</div>\r\n\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeStatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status do cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<usuario-popup-modal #usuarioModal (onClickConfirm)=\"carregarTodos()\"></usuario-popup-modal>\r\n<senha-popup-modal #senhaModal (onClickConfirm)=\"carregarTodos()\"></senha-popup-modal>"
 
 /***/ }),
 
 /***/ 504:
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"lg\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n\r\n    <div class=\"form-group row\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"text\" class=\"form-control input-sm\" value=\"{{usuario.dsLogin}}\" [readonly]=\"true\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsSenha'))\" >\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n      <div class=\"col-sm-4\">\r\n        <input #campoNome type=\"password\" formControlName=\"dsSenha\" class=\"form-control input-sm\" name=\"dsSenha\" maxlength=\"8\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('senhaConfirmacao'))\" >\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\" maxlength=\"8\">\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
+module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"lg\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n\r\n    <div class=\"form-group row\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"text\" class=\"form-control input-sm\" value=\"{{usuario.dsLogin}}\" [readonly]=\"true\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsSenha'))\" >\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n      <div class=\"col-sm-4\">\r\n        <input #campoNome type=\"password\" formControlName=\"dsSenha\" class=\"form-control input-sm\" name=\"dsSenha\" maxlength=\"8\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('senhaConfirmacao'))\" >\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\" maxlength=\"8\">\r\n      </div>\r\n    </div> \r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
 /***/ 505:
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"lg\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nrDocumento'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">CPF</label>\r\n      <div class=\"col-sm-4\">\r\n        <input #campoNome type=\"text\" formControlName=\"nrDocumento\" class=\"form-control input-sm\" name=\"nrDocumento\" [textMask]=\"{mask: maskCPF}\"\r\n          (blur)=\"consultarCpf($event.target.value)\" [readonly]=\"isAlteracao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmPessoa'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\r\n      <div class=\"col-sm-8\">\r\n        <input upper type=\"text\" formControlName=\"nmPessoa\" class=\"form-control input-sm\" name=\"nmPessoa\" maxlength=\"100\" [readonly]=\"isAlteracao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('edEmail'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">E-mail</label>\r\n      <div class=\"col-sm-8\">\r\n        <input type=\"text\" class=\"form-control input-sm\" formControlName=\"edEmail\" name=\"edEmail\" maxlength=\"100\" (blur)=\"consultarEdEmail($event.target.value)\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsLogin'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"text\" formControlName=\"dsLogin\" class=\"form-control input-sm\" name=\"dsLogin\" (blur)=\"consultarLogin($event.target.value)\"\r\n          [readonly]=\"formulario.get('emAlteracao').value\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsSenha'))\" *ngIf=\"!isAlteracao\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"dsSenha\" class=\"form-control input-sm\" name=\"dsSenha\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('senhaConfirmacao'))\" *ngIf=\"!isAlteracao\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('perfil'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Perfil</label>\r\n      <div class=\"col-sm-4\">\r\n        <select class=\"form-control\" id=\"perfil\" formControlName=\"perfil\" name=\"perfil\">\r\n          <option value=\"0\">:: selecione ::</option>\r\n          <option value=\"A\">Administrador</option>\r\n          <option value=\"C\">Cliente</option>\r\n        </select>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
+module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"lg\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nrDocumento'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">CPF</label>\r\n      <div class=\"col-sm-4\">\r\n        <input #campoNome type=\"text\" formControlName=\"nrDocumento\" class=\"form-control input-sm\" name=\"nrDocumento\" [textMask]=\"{mask: maskCPF}\"\r\n          (blur)=\"consultarCpf($event.target.value)\" [readonly]=\"isAlteracao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmPessoa'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\r\n      <div class=\"col-sm-8\">\r\n        <input upper type=\"text\" formControlName=\"nmPessoa\" class=\"form-control input-sm\" name=\"nmPessoa\" maxlength=\"100\" [readonly]=\"isAlteracao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('edEmail'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">E-mail</label>\r\n      <div class=\"col-sm-8\">\r\n        <input lower type=\"text\" class=\"form-control input-sm\" formControlName=\"edEmail\" name=\"edEmail\" maxlength=\"100\" (blur)=\"consultarEdEmail($event.target.value)\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsLogin'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n      <div class=\"col-sm-4\">\r\n        <input lower type=\"text\" formControlName=\"dsLogin\" class=\"form-control input-sm\" name=\"dsLogin\" (blur)=\"consultarLogin($event.target.value)\"\r\n          [readonly]=\"formulario.get('emAlteracao').value\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsSenha'))\" *ngIf=\"!isAlteracao\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"dsSenha\" class=\"form-control input-sm\" name=\"dsSenha\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('senhaConfirmacao'))\" *ngIf=\"!isAlteracao\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('perfil'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Perfil</label>\r\n      <div class=\"col-sm-4\">\r\n        <select class=\"form-control\" id=\"perfil\" formControlName=\"perfil\" name=\"perfil\">\r\n          <option value=\"0\">:: selecione ::</option>\r\n          <option value=\"A\">Administrador</option>\r\n          <option value=\"C\">Cliente</option>\r\n        </select>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
@@ -3986,7 +4021,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var abstract_service_1 = __webpack_require__(143);
+var abstract_service_1 = __webpack_require__(144);
 var http_1 = __webpack_require__(30);
 var core_1 = __webpack_require__(1);
 var api_config_1 = __webpack_require__(61);
@@ -4002,6 +4037,7 @@ var AuthService = (function (_super) {
         return _this;
     }
     AuthService.prototype.authenticate = function (creds) {
+        console.log(creds);
         return this.http.post(api_config_1.API_CONFIG.baseUrl + "/login", creds, { observe: 'response', responseType: 'text' });
     };
     AuthService.prototype.refreshToken = function () {
@@ -4049,8 +4085,8 @@ var _a, _b;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.API_CONFIG = {
-    baseUrl: "https://paladarfit.herokuapp.com",
-    //baseUrl: "http://localhost:8080",
+    //baseUrl: "https://paladarfit.herokuapp.com",
+    baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit"
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
@@ -4069,7 +4105,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var storage_keys_config_1 = __webpack_require__(101);
+var storage_keys_config_1 = __webpack_require__(102);
 var core_1 = __webpack_require__(1);
 var StorageService = (function () {
     function StorageService() {
@@ -4146,7 +4182,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var http_1 = __webpack_require__(30);
 var api_config_1 = __webpack_require__(61);
-var abstract_service_1 = __webpack_require__(143);
+var abstract_service_1 = __webpack_require__(144);
 var UsuarioService = (function (_super) {
     __extends(UsuarioService, _super);
     function UsuarioService(http) {
@@ -4219,7 +4255,7 @@ var lower_case_directive_1 = __webpack_require__(304);
 var upper_case_directive_1 = __webpack_require__(308);
 var common_1 = __webpack_require__(24);
 var forms_1 = __webpack_require__(23);
-var angular2_text_mask_1 = __webpack_require__(100);
+var angular2_text_mask_1 = __webpack_require__(101);
 var form_debug_component_1 = __webpack_require__(293);
 var alert_mensagem_component_1 = __webpack_require__(290);
 var foto_component_1 = __webpack_require__(295);
@@ -4233,7 +4269,7 @@ var cnpj_pipe_1 = __webpack_require__(310);
 var core_1 = __webpack_require__(1);
 var cpf_pipe_1 = __webpack_require__(312);
 var foto_uri_component_1 = __webpack_require__(294);
-var image_service_1 = __webpack_require__(149);
+var image_service_1 = __webpack_require__(77);
 var SharedComponentModule = (function () {
     function SharedComponentModule() {
     }
@@ -4297,29 +4333,11 @@ exports.SharedComponentModule = SharedComponentModule;
 
 /***/ }),
 
-/***/ 772:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(266);
-
-
-/***/ }),
-
-/***/ 99:
+/***/ 77:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4330,57 +4348,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var trata_error_service_1 = __webpack_require__(48);
-var abstract_base_component_1 = __webpack_require__(144);
+var api_config_1 = __webpack_require__(61);
 var core_1 = __webpack_require__(1);
-var event_emitter_services_1 = __webpack_require__(42);
-var AbstractPopupComponent = (function (_super) {
-    __extends(AbstractPopupComponent, _super);
-    function AbstractPopupComponent(nomePopup) {
-        var _this = _super.call(this) || this;
-        _this.onClickConfirm = new core_1.EventEmitter();
-        _this.titulo = "";
-        _this.nomeJanePopup = nomePopup;
-        return _this;
+var http_1 = __webpack_require__(30);
+var ImageService = (function () {
+    function ImageService(http) {
+        this.http = http;
     }
-    AbstractPopupComponent.prototype.ngOnInit = function () {
+    ImageService.prototype.getImageFromBucket = function (id, modulo) {
+        this.id = id;
+        var url = this.recuperarUri(modulo);
+        return this.http.get(url);
     };
-    AbstractPopupComponent.prototype.tratarSucesso = function () {
-        event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso(this.titulo, 'operação realizada com sucesso!!!');
-        event_emitter_services_1.EventEmitterService.closePopup(this.nomeJanePopup);
-        this.onClickConfirm.emit();
+    ImageService.prototype.getImage = function (id, modulo) {
+        this.id = id;
+        return this.recuperarUri(modulo);
     };
-    AbstractPopupComponent.prototype.showPopup = function (titulo) {
-        event_emitter_services_1.EventEmitterService.getErrors().emit(null);
-        event_emitter_services_1.EventEmitterService.showPopup(this.nomeJanePopup).emit();
-        this.titulo = titulo;
-        if (this.campo != undefined) {
-            this.fieldFocus(this.campo);
+    ImageService.prototype.recuperarUri = function (modulo) {
+        switch (modulo) {
+            case 'CLI': return api_config_1.API_CONFIG.bucketBaseUrl + "/clientes/cli" + this.id + ".jpg";
+            case 'PRD': return api_config_1.API_CONFIG.bucketBaseUrl + "/produtos/prd" + this.id + ".jpg";
+            case 'CAT': return api_config_1.API_CONFIG.bucketBaseUrl + "/categorias/cat" + this.id + ".jpg";
         }
     };
-    AbstractPopupComponent.prototype.acao = function (item, service) {
-        var _this = this;
-        if (item.emAlteracao) {
-            service.atualizar(item)
-                .subscribe(function (res) { return _this.tratarSucesso(); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
-        }
-        else {
-            service.salvar(item)
-                .subscribe(function (res) { return _this.tratarSucesso(); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
-        }
-    };
-    return AbstractPopupComponent;
-}(abstract_base_component_1.AbstractBaseComponent));
-__decorate([
-    core_1.ViewChild('campoNome'),
-    __metadata("design:type", Object)
-], AbstractPopupComponent.prototype, "campo", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], AbstractPopupComponent.prototype, "onClickConfirm", void 0);
-exports.AbstractPopupComponent = AbstractPopupComponent;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/abstract-popup.component.js.map
+    return ImageService;
+}());
+ImageService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
+], ImageService);
+exports.ImageService = ImageService;
+var _a;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/image.service.js.map
+
+/***/ }),
+
+/***/ 772:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(266);
+
 
 /***/ })
 

@@ -20,8 +20,8 @@ var forms_1 = __webpack_require__(23);
 var http_1 = __webpack_require__(30);
 var ng2_select_1 = __webpack_require__(272);
 var angular2_ladda_1 = __webpack_require__(271);
-var modal_1 = __webpack_require__(146);
-var popup_modal_module_1 = __webpack_require__(145);
+var modal_1 = __webpack_require__(147);
+var popup_modal_module_1 = __webpack_require__(146);
 var produto_service_1 = __webpack_require__(788);
 var categoria_service_1 = __webpack_require__(786);
 var shared_component_module_1 = __webpack_require__(76);
@@ -30,10 +30,10 @@ var listar_produtos_component_1 = __webpack_require__(802);
 var create_produto_component_1 = __webpack_require__(800);
 var edit_produtos_component_1 = __webpack_require__(801);
 var storage_service_1 = __webpack_require__(62);
-var angular2_text_mask_1 = __webpack_require__(100);
+var angular2_text_mask_1 = __webpack_require__(101);
 var ng2_currency_mask_1 = __webpack_require__(839);
 var unidade_medida_service_1 = __webpack_require__(785);
-var tabs_1 = __webpack_require__(148);
+var tabs_1 = __webpack_require__(149);
 var info_nutricional_produto_popup_modal_component_1 = __webpack_require__(814);
 var ProdutoModule = (function () {
     function ProdutoModule() {
@@ -106,7 +106,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var api_config_1 = __webpack_require__(61);
 var http_1 = __webpack_require__(30);
 var core_1 = __webpack_require__(1);
-var abstract_service_1 = __webpack_require__(143);
+var abstract_service_1 = __webpack_require__(144);
 var UnidadeMedidaService = (function (_super) {
     __extends(UnidadeMedidaService, _super);
     function UnidadeMedidaService(http) {
@@ -177,7 +177,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var http_1 = __webpack_require__(30);
 var api_config_1 = __webpack_require__(61);
-var abstract_service_1 = __webpack_require__(143);
+var abstract_service_1 = __webpack_require__(144);
 //import { catchError, retry } from 'rxjs/operators';
 var CategoriaService = (function (_super) {
     __extends(CategoriaService, _super);
@@ -248,7 +248,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var http_1 = __webpack_require__(30);
 var api_config_1 = __webpack_require__(61);
-var abstract_service_1 = __webpack_require__(143);
+var abstract_service_1 = __webpack_require__(144);
 //import { catchError, retry } from 'rxjs/operators';
 var ProdutoService = (function (_super) {
     __extends(ProdutoService, _super);
@@ -319,7 +319,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var api_config_1 = __webpack_require__(61);
 var http_1 = __webpack_require__(30);
 var core_1 = __webpack_require__(1);
-var abstract_service_1 = __webpack_require__(143);
+var abstract_service_1 = __webpack_require__(144);
 var InfoNutricionalService = (function (_super) {
     __extends(InfoNutricionalService, _super);
     function InfoNutricionalService(http) {
@@ -379,7 +379,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var trata_error_service_1 = __webpack_require__(48);
-var abstract_base_component_1 = __webpack_require__(144);
+var abstract_base_component_1 = __webpack_require__(145);
 var forms_1 = __webpack_require__(23);
 var AbstractProdutoComponent = (function (_super) {
     __extends(AbstractProdutoComponent, _super);
@@ -738,7 +738,7 @@ var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(40);
 var api_config_1 = __webpack_require__(61);
 var produto_service_1 = __webpack_require__(788);
-var abstract_base_component_1 = __webpack_require__(144);
+var abstract_base_component_1 = __webpack_require__(145);
 var trata_error_service_1 = __webpack_require__(48);
 var ListarProdutosComponent = (function (_super) {
     __extends(ListarProdutosComponent, _super);
@@ -956,7 +956,7 @@ var core_1 = __webpack_require__(1);
 var forms_1 = __webpack_require__(23);
 var produto_service_1 = __webpack_require__(788);
 var event_emitter_services_1 = __webpack_require__(42);
-var abstract_popup_component_1 = __webpack_require__(99);
+var abstract_popup_component_1 = __webpack_require__(100);
 var unidade_medida_service_1 = __webpack_require__(785);
 var ComposicaoProdutoPopupModalComponent = (function (_super) {
     __extends(ComposicaoProdutoPopupModalComponent, _super);
@@ -1060,7 +1060,7 @@ var trata_error_service_1 = __webpack_require__(48);
 var core_1 = __webpack_require__(1);
 var forms_1 = __webpack_require__(23);
 var event_emitter_services_1 = __webpack_require__(42);
-var abstract_popup_component_1 = __webpack_require__(99);
+var abstract_popup_component_1 = __webpack_require__(100);
 var unidade_medida_service_1 = __webpack_require__(785);
 var InfoNutricionalProdutoPopupModalComponent = (function (_super) {
     __extends(InfoNutricionalProdutoPopupModalComponent, _super);

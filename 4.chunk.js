@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var info_nutricional_popup_modal_component_1 = __webpack_require__(822);
 var core_1 = __webpack_require__(1);
 var http_1 = __webpack_require__(30);
-var popup_modal_module_1 = __webpack_require__(145);
-var modal_1 = __webpack_require__(146);
+var popup_modal_module_1 = __webpack_require__(146);
+var modal_1 = __webpack_require__(147);
 var forms_1 = __webpack_require__(23);
 var common_1 = __webpack_require__(24);
 var info_nutricional_service_1 = __webpack_require__(789);
@@ -82,7 +82,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var api_config_1 = __webpack_require__(61);
 var http_1 = __webpack_require__(30);
 var core_1 = __webpack_require__(1);
-var abstract_service_1 = __webpack_require__(143);
+var abstract_service_1 = __webpack_require__(144);
 var InfoNutricionalService = (function (_super) {
     __extends(InfoNutricionalService, _super);
     function InfoNutricionalService(http) {
@@ -153,7 +153,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(40);
 var event_emitter_services_1 = __webpack_require__(42);
-var abstract_base_component_1 = __webpack_require__(144);
+var abstract_base_component_1 = __webpack_require__(145);
 var info_nutricional_service_1 = __webpack_require__(789);
 var trata_error_service_1 = __webpack_require__(48);
 var ListarInfoNutricionalComponent = (function (_super) {
@@ -300,7 +300,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var forms_1 = __webpack_require__(23);
 var core_1 = __webpack_require__(1);
-var abstract_popup_component_1 = __webpack_require__(99);
+var abstract_popup_component_1 = __webpack_require__(100);
 var info_nutricional_service_1 = __webpack_require__(789);
 var InfoNutricionalPopupModalComponent = (function (_super) {
     __extends(InfoNutricionalPopupModalComponent, _super);
