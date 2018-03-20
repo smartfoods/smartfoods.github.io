@@ -1,6 +1,6 @@
 webpackJsonp([7,14],{
 
-/***/ 780:
+/***/ 784:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13,9 +13,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var config_pages_routing_module_1 = __webpack_require__(818);
-var _404_component_1 = __webpack_require__(804);
-var _500_component_1 = __webpack_require__(805);
+var config_pages_routing_module_1 = __webpack_require__(824);
+var _404_component_1 = __webpack_require__(150);
+var _500_component_1 = __webpack_require__(811);
 var ConfigPagesModule = (function () {
     function ConfigPagesModule() {
     }
@@ -35,39 +35,7 @@ exports.ConfigPagesModule = ConfigPagesModule;
 
 /***/ }),
 
-/***/ 804:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(1);
-var p404Component = (function () {
-    function p404Component() {
-    }
-    return p404Component;
-}());
-p404Component = __decorate([
-    core_1.Component({
-        template: __webpack_require__(853)
-    }),
-    __metadata("design:paramtypes", [])
-], p404Component);
-exports.p404Component = p404Component;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/404.component.js.map
-
-/***/ }),
-
-/***/ 805:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90,7 +58,7 @@ var p500Component = (function () {
 }());
 p500Component = __decorate([
     core_1.Component({
-        template: __webpack_require__(854)
+        template: __webpack_require__(859)
     }),
     __metadata("design:paramtypes", [])
 ], p500Component);
@@ -99,7 +67,7 @@ exports.p500Component = p500Component;
 
 /***/ }),
 
-/***/ 818:
+/***/ 824:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -112,9 +80,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var router_1 = __webpack_require__(40);
-var _404_component_1 = __webpack_require__(804);
-var _500_component_1 = __webpack_require__(805);
+var router_1 = __webpack_require__(41);
+var _404_component_1 = __webpack_require__(150);
+var _500_component_1 = __webpack_require__(811);
 var routes = [
     {
         path: '',
@@ -155,14 +123,7 @@ exports.ConfigPagesRoutingModule = ConfigPagesRoutingModule;
 
 /***/ }),
 
-/***/ 853:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-6\">\n        <div class=\"clearfix\">\n          <h1 class=\"float-left display-3 mr-2\">404</h1>\n          <h4 class=\"pt-1\">Oops! You're lost.</h4>\n          <p class=\"text-muted\">The page you are looking for was not found.</p>\n        </div>\n        <div class=\"input-prepend input-group\">\n          <span class=\"input-group-addon\"><i class=\"fa fa-search\"></i></span>\n          <input id=\"prependedInput\" class=\"form-control\" size=\"16\" type=\"text\" placeholder=\"What are you looking for?\">\n          <span class=\"input-group-btn\">\n            <button class=\"btn btn-info\" type=\"button\">Search</button>\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ 854:
+/***/ 859:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-6\">\n        <div class=\"clearfix\">\n          <h1 class=\"float-left display-3 mr-2\">500</h1>\n          <h4 class=\"pt-1\">Houston, we have a problem!</h4>\n          <p class=\"text-muted\">The page you are looking for is temporarily unavailable.</p>\n        </div>\n        <div class=\"input-prepend input-group\">\n          <span class=\"input-group-addon\"><i class=\"fa fa-search\"></i></span>\n          <input id=\"prependedInput\" class=\"form-control\" size=\"16\" type=\"text\" placeholder=\"What are you looking for?\">\n          <span class=\"input-group-btn\">\n            <button class=\"btn btn-info\" type=\"button\">Search</button>\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>  \n"

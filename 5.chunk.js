@@ -1,6 +1,6 @@
 webpackJsonp([5,14],{
 
-/***/ 781:
+/***/ 786:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,24 +12,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var modal_1 = __webpack_require__(147);
-var storage_service_1 = __webpack_require__(62);
+var info_nutricional_popup_modal_component_1 = __webpack_require__(828);
 var core_1 = __webpack_require__(1);
-var common_1 = __webpack_require__(24);
-var forms_1 = __webpack_require__(23);
 var http_1 = __webpack_require__(30);
-var popup_modal_module_1 = __webpack_require__(146);
-var categoria_service_1 = __webpack_require__(786);
+var popup_modal_module_1 = __webpack_require__(147);
+var modal_1 = __webpack_require__(102);
+var forms_1 = __webpack_require__(20);
+var common_1 = __webpack_require__(24);
+var info_nutricional_service_1 = __webpack_require__(793);
+var info_nutricional_routing_module_1 = __webpack_require__(827);
+var listar_info_nutricional_component_1 = __webpack_require__(813);
 var shared_component_module_1 = __webpack_require__(76);
-var categoria_routing_module_1 = __webpack_require__(819);
-var listar_categoria_component_1 = __webpack_require__(806);
-var categoria_popup_modal_component_1 = __webpack_require__(820);
-var CategoriaModule = (function () {
-    function CategoriaModule() {
+var InfoNutricionalModule = (function () {
+    function InfoNutricionalModule() {
     }
-    return CategoriaModule;
+    return InfoNutricionalModule;
 }());
-CategoriaModule = __decorate([
+InfoNutricionalModule = __decorate([
     core_1.NgModule({
         imports: [
             common_1.CommonModule,
@@ -39,24 +38,23 @@ CategoriaModule = __decorate([
             forms_1.ReactiveFormsModule,
             popup_modal_module_1.PopupModalModule,
             http_1.HttpClientModule,
-            categoria_routing_module_1.CategoriaRoutingModule
+            info_nutricional_routing_module_1.InfoNutricionalRoutingModule
         ],
         declarations: [
-            listar_categoria_component_1.ListarCategoriaComponent,
-            categoria_popup_modal_component_1.CategoriaPopupModalComponent
+            listar_info_nutricional_component_1.ListarInfoNutricionalComponent,
+            info_nutricional_popup_modal_component_1.InfoNutricionalPopupModalComponent
         ],
         providers: [
-            categoria_service_1.CategoriaService,
-            storage_service_1.StorageService
+            info_nutricional_service_1.InfoNutricionalService
         ]
     })
-], CategoriaModule);
-exports.CategoriaModule = CategoriaModule;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria.module.js.map
+], InfoNutricionalModule);
+exports.InfoNutricionalModule = InfoNutricionalModule;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/info-nutricional.module.js.map
 
 /***/ }),
 
-/***/ 786:
+/***/ 793:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -81,53 +79,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(1);
+var api_config_1 = __webpack_require__(62);
 var http_1 = __webpack_require__(30);
-var api_config_1 = __webpack_require__(61);
-var abstract_service_1 = __webpack_require__(144);
-//import { catchError, retry } from 'rxjs/operators';
-var CategoriaService = (function (_super) {
-    __extends(CategoriaService, _super);
-    function CategoriaService(http) {
+var core_1 = __webpack_require__(1);
+var abstract_service_1 = __webpack_require__(146);
+var InfoNutricionalService = (function (_super) {
+    __extends(InfoNutricionalService, _super);
+    function InfoNutricionalService(http) {
         var _this = _super.call(this) || this;
         _this.http = http;
+        _this.url = api_config_1.API_CONFIG.baseUrl + "/infonutricional";
         return _this;
     }
-    CategoriaService.prototype.findById = function (id) {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/" + id, this.getHearderToken());
+    InfoNutricionalService.prototype.findAll = function () {
+        return this.http.get(this.url + "/all", this.getHearderToken());
     };
-    CategoriaService.prototype.findAll = function () {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/all");
+    InfoNutricionalService.prototype.findAllAtivo = function () {
+        return this.http.get(this.url + "/");
     };
-    CategoriaService.prototype.salvar = function (categoria) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/categorias", JSON.stringify(categoria), this.getHearderTokenNoResponse());
+    InfoNutricionalService.prototype.findById = function (id) {
+        return this.http.get(this.url + "/" + id, this.getHearderToken());
     };
-    CategoriaService.prototype.changeStatus = function (categoria) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
+    InfoNutricionalService.prototype.salvar = function (info) {
+        return this.http.post(this.url + "/", JSON.stringify(info), this.getHearderTokenNoResponse());
     };
-    CategoriaService.prototype.atualizar = function (categoria) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id, JSON.stringify(categoria), this.getHearderTokenNoResponse());
+    InfoNutricionalService.prototype.changeStatus = function (info) {
+        return this.http.put(this.url + "/" + info.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
     };
-    CategoriaService.prototype.excluir = function (categoria) {
-        var url = api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id;
+    InfoNutricionalService.prototype.atualizar = function (info) {
+        return this.http.put(this.url + "/" + info.id, JSON.stringify(info), this.getHearderTokenNoResponse());
+    };
+    InfoNutricionalService.prototype.excluir = function (info) {
+        var url = this.url + "/" + info.id;
         return this.http.delete(url, this.getHearderToken());
     };
-    CategoriaService.prototype.insert = function (obj) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/pedidos", obj, { observe: 'response', responseType: 'text' });
-    };
-    return CategoriaService;
+    return InfoNutricionalService;
 }(abstract_service_1.AbstractService));
-CategoriaService = __decorate([
+InfoNutricionalService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], CategoriaService);
-exports.CategoriaService = CategoriaService;
+], InfoNutricionalService);
+exports.InfoNutricionalService = InfoNutricionalService;
 var _a;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria.service.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/info-nutricional.service.js.map
 
 /***/ }),
 
-/***/ 806:
+/***/ 813:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -152,75 +150,77 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var trata_error_service_1 = __webpack_require__(48);
-var event_emitter_services_1 = __webpack_require__(42);
 var core_1 = __webpack_require__(1);
-var categoria_service_1 = __webpack_require__(786);
-var abstract_base_component_1 = __webpack_require__(145);
-var router_1 = __webpack_require__(40);
-var ListarCategoriaComponent = (function (_super) {
-    __extends(ListarCategoriaComponent, _super);
-    function ListarCategoriaComponent(categoriaService, router) {
+var router_1 = __webpack_require__(41);
+var event_emitter_services_1 = __webpack_require__(32);
+var abstract_base_component_1 = __webpack_require__(100);
+var info_nutricional_service_1 = __webpack_require__(793);
+var trata_error_service_1 = __webpack_require__(43);
+var ListarInfoNutricionalComponent = (function (_super) {
+    __extends(ListarInfoNutricionalComponent, _super);
+    function ListarInfoNutricionalComponent(infoService, router) {
         var _this = _super.call(this) || this;
-        _this.categoriaService = categoriaService;
+        _this.infoService = infoService;
         _this.router = router;
         return _this;
     }
-    ListarCategoriaComponent.prototype.ngOnInit = function () {
+    ListarInfoNutricionalComponent.prototype.ngOnInit = function () {
         this.carregarTodos();
     };
-    ListarCategoriaComponent.prototype.selecionarItem = function (item) {
+    ListarInfoNutricionalComponent.prototype.selecionarItem = function (item) {
         this.item = item;
         this.popupExclusao.show();
     };
-    ListarCategoriaComponent.prototype.selecionarItemChangeStatus = function (item) {
+    ListarInfoNutricionalComponent.prototype.selecionarItemChangeStatus = function (item) {
         this.item = item;
         this.popupChangeStatus.show();
     };
-    ListarCategoriaComponent.prototype.changeStatus = function () {
+    ListarInfoNutricionalComponent.prototype.changeStatus = function () {
         var _this = this;
-        this.categoriaService.changeStatus(this.item)
+        this.infoService.changeStatus(this.item)
             .subscribe(function (res) {
-            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Status da categoria alterado com sucesso!!!');
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Informação Nutricional', 'O status da informação nutricional foi alterado com sucesso!!!');
             _this.carregarTodos();
         }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    ListarCategoriaComponent.prototype.excluir = function () {
+    ListarInfoNutricionalComponent.prototype.excluir = function () {
         var _this = this;
-        this.categoriaService.excluir(this.item)
+        this.infoService.excluir(this.item)
             .subscribe(function (res) {
-            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Categorias', 'Categoria excluída com sucesso!!!');
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Informação Nutricional', 'A informação nutricional foi excluída com sucesso!!!');
             _this.carregarTodos();
         }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    ListarCategoriaComponent.prototype.carregarTodos = function () {
+    ListarInfoNutricionalComponent.prototype.carregarTodos = function () {
         var _this = this;
-        this.categoriaService.findAll().subscribe(function (response) { return _this.items = response; }, function (error) { });
+        this.infoService.findAll().subscribe(function (response) {
+            _this.items = response;
+        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    return ListarCategoriaComponent;
+    return ListarInfoNutricionalComponent;
 }(abstract_base_component_1.AbstractBaseComponent));
 __decorate([
     core_1.ViewChild('excluirModal'),
     __metadata("design:type", Object)
-], ListarCategoriaComponent.prototype, "popupExclusao", void 0);
+], ListarInfoNutricionalComponent.prototype, "popupExclusao", void 0);
 __decorate([
     core_1.ViewChild('changeSatusModal'),
     __metadata("design:type", Object)
-], ListarCategoriaComponent.prototype, "popupChangeStatus", void 0);
-ListarCategoriaComponent = __decorate([
+], ListarInfoNutricionalComponent.prototype, "popupChangeStatus", void 0);
+ListarInfoNutricionalComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(855),
-        styles: [__webpack_require__(832)]
+        template: __webpack_require__(862),
+        styles: [__webpack_require__(840)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
-], ListarCategoriaComponent);
-exports.ListarCategoriaComponent = ListarCategoriaComponent;
+    __metadata("design:paramtypes", [typeof (_a = typeof info_nutricional_service_1.InfoNutricionalService !== "undefined" && info_nutricional_service_1.InfoNutricionalService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
+], ListarInfoNutricionalComponent);
+exports.ListarInfoNutricionalComponent = ListarInfoNutricionalComponent;
 var _a, _b;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/listar-categoria.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/listar-info-nutricional.component.js.map
 
 /***/ }),
 
-/***/ 819:
+/***/ 827:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -233,8 +233,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var router_1 = __webpack_require__(40);
-var listar_categoria_component_1 = __webpack_require__(806);
+var router_1 = __webpack_require__(41);
+var listar_info_nutricional_component_1 = __webpack_require__(813);
 var routes = [
     {
         path: '',
@@ -244,36 +244,36 @@ var routes = [
     {
         path: '',
         data: {
-            title: 'Categorias'
+            title: 'Informações nutricional'
         },
         children: [
             {
                 path: 'listar',
-                component: listar_categoria_component_1.ListarCategoriaComponent,
+                component: listar_info_nutricional_component_1.ListarInfoNutricionalComponent,
                 data: {
                     title: 'Listar'
                 }
-            }
+            },
         ]
     }
 ];
-var CategoriaRoutingModule = (function () {
-    function CategoriaRoutingModule() {
+var InfoNutricionalRoutingModule = (function () {
+    function InfoNutricionalRoutingModule() {
     }
-    return CategoriaRoutingModule;
+    return InfoNutricionalRoutingModule;
 }());
-CategoriaRoutingModule = __decorate([
+InfoNutricionalRoutingModule = __decorate([
     core_1.NgModule({
         imports: [router_1.RouterModule.forChild(routes)],
         exports: [router_1.RouterModule]
     })
-], CategoriaRoutingModule);
-exports.CategoriaRoutingModule = CategoriaRoutingModule;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria-routing.module.js.map
+], InfoNutricionalRoutingModule);
+exports.InfoNutricionalRoutingModule = InfoNutricionalRoutingModule;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/info-nutricional-routing.module.js.map
 
 /***/ }),
 
-/***/ 820:
+/***/ 828:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -298,91 +298,71 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var categoria_service_1 = __webpack_require__(786);
-var forms_1 = __webpack_require__(23);
+var forms_1 = __webpack_require__(20);
 var core_1 = __webpack_require__(1);
-var abstract_popup_component_1 = __webpack_require__(100);
-var image_service_1 = __webpack_require__(77);
-var CategoriaPopupModalComponent = (function (_super) {
-    __extends(CategoriaPopupModalComponent, _super);
-    function CategoriaPopupModalComponent(categoriaService, image, fb) {
-        var _this = _super.call(this, "categoriasPoup") || this;
-        _this.categoriaService = categoriaService;
-        _this.image = image;
+var abstract_popup_component_1 = __webpack_require__(101);
+var info_nutricional_service_1 = __webpack_require__(793);
+var InfoNutricionalPopupModalComponent = (function (_super) {
+    __extends(InfoNutricionalPopupModalComponent, _super);
+    function InfoNutricionalPopupModalComponent(infoService, fb) {
+        var _this = _super.call(this, 'infoNutricionalPopup') || this;
+        _this.infoService = infoService;
         _this.fb = fb;
-        _this.urlImage = _this.urlFotoAvatar;
         return _this;
     }
-    CategoriaPopupModalComponent.prototype.ngOnInit = function () {
+    InfoNutricionalPopupModalComponent.prototype.ngOnInit = function () {
         this.criarForm();
     };
-    CategoriaPopupModalComponent.prototype.show = function () {
+    InfoNutricionalPopupModalComponent.prototype.show = function () {
         this.criarForm();
-        this.showPopup("Cadastra categoria");
+        this.showPopup("Cadastra informação nutricional");
     };
-    CategoriaPopupModalComponent.prototype.showAlteracao = function (item) {
+    InfoNutricionalPopupModalComponent.prototype.showAlteracao = function (item) {
         this.alterarForm(item);
-        this.showPopup("Alterar categoria");
+        this.showPopup("Alterar informação nutricional");
     };
-    CategoriaPopupModalComponent.prototype.btnConfirmar = function (categoria) {
-        this.acao(categoria, this.categoriaService);
+    InfoNutricionalPopupModalComponent.prototype.btnConfirmar = function (item) {
+        this.acao(item, this.infoService);
     };
-    CategoriaPopupModalComponent.prototype.mudarImage = function (evento) {
-        this.atualizarFoto(evento.foto);
-    };
-    CategoriaPopupModalComponent.prototype.alterarForm = function (categoria) {
-        var _this = this;
-        this.image.getImageFromBucket(categoria.id, 'CAT')
-            .subscribe(function (res) { _this.urlImage = _this.image.getImage(categoria.id, 'CAT'); }, function (error) { _this.urlImage = _this.image.getImage(categoria.id, 'CAT'); });
-        this.formulario.patchValue({
-            id: categoria.id,
-            nmCategoria: categoria.nmCategoria,
-            status: categoria.status,
-            dsComentario: categoria.dsComentario,
-            urlImagem: categoria.urlImagem,
-            emAlteracao: true
-        });
-        this.urlFoto = categoria.urlImagem;
-    };
-    CategoriaPopupModalComponent.prototype.criarForm = function () {
-        this.urlFoto = this.urlFotoAvatar;
+    InfoNutricionalPopupModalComponent.prototype.criarForm = function () {
         this.formulario = this.fb.group({
-            id: [],
-            nmCategoria: ['', forms_1.Validators.required],
-            status: ['A'],
-            dsComentario: [''],
-            foto: [''],
+            id: [''],
+            nmInfoNutricional: ['', forms_1.Validators.required],
             emAlteracao: [false]
         });
     };
-    CategoriaPopupModalComponent.prototype.atualizarFoto = function (foto) {
-        this.urlFoto = foto;
+    InfoNutricionalPopupModalComponent.prototype.alterarForm = function (item) {
+        this.formulario.patchValue({
+            id: item.id,
+            nmInfoNutricional: item.nmInfoNutricional,
+            emAlteracao: true
+        });
     };
-    return CategoriaPopupModalComponent;
+    return InfoNutricionalPopupModalComponent;
 }(abstract_popup_component_1.AbstractPopupComponent));
-CategoriaPopupModalComponent = __decorate([
+InfoNutricionalPopupModalComponent = __decorate([
     core_1.Component({
-        selector: 'categoria-popup-modal',
-        template: __webpack_require__(856),
-        styles: [__webpack_require__(833)]
+        selector: 'info-nutricional-popup-modal',
+        template: __webpack_require__(863),
+        styles: [__webpack_require__(841)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _a || Object, typeof (_b = typeof image_service_1.ImageService !== "undefined" && image_service_1.ImageService) === "function" && _b || Object, typeof (_c = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _c || Object])
-], CategoriaPopupModalComponent);
-exports.CategoriaPopupModalComponent = CategoriaPopupModalComponent;
-var _a, _b, _c;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria-popup-modal.component.js.map
+    __metadata("design:paramtypes", [typeof (_a = typeof info_nutricional_service_1.InfoNutricionalService !== "undefined" && info_nutricional_service_1.InfoNutricionalService) === "function" && _a || Object, typeof (_b = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _b || Object])
+], InfoNutricionalPopupModalComponent);
+exports.InfoNutricionalPopupModalComponent = InfoNutricionalPopupModalComponent;
+var _a, _b;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/info-nutricional-popup-modal.component.js.map
 
 /***/ }),
 
-/***/ 832:
+/***/ 840:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(41)();
+exports = module.exports = __webpack_require__(42)();
 // imports
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".table th, .table td {\n  padding: 0.25rem; }\n", ""]);
 
 // exports
 
@@ -392,15 +372,15 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 833:
+/***/ 841:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(41)();
+exports = module.exports = __webpack_require__(42)();
 // imports
 
 
 // module
-exports.push([module.i, ".img-avatar-160 {\n  height: 160px;\n  width: 160px;\n  margin: 20px auto 10px;\n  border-radius: 50em; }\n", ""]);
+exports.push([module.i, ".modal-dialog {\n  padding-top: 12%; }\n", ""]);
 
 // exports
 
@@ -410,17 +390,17 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 855:
+/***/ 862:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-1\"></div>\r\n\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"categoriaModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo</button>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de categorias\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th class=\"text-center\" style=\"width: 10%\">\r\n                        <i class=\"icon-people\"></i>\r\n                    </th>\r\n                    <th style=\"width: 40%\">Categorias</th>\r\n                    <th class=\"text-center\" style=\"width: 25%\">Situação</th>\r\n                    <th class=\"text-center\" style=\"width: 25%\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td class=\"text-center\">\r\n                        <div class=\"avatar\">\r\n                            <foto-uri id=\"{{item.id}}\" modulo=\"CAT\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\r\n                        </div>\r\n                    </td>\r\n                    <td>\r\n                        <div>{{item.nmCategoria}}</div>\r\n                        <div class=\"small text-muted\">\r\n                            {{item.dsComentario}}\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"categoriaModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n<confirm-popup-modal #excluirModal popupStyle=\"primary\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a categoria?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeSatusModal popupStyle=\"primary\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status da categoria?</strong>\r\n</confirm-popup-modal>\r\n\r\n\r\n<categoria-popup-modal  #categoriaModal (onClickConfirm)=\"carregarTodos()\"></categoria-popup-modal>"
+module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"infoNutricionalModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo\r\n</button>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de informações nutricional\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n\r\n            <thead>\r\n                <tr>\r\n                    <th style=\"width:70%\">Descrição </th>\r\n                    <th class=\"text-center\" style=\"width:15%\">Situação</th>\r\n                    <th class=\"text-center\" style=\"width:15%\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td>\r\n                        <strong>{{item.nmInfoNutricional}}</strong>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"infoNutricionalModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeSatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status da informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<info-nutricional-popup-modal #infoNutricionalModal (onClickConfirm)=\"carregarTodos()\">\r\n</info-nutricional-popup-modal>"
 
 /***/ }),
 
-/***/ 856:
+/***/ 863:
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\" [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-4 col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <strong>Imagem da categoria</strong>\r\n        </div>\r\n        <div class=\"card-block\">\r\n          <div class=\"row\">\r\n            <img [src]=\"urlImage\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n          </div>\r\n\r\n        </div>\r\n        <div class=\"card-footer\">\r\n          <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n            (onSelecionarImagem)=\"mudarImage($event)\">\r\n          </upload-imagem>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <!--/.col-->\r\n    <div class=\"col-md-8 col-sm-8\">\r\n      <form [formGroup]=\"formulario\" novalidade>\r\n        <div class=\"card\">\r\n          <div class=\"card-header\">\r\n            <strong>Descrição</strong>\r\n          </div>\r\n          <div class=\"card-block\">\r\n            <div [ngClass]=\"aplicarCssGroup(formulario.get('nmCategoria'))\">\r\n              <label for=\"nmCategoria\">Nome da categoria</label>\r\n              <input #campoNome type=\"text\" [ngClass]=\"aplicarCssForm(formulario.get('nmCategoria'))\" name=\"nmCategoria\" maxlength=\"25\" placeholder=\"Digite o nome da categoria\"\r\n                formControlName=\"nmCategoria\">\r\n              <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmCategoria'))\" titulo=\"Erro:\" mensagem=\"o campo Nome da categoria deve ter entre 5 a 25 caracteres\">\r\n              </alert-mensagem>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"dsComentario\">Descrição da categoria</label>\r\n              <textarea type=\"textarea\" maxlength=\"100\" rows=\"7\" [ngClass]=\"aplicarCssForm(formulario.get('dsComentario'))\" name=\"dsComentario\"\r\n                placeholder=\"Digite o texto descritivo da categoria\" formControlName=\"dsComentario\"></textarea>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n\r\n</base-popup-modal>"
+module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmInfoNutricional'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Descrição</label>\r\n      <div class=\"col-sm-6\">\r\n        <input #campoNome type=\"text\" formControlName=\"nmInfoNutricional\" class=\"form-control input-sm\" name=\"nmInfoNutricional\"\r\n          maxlength=\"40\">\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>\r\n<!-- \r\n\r\n  <base-popup-modal \r\n  #modalConfirm \r\n  [titulo]=\"titulo\"\r\n  (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n  \r\n</base-popup-modal>\r\n-->"
 
 /***/ })
 
