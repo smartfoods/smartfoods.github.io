@@ -1,6 +1,6 @@
 webpackJsonp([2,14],{
 
-/***/ 783:
+/***/ 787:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,21 +12,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var ng2_select_1 = __webpack_require__(274);
-var unidade_medida_service_1 = __webpack_require__(789);
-var categoria_service_1 = __webpack_require__(791);
+var ng2_select_1 = __webpack_require__(275);
+var unidade_medida_service_1 = __webpack_require__(792);
+var categoria_service_1 = __webpack_require__(793);
 var core_1 = __webpack_require__(1);
-var http_1 = __webpack_require__(30);
-var popup_modal_module_1 = __webpack_require__(147);
-var modal_1 = __webpack_require__(102);
-var forms_1 = __webpack_require__(20);
+var http_1 = __webpack_require__(26);
+var popup_modal_module_1 = __webpack_require__(148);
+var modal_1 = __webpack_require__(103);
+var forms_1 = __webpack_require__(19);
 var common_1 = __webpack_require__(24);
 var shared_component_module_1 = __webpack_require__(76);
-var adicional_produto_service_1 = __webpack_require__(798);
-var adicional_produto_routing_module_1 = __webpack_require__(822);
-var adicional_produto_popup_modal_component_1 = __webpack_require__(823);
-var listar_adicional_produto_component_1 = __webpack_require__(810);
-var produto_service_1 = __webpack_require__(792);
+var adicional_produto_service_1 = __webpack_require__(800);
+var adicional_produto_routing_module_1 = __webpack_require__(826);
+var adicional_produto_popup_modal_component_1 = __webpack_require__(827);
+var listar_adicional_produto_component_1 = __webpack_require__(813);
+var produto_service_1 = __webpack_require__(794);
 var AdicionalProdutoModule = (function () {
     function AdicionalProdutoModule() {
     }
@@ -62,7 +62,7 @@ exports.AdicionalProdutoModule = AdicionalProdutoModule;
 
 /***/ }),
 
-/***/ 789:
+/***/ 792:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87,10 +87,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__(62);
-var http_1 = __webpack_require__(30);
+var api_config_1 = __webpack_require__(54);
+var http_1 = __webpack_require__(26);
 var core_1 = __webpack_require__(1);
-var abstract_service_1 = __webpack_require__(146);
+var abstract_service_1 = __webpack_require__(102);
 var UnidadeMedidaService = (function (_super) {
     __extends(UnidadeMedidaService, _super);
     function UnidadeMedidaService(http) {
@@ -133,7 +133,7 @@ var _a;
 
 /***/ }),
 
-/***/ 791:
+/***/ 793:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -159,9 +159,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var http_1 = __webpack_require__(30);
-var api_config_1 = __webpack_require__(62);
-var abstract_service_1 = __webpack_require__(146);
+var http_1 = __webpack_require__(26);
+var api_config_1 = __webpack_require__(54);
+var abstract_service_1 = __webpack_require__(102);
 //import { catchError, retry } from 'rxjs/operators';
 var CategoriaService = (function (_super) {
     __extends(CategoriaService, _super);
@@ -204,7 +204,7 @@ var _a;
 
 /***/ }),
 
-/***/ 792:
+/***/ 794:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -230,9 +230,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var http_1 = __webpack_require__(30);
-var api_config_1 = __webpack_require__(62);
-var abstract_service_1 = __webpack_require__(146);
+var http_1 = __webpack_require__(26);
+var api_config_1 = __webpack_require__(54);
+var abstract_service_1 = __webpack_require__(102);
 //import { catchError, retry } from 'rxjs/operators';
 var ProdutoService = (function (_super) {
     __extends(ProdutoService, _super);
@@ -275,7 +275,7 @@ var _a;
 
 /***/ }),
 
-/***/ 798:
+/***/ 800:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -300,10 +300,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__(62);
-var http_1 = __webpack_require__(30);
+var api_config_1 = __webpack_require__(54);
+var http_1 = __webpack_require__(26);
 var core_1 = __webpack_require__(1);
-var abstract_service_1 = __webpack_require__(146);
+var abstract_service_1 = __webpack_require__(102);
 var AdicionalProdutoService = (function (_super) {
     __extends(AdicionalProdutoService, _super);
     function AdicionalProdutoService(http) {
@@ -346,7 +346,7 @@ var _a;
 
 /***/ }),
 
-/***/ 810:
+/***/ 813:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -371,12 +371,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var adicional_produto_service_1 = __webpack_require__(798);
+var adicional_produto_service_1 = __webpack_require__(800);
 var core_1 = __webpack_require__(1);
-var router_1 = __webpack_require__(41);
-var event_emitter_services_1 = __webpack_require__(32);
-var abstract_base_component_1 = __webpack_require__(100);
-var trata_error_service_1 = __webpack_require__(43);
+var router_1 = __webpack_require__(42);
+var event_emitter_services_1 = __webpack_require__(31);
+var abstract_base_component_1 = __webpack_require__(101);
+var trata_error_service_1 = __webpack_require__(33);
 var ListarAdicionalProdutoComponent = (function (_super) {
     __extends(ListarAdicionalProdutoComponent, _super);
     function ListarAdicionalProdutoComponent(adicionalService, router) {
@@ -430,8 +430,8 @@ __decorate([
 ], ListarAdicionalProdutoComponent.prototype, "popupChangeStatus", void 0);
 ListarAdicionalProdutoComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(857),
-        styles: [__webpack_require__(836)]
+        template: __webpack_require__(862),
+        styles: [__webpack_require__(839)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof adicional_produto_service_1.AdicionalProdutoService !== "undefined" && adicional_produto_service_1.AdicionalProdutoService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], ListarAdicionalProdutoComponent);
@@ -441,7 +441,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 822:
+/***/ 826:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -453,9 +453,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var listar_adicional_produto_component_1 = __webpack_require__(810);
+var listar_adicional_produto_component_1 = __webpack_require__(813);
 var core_1 = __webpack_require__(1);
-var router_1 = __webpack_require__(41);
+var router_1 = __webpack_require__(42);
 var routes = [
     {
         path: '',
@@ -494,7 +494,7 @@ exports.AdicionalProdutoRoutingModule = AdicionalProdutoRoutingModule;
 
 /***/ }),
 
-/***/ 823:
+/***/ 827:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -519,14 +519,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var trata_error_service_1 = __webpack_require__(43);
-var unidade_medida_service_1 = __webpack_require__(789);
-var forms_1 = __webpack_require__(20);
+var trata_error_service_1 = __webpack_require__(33);
+var unidade_medida_service_1 = __webpack_require__(792);
+var forms_1 = __webpack_require__(19);
 var core_1 = __webpack_require__(1);
-var abstract_popup_component_1 = __webpack_require__(101);
-var produto_service_1 = __webpack_require__(792);
-var categoria_service_1 = __webpack_require__(791);
-var adicional_produto_service_1 = __webpack_require__(798);
+var abstract_popup_component_1 = __webpack_require__(77);
+var produto_service_1 = __webpack_require__(794);
+var categoria_service_1 = __webpack_require__(793);
+var adicional_produto_service_1 = __webpack_require__(800);
 var AdicionalProdutoPopupModalComponent = (function (_super) {
     __extends(AdicionalProdutoPopupModalComponent, _super);
     function AdicionalProdutoPopupModalComponent(adicionalService, produtoService, categoriaService, unidadeService, fb) {
@@ -599,8 +599,8 @@ var AdicionalProdutoPopupModalComponent = (function (_super) {
 AdicionalProdutoPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'adicional-produto-popup-modal',
-        template: __webpack_require__(858),
-        styles: [__webpack_require__(837)]
+        template: __webpack_require__(863),
+        styles: [__webpack_require__(840)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof adicional_produto_service_1.AdicionalProdutoService !== "undefined" && adicional_produto_service_1.AdicionalProdutoService) === "function" && _a || Object, typeof (_b = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _c || Object, typeof (_d = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _d || Object, typeof (_e = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _e || Object])
 ], AdicionalProdutoPopupModalComponent);
@@ -610,10 +610,10 @@ var _a, _b, _c, _d, _e;
 
 /***/ }),
 
-/***/ 836:
+/***/ 839:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(42)();
+exports = module.exports = __webpack_require__(43)();
 // imports
 
 
@@ -628,10 +628,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 837:
+/***/ 840:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(42)();
+exports = module.exports = __webpack_require__(43)();
 // imports
 
 
@@ -646,14 +646,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 857:
+/***/ 862:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"adicionalProdutoModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo\r\n</button>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de adicionais por categoria\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n\r\n            <thead>\r\n                <tr>\r\n                    <th style=\"width:25%\">Categoria </th>\r\n                    <th style=\"width:30%\">Produto </th>\r\n                    <th style=\"width:15%\">Quantidade </th>\r\n                    <th class=\"text-center\" style=\"width:15%\">Situação</th>\r\n                    <th class=\"text-center\" style=\"width:15%\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td>\r\n                        <strong>{{item.nmCategoria}}</strong>\r\n                    </td>\r\n                    <td>\r\n                        <strong>{{item.nmProduto}}</strong>\r\n                    </td>\r\n                    <td class=\"text-left\">\r\n                        <strong>{{item.qtUtilizada}} - {{item.nmUnidadeMedida}}</strong>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"adicionalProdutoModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeSatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status da informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<adicional-produto-popup-modal #adicionalProdutoModal (onClickConfirm)=\"carregarTodos()\">\r\n</adicional-produto-popup-modal>"
 
 /***/ }),
 
-/***/ 858:
+/***/ 863:
 /***/ (function(module, exports) {
 
 module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Categoria</label>\r\n      <div class=\"col-sm-8\">\r\n        <ng-select formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('produto'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Produto</label>\r\n      <div class=\"col-sm-8\">\r\n        <ng-select formControlName=\"produto\" [items]=\"comboProdutos\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('qtUtilizada'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Quantidade</label>\r\n      <div class=\"col-sm-4\">\r\n        <input #campoNome numberOnly type=\"text\" formControlName=\"qtUtilizada\" class=\"form-control input-sm\" name=\"qtUtilizada\" formControlName=\"qtUtilizada\"\r\n          maxlength=\"4\">\r\n      </div>\r\n      <div class=\"col-sm-4\">\r\n        <ng-select formControlName=\"unidade\" [items]=\"comboUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"

@@ -1,6 +1,6 @@
 webpackJsonp([0,14],{
 
-/***/ 782:
+/***/ 786:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,29 +12,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var info_nutricional_service_1 = __webpack_require__(793);
-var composicao_produto_popup_modal_component_1 = __webpack_require__(819);
+var info_nutricional_service_1 = __webpack_require__(795);
+var composicao_produto_popup_modal_component_1 = __webpack_require__(823);
 var core_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(24);
-var forms_1 = __webpack_require__(20);
-var http_1 = __webpack_require__(30);
-var ng2_select_1 = __webpack_require__(274);
-var angular2_ladda_1 = __webpack_require__(273);
-var modal_1 = __webpack_require__(102);
-var popup_modal_module_1 = __webpack_require__(147);
-var produto_service_1 = __webpack_require__(792);
-var categoria_service_1 = __webpack_require__(791);
+var forms_1 = __webpack_require__(19);
+var http_1 = __webpack_require__(26);
+var ng2_select_1 = __webpack_require__(275);
+var angular2_ladda_1 = __webpack_require__(274);
+var modal_1 = __webpack_require__(103);
+var popup_modal_module_1 = __webpack_require__(148);
+var produto_service_1 = __webpack_require__(794);
+var categoria_service_1 = __webpack_require__(793);
 var shared_component_module_1 = __webpack_require__(76);
-var produto_routing_module_1 = __webpack_require__(821);
-var listar_produtos_component_1 = __webpack_require__(809);
-var create_produto_component_1 = __webpack_require__(807);
-var edit_produtos_component_1 = __webpack_require__(808);
+var produto_routing_module_1 = __webpack_require__(825);
+var listar_produtos_component_1 = __webpack_require__(812);
+var create_produto_component_1 = __webpack_require__(810);
+var edit_produtos_component_1 = __webpack_require__(811);
 var storage_service_1 = __webpack_require__(63);
-var angular2_text_mask_1 = __webpack_require__(103);
-var ng2_currency_mask_1 = __webpack_require__(845);
-var unidade_medida_service_1 = __webpack_require__(789);
-var tabs_1 = __webpack_require__(149);
-var info_nutricional_produto_popup_modal_component_1 = __webpack_require__(820);
+var angular2_text_mask_1 = __webpack_require__(104);
+var ng2_currency_mask_1 = __webpack_require__(849);
+var unidade_medida_service_1 = __webpack_require__(792);
+var tabs_1 = __webpack_require__(150);
+var info_nutricional_produto_popup_modal_component_1 = __webpack_require__(824);
 var ProdutoModule = (function () {
     function ProdutoModule() {
     }
@@ -78,7 +78,7 @@ exports.ProdutoModule = ProdutoModule;
 
 /***/ }),
 
-/***/ 789:
+/***/ 792:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -103,10 +103,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__(62);
-var http_1 = __webpack_require__(30);
+var api_config_1 = __webpack_require__(54);
+var http_1 = __webpack_require__(26);
 var core_1 = __webpack_require__(1);
-var abstract_service_1 = __webpack_require__(146);
+var abstract_service_1 = __webpack_require__(102);
 var UnidadeMedidaService = (function (_super) {
     __extends(UnidadeMedidaService, _super);
     function UnidadeMedidaService(http) {
@@ -149,7 +149,7 @@ var _a;
 
 /***/ }),
 
-/***/ 791:
+/***/ 793:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -175,9 +175,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var http_1 = __webpack_require__(30);
-var api_config_1 = __webpack_require__(62);
-var abstract_service_1 = __webpack_require__(146);
+var http_1 = __webpack_require__(26);
+var api_config_1 = __webpack_require__(54);
+var abstract_service_1 = __webpack_require__(102);
 //import { catchError, retry } from 'rxjs/operators';
 var CategoriaService = (function (_super) {
     __extends(CategoriaService, _super);
@@ -220,7 +220,7 @@ var _a;
 
 /***/ }),
 
-/***/ 792:
+/***/ 794:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -246,9 +246,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var http_1 = __webpack_require__(30);
-var api_config_1 = __webpack_require__(62);
-var abstract_service_1 = __webpack_require__(146);
+var http_1 = __webpack_require__(26);
+var api_config_1 = __webpack_require__(54);
+var abstract_service_1 = __webpack_require__(102);
 //import { catchError, retry } from 'rxjs/operators';
 var ProdutoService = (function (_super) {
     __extends(ProdutoService, _super);
@@ -291,7 +291,7 @@ var _a;
 
 /***/ }),
 
-/***/ 793:
+/***/ 795:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -316,10 +316,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__(62);
-var http_1 = __webpack_require__(30);
+var api_config_1 = __webpack_require__(54);
+var http_1 = __webpack_require__(26);
 var core_1 = __webpack_require__(1);
-var abstract_service_1 = __webpack_require__(146);
+var abstract_service_1 = __webpack_require__(102);
 var InfoNutricionalService = (function (_super) {
     __extends(InfoNutricionalService, _super);
     function InfoNutricionalService(http) {
@@ -362,7 +362,7 @@ var _a;
 
 /***/ }),
 
-/***/ 806:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -378,9 +378,9 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var trata_error_service_1 = __webpack_require__(43);
-var abstract_base_component_1 = __webpack_require__(100);
-var forms_1 = __webpack_require__(20);
+var trata_error_service_1 = __webpack_require__(33);
+var abstract_base_component_1 = __webpack_require__(101);
+var forms_1 = __webpack_require__(19);
 var AbstractProdutoComponent = (function (_super) {
     __extends(AbstractProdutoComponent, _super);
     function AbstractProdutoComponent(fb, location, categoriaService, unidadeService) {
@@ -549,7 +549,7 @@ exports.AbstractProdutoComponent = AbstractProdutoComponent;
 
 /***/ }),
 
-/***/ 807:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -574,16 +574,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var trata_error_service_1 = __webpack_require__(43);
-var forms_1 = __webpack_require__(20);
+var trata_error_service_1 = __webpack_require__(33);
+var forms_1 = __webpack_require__(19);
 var core_1 = __webpack_require__(1);
-var router_1 = __webpack_require__(41);
+var router_1 = __webpack_require__(42);
 var common_1 = __webpack_require__(24);
-var produto_service_1 = __webpack_require__(792);
-var categoria_service_1 = __webpack_require__(791);
-var abstract_produto_component_1 = __webpack_require__(806);
-var event_emitter_services_1 = __webpack_require__(32);
-var unidade_medida_service_1 = __webpack_require__(789);
+var produto_service_1 = __webpack_require__(794);
+var categoria_service_1 = __webpack_require__(793);
+var abstract_produto_component_1 = __webpack_require__(809);
+var event_emitter_services_1 = __webpack_require__(31);
+var unidade_medida_service_1 = __webpack_require__(792);
 var CreateProdutoComponent = (function (_super) {
     __extends(CreateProdutoComponent, _super);
     function CreateProdutoComponent(fb, location, categoriaService, unidadeService, produtoService, router) {
@@ -613,8 +613,8 @@ var CreateProdutoComponent = (function (_super) {
 }(abstract_produto_component_1.AbstractProdutoComponent));
 CreateProdutoComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(852),
-        styles: [__webpack_require__(832)]
+        template: __webpack_require__(857),
+        styles: [__webpack_require__(835)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _c || Object, typeof (_d = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _d || Object, typeof (_e = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _e || Object, typeof (_f = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _f || Object])
 ], CreateProdutoComponent);
@@ -624,7 +624,7 @@ var _a, _b, _c, _d, _e, _f;
 
 /***/ }),
 
-/***/ 808:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -649,16 +649,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var unidade_medida_service_1 = __webpack_require__(789);
-var trata_error_service_1 = __webpack_require__(43);
-var forms_1 = __webpack_require__(20);
+var unidade_medida_service_1 = __webpack_require__(792);
+var trata_error_service_1 = __webpack_require__(33);
+var forms_1 = __webpack_require__(19);
 var core_1 = __webpack_require__(1);
-var router_1 = __webpack_require__(41);
+var router_1 = __webpack_require__(42);
 var common_1 = __webpack_require__(24);
-var produto_service_1 = __webpack_require__(792);
-var categoria_service_1 = __webpack_require__(791);
-var abstract_produto_component_1 = __webpack_require__(806);
-var event_emitter_services_1 = __webpack_require__(32);
+var produto_service_1 = __webpack_require__(794);
+var categoria_service_1 = __webpack_require__(793);
+var abstract_produto_component_1 = __webpack_require__(809);
+var event_emitter_services_1 = __webpack_require__(31);
 var EditProdutosComponent = (function (_super) {
     __extends(EditProdutosComponent, _super);
     function EditProdutosComponent(fb, route, location, categoriaService, unidadeService, produtoService, router) {
@@ -697,8 +697,8 @@ var EditProdutosComponent = (function (_super) {
 }(abstract_produto_component_1.AbstractProdutoComponent));
 EditProdutosComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(853),
-        styles: [__webpack_require__(833)]
+        template: __webpack_require__(858),
+        styles: [__webpack_require__(836)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _b || Object, typeof (_c = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _c || Object, typeof (_d = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _d || Object, typeof (_e = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _e || Object, typeof (_f = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _f || Object, typeof (_g = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _g || Object])
 ], EditProdutosComponent);
@@ -708,7 +708,7 @@ var _a, _b, _c, _d, _e, _f, _g;
 
 /***/ }),
 
-/***/ 809:
+/***/ 812:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -733,13 +733,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var event_emitter_services_1 = __webpack_require__(32);
+var event_emitter_services_1 = __webpack_require__(31);
 var core_1 = __webpack_require__(1);
-var router_1 = __webpack_require__(41);
-var api_config_1 = __webpack_require__(62);
-var produto_service_1 = __webpack_require__(792);
-var abstract_base_component_1 = __webpack_require__(100);
-var trata_error_service_1 = __webpack_require__(43);
+var router_1 = __webpack_require__(42);
+var api_config_1 = __webpack_require__(54);
+var produto_service_1 = __webpack_require__(794);
+var abstract_base_component_1 = __webpack_require__(101);
+var trata_error_service_1 = __webpack_require__(33);
 var ListarProdutosComponent = (function (_super) {
     __extends(ListarProdutosComponent, _super);
     function ListarProdutosComponent(produtoService, router) {
@@ -796,8 +796,8 @@ __decorate([
 ], ListarProdutosComponent.prototype, "popupChangeStatus", void 0);
 ListarProdutosComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(854),
-        styles: [__webpack_require__(834)]
+        template: __webpack_require__(859),
+        styles: [__webpack_require__(837)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], ListarProdutosComponent);
@@ -807,16 +807,16 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 817:
+/***/ 820:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var forms_1 = __webpack_require__(20);
-var currency_mask_config_1 = __webpack_require__(846);
-var input_handler_1 = __webpack_require__(848);
+var forms_1 = __webpack_require__(19);
+var currency_mask_config_1 = __webpack_require__(850);
+var input_handler_1 = __webpack_require__(852);
 exports.CURRENCYMASKDIRECTIVE_VALUE_ACCESSOR = {
     provide: forms_1.NG_VALUE_ACCESSOR,
     useExisting: core_1.forwardRef(function () { return CurrencyMaskDirective; }),
@@ -926,7 +926,7 @@ exports.CurrencyMaskDirective = CurrencyMaskDirective;
 
 /***/ }),
 
-/***/ 819:
+/***/ 823:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -951,13 +951,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var trata_error_service_1 = __webpack_require__(43);
+var trata_error_service_1 = __webpack_require__(33);
 var core_1 = __webpack_require__(1);
-var forms_1 = __webpack_require__(20);
-var produto_service_1 = __webpack_require__(792);
-var event_emitter_services_1 = __webpack_require__(32);
-var abstract_popup_component_1 = __webpack_require__(101);
-var unidade_medida_service_1 = __webpack_require__(789);
+var forms_1 = __webpack_require__(19);
+var produto_service_1 = __webpack_require__(794);
+var event_emitter_services_1 = __webpack_require__(31);
+var abstract_popup_component_1 = __webpack_require__(77);
+var unidade_medida_service_1 = __webpack_require__(792);
 var ComposicaoProdutoPopupModalComponent = (function (_super) {
     __extends(ComposicaoProdutoPopupModalComponent, _super);
     function ComposicaoProdutoPopupModalComponent(fb, unidadeService, produtoService) {
@@ -1019,8 +1019,8 @@ var ComposicaoProdutoPopupModalComponent = (function (_super) {
 ComposicaoProdutoPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'composicao-produto-popup-modal',
-        styles: [__webpack_require__(835)],
-        template: __webpack_require__(855)
+        styles: [__webpack_require__(838)],
+        template: __webpack_require__(860)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _b || Object, typeof (_c = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _c || Object])
 ], ComposicaoProdutoPopupModalComponent);
@@ -1030,7 +1030,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 820:
+/***/ 824:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1055,13 +1055,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var info_nutricional_service_1 = __webpack_require__(793);
-var trata_error_service_1 = __webpack_require__(43);
+var info_nutricional_service_1 = __webpack_require__(795);
+var trata_error_service_1 = __webpack_require__(33);
 var core_1 = __webpack_require__(1);
-var forms_1 = __webpack_require__(20);
-var event_emitter_services_1 = __webpack_require__(32);
-var abstract_popup_component_1 = __webpack_require__(101);
-var unidade_medida_service_1 = __webpack_require__(789);
+var forms_1 = __webpack_require__(19);
+var event_emitter_services_1 = __webpack_require__(31);
+var abstract_popup_component_1 = __webpack_require__(77);
+var unidade_medida_service_1 = __webpack_require__(792);
 var InfoNutricionalProdutoPopupModalComponent = (function (_super) {
     __extends(InfoNutricionalProdutoPopupModalComponent, _super);
     function InfoNutricionalProdutoPopupModalComponent(fb, unidadeService, infoService) {
@@ -1122,7 +1122,7 @@ var InfoNutricionalProdutoPopupModalComponent = (function (_super) {
 InfoNutricionalProdutoPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'info-nutricional-produto-popup-modal',
-        template: __webpack_require__(856)
+        template: __webpack_require__(861)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _b || Object, typeof (_c = typeof info_nutricional_service_1.InfoNutricionalService !== "undefined" && info_nutricional_service_1.InfoNutricionalService) === "function" && _c || Object])
 ], InfoNutricionalProdutoPopupModalComponent);
@@ -1132,7 +1132,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 821:
+/***/ 825:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1145,10 +1145,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var router_1 = __webpack_require__(41);
-var listar_produtos_component_1 = __webpack_require__(809);
-var create_produto_component_1 = __webpack_require__(807);
-var edit_produtos_component_1 = __webpack_require__(808);
+var router_1 = __webpack_require__(42);
+var listar_produtos_component_1 = __webpack_require__(812);
+var create_produto_component_1 = __webpack_require__(810);
+var edit_produtos_component_1 = __webpack_require__(811);
 var routes = [
     {
         path: '',
@@ -1201,10 +1201,10 @@ exports.ProdutoRoutingModule = ProdutoRoutingModule;
 
 /***/ }),
 
-/***/ 832:
+/***/ 835:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(42)();
+exports = module.exports = __webpack_require__(43)();
 // imports
 
 
@@ -1219,10 +1219,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 833:
+/***/ 836:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(42)();
+exports = module.exports = __webpack_require__(43)();
 // imports
 
 
@@ -1237,10 +1237,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 834:
+/***/ 837:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(42)();
+exports = module.exports = __webpack_require__(43)();
 // imports
 
 
@@ -1255,10 +1255,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 835:
+/***/ 838:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(42)();
+exports = module.exports = __webpack_require__(43)();
 // imports
 
 
@@ -1273,7 +1273,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 845:
+/***/ 849:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1282,13 +1282,13 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(817));
-__export(__webpack_require__(847));
+__export(__webpack_require__(820));
+__export(__webpack_require__(851));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 846:
+/***/ 850:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1300,16 +1300,16 @@ exports.CURRENCY_MASK_CONFIG = new core_1.InjectionToken("currency.mask.config")
 
 /***/ }),
 
-/***/ 847:
+/***/ 851:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(24);
-var forms_1 = __webpack_require__(20);
+var forms_1 = __webpack_require__(19);
 var core_1 = __webpack_require__(1);
-var currency_mask_directive_1 = __webpack_require__(817);
+var currency_mask_directive_1 = __webpack_require__(820);
 var CurrencyMaskModule = (function () {
     function CurrencyMaskModule() {
     }
@@ -1336,13 +1336,13 @@ exports.CurrencyMaskModule = CurrencyMaskModule;
 
 /***/ }),
 
-/***/ 848:
+/***/ 852:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_service_1 = __webpack_require__(850);
+var input_service_1 = __webpack_require__(854);
 var InputHandler = (function () {
     function InputHandler(htmlInputElement, options) {
         this.inputService = new input_service_1.InputService(htmlInputElement, options);
@@ -1470,7 +1470,7 @@ exports.InputHandler = InputHandler;
 
 /***/ }),
 
-/***/ 849:
+/***/ 853:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1579,13 +1579,13 @@ exports.InputManager = InputManager;
 
 /***/ }),
 
-/***/ 850:
+/***/ 854:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_manager_1 = __webpack_require__(849);
+var input_manager_1 = __webpack_require__(853);
 var InputService = (function () {
     function InputService(htmlInputElement, options) {
         this.htmlInputElement = htmlInputElement;
@@ -1713,35 +1713,35 @@ exports.InputService = InputService;
 
 /***/ }),
 
-/***/ 852:
+/***/ 857:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Produto</strong>\r\n        <small> - inclusão de um novo produto</small>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4 col-md-4\">\r\n              <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                  <strong>Imagens do produto</strong>\r\n                </div>\r\n                <div class=\"card-block\">\r\n                  <div class=\"row\">\r\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                  </div>\r\n\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                    (onSelecionarImagem)=\"mudarImage($event)\">\r\n                  </upload-imagem>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-8 col-sm-8\">\r\n              <form [formGroup]=\"formulario\">\r\n                <tabset>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-list\"></i> Dados &nbsp;\r\n                    </ng-template>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Nome</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\r\n                          maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\r\n                        <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\r\n                        </alert-mensagem>\r\n                      </div>\r\n                    </div>\r\n\r\n\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Categoria</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\r\n                        </ng-select>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('unidadeVenda'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Unidade de Venda </label>\r\n                      <div class=\"col-sm-4\">\r\n                        <ng-select [multiple]=\"false\" formControlName=\"unidadeVenda\" [items]=\"comboUnidades\" placeholder=\"{{label.selecione}}\">\r\n                        </ng-select>\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('vlVenda'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Valor venda</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('vlVenda'))\"\r\n                          name=\"vlVenda\" maxlength=\"10\" formControlName=\"vlVenda\">\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('vlCompra'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Valor compra</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('vlCompra'))\"\r\n                          name=\"vlCompra\" maxlength=\"10\" formControlName=\"vlCompra\">\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('qtdMinimaEstoque'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Qtd minima estoque</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input numberOnly type=\"text\" formControlName=\"qtdMinimaEstoque\" class=\"form-control input-sm\" name=\"qtdMinimaEstoque\" formControlName=\"qtdMinimaEstoque\"\r\n                          maxlength=\"4\">\r\n                      </div>\r\n                    </div>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nrCodigoBarra'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Cód barra</label>\r\n                      <div class=\"col-sm-4\">\r\n                        <input numberOnly type=\"text\" formControlName=\"nrCodigoBarra\" class=\"form-control input\" name=\"codigoBarra\" formControlName=\"nrCodigoBarra\"\r\n                          maxlength=\"20\">\r\n                      </div>\r\n                    </div>\r\n\r\n                    <div class=\"from-group row\">\r\n                      <label class=\"col-sm-2 form-control-label\">Uso interno</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <label class=\"switch switch-lg switch-text switch-primary\">\r\n                          <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\r\n                          />\r\n                          <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                          <span class=\"switch-handle\"></span>\r\n                        </label>\r\n                      </div>\r\n                    </div>\r\n\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-calculator\"></i> Composição &nbsp;\r\n                    </ng-template>\r\n                    <div class=\"from-group row\">\r\n\r\n                      <div class=\"col-sm-12\">\r\n                        <div class=\"card\">\r\n                          <div class=\"card-header\">\r\n                            <strong>Composição do produto</strong>\r\n                            <div class=\"card-actions\">\r\n                              <button type=\"button\" (click)=\"composicaoModal.show()\">\r\n                                <i class=\"icon-plus\"></i>\r\n                              </button>\r\n                            </div>\r\n                          </div>\r\n                          <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                            <div class=\"row\">\r\n\r\n                              <table class=\"table table-striped\">\r\n                                <thead>\r\n                                  <th class=\"text-left\">Produto</th>\r\n                                  <th class=\"text-right\">Quantidade</th>\r\n                                  <th class=\"text-center\">Mostrar</th>\r\n                                  <th class=\"text-right\">Ação</th>\r\n                                </thead>\r\n                                <tbody>\r\n                                  <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                    <td class=\"text-left\">\r\n                                      <div>{{item.nmProdutoComposicao}}</div>\r\n                                    </td>\r\n                                    <td class=\"text-right\">\r\n                                      {{item?.qtUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                    </td>\r\n                                    <td class=\"text-center\">\r\n                                      <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                    </td>\r\n\r\n\r\n                                    <td class=\"text-right\">\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModal.showAlteracao(item)\">\r\n                                        <i class=\"fa fa fa-edit\"> </i>\r\n                                      </button>\r\n                                      <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                        <i class=\"fa fa-eraser\"> </i>\r\n                                      </button>\r\n                                    </td>\r\n                                  </tr>\r\n                                </tbody>\r\n                              </table>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Inf. adicionais\r\n                    </ng-template>\r\n                    <div [ngClass]=\"aplicarCssGroup(formulario.get('dsUrlBlog'))\">\r\n                      <label for=\"nome\">Url blog de receitas</label>\r\n                      <input #campoNome type=\"text\" [ngClass]=\"aplicarCssForm(formulario.get('dsUrlBlog'))\" name=\"urlBlog\" maxlength=\"120\" placeholder=\"url do blog\"\r\n                        formControlName=\"dsUrlBlog\">\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                      <label for=\"dsInfoComplementar\">Informações extra</label>\r\n                      <textarea type=\"textarea\" maxlength=\"200\" rows=\"7\" [ngClass]=\"aplicarCssForm(formulario.get('dsInfoComplementar'))\" name=\"dsInfoComplementar\"\r\n                        placeholder=\"Digite as informações extra sobre o produto\" formControlName=\"dsInfoComplementar\"></textarea>\r\n                    </div>\r\n                  </tab>\r\n                  <tab>\r\n                    <ng-template tabHeading>\r\n                      <i class=\"icon-pie-chart\"></i> Inf nutricionais\r\n                    </ng-template>\r\n                    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('qtEmcada'))\">\r\n                      <label class=\"col-sm-2 form-control-label\">Quantidade</label>\r\n                      <div class=\"col-sm-2\">\r\n                        <input numberOnly type=\"text\" formControlName=\"qtEmcada\" class=\"form-control input\" name=\"qtEmcada\" formControlName=\"qtEmcada\"\r\n                        maxlength=\"3\">\r\n                      </div>\r\n                      <div class=\"col-sm-4\">\r\n                        <ng-select [multiple]=\"false\" formControlName=\"emCada\" [items]=\"comboUnidadesEmCasa\" placeholder=\"{{label.selecione}}\">\r\n                        </ng-select>\r\n                      </div>\r\n                    </div>\r\n                    <div class=\"card\">\r\n                      <div class=\"card-header\">\r\n                        <strong>Tabela nutricional</strong>\r\n                        <div class=\"card-actions\">\r\n                          <button type=\"button\" (click)=\"InfoNutricionalModal.show()\">\r\n                            <i class=\"icon-plus\"></i>\r\n                          </button>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"card-block\" *ngIf=\"produtosInfoNutricionais?.length > 0\">\r\n                        <div class=\"row\">\r\n\r\n                          <table class=\"table table-striped\">\r\n                            <thead>\r\n                              <th class=\"text-left\">Descrição</th>\r\n                              <th class=\"text-right\">Quantidade</th>\r\n                              <th class=\"text-right\">Ação</th>\r\n                            </thead>\r\n                            <tbody>\r\n                              <tr *ngFor=\"let item of produtosInfoNutricionais\">\r\n                                <td class=\"text-left\">\r\n                                  <div>{{item.dsInfoNutricional}}</div>\r\n                                </td>\r\n                                <td class=\"text-right\">\r\n                                  {{item?.qtUtilizada}} - {{item.sgUnidadeMedida}}\r\n                                </td>\r\n                                <td class=\"text-right\">\r\n                                  <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"InfoNutricionalModal.showAlteracao(item)\">\r\n                                    <i class=\"fa fa fa-edit\"> </i>\r\n                                  </button>\r\n                                  <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItemInfoNutriciobnal(item)\">\r\n                                    <i class=\"fa fa-eraser\"> </i>\r\n                                  </button>\r\n                                </td>\r\n                              </tr>\r\n                            </tbody>\r\n                          </table>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </tab>\r\n                </tabset>\r\n              </form>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n              </button>\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmProduto.show();\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <confirm-popup-modal #modalConfirmProduto popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n    <strong>Confirma a inclusão do Produto?</strong>\r\n  </confirm-popup-modal>\r\n\r\n  <composicao-produto-popup-modal #composicaoModal (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-produto-popup-modal>\r\n  <info-nutricional-produto-popup-modal #InfoNutricionalModal (onClickConfirm)=\"confirmarInfoNutricional($event)\"></info-nutricional-produto-popup-modal>\r\n  <!-- \r\n  -->\r\n</div>"
 
 /***/ }),
 
-/***/ 853:
+/***/ 858:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-12\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <strong>Produto</strong>\r\n          <small> - alteração do produto</small>\r\n        </div>\r\n  \r\n        <div class=\"card-block\">\r\n          <div class=\"form-group\">\r\n            <div class=\"row\">\r\n              <div class=\"col-sm-4 col-md-4\">\r\n                <div class=\"card\">\r\n                  <div class=\"card-header\">\r\n                    <strong>Imagens do produto</strong>\r\n                  </div>\r\n                  <div class=\"card-block\">\r\n                    <div class=\"row\">\r\n                      <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                    </div>\r\n  \r\n                  </div>\r\n                  <div class=\"card-footer\">\r\n                    <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                      (onSelecionarImagem)=\"mudarImage($event)\">\r\n                    </upload-imagem>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <!--/.col-->\r\n  \r\n              <div class=\"col-md-8 col-sm-8\">\r\n                <form [formGroup]=\"formulario\">\r\n                  <tabset>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-list\"></i> Dados &nbsp;\r\n                      </ng-template>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmProduto'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Nome</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <input [autofoco]=\"true\" type=\"text\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('nmProduto'))\" name=\"nmProduto\"\r\n                            maxlength=\"25\" placeholder=\"Digite o nome o produto\" formControlName=\"nmProduto\">\r\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmProduto'))\" titulo=\"Erro:\" mensagem=\"o campo Nome do produto deve ter entre 5 a 50 caracteres\">\r\n                          </alert-mensagem>\r\n                        </div>\r\n                      </div>\r\n  \r\n  \r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Categoria</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <ng-select [multiple]=\"false\" formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\">\r\n                          </ng-select>\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('unidadeVenda'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Unidade de Venda </label>\r\n                        <div class=\"col-sm-4\">\r\n                          <ng-select [multiple]=\"false\" formControlName=\"unidadeVenda\" [items]=\"comboUnidades\" placeholder=\"{{label.selecione}}\">\r\n                          </ng-select>\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('vlVenda'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Valor venda</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('vlVenda'))\"\r\n                            name=\"vlVenda\" maxlength=\"10\" formControlName=\"vlVenda\">\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('vlCompra'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Valor compra</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('vlCompra'))\"\r\n                            name=\"vlCompra\" maxlength=\"10\" formControlName=\"vlCompra\">\r\n                        </div>\r\n                      </div>\r\n  \r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('qtdMinimaEstoque'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Qtd minima estoque</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <input numberOnly type=\"text\" formControlName=\"qtdMinimaEstoque\" class=\"form-control input-sm\" name=\"qtdMinimaEstoque\" formControlName=\"qtdMinimaEstoque\"\r\n                            maxlength=\"4\">\r\n                        </div>\r\n                      </div>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nrCodigoBarra'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Cód barra</label>\r\n                        <div class=\"col-sm-4\">\r\n                          <input numberOnly type=\"text\" formControlName=\"nrCodigoBarra\" class=\"form-control input\" name=\"codigoBarra\" formControlName=\"nrCodigoBarra\"\r\n                            maxlength=\"20\">\r\n                        </div>\r\n                      </div>\r\n  \r\n                      <div class=\"from-group row\">\r\n                        <label class=\"col-sm-2 form-control-label\">Uso interno</label>\r\n                        <div class=\"col-sm-10\">\r\n                          <label class=\"switch switch-lg switch-text switch-primary\">\r\n                            <input #chkUsoInterno type=\"checkbox\" class=\"switch-input\" [checked]=\"checkUsoInterno\" (change)=\"alterarCheckUsoInterno(chkUsoInterno.checked)\"\r\n                            />\r\n                            <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                            <span class=\"switch-handle\"></span>\r\n                          </label>\r\n                        </div>\r\n                      </div>\r\n  \r\n                    </tab>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-calculator\"></i> Composição &nbsp;\r\n                      </ng-template>\r\n                      <div class=\"from-group row\">\r\n  \r\n                        <div class=\"col-sm-12\">\r\n                          <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                              <strong>Composição do produto</strong>\r\n                              <div class=\"card-actions\">\r\n                                <button type=\"button\" (click)=\"composicaoModal.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                              </div>\r\n                            </div>\r\n                            <div class=\"card-block\" *ngIf=\"produtosComposicoes?.length > 0\">\r\n                              <div class=\"row\">\r\n  \r\n                                <table class=\"table table-striped\">\r\n                                  <thead>\r\n                                    <th class=\"text-left\">Produto</th>\r\n                                    <th class=\"text-right\">Quantidade</th>\r\n                                    <th class=\"text-center\">Mostrar</th>\r\n                                    <th class=\"text-right\">Ação</th>\r\n                                  </thead>\r\n                                  <tbody>\r\n                                    <tr *ngFor=\"let item of produtosComposicoes\">\r\n                                      <td class=\"text-left\">\r\n                                        <div>{{item.nmProdutoComposicao}}</div>\r\n                                      </td>\r\n                                      <td class=\"text-right\">\r\n                                        {{item?.qtUtilizada}} - {{item.nmUnidadeMedida}}\r\n                                      </td>\r\n                                      <td class=\"text-center\">\r\n                                        <simnao valor={{item.mostrarUnidade}}></simnao>\r\n                                      </td>\r\n  \r\n  \r\n                                      <td class=\"text-right\">\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"composicaoModal.showAlteracao(item)\">\r\n                                          <i class=\"fa fa fa-edit\"> </i>\r\n                                        </button>\r\n                                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItem(item)\">\r\n                                          <i class=\"fa fa-eraser\"> </i>\r\n                                        </button>\r\n                                      </td>\r\n                                    </tr>\r\n                                  </tbody>\r\n                                </table>\r\n                              </div>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </tab>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-pie-chart\"></i> Inf. adicionais\r\n                      </ng-template>\r\n                      <div [ngClass]=\"aplicarCssGroup(formulario.get('dsUrlBlog'))\">\r\n                        <label for=\"nome\">Url blog de receitas</label>\r\n                        <input #campoNome type=\"text\" [ngClass]=\"aplicarCssForm(formulario.get('dsUrlBlog'))\" name=\"urlBlog\" maxlength=\"120\" placeholder=\"url do blog\"\r\n                          formControlName=\"dsUrlBlog\">\r\n                      </div>\r\n  \r\n                      <div class=\"form-group\">\r\n                        <label for=\"dsInfoComplementar\">Informações extra</label>\r\n                        <textarea type=\"textarea\" maxlength=\"200\" rows=\"7\" [ngClass]=\"aplicarCssForm(formulario.get('dsInfoComplementar'))\" name=\"dsInfoComplementar\"\r\n                          placeholder=\"Digite as informações extra sobre o produto\" formControlName=\"dsInfoComplementar\"></textarea>\r\n                      </div>\r\n                    </tab>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-pie-chart\"></i> Inf nutricionais\r\n                      </ng-template>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('qtEmcada'))\">\r\n                        <label class=\"col-sm-2 form-control-label\">Quantidade</label>\r\n                        <div class=\"col-sm-2\">\r\n                          <input numberOnly type=\"text\" formControlName=\"qtEmcada\" class=\"form-control input\" name=\"qtEmcada\" formControlName=\"qtEmcada\"\r\n                          maxlength=\"3\">\r\n                        </div>\r\n                        <div class=\"col-sm-4\">\r\n                          <ng-select [multiple]=\"false\" formControlName=\"emCada\" [items]=\"comboUnidadesEmCasa\" placeholder=\"{{label.selecione}}\">\r\n                          </ng-select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"card\">\r\n                        <div class=\"card-header\">\r\n                          <strong>Tabela nutricional</strong>\r\n                          <div class=\"card-actions\">\r\n                            <button type=\"button\" (click)=\"InfoNutricionalModal.show()\">\r\n                              <i class=\"icon-plus\"></i>\r\n                            </button>\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"card-block\" *ngIf=\"produtosInfoNutricionais?.length > 0\">\r\n                          <div class=\"row\">\r\n  \r\n                            <table class=\"table table-striped\">\r\n                              <thead>\r\n                                <th class=\"text-left\">Descrição</th>\r\n                                <th class=\"text-right\">Quantidade</th>\r\n                                <th class=\"text-right\">Ação</th>\r\n                              </thead>\r\n                              <tbody>\r\n                                <tr *ngFor=\"let item of produtosInfoNutricionais\">\r\n                                  <td class=\"text-left\">\r\n                                    <div>{{item.dsInfoNutricional}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    {{item?.qtUtilizada}} - {{item.sgUnidadeMedida}}\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"InfoNutricionalModal.showAlteracao(item)\">\r\n                                      <i class=\"fa fa fa-edit\"> </i>\r\n                                    </button>\r\n                                    <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirItemInfoNutriciobnal(item)\">\r\n                                      <i class=\"fa fa-eraser\"> </i>\r\n                                    </button>\r\n                                  </td>\r\n                                </tr>\r\n                              </tbody>\r\n                            </table>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </tab>\r\n                  </tabset>\r\n                </form>\r\n  \r\n              </div>\r\n  \r\n            </div>\r\n            <div class=\"card-footer\">\r\n              <div style=\"float: right;\">\r\n                <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                  <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n                </button>\r\n                <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmProduto.show();\">\r\n                  <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n                </button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <confirm-popup-modal #modalConfirmProduto popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n      <strong>Confirma a inclusão do Produto?</strong>\r\n    </confirm-popup-modal>\r\n  \r\n    <composicao-produto-popup-modal #composicaoModal (onClickConfirm)=\"confirmarCompProd($event)\"></composicao-produto-popup-modal>\r\n    <info-nutricional-produto-popup-modal #InfoNutricionalModal (onClickConfirm)=\"confirmarInfoNutricional($event)\"></info-nutricional-produto-popup-modal>\r\n    <!-- \r\n    -->\r\n  </div>"
 
 /***/ }),
 
-/***/ 854:
+/***/ 859:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-1\"></div>\n<button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/produtos/novo']\">\n    <i class=\"icon-plus\"></i> Novo\n</button>\n<div class=\"card\">\n    <div class=\"card-header\">\n        <i class=\"fa fa-align-justify\"></i> Listagem de informações nutricional\n    </div>\n    <div class=\"card-block\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th class=\"text-center\" style=\"width: 5%\">\n                        <i class=\"icon-people\"></i>\n                    </th>\n                    <th style=\"width: 40%\">Descrição do produto</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Categoria</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Uso interno</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Situação</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Preço</th>\n                    <th style=\"width: 15%\" class=\"text-center\">Ação</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let item of items\">\n                    <td class=\"text-center\">\n                        <div class=\"avatar\">\n                            <foto-uri id=\"{{item.id}}\" modulo=\"PRD\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\n                        </div>\n                    </td>\n                    <td>\n                        <div>{{item.nmProduto}}</div>\n                    </td>\n                    <td class=\"text-center\">\n                        {{item?.categoria?.nmCategoria}}\n                    </td>\n                    <td class=\"text-center\">\n                        <simnao valor={{item.stUsoInterno}}></simnao>\n                    </td>\n                    <td class=\"text-center\">\n                        <status status={{item.status}}></status>\n                    </td>\n                    <td class=\"text-right\">\n                        {{item.vlVenda | currency:'BRL':true}}\n                    </td>\n                    <td class=\"text-right\">\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"alterarProduto(item)\">\n                            <i class=\"fa fa fa-edit\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\n                            <i class=\"fa fa-eraser\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\n                            <i class=\"fa fa-exclamation\"> </i>\n                        </button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n<confirm-popup-modal #modalExcluirProduto popupStyle=\"danger\" (onClickConfirm)=\"excluirCategoria()\">\n    <strong>Deseja excluir o produto?</strong>\n</confirm-popup-modal>\n\n<confirm-popup-modal #modalChangeSatusProduto popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\n    <strong>Deseja alterar o status do produto?</strong>\n</confirm-popup-modal>"
+module.exports = "<div class=\"col-md-1\"></div>\n<button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/produtos/novo']\">\n    <i class=\"icon-plus\"></i> Novo\n</button>\n<div class=\"card\">\n    <div class=\"card-header\">\n        <i class=\"fa fa-align-justify\"></i> Listagem de produtos\n    </div>\n    <div class=\"card-block\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th class=\"text-center\" style=\"width: 5%\">\n                        <i class=\"icon-people\"></i>\n                    </th>\n                    <th style=\"width: 40%\">Descrição do produto</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Categoria</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Uso interno</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Situação</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Preço</th>\n                    <th style=\"width: 15%\" class=\"text-center\">Ação</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let item of items\">\n                    <td class=\"text-center\">\n                        <div class=\"avatar\">\n                            <foto-uri id=\"{{item.id}}\" modulo=\"PRD\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\n                        </div>\n                    </td>\n                    <td>\n                        <div>{{item.nmProduto}}</div>\n                    </td>\n                    <td class=\"text-center\">\n                        {{item?.categoria?.nmCategoria}}\n                    </td>\n                    <td class=\"text-center\">\n                        <simnao valor={{item.stUsoInterno}}></simnao>\n                    </td>\n                    <td class=\"text-center\">\n                        <status status={{item.status}}></status>\n                    </td>\n                    <td class=\"text-right\">\n                        {{item.vlVenda | currency:'BRL':true}}\n                    </td>\n                    <td class=\"text-right\">\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"alterarProduto(item)\">\n                            <i class=\"fa fa fa-edit\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\n                            <i class=\"fa fa-eraser\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\n                            <i class=\"fa fa-exclamation\"> </i>\n                        </button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n<confirm-popup-modal #modalExcluirProduto popupStyle=\"danger\" (onClickConfirm)=\"excluirCategoria()\">\n    <strong>Deseja excluir o produto?</strong>\n</confirm-popup-modal>\n\n<confirm-popup-modal #modalChangeSatusProduto popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\n    <strong>Deseja alterar o status do produto?</strong>\n</confirm-popup-modal>"
 
 /***/ }),
 
-/***/ 855:
+/***/ 860:
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"md\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formProdComp.value)\" [desabilitarBtnConfirmar]=\"!formProdComp.valid\">\r\n\r\n        <form [formGroup]=\"formProdComp\" (ngSubmit)=\"confirmarCompProd()\">\r\n                <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('produtoComp'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Produto</label>\r\n                        <div class=\"col-sm-10\">\r\n                            <ng-select  *ngIf=\"!formProdComp.get('emAlteracao').value\" [multiple]=\"false\" formControlName=\"produtoComp\" [items]=\"comboCompProdutos\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n                            <input      *ngIf=\"formProdComp.get('emAlteracao').value\" type=\"text\" id=\"disabled-input\" name=\"disabled-input\" class=\"form-control\" placeholder=\"Disabled\" disabled=\"\" value=\"{{formProdComp.get('produtoComp').value[0].text}}\">\r\n                        </div>\r\n                </div>\r\n                <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('qtUtilizada'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Quantidade</label>\r\n                        <div class=\"col-sm-4\">\r\n                                <input #campoNome numberOnly type=\"text\" formControlName=\"qtUtilizada\" class=\"form-control input-sm\" name=\"qtUtilizada\"\r\n                                        formControlName=\"qtUtilizada\" maxlength=\"4\" >\r\n                        </div>\r\n                        <div class=\"col-sm-6\">\r\n                                <ng-select formControlName=\"unidade\" [items]=\"comboCompUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n                        </div>\r\n                </div>\r\n                <div class=\"form-group row\">\r\n                        <label class=\"col-sm-2 form-control-label\">Mostrar</label>\r\n                        <div class=\"col-sm-8\">\r\n                                <label class=\"switch switch-lg switch-text switch-primary\">\r\n                                        <input #checkMostrar type=\"checkbox\" class=\"switch-input\" [checked]=\"checkMostrar\" (change)=\"compProdCheckMostrar(checkMostrar.checked)\"\r\n                                        />\r\n                                        <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                                        <span class=\"switch-handle\"></span>\r\n                                </label>\r\n                        </div>\r\n                </div>\r\n        </form>\r\n</base-popup-modal>"
+module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"md\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formProdComp.value)\"\r\n        [desabilitarBtnConfirmar]=\"!formProdComp.valid\">\r\n\r\n        <form [formGroup]=\"formProdComp\" (ngSubmit)=\"confirmarCompProd()\">\r\n                <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('produtoComp'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Produto</label>\r\n                        <div class=\"col-sm-10\">\r\n                                <ng-select *ngIf=\"!formProdComp.get('emAlteracao').value\" [multiple]=\"false\" formControlName=\"produtoComp\" [items]=\"comboCompProdutos\"\r\n                                        placeholder=\"{{label.selecione}}\"></ng-select>\r\n                                <input *ngIf=\"formProdComp.get('emAlteracao').value\" type=\"text\" id=\"disabled-input\" name=\"disabled-input\" class=\"form-control\"\r\n                                        placeholder=\"Disabled\" disabled=\"\" value=\"{{formProdComp.get('produtoComp').value[0].text}}\">\r\n                        </div>\r\n                </div>\r\n                <div [ngClass]=\"aplicarCssGroupRow(formProdComp.get('qtUtilizada'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Quantidade</label>\r\n                        <div class=\"col-sm-4\">\r\n                                <input #campoNome numberOnly type=\"text\" formControlName=\"qtUtilizada\" class=\"form-control input-sm\" name=\"qtUtilizada\" formControlName=\"qtUtilizada\"\r\n                                        maxlength=\"4\">\r\n                        </div>\r\n                        <div class=\"col-sm-6\">\r\n                                <ng-select formControlName=\"unidade\" [items]=\"comboCompUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n                        </div>\r\n                </div>\r\n                <div class=\"form-group row\">\r\n                        <label class=\"col-sm-2 form-control-label\">Mostrar</label>\r\n                        <div class=\"col-sm-8\">\r\n                                <label class=\"switch switch-lg switch-text switch-primary\">\r\n                                        <input #checkMostrar type=\"checkbox\" class=\"switch-input\" [checked]=\"checkMostrar\" (change)=\"compProdCheckMostrar(checkMostrar.checked)\"\r\n                                        />\r\n                                        <span class=\"switch-label\" data-on=\"sim\" data-off=\"não\"></span>\r\n                                        <span class=\"switch-handle\"></span>\r\n                                </label>\r\n                        </div>\r\n                </div>\r\n        </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
-/***/ 856:
+/***/ 861:
 /***/ (function(module, exports) {
 
 module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"md\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formProdInfo.value)\"\r\n        [desabilitarBtnConfirmar]=\"!formProdInfo.valid\">\r\n\r\n        <form [formGroup]=\"formProdInfo\" (ngSubmit)=\"confirmarCompProd()\">\r\n                \r\n                <div [ngClass]=\"aplicarCssGroupRow(formProdInfo.get('infoNutricional'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Informação</label>\r\n                        <div class=\"col-sm-10\">\r\n                                <ng-select *ngIf=\"!formProdInfo.get('emAlteracao').value\" [multiple]=\"false\" formControlName=\"infoNutricional\" [items]=\"comboInfoNutriciais\"\r\n                                placeholder=\"{{label.selecione}}\"></ng-select>\r\n                                <input *ngIf=\"formProdInfo.get('emAlteracao').value\" type=\"text\" id=\"disabled-input\" name=\"disabled-input\" class=\"form-control\"\r\n                                placeholder=\"Disabled\" disabled=\"\" value=\"{{formProdInfo.get('infoNutricional').value[0].text}}\">\r\n                        </div>\r\n                </div>\r\n                <div [ngClass]=\"aplicarCssGroupRow(formProdInfo.get('qtUtilizada'))\">\r\n                        <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Quantidade</label>\r\n                        <div class=\"col-sm-4\">\r\n                                <input #campoNome numberOnly type=\"text\" formControlName=\"qtUtilizada\" class=\"form-control input-sm\" name=\"qtUtilizada\" formControlName=\"qtUtilizada\"\r\n                                maxlength=\"4\">\r\n                        </div>\r\n                        <div class=\"col-sm-6\">\r\n                                <ng-select formControlName=\"unidade\" [items]=\"comboCompUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n                        </div>\r\n                </div>\r\n        </form>\r\n</base-popup-modal>"
