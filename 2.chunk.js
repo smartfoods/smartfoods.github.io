@@ -1,6 +1,6 @@
 webpackJsonp([2,14],{
 
-/***/ 787:
+/***/ 788:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,57 +12,61 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var ng2_select_1 = __webpack_require__(275);
-var unidade_medida_service_1 = __webpack_require__(792);
-var categoria_service_1 = __webpack_require__(793);
+var perfil_cliente_component_1 = __webpack_require__(800);
+var consulta_cep_service_1 = __webpack_require__(151);
+var cliente_popup_modal_component_1 = __webpack_require__(802);
 var core_1 = __webpack_require__(1);
-var http_1 = __webpack_require__(26);
-var popup_modal_module_1 = __webpack_require__(148);
+var common_1 = __webpack_require__(25);
+var forms_1 = __webpack_require__(18);
+var http_1 = __webpack_require__(20);
+var angular2_ladda_1 = __webpack_require__(278);
 var modal_1 = __webpack_require__(103);
-var forms_1 = __webpack_require__(19);
-var common_1 = __webpack_require__(24);
-var shared_component_module_1 = __webpack_require__(76);
-var adicional_produto_service_1 = __webpack_require__(800);
-var adicional_produto_routing_module_1 = __webpack_require__(826);
-var adicional_produto_popup_modal_component_1 = __webpack_require__(827);
-var listar_adicional_produto_component_1 = __webpack_require__(813);
-var produto_service_1 = __webpack_require__(794);
-var AdicionalProdutoModule = (function () {
-    function AdicionalProdutoModule() {
+var popup_modal_module_1 = __webpack_require__(149);
+var shared_component_module_1 = __webpack_require__(78);
+var angular2_text_mask_1 = __webpack_require__(104);
+var tabs_1 = __webpack_require__(152);
+var cliente_service_1 = __webpack_require__(147);
+var cliente_routing_module_1 = __webpack_require__(801);
+var storage_service_1 = __webpack_require__(65);
+var listar_cliente_component_1 = __webpack_require__(799);
+var ClienteModule = (function () {
+    function ClienteModule() {
     }
-    return AdicionalProdutoModule;
+    return ClienteModule;
 }());
-AdicionalProdutoModule = __decorate([
+ClienteModule = __decorate([
     core_1.NgModule({
         imports: [
             common_1.CommonModule,
             forms_1.FormsModule,
             modal_1.ModalModule.forRoot(),
-            ng2_select_1.SelectModule,
             shared_component_module_1.SharedComponentModule,
             forms_1.ReactiveFormsModule,
-            popup_modal_module_1.PopupModalModule,
             http_1.HttpClientModule,
-            adicional_produto_routing_module_1.AdicionalProdutoRoutingModule
+            popup_modal_module_1.PopupModalModule,
+            tabs_1.TabsModule,
+            cliente_routing_module_1.ClienteRoutingModule,
+            angular2_ladda_1.LaddaModule,
+            angular2_text_mask_1.TextMaskModule
         ],
         declarations: [
-            listar_adicional_produto_component_1.ListarAdicionalProdutoComponent,
-            adicional_produto_popup_modal_component_1.AdicionalProdutoPopupModalComponent
+            listar_cliente_component_1.ListarClienteComponent,
+            cliente_popup_modal_component_1.ClientePopupModalComponent,
+            perfil_cliente_component_1.PerfilClienteComponent
         ],
         providers: [
-            produto_service_1.ProdutoService,
-            categoria_service_1.CategoriaService,
-            unidade_medida_service_1.UnidadeMedidaService,
-            adicional_produto_service_1.AdicionalProdutoService
+            cliente_service_1.ClienteService,
+            storage_service_1.StorageService,
+            consulta_cep_service_1.ConsultaCEPService
         ]
     })
-], AdicionalProdutoModule);
-exports.AdicionalProdutoModule = AdicionalProdutoModule;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/adicional-produto.module.js.map
+], ClienteModule);
+exports.ClienteModule = ClienteModule;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/cliente.module.js.map
 
 /***/ }),
 
-/***/ 792:
+/***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87,191 +91,72 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__(54);
-var http_1 = __webpack_require__(26);
+var trata_error_service_1 = __webpack_require__(32);
+var event_emitter_services_1 = __webpack_require__(27);
 var core_1 = __webpack_require__(1);
-var abstract_service_1 = __webpack_require__(102);
-var UnidadeMedidaService = (function (_super) {
-    __extends(UnidadeMedidaService, _super);
-    function UnidadeMedidaService(http) {
+var router_1 = __webpack_require__(43);
+var cliente_service_1 = __webpack_require__(147);
+var abstract_base_component_1 = __webpack_require__(102);
+var ListarClienteComponent = (function (_super) {
+    __extends(ListarClienteComponent, _super);
+    function ListarClienteComponent(clienteService, router) {
         var _this = _super.call(this) || this;
-        _this.http = http;
-        _this.url = api_config_1.API_CONFIG.baseUrl + "/unidademedida";
+        _this.clienteService = clienteService;
+        _this.router = router;
+        _this.items = [];
         return _this;
     }
-    UnidadeMedidaService.prototype.findAll = function () {
-        return this.http.get(this.url + "/all", this.getHearderToken());
+    ListarClienteComponent.prototype.ngOnInit = function () {
+        this.carregarTodos();
     };
-    UnidadeMedidaService.prototype.findAllAtivo = function () {
-        return this.http.get(this.url + "/");
+    ListarClienteComponent.prototype.selecionarItem = function (item) {
+        this.cliente = item;
+        this.popupExclusao.show();
     };
-    UnidadeMedidaService.prototype.findById = function (id) {
-        return this.http.get(this.url + "/" + id, this.getHearderToken());
+    ListarClienteComponent.prototype.selecionarItemChangeStatus = function (item) {
+        this.cliente = item;
+        this.popupChangeStatus.show();
     };
-    UnidadeMedidaService.prototype.salvar = function (unidade) {
-        return this.http.post(this.url + "/", JSON.stringify(unidade), this.getHearderTokenNoResponse());
+    ListarClienteComponent.prototype.changeStatus = function () {
+        var _this = this;
+        this.clienteService.changeStatus(this.cliente)
+            .subscribe(function (res) {
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Cliente', 'Status do cliente foi alterado com sucesso!!!');
+            _this.carregarTodos();
+        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    UnidadeMedidaService.prototype.changeStatus = function (unidade) {
-        return this.http.put(this.url + "/" + unidade.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
+    ListarClienteComponent.prototype.excluir = function () {
+        var _this = this;
+        this.clienteService.excluir(this.cliente)
+            .subscribe(function (res) {
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Cliente', 'Cliente foi excluído com sucesso!!!');
+            _this.carregarTodos();
+        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    UnidadeMedidaService.prototype.atualizar = function (unidade) {
-        return this.http.put(this.url + "/" + unidade.id, JSON.stringify(unidade), this.getHearderTokenNoResponse());
+    ListarClienteComponent.prototype.carregarTodos = function () {
+        var _this = this;
+        this.clienteService.findAll().subscribe(function (response) { _this.items = response; }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    UnidadeMedidaService.prototype.excluir = function (unidade) {
-        var url = this.url + "/" + unidade.id;
-        return this.http.delete(url, this.getHearderToken());
-    };
-    return UnidadeMedidaService;
-}(abstract_service_1.AbstractService));
-UnidadeMedidaService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], UnidadeMedidaService);
-exports.UnidadeMedidaService = UnidadeMedidaService;
-var _a;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/unidade-medida.service.js.map
-
-/***/ }),
-
-/***/ 793:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(1);
-var http_1 = __webpack_require__(26);
-var api_config_1 = __webpack_require__(54);
-var abstract_service_1 = __webpack_require__(102);
-//import { catchError, retry } from 'rxjs/operators';
-var CategoriaService = (function (_super) {
-    __extends(CategoriaService, _super);
-    function CategoriaService(http) {
-        var _this = _super.call(this) || this;
-        _this.http = http;
-        return _this;
-    }
-    CategoriaService.prototype.findById = function (id) {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/" + id, this.getHearderToken());
-    };
-    CategoriaService.prototype.findAll = function () {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/all");
-    };
-    CategoriaService.prototype.salvar = function (categoria) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/categorias", JSON.stringify(categoria), this.getHearderTokenNoResponse());
-    };
-    CategoriaService.prototype.changeStatus = function (categoria) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
-    };
-    CategoriaService.prototype.atualizar = function (categoria) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id, JSON.stringify(categoria), this.getHearderTokenNoResponse());
-    };
-    CategoriaService.prototype.excluir = function (categoria) {
-        var url = api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id;
-        return this.http.delete(url, this.getHearderToken());
-    };
-    CategoriaService.prototype.insert = function (obj) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/pedidos", obj, { observe: 'response', responseType: 'text' });
-    };
-    return CategoriaService;
-}(abstract_service_1.AbstractService));
-CategoriaService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], CategoriaService);
-exports.CategoriaService = CategoriaService;
-var _a;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria.service.js.map
-
-/***/ }),
-
-/***/ 794:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(1);
-var http_1 = __webpack_require__(26);
-var api_config_1 = __webpack_require__(54);
-var abstract_service_1 = __webpack_require__(102);
-//import { catchError, retry } from 'rxjs/operators';
-var ProdutoService = (function (_super) {
-    __extends(ProdutoService, _super);
-    function ProdutoService(http) {
-        var _this = _super.call(this) || this;
-        _this.http = http;
-        return _this;
-    }
-    ProdutoService.prototype.findById = function (id) {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/produtos/" + id, this.getHearderToken());
-    };
-    ProdutoService.prototype.findAll = function () {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/produtos/");
-    };
-    ProdutoService.prototype.findAllProdutoInterno = function () {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/produtos/internos");
-    };
-    ProdutoService.prototype.salvar = function (produto) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/produtos", JSON.stringify(produto), this.getHearderTokenNoResponse());
-    };
-    ProdutoService.prototype.changeStatus = function (produto) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/produtos/" + produto.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
-    };
-    ProdutoService.prototype.atualizar = function (produto) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/produtos/" + produto.id, JSON.stringify(produto), this.getHearderTokenNoResponse());
-    };
-    ProdutoService.prototype.excluir = function (produto) {
-        var url = api_config_1.API_CONFIG.baseUrl + "/produtos/" + produto.id;
-        return this.http.delete(url, this.getHearderToken());
-    };
-    return ProdutoService;
-}(abstract_service_1.AbstractService));
-ProdutoService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], ProdutoService);
-exports.ProdutoService = ProdutoService;
-var _a;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/produto.service.js.map
+    return ListarClienteComponent;
+}(abstract_base_component_1.AbstractBaseComponent));
+__decorate([
+    core_1.ViewChild('excluirModal'),
+    __metadata("design:type", Object)
+], ListarClienteComponent.prototype, "popupExclusao", void 0);
+__decorate([
+    core_1.ViewChild('changeStatusModal'),
+    __metadata("design:type", Object)
+], ListarClienteComponent.prototype, "popupChangeStatus", void 0);
+ListarClienteComponent = __decorate([
+    core_1.Component({
+        template: __webpack_require__(806),
+        styles: [__webpack_require__(803)]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof cliente_service_1.ClienteService !== "undefined" && cliente_service_1.ClienteService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
+], ListarClienteComponent);
+exports.ListarClienteComponent = ListarClienteComponent;
+var _a, _b;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/listar-cliente.component.js.map
 
 /***/ }),
 
@@ -300,148 +185,109 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__(54);
-var http_1 = __webpack_require__(26);
+var abstract_base_component_1 = __webpack_require__(102);
+var trata_error_service_1 = __webpack_require__(32);
+var event_emitter_services_1 = __webpack_require__(27);
+var cliente_service_1 = __webpack_require__(147);
+var consulta_cep_service_1 = __webpack_require__(151);
+var api_config_1 = __webpack_require__(34);
+var forms_1 = __webpack_require__(18);
 var core_1 = __webpack_require__(1);
-var abstract_service_1 = __webpack_require__(102);
-var AdicionalProdutoService = (function (_super) {
-    __extends(AdicionalProdutoService, _super);
-    function AdicionalProdutoService(http) {
+var PerfilClienteComponent = (function (_super) {
+    __extends(PerfilClienteComponent, _super);
+    function PerfilClienteComponent(fb, clienteService, consultaCEPService) {
         var _this = _super.call(this) || this;
-        _this.http = http;
-        _this.url = api_config_1.API_CONFIG.baseUrl + "/adicionais";
+        _this.fb = fb;
+        _this.clienteService = clienteService;
+        _this.consultaCEPService = consultaCEPService;
+        _this.enderecos = [];
         return _this;
     }
-    AdicionalProdutoService.prototype.findAll = function () {
-        return this.http.get(this.url + "/all", this.getHearderToken());
-    };
-    AdicionalProdutoService.prototype.findAllAtivo = function () {
-        return this.http.get(this.url + "/");
-    };
-    AdicionalProdutoService.prototype.findById = function (id) {
-        return this.http.get(this.url + "/" + id, this.getHearderToken());
-    };
-    AdicionalProdutoService.prototype.salvar = function (info) {
-        return this.http.post(this.url + "/", JSON.stringify(info), this.getHearderTokenNoResponse());
-    };
-    AdicionalProdutoService.prototype.changeStatus = function (info) {
-        return this.http.put(this.url + "/" + info.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
-    };
-    AdicionalProdutoService.prototype.atualizar = function (info) {
-        return this.http.put(this.url + "/" + info.id, JSON.stringify(info), this.getHearderTokenNoResponse());
-    };
-    AdicionalProdutoService.prototype.excluir = function (info) {
-        var url = this.url + "/" + info.id;
-        return this.http.delete(url, this.getHearderToken());
-    };
-    return AdicionalProdutoService;
-}(abstract_service_1.AbstractService));
-AdicionalProdutoService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], AdicionalProdutoService);
-exports.AdicionalProdutoService = AdicionalProdutoService;
-var _a;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/adicional-produto.service.js.map
-
-/***/ }),
-
-/***/ 813:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var adicional_produto_service_1 = __webpack_require__(800);
-var core_1 = __webpack_require__(1);
-var router_1 = __webpack_require__(42);
-var event_emitter_services_1 = __webpack_require__(31);
-var abstract_base_component_1 = __webpack_require__(101);
-var trata_error_service_1 = __webpack_require__(33);
-var ListarAdicionalProdutoComponent = (function (_super) {
-    __extends(ListarAdicionalProdutoComponent, _super);
-    function ListarAdicionalProdutoComponent(adicionalService, router) {
-        var _this = _super.call(this) || this;
-        _this.adicionalService = adicionalService;
-        _this.router = router;
-        return _this;
-    }
-    ListarAdicionalProdutoComponent.prototype.ngOnInit = function () {
-        this.carregarTodos();
-    };
-    ListarAdicionalProdutoComponent.prototype.selecionarItem = function (item) {
-        this.item = item;
-        this.popupExclusao.show();
-    };
-    ListarAdicionalProdutoComponent.prototype.selecionarItemChangeStatus = function (item) {
-        this.item = item;
-        this.popupChangeStatus.show();
-    };
-    ListarAdicionalProdutoComponent.prototype.changeStatus = function () {
+    PerfilClienteComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.adicionalService.changeStatus(this.item)
-            .subscribe(function (res) {
-            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Adicional por categoria', 'O status do adicional foi alterado com sucesso!!!');
-            _this.carregarTodos();
-        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+        this.criarForm();
+        this.clienteService.infoClienteLogado().subscribe(function (res) { return _this.alterarForm(res); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    ListarAdicionalProdutoComponent.prototype.excluir = function () {
-        var _this = this;
-        this.adicionalService.excluir(this.item)
-            .subscribe(function (res) {
-            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Adicional por categoria', 'O adicional da categoria foi excluído com sucesso!!!');
-            _this.carregarTodos();
-        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+    PerfilClienteComponent.prototype.btnConfirmar = function (cliente) {
+        cliente.enderecos = this.enderecos;
+        cliente.urlImagem = this.urlFoto;
+        this.clienteService.atualizar(cliente).subscribe(function (res) { return event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Perfil', 'Operação realizada com sucesso!!!'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    ListarAdicionalProdutoComponent.prototype.carregarTodos = function () {
-        var _this = this;
-        this.adicionalService.findAll().subscribe(function (response) {
-            _this.items = response;
-        }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+    PerfilClienteComponent.prototype.mudarImage = function (evento) {
+        this.atualizarFoto(evento.foto);
     };
-    return ListarAdicionalProdutoComponent;
+    PerfilClienteComponent.prototype.alterarForm = function (cliente) {
+        this.formulario.patchValue({
+            id: cliente.id,
+            nmPessoa: cliente.nmPessoa,
+            nrCpf: cliente.nrCpf,
+            dtNascimento: cliente.dtNascimento,
+            status: cliente.status,
+            urlImagem: cliente.urlImagem,
+            emAlteracao: true,
+            fone: {
+                id: cliente.fone.id,
+                nrFoneCelular: cliente.fone.nrFoneCelular,
+                nrFoneResidencial: cliente.fone.nrFoneResidencial,
+                nrFoneWhatsapp: cliente.fone.nrFoneWhatsapp
+            }
+        });
+        if (cliente.enderecos != undefined) {
+            this.enderecos = cliente.enderecos;
+        }
+        this.urlFoto = cliente.urlImagem == undefined ? api_config_1.API_CONFIG.bucketBaseUrl + "/clientes/cli" + cliente.id + ".jpg" : cliente.urlImagem;
+    };
+    PerfilClienteComponent.prototype.criarForm = function () {
+        this.formulario = this.fb.group({
+            id: [''],
+            nmPessoa: ['', [forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(120)]],
+            nrCpf: ['', [forms_1.Validators.required]],
+            dtNascimento: [''],
+            status: ['A'],
+            urlImagem: [''],
+            emAlteracao: [false],
+            fone: this.fb.group({
+                id: [''],
+                nrFoneCelular: [''],
+                nrFoneResidencial: [''],
+                nrFoneWhatsapp: [''],
+            })
+        });
+        this.enderecos = [];
+        this.urlFoto = this.urlClienteAvatar;
+    };
+    PerfilClienteComponent.prototype.atualizarFoto = function (foto) {
+        this.urlFoto = foto;
+    };
+    PerfilClienteComponent.prototype.confirmarEndereco = function (ender) {
+        if (!ender.emAlteracao) {
+            ender.id = '99' + (Math.floor((Math.random() * 100) + 1));
+            this.enderecos.push(ender);
+        }
+        else {
+            var position = this.enderecos.findIndex(function (x) { return x.id == ender.id; });
+            this.enderecos[position] = ender;
+        }
+    };
+    PerfilClienteComponent.prototype.excluirEndereco = function (ender) {
+        this.enderecos = this.enderecos.filter(function (end) { return end.id != ender.id; });
+    };
+    return PerfilClienteComponent;
 }(abstract_base_component_1.AbstractBaseComponent));
-__decorate([
-    core_1.ViewChild('excluirModal'),
-    __metadata("design:type", Object)
-], ListarAdicionalProdutoComponent.prototype, "popupExclusao", void 0);
-__decorate([
-    core_1.ViewChild('changeSatusModal'),
-    __metadata("design:type", Object)
-], ListarAdicionalProdutoComponent.prototype, "popupChangeStatus", void 0);
-ListarAdicionalProdutoComponent = __decorate([
+PerfilClienteComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(862),
-        styles: [__webpack_require__(839)]
+        template: __webpack_require__(807),
+        styles: [__webpack_require__(804)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof adicional_produto_service_1.AdicionalProdutoService !== "undefined" && adicional_produto_service_1.AdicionalProdutoService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
-], ListarAdicionalProdutoComponent);
-exports.ListarAdicionalProdutoComponent = ListarAdicionalProdutoComponent;
-var _a, _b;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/listar-adicional-produto.component.js.map
+    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof cliente_service_1.ClienteService !== "undefined" && cliente_service_1.ClienteService) === "function" && _b || Object, typeof (_c = typeof consulta_cep_service_1.ConsultaCEPService !== "undefined" && consulta_cep_service_1.ConsultaCEPService) === "function" && _c || Object])
+], PerfilClienteComponent);
+exports.PerfilClienteComponent = PerfilClienteComponent;
+var _a, _b, _c;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/perfil-cliente.component.js.map
 
 /***/ }),
 
-/***/ 826:
+/***/ 801:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -453,9 +299,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var listar_adicional_produto_component_1 = __webpack_require__(813);
+var perfil_cliente_component_1 = __webpack_require__(800);
 var core_1 = __webpack_require__(1);
-var router_1 = __webpack_require__(42);
+var router_1 = __webpack_require__(43);
+var listar_cliente_component_1 = __webpack_require__(799);
 var routes = [
     {
         path: '',
@@ -465,36 +312,43 @@ var routes = [
     {
         path: '',
         data: {
-            title: 'adicionais por categoria'
+            title: 'Clientes'
         },
         children: [
             {
                 path: 'listar',
-                component: listar_adicional_produto_component_1.ListarAdicionalProdutoComponent,
+                component: listar_cliente_component_1.ListarClienteComponent,
                 data: {
                     title: 'Listar'
                 }
             },
+            {
+                path: 'perfil',
+                component: perfil_cliente_component_1.PerfilClienteComponent,
+                data: {
+                    title: 'Perfil'
+                }
+            }
         ]
     }
 ];
-var AdicionalProdutoRoutingModule = (function () {
-    function AdicionalProdutoRoutingModule() {
+var ClienteRoutingModule = (function () {
+    function ClienteRoutingModule() {
     }
-    return AdicionalProdutoRoutingModule;
+    return ClienteRoutingModule;
 }());
-AdicionalProdutoRoutingModule = __decorate([
+ClienteRoutingModule = __decorate([
     core_1.NgModule({
         imports: [router_1.RouterModule.forChild(routes)],
         exports: [router_1.RouterModule]
     })
-], AdicionalProdutoRoutingModule);
-exports.AdicionalProdutoRoutingModule = AdicionalProdutoRoutingModule;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/adicional-produto-routing.module.js.map
+], ClienteRoutingModule);
+exports.ClienteRoutingModule = ClienteRoutingModule;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/cliente-routing.module.js.map
 
 /***/ }),
 
-/***/ 827:
+/***/ 802:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -519,106 +373,129 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var trata_error_service_1 = __webpack_require__(33);
-var unidade_medida_service_1 = __webpack_require__(792);
-var forms_1 = __webpack_require__(19);
+var trata_error_service_1 = __webpack_require__(32);
+var cliente_service_1 = __webpack_require__(147);
+var consulta_cep_service_1 = __webpack_require__(151);
+var api_config_1 = __webpack_require__(34);
+var forms_1 = __webpack_require__(18);
 var core_1 = __webpack_require__(1);
-var abstract_popup_component_1 = __webpack_require__(77);
-var produto_service_1 = __webpack_require__(794);
-var categoria_service_1 = __webpack_require__(793);
-var adicional_produto_service_1 = __webpack_require__(800);
-var AdicionalProdutoPopupModalComponent = (function (_super) {
-    __extends(AdicionalProdutoPopupModalComponent, _super);
-    function AdicionalProdutoPopupModalComponent(adicionalService, produtoService, categoriaService, unidadeService, fb) {
-        var _this = _super.call(this, 'adicionalPopup') || this;
-        _this.adicionalService = adicionalService;
-        _this.produtoService = produtoService;
-        _this.categoriaService = categoriaService;
-        _this.unidadeService = unidadeService;
+var abstract_popup_component_1 = __webpack_require__(64);
+var ClientePopupModalComponent = (function (_super) {
+    __extends(ClientePopupModalComponent, _super);
+    function ClientePopupModalComponent(fb, clienteService, consultaCEPService) {
+        var _this = _super.call(this, 'clientePopup') || this;
         _this.fb = fb;
-        _this.comboCategorias = [];
-        _this.comboUnidades = [];
-        _this.comboProdutos = [];
+        _this.clienteService = clienteService;
+        _this.consultaCEPService = consultaCEPService;
+        _this.enderecos = [];
         return _this;
     }
-    AdicionalProdutoPopupModalComponent.prototype.ngOnInit = function () {
+    ClientePopupModalComponent.prototype.ngOnInit = function () {
         this.criarForm();
-        this.carregarCombos();
     };
-    AdicionalProdutoPopupModalComponent.prototype.show = function () {
+    ClientePopupModalComponent.prototype.show = function () {
         this.criarForm();
-        this.showPopup("Cadastra adicionais por categoria");
+        this.showPopup("Cadastro de cliente");
     };
-    AdicionalProdutoPopupModalComponent.prototype.showAlteracao = function (item) {
+    ClientePopupModalComponent.prototype.showAlteracao = function (item) {
         this.alterarForm(item);
-        this.showPopup("Cadastra adicionais por categoria");
+        this.showPopup("Alterar cliente");
     };
-    AdicionalProdutoPopupModalComponent.prototype.btnConfirmar = function (item) {
-        var adic = {};
-        adic.id = item.id;
-        adic.idCategoria = item.categoria[0].id;
-        adic.idProduto = item.produto[0].id;
-        adic.idUnidadeMedida = item.unidade[0].id;
-        adic.qtUtilizada = item.qtUtilizada;
-        adic.emAlteracao = item.emAlteracao;
-        this.acao(adic, this.adicionalService);
+    ClientePopupModalComponent.prototype.btnConfirmar = function (cliente) {
+        cliente.enderecos = this.enderecos;
+        cliente.urlImagem = this.urlFoto;
+        this.acao(cliente, this.clienteService);
     };
-    AdicionalProdutoPopupModalComponent.prototype.criarForm = function () {
+    ClientePopupModalComponent.prototype.mudarImage = function (evento) {
+        this.atualizarFoto(evento.foto);
+    };
+    ClientePopupModalComponent.prototype.consultarCpf = function (nrCpf) {
+        if (!this.formulario.controls['emAlteracao'].value) {
+            this.clienteService.consultarPorCpf(nrCpf)
+                .subscribe(function (res) { trata_error_service_1.TrataErrorService.emitirMensagemError("Já exite um cliente cadastrado com o CPF informado."); }, function (error) { return trata_error_service_1.TrataErrorService.limparMensagemError(); });
+        }
+    };
+    ClientePopupModalComponent.prototype.alterarForm = function (cliente) {
+        this.formulario.patchValue({
+            id: cliente.id,
+            nmPessoa: cliente.nmPessoa,
+            nrCpf: cliente.nrCpf,
+            dtNascimento: cliente.dtNascimento,
+            status: cliente.status,
+            urlImagem: cliente.urlImagem,
+            emAlteracao: true,
+            fone: {
+                id: cliente.fone.id,
+                nrFoneCelular: cliente.fone.nrFoneCelular,
+                nrFoneResidencial: cliente.fone.nrFoneResidencial,
+                nrFoneWhatsapp: cliente.fone.nrFoneWhatsapp
+            }
+        });
+        if (cliente.enderecos != undefined) {
+            this.enderecos = cliente.enderecos;
+        }
+        this.urlFoto = cliente.urlImagem == undefined ? api_config_1.API_CONFIG.bucketBaseUrl + "/clientes/cli" + cliente.id + ".jpg" : cliente.urlImagem;
+    };
+    ClientePopupModalComponent.prototype.criarForm = function () {
         this.formulario = this.fb.group({
             id: [''],
-            categoria: ['', forms_1.Validators.required],
-            produto: [''],
-            unidade: [''],
-            qtUtilizada: [''],
+            nmPessoa: ['', [forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(120)]],
+            nrCpf: ['', [forms_1.Validators.required]],
+            dtNascimento: [''],
             status: ['A'],
-            emAlteracao: [false]
+            urlImagem: [''],
+            emAlteracao: [false],
+            fone: this.fb.group({
+                id: [''],
+                nrFoneCelular: [''],
+                nrFoneResidencial: [''],
+                nrFoneWhatsapp: [''],
+            })
         });
+        this.enderecos = [];
+        this.urlFoto = this.urlClienteAvatar;
     };
-    AdicionalProdutoPopupModalComponent.prototype.alterarForm = function (item) {
-        this.formulario.patchValue({
-            id: item.id,
-            categoria: [{ id: item.idCategoria, text: item.nmCategoria }],
-            produto: [{ id: item.idProduto, text: item.nmProduto }],
-            unidade: [{ id: item.idUnidadeMedida, text: item.nmUnidadeMedida }],
-            qtUtilizada: item.qtUtilizada,
-            status: item.status,
-            emAlteracao: [true]
-        });
+    ClientePopupModalComponent.prototype.atualizarFoto = function (foto) {
+        this.urlFoto = foto;
     };
-    AdicionalProdutoPopupModalComponent.prototype.carregarCombos = function () {
-        var _this = this;
-        this.categoriaService.findAll()
-            .subscribe(function (response) { return _this.comboCategorias = _this.preencharCombo(response, 'id', 'nmCategoria'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
-        this.produtoService.findAllProdutoInterno()
-            .subscribe(function (response) { return _this.comboProdutos = _this.preencharCombo(response, 'id', 'nmProduto'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
-        this.unidadeService.findAllAtivo()
-            .subscribe(function (response) { return _this.comboUnidades = _this.preencharCombo(response, 'id', 'sgUnidadeMedida'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+    ClientePopupModalComponent.prototype.confirmarEndereco = function (ender) {
+        if (!ender.emAlteracao) {
+            ender.id = '99' + (Math.floor((Math.random() * 100) + 1));
+            this.enderecos.push(ender);
+        }
+        else {
+            var position = this.enderecos.findIndex(function (x) { return x.id == ender.id; });
+            this.enderecos[position] = ender;
+        }
     };
-    return AdicionalProdutoPopupModalComponent;
+    ClientePopupModalComponent.prototype.excluirEndereco = function (ender) {
+        this.enderecos = this.enderecos.filter(function (end) { return end.id != ender.id; });
+    };
+    return ClientePopupModalComponent;
 }(abstract_popup_component_1.AbstractPopupComponent));
-AdicionalProdutoPopupModalComponent = __decorate([
+ClientePopupModalComponent = __decorate([
     core_1.Component({
-        selector: 'adicional-produto-popup-modal',
-        template: __webpack_require__(863),
-        styles: [__webpack_require__(840)]
+        selector: 'cliente-popup-modal',
+        template: __webpack_require__(808),
+        styles: [__webpack_require__(805)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof adicional_produto_service_1.AdicionalProdutoService !== "undefined" && adicional_produto_service_1.AdicionalProdutoService) === "function" && _a || Object, typeof (_b = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _c || Object, typeof (_d = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _d || Object, typeof (_e = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _e || Object])
-], AdicionalProdutoPopupModalComponent);
-exports.AdicionalProdutoPopupModalComponent = AdicionalProdutoPopupModalComponent;
-var _a, _b, _c, _d, _e;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/adicional-produto-popup-modal.component.js.map
+    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof cliente_service_1.ClienteService !== "undefined" && cliente_service_1.ClienteService) === "function" && _b || Object, typeof (_c = typeof consulta_cep_service_1.ConsultaCEPService !== "undefined" && consulta_cep_service_1.ConsultaCEPService) === "function" && _c || Object])
+], ClientePopupModalComponent);
+exports.ClientePopupModalComponent = ClientePopupModalComponent;
+var _a, _b, _c;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/cliente-popup-modal.component.js.map
 
 /***/ }),
 
-/***/ 839:
+/***/ 803:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(43)();
+exports = module.exports = __webpack_require__(44)();
 // imports
 
 
 // module
-exports.push([module.i, ".table th, .table td {\n  padding: 0.25rem; }\n", ""]);
+exports.push([module.i, ".table th, .table td {\n  padding: 0.20rem; }\n", ""]);
 
 // exports
 
@@ -628,15 +505,15 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 840:
+/***/ 804:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(43)();
+exports = module.exports = __webpack_require__(44)();
 // imports
 
 
 // module
-exports.push([module.i, ".modal-dialog {\n  padding-top: 12%; }\n", ""]);
+exports.push([module.i, ".img-avatar-160 {\n  height: 160px;\n  width: 160px;\n  margin: 20px auto 10px;\n  border-radius: 50em; }\n\n.modal-dialog {\n  padding-top: 5%; }\n", ""]);
 
 // exports
 
@@ -646,17 +523,42 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 862:
-/***/ (function(module, exports) {
+/***/ 805:
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"adicionalProdutoModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo\r\n</button>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de adicionais por categoria\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n\r\n            <thead>\r\n                <tr>\r\n                    <th style=\"width:25%\">Categoria </th>\r\n                    <th style=\"width:30%\">Produto </th>\r\n                    <th style=\"width:15%\">Quantidade </th>\r\n                    <th class=\"text-center\" style=\"width:15%\">Situação</th>\r\n                    <th class=\"text-center\" style=\"width:15%\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td>\r\n                        <strong>{{item.nmCategoria}}</strong>\r\n                    </td>\r\n                    <td>\r\n                        <strong>{{item.nmProduto}}</strong>\r\n                    </td>\r\n                    <td class=\"text-left\">\r\n                        <strong>{{item.qtUtilizada}} - {{item.nmUnidadeMedida}}</strong>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"adicionalProdutoModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeSatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status da informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<adicional-produto-popup-modal #adicionalProdutoModal (onClickConfirm)=\"carregarTodos()\">\r\n</adicional-produto-popup-modal>"
+exports = module.exports = __webpack_require__(44)();
+// imports
+
+
+// module
+exports.push([module.i, ".img-avatar-160 {\n  height: 160px;\n  width: 160px;\n  margin: 20px auto 10px;\n  border-radius: 50em; }\n\n.modal-dialog {\n  padding-top: 5%; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 863:
+/***/ 806:
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Categoria</label>\r\n      <div class=\"col-sm-8\">\r\n        <ng-select formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('produto'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Produto</label>\r\n      <div class=\"col-sm-8\">\r\n        <ng-select formControlName=\"produto\" [items]=\"comboProdutos\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('qtUtilizada'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Quantidade</label>\r\n      <div class=\"col-sm-4\">\r\n        <input #campoNome numberOnly type=\"text\" formControlName=\"qtUtilizada\" class=\"form-control input-sm\" name=\"qtUtilizada\" formControlName=\"qtUtilizada\"\r\n          maxlength=\"4\">\r\n      </div>\r\n      <div class=\"col-sm-4\">\r\n        <ng-select formControlName=\"unidade\" [items]=\"comboUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
+module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"clienteModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo</button>\r\n\r\n\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de clientes\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th class=\"text-center\" style=\"width: 5%\">\r\n                        <i class=\"icon-people\"></i>\r\n                    </th>\r\n                    <th style=\"width: 45%\">Nome</th>\r\n                    <th class=\"text-center\"style=\"width: 20%\">CPF</th>\r\n                    <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n                    <th class=\"text-center\" style=\"width: 15%\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td class=\"text-center\">\r\n                        <div class=\"avatar\">\r\n                            <foto-uri id=\"{{item.id}}\" modulo=\"CLI\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\r\n                        </div>\r\n                    </td>\r\n                    <td>\r\n                        {{item.nmPessoa | uppercase}}\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        {{item.nrCpf | cpfMask}}\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"clienteModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n\r\n            </tbody>\r\n        </table>\r\n\r\n    </div>\r\n</div>\r\n\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeStatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status do cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<cliente-popup-modal #clienteModal (onClickConfirm)=\"carregarTodos()\"></cliente-popup-modal>"
+
+/***/ }),
+
+/***/ 807:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Perfil</strong>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4 col-md-4\">\r\n              <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                  <strong>Imagens do produto</strong>\r\n                </div>\r\n                <div class=\"card-block\">\r\n                  <div class=\"row\">\r\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                  </div>\r\n\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                    (onSelecionarImagem)=\"mudarImage($event)\">\r\n                  </upload-imagem>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-8 col-sm-8\">\r\n              <alert-mensagem [mostrarErro]=\"isErro\" titulo=\"Erro:\" [mensagem]=\"errorMensagem\"></alert-mensagem>\r\n              <form [formGroup]=\"formulario\" novalidade (ngSubmit)=\"confirmar()\">\r\n                  <tabset>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-list\"></i> Dados Pessoais &nbsp;\r\n                      </ng-template>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmPessoa'))\">\r\n                        <div class=\"col-sm-12\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Nome</label>\r\n                          <input #campoNome upper type=\"text\" formControlName=\"nmPessoa\" class=\"form-control input-sm\" name=\"nmPessoa\" maxlength=\"120\"\r\n                            [readonly]=\"formulario.get('emAlteracao').value\">\r\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmPessoa'))\" titulo=\"Erro:\" mensagem=\"o campo Nome ter entre 5 a 120 caracteres\">\r\n                          </alert-mensagem>\r\n                        </div>\r\n          \r\n                      </div>\r\n                      <div class=\"form-group row\">\r\n                        <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('nrCpf'))\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">CPF</label>\r\n                          <input type=\"text\" formControlName=\"nrCpf\" class=\"form-control input-sm\" name=\"nrCpf\" [textMask]=\"{mask: maskCPF}\" (blur)=\"consultarCpf($event.target.value)\"\r\n                            [readonly]=\"formulario.get('emAlteracao').value\">\r\n                        </div>\r\n                        <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('dtNascimento'))\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Data de Nascimento</label>\r\n                          <input type=\"text\" formControlName=\"dtNascimento\" class=\"form-control input-sm\" name=\"dtNascimento\" [textMask]=\"{mask: maskData}\">\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"form-group row\" formGroupName=\"fone\">\r\n                        <div class=\"col-sm-6\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Celular/Whatsapp</label>\r\n                          <input type=\"text\" formControlName=\"nrFoneCelular\" class=\"form-control input-sm\" name=\"nrFoneCelular\" [textMask]=\"{mask: maskFoneCelular}\">\r\n                        </div>\r\n                        <div class=\"col-sm-6\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Residencial</label>\r\n                          <input type=\"text\" formControlName=\"nrFoneResidencial\" class=\"form-control input-sm\" name=\"nrFoneResidencial\" [textMask]=\"{mask: maskFoneResidencial}\">\r\n                        </div>\r\n                      </div>\r\n                    </tab>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-list\"></i> Endereços &nbsp;\r\n                      </ng-template>\r\n                      <div class=\"card\">\r\n                        <div class=\"card-header\">\r\n                          <strong>Lista de endereços</strong>\r\n                          <div class=\"card-actions\">\r\n                              <button type=\"button\" (click)=\"cepPopuModal.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"card-block\" *ngIf=\"enderecos?.length > 0\">\r\n                          <div class=\"row\">\r\n          \r\n                            <table class=\"table table-striped\">\r\n                              <thead>\r\n                                <th class=\"text-left\">Descrição</th>\r\n                                <th class=\"text-right\">Cep</th>\r\n                                <th class=\"text-right\">Logradouro</th>\r\n                                <th class=\"text-right\">Cidade</th>\r\n                                <th class=\"text-right\">UF</th>\r\n                                <th class=\"text-right\">Ação</th>\r\n                              </thead>\r\n                              <tbody>\r\n                                <tr *ngFor=\"let item of enderecos\">\r\n                                  <td class=\"text-left\">\r\n                                    <div>{{item.dsEndereco}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.nrCep | cepMask}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.dsLogradouro}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.nmCidade}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.ufCidade}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"cepPopuModal.showAlteracao(item)\">\r\n                                      <i class=\"fa fa fa-edit\"> </i>\r\n                                    </button>\r\n                                    <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirEndereco(item)\">\r\n                                      <i class=\"fa fa-eraser\"> </i>\r\n                                    </button>\r\n                                  </td>\r\n                                </tr>\r\n                              </tbody>\r\n                            </table>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </tab>\r\n                  </tabset>\r\n                </form>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmPerfil.show();\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <cep-popup-modal #cepPopuModal (onClickConfirm)=\"confirmarEndereco($event)\">\r\n  </cep-popup-modal>\r\n</div>\r\n\r\n<confirm-popup-modal #modalConfirmPerfil popupStyle=\"primary\" (onClickConfirm)=\"btnConfirmar(formulario.value)\">\r\n    <strong>Confirma a alteraçdo do Perfil?</strong>\r\n  </confirm-popup-modal>"
+
+/***/ }),
+
+/***/ 808:
+/***/ (function(module, exports) {
+
+module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm  modalSize=\"lg\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-4 col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <strong>Imagem da categoria</strong>\r\n        </div>\r\n        <div class=\"card-block\">\r\n          <div class=\"row\">\r\n            <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n          </div>\r\n\r\n        </div>\r\n        <div class=\"card-footer\">\r\n          <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n            (onSelecionarImagem)=\"mudarImage($event)\">\r\n          </upload-imagem>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <!--/.col-->\r\n    <div class=\"col-md-8 col-sm-8\">\r\n      <alert-mensagem [mostrarErro]=\"isErro\" titulo=\"Erro:\" [mensagem]=\"errorMensagem\"></alert-mensagem>\r\n      <form [formGroup]=\"formulario\" novalidade (ngSubmit)=\"confirmar()\">\r\n        <tabset>\r\n          <tab>\r\n            <ng-template tabHeading>\r\n              <i class=\"icon-list\"></i> Dados Pessoais &nbsp;\r\n            </ng-template>\r\n            <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmPessoa'))\">\r\n              <div class=\"col-sm-12\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Nome</label>\r\n                <input #campoNome upper type=\"text\" formControlName=\"nmPessoa\" class=\"form-control input-sm\" name=\"nmPessoa\" maxlength=\"120\"\r\n                  [readonly]=\"formulario.get('emAlteracao').value\">\r\n                <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmPessoa'))\" titulo=\"Erro:\" mensagem=\"o campo Nome ter entre 5 a 120 caracteres\">\r\n                </alert-mensagem>\r\n              </div>\r\n\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('nrCpf'))\">\r\n                <label class=\"form-control-label\" for=\"input-small\">CPF</label>\r\n                <input type=\"text\" formControlName=\"nrCpf\" class=\"form-control input-sm\" name=\"nrCpf\" [textMask]=\"{mask: maskCPF}\" (blur)=\"consultarCpf($event.target.value)\"\r\n                  [readonly]=\"formulario.get('emAlteracao').value\">\r\n              </div>\r\n              <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('dtNascimento'))\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Data de Nascimento</label>\r\n                <input type=\"text\" formControlName=\"dtNascimento\" class=\"form-control input-sm\" name=\"dtNascimento\" [textMask]=\"{mask: maskData}\">\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\" formGroupName=\"fone\">\r\n              <div class=\"col-sm-6\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Celular/Whatsapp</label>\r\n                <input type=\"text\" formControlName=\"nrFoneCelular\" class=\"form-control input-sm\" name=\"nrFoneCelular\" [textMask]=\"{mask: maskFoneCelular}\">\r\n              </div>\r\n              <div class=\"col-sm-6\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Residencial</label>\r\n                <input type=\"text\" formControlName=\"nrFoneResidencial\" class=\"form-control input-sm\" name=\"nrFoneResidencial\" [textMask]=\"{mask: maskFoneResidencial}\">\r\n              </div>\r\n            </div>\r\n          </tab>\r\n          <tab>\r\n            <ng-template tabHeading>\r\n              <i class=\"icon-list\"></i> Endereços &nbsp;\r\n            </ng-template>\r\n            <div class=\"card\">\r\n              <div class=\"card-header\">\r\n                <strong>Lista de endereços</strong>\r\n                <div class=\"card-actions\">\r\n                    <button type=\"button\" (click)=\"cepPopuModal.show()\">\r\n                        <i class=\"icon-plus\"></i>\r\n                      </button>\r\n                </div>\r\n              </div>\r\n              <div class=\"card-block\" *ngIf=\"enderecos?.length > 0\">\r\n                <div class=\"row\">\r\n\r\n                  <table class=\"table table-striped\">\r\n                    <thead>\r\n                      <th class=\"text-left\">Descrição</th>\r\n                      <th class=\"text-right\">Cep</th>\r\n                      <th class=\"text-right\">Logradouro</th>\r\n                      <th class=\"text-right\">Cidade</th>\r\n                      <th class=\"text-right\">UF</th>\r\n                      <th class=\"text-right\">Ação</th>\r\n                    </thead>\r\n                    <tbody>\r\n                      <tr *ngFor=\"let item of enderecos\">\r\n                        <td class=\"text-left\">\r\n                          <div>{{item.dsEndereco}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.nrCep | cepMask}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.dsLogradouro}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.nmCidade}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.ufCidade}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"cepPopuModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                          </button>\r\n                          <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"excluirEndereco(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                          </button>\r\n                        </td>\r\n                      </tr>\r\n                    </tbody>\r\n                  </table>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </tab>\r\n\r\n          <!-- \r\n          <tab>\r\n            <ng-template tabHeading>\r\n              <i class=\"icon-calculator\"></i> Endereço &nbsp;\r\n            </ng-template>\r\n            <div class=\"form-group\" formGroupName=\"endereco\">\r\n              \r\n              <div class=\"row\">\r\n                <div class=\"form-group col-sm-4\">\r\n                  <label for=\"endCep\">CEP</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"cep\" placeholder=\"CEP\" formControlName=\"cep\" (blur)=\"consultarCEP($event.target.value)\"\r\n                    [textMask]=\"{mask: maskCEP}\">\r\n                </div>\r\n                <div class=\"form-group col-sm-8\">\r\n                  <label for=\"logradouro\">Endereço</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"logradouro\" placeholder=\"rua\" formControlName=\"logradouro\" [disableControl]=\"true\">\r\n                </div>\r\n              </div>\r\n              <div class=\"row\">\r\n                <div class=\"form-group col-sm-2\">\r\n                  <label for=\"numero\">Número</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"numero\" placeholder=\"número\" formControlName=\"numero\">\r\n                </div>\r\n                <div class=\"form-group col-sm-6\">\r\n                  <label for=\"complemento\">Complemento</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"complemento\" placeholder=\"Complemento\" formControlName=\"complemento\">\r\n                </div>\r\n                <div class=\"form-group col-sm-4\">\r\n                  <label for=\"bairro\">Bairro</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"bairro\" placeholder=\"Bairro\" formControlName=\"bairro\" [disableControl]=\"true\">\r\n                </div>\r\n              </div>\r\n              <div class=\"row\">\r\n                <div class=\"form-group col-sm-4\">\r\n                  <label for=\"sgUF\">Estado</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"uf\" placeholder=\"estado\" formControlName=\"uf\" [disableControl]=\"true\">\r\n                </div>\r\n                <div class=\"form-group col-sm-8\">\r\n                  <label for=\"cidade\">Cidade</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"cidade\" placeholder=\"Cidade\" formControlName=\"cidade\" [disableControl]=\"true\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </tab>\r\n          <tab [disabled]=\"isAlteracao\">\r\n            <ng-template tabHeading>\r\n              <i class=\"icon-pie-chart\"></i> Acesso\r\n            </ng-template>\r\n            <div formGroupName=\"usuario\">\r\n\r\n              <div class=\"form-group row\">\r\n                <div class=\"col-sm-12\">\r\n                  <label class=\"form-control-label\" for=\"input-small\">email</label>\r\n                  <input type=\"text\" formControlName=\"email\" class=\"form-control input-sm\" name=\"email\" lower>\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n                <div class=\"col-sm-6\">\r\n                  <input type=\"text\" formControlName=\"login\" class=\"form-control input-sm\" name=\"login\" maxlength=\"40\" lower>\r\n                </div>\r\n              </div>\r\n\r\n              <div class=\"form-group row\">\r\n                <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n                <div class=\"col-sm-6\">\r\n                  <input type=\"password\" formControlName=\"senha\" class=\"form-control input-sm\" name=\"senha\" maxlength=\"8\">\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n                <div class=\"col-sm-6\">\r\n                  <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\" maxlength=\"8\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </tab>\r\n-->\r\n        </tabset>\r\n      </form>\r\n    </div>\r\n  </div>\r\n\r\n</base-popup-modal>\r\n<cep-popup-modal #cepPopuModal (onClickConfirm)=\"confirmarEndereco($event)\">\r\n</cep-popup-modal>"
 
 /***/ })
 
