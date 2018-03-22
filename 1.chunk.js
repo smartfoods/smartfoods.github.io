@@ -688,8 +688,8 @@ var CreatePedidoComponent = (function (_super) {
         this.exibirProduto = true;
         this.formulario = this.fb.group({
             cliente: this.fb.group({
-                id: [1],
-                nmPessoa: ['Daniel Aguiar']
+                id: [],
+                nmPessoa: ['']
             })
         });
     };
