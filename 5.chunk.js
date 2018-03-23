@@ -374,7 +374,7 @@ var AdicionalProdutoPopupModalComponent = (function (_super) {
     };
     AdicionalProdutoPopupModalComponent.prototype.carregarCombos = function () {
         var _this = this;
-        this.categoriaService.findAll()
+        this.categoriaService.findCategoriasAtivasExcetoInterna()
             .subscribe(function (response) { return _this.comboCategorias = _this.preencharCombo(response, 'id', 'nmCategoria'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
         this.produtoService.findAllProdutoInterno()
             .subscribe(function (response) { return _this.comboProdutos = _this.preencharCombo(response, 'id', 'nmProduto'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });

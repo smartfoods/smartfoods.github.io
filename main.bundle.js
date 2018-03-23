@@ -242,29 +242,32 @@ var CategoriaService = (function (_super) {
     function CategoriaService(http) {
         var _this = _super.call(this) || this;
         _this.http = http;
+        _this.url = api_config_1.API_CONFIG.baseUrl + "/categorias";
         return _this;
     }
     CategoriaService.prototype.findById = function (id) {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/" + id, this.getHearderToken());
+        return this.http.get(this.url + "/" + id, this.getHearderToken());
+    };
+    CategoriaService.prototype.findCategoriasAtivasExcetoInterna = function () {
+        return this.http.get(this.url + "/");
     };
     CategoriaService.prototype.findAll = function () {
-        return this.http.get(api_config_1.API_CONFIG.baseUrl + "/categorias/all");
+        return this.http.get(this.url + "/all");
     };
     CategoriaService.prototype.salvar = function (categoria) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/categorias", JSON.stringify(categoria), this.getHearderTokenNoResponse());
+        return this.http.post("" + this.url, JSON.stringify(categoria), this.getHearderTokenNoResponse());
     };
     CategoriaService.prototype.changeStatus = function (categoria) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
+        return this.http.put(this.url + "/" + categoria.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
     };
     CategoriaService.prototype.atualizar = function (categoria) {
-        return this.http.put(api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id, JSON.stringify(categoria), this.getHearderTokenNoResponse());
+        return this.http.put(this.url + "/" + categoria.id, JSON.stringify(categoria), this.getHearderTokenNoResponse());
     };
     CategoriaService.prototype.excluir = function (categoria) {
-        var url = api_config_1.API_CONFIG.baseUrl + "/categorias/" + categoria.id;
-        return this.http.delete(url, this.getHearderToken());
+        return this.http.delete(this.url + "/" + categoria.id, this.getHearderToken());
     };
     CategoriaService.prototype.insert = function (obj) {
-        return this.http.post(api_config_1.API_CONFIG.baseUrl + "/pedidos", obj, { observe: 'response', responseType: 'text' });
+        return this.http.post(this.url + "/", obj, { observe: 'response', responseType: 'text' });
     };
     return CategoriaService;
 }(abstract_service_1.AbstractService));
@@ -4065,6 +4068,7 @@ var PesquisarProdutoModalComponent = (function (_super) {
         _this.adicionais = [];
         _this.desabilitarBtnSelecione = true;
         _this.comboCategorias = [];
+        _this.qtAcompanhamento = 0;
         return _this;
     }
     PesquisarProdutoModalComponent.prototype.ngOnInit = function () {
@@ -4088,8 +4092,11 @@ var PesquisarProdutoModalComponent = (function (_super) {
         var _this = this;
         this.produto = produto;
         this.desabilitarBtnSelecione = false;
-        this.adicionalProduto.findByCategoria(produto.categoria.id)
-            .subscribe(function (res) { return _this.adicionais = res; }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+        this.qtAcompanhamento = Number(produto.qtAcompanhamento);
+        if (this.qtAcompanhamento > 0) {
+            this.adicionalProduto.findByCategoria(produto.categoria.id)
+                .subscribe(function (res) { return _this.adicionais = res; }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+        }
     };
     PesquisarProdutoModalComponent.prototype.btnConfirmar = function () {
         this.onClickConfirm.emit(this.produto);
@@ -4097,7 +4104,7 @@ var PesquisarProdutoModalComponent = (function (_super) {
     };
     PesquisarProdutoModalComponent.prototype.criarForm = function () {
         var _this = this;
-        this.categoriaService.findAll()
+        this.categoriaService.findCategoriasAtivasExcetoInterna()
             .subscribe(function (response) { return _this.comboCategorias = _this.preencharCombo(response, 'id', 'nmCategoria'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
         this.items = [];
         this.formulario = this.fb.group({
@@ -4324,8 +4331,8 @@ exports.ComboDTO = ComboDTO;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.API_CONFIG = {
-    baseUrl: "https://paladarfit.herokuapp.com",
-    //baseUrl: "http://localhost:8080",
+    //baseUrl: "https://paladarfit.herokuapp.com",
+    baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit"
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
@@ -4642,7 +4649,7 @@ module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' clas
 /***/ 520:
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-sm-4\">\r\n        <ng-select formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n      <div class=\"form-group col-sm-5\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do produto\" formControlName=\"nmProduto\" name=\"nmProduto\">\r\n      </div>\r\n      <div class=\"form-group col-sm-2\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary\" (click)=\"pesquisarProduto(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <table class=\"table table-striped\" *ngIf=\"items?.length > 0\">\r\n        <thead>\r\n          <tr>\r\n\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Produto</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">Categoria</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of items\">\r\n            <td class=\"text-center\">\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\" value=\"{{item.id}}\" (click)=\"selecionarProduto(item)\">\r\n            </td>\r\n            <td>\r\n              {{item.nmProduto}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item?.categoria?.nmCategoria}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"from-group row\" *ngIf=\"adicionais?.length > 0\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-8\">\r\n        <div class=\"card\">\r\n          <div class=\"card-header\">\r\n            <strong>Adicionais</strong>\r\n            <small> - selecione até 3 adicionais</small>\r\n          </div>\r\n          <div class=\"card-block\">\r\n\r\n            <table class=\"table table-striped\">\r\n              <tbody>\r\n                <tr *ngFor=\"let item of adicionais\">\r\n                  <td class=\"text-left\">\r\n                    <input type=\"checkbox\" id=\"checkbox1\" name=\"checkbox1\" value=\"{{item.idProduto}}\"> {{item.nmProduto}}\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
+module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-sm-4\">\r\n        <ng-select formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n      <div class=\"form-group col-sm-5\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do produto\" formControlName=\"nmProduto\" name=\"nmProduto\">\r\n      </div>\r\n      <div class=\"form-group col-sm-2\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary\" (click)=\"pesquisarProduto(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <table class=\"table table-striped\" *ngIf=\"items?.length > 0\">\r\n        <thead>\r\n          <tr>\r\n\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Produto</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">Categoria</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of items\">\r\n            <td class=\"text-center\">\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\" value=\"{{item.id}}\" (click)=\"selecionarProduto(item)\">\r\n            </td>\r\n            <td>\r\n              {{item.nmProduto}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item?.categoria?.nmCategoria}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"from-group row\" *ngIf=\"qtAcompanhamento > 0\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-8\">\r\n        <div class=\"card\">\r\n          <div class=\"card-header\">\r\n            <strong>Adicionais</strong>\r\n            <small> - selecione até {{qtAcompanhamento}} adicionais</small>\r\n          </div>\r\n          <div class=\"card-block\">\r\n\r\n            <table class=\"table table-striped\">\r\n              <tbody>\r\n                <tr *ngFor=\"let item of adicionais\">\r\n                  <td class=\"text-left\">\r\n                    <input type=\"checkbox\" id=\"checkbox1\" name=\"checkbox1\" value=\"{{item.idProduto}}\"> {{item.nmProduto}}\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
