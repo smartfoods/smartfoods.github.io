@@ -13,8 +13,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var config_pages_routing_module_1 = __webpack_require__(824);
-var _500_component_1 = __webpack_require__(810);
+var config_pages_routing_module_1 = __webpack_require__(830);
+var _500_component_1 = __webpack_require__(817);
 var _404_component_1 = __webpack_require__(154);
 var ConfigPagesModule = (function () {
     function ConfigPagesModule() {
@@ -35,7 +35,7 @@ exports.ConfigPagesModule = ConfigPagesModule;
 
 /***/ }),
 
-/***/ 810:
+/***/ 817:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67,7 +67,7 @@ exports.p500Component = p500Component;
 
 /***/ }),
 
-/***/ 824:
+/***/ 830:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -81,7 +81,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
-var _500_component_1 = __webpack_require__(810);
+var _500_component_1 = __webpack_require__(817);
 var _404_component_1 = __webpack_require__(154);
 var routes = [
     {

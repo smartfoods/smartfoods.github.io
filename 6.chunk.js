@@ -21,9 +21,9 @@ var http_1 = __webpack_require__(20);
 var popup_modal_module_1 = __webpack_require__(149);
 var categoria_service_1 = __webpack_require__(148);
 var shared_component_module_1 = __webpack_require__(78);
-var categoria_routing_module_1 = __webpack_require__(830);
-var listar_categoria_component_1 = __webpack_require__(816);
-var categoria_popup_modal_component_1 = __webpack_require__(831);
+var categoria_routing_module_1 = __webpack_require__(836);
+var listar_categoria_component_1 = __webpack_require__(823);
+var categoria_popup_modal_component_1 = __webpack_require__(837);
 var CategoriaModule = (function () {
     function CategoriaModule() {
     }
@@ -56,7 +56,7 @@ exports.CategoriaModule = CategoriaModule;
 
 /***/ }),
 
-/***/ 816:
+/***/ 823:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -139,7 +139,7 @@ __decorate([
 ListarCategoriaComponent = __decorate([
     core_1.Component({
         template: __webpack_require__(866),
-        styles: [__webpack_require__(843)]
+        styles: [__webpack_require__(849)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], ListarCategoriaComponent);
@@ -149,7 +149,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 830:
+/***/ 836:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -163,7 +163,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
-var listar_categoria_component_1 = __webpack_require__(816);
+var listar_categoria_component_1 = __webpack_require__(823);
 var routes = [
     {
         path: '',
@@ -202,7 +202,7 @@ exports.CategoriaRoutingModule = CategoriaRoutingModule;
 
 /***/ }),
 
-/***/ 831:
+/***/ 837:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -304,7 +304,7 @@ CategoriaPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'categoria-popup-modal',
         template: __webpack_require__(867),
-        styles: [__webpack_require__(844)]
+        styles: [__webpack_require__(850)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _a || Object, typeof (_b = typeof image_service_1.ImageService !== "undefined" && image_service_1.ImageService) === "function" && _b || Object, typeof (_c = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _c || Object])
 ], CategoriaPopupModalComponent);
@@ -314,7 +314,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 843:
+/***/ 849:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -332,7 +332,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 844:
+/***/ 850:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();

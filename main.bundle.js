@@ -1383,7 +1383,7 @@ var map = {
 	],
 	"./pages/cadastros/cliente/cliente.module": [
 		788,
-		2
+		3
 	],
 	"./pages/cadastros/produto/produto.module": [
 		791,
@@ -1394,7 +1394,7 @@ var map = {
 	],
 	"./pages/config/adicional/adicional-produto.module": [
 		792,
-		5
+		2
 	],
 	"./pages/config/categoria/categoria.module": [
 		793,
@@ -1402,11 +1402,11 @@ var map = {
 	],
 	"./pages/config/infonutricional/info-nutricional.module": [
 		794,
-		4
+		5
 	],
 	"./pages/config/unidademedida/unidade-medida.module": [
 		795,
-		3
+		4
 	],
 	"./pages/pedido/pedido.module": [
 		796,
@@ -4331,8 +4331,8 @@ exports.ComboDTO = ComboDTO;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.API_CONFIG = {
-    baseUrl: "https://paladarfit.herokuapp.com",
-    //baseUrl: "http://localhost:8080",
+    //baseUrl: "https://paladarfit.herokuapp.com",
+    baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit"
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map

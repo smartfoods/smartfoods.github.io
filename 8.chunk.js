@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var ng2_charts_1 = __webpack_require__(279);
 var dropdown_1 = __webpack_require__(156);
-var dashboard_component_1 = __webpack_require__(809);
-var dashboard_routing_module_1 = __webpack_require__(823);
+var dashboard_component_1 = __webpack_require__(816);
+var dashboard_routing_module_1 = __webpack_require__(829);
 var DashboardModule = (function () {
     function DashboardModule() {
     }
@@ -37,7 +37,7 @@ exports.DashboardModule = DashboardModule;
 
 /***/ }),
 
-/***/ 809:
+/***/ 816:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -498,7 +498,7 @@ exports.DashboardComponent = DashboardComponent;
 
 /***/ }),
 
-/***/ 823:
+/***/ 829:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -512,7 +512,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
-var dashboard_component_1 = __webpack_require__(809);
+var dashboard_component_1 = __webpack_require__(816);
 var routes = [
     {
         path: '',
