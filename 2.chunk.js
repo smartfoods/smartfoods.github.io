@@ -909,6 +909,7 @@ var AdicionalProdutoPopupModalComponent = (function (_super) {
         adic.idUnidadeMedida = item.unidade[0].id;
         adic.qtUtilizada = item.qtUtilizada;
         adic.emAlteracao = item.emAlteracao;
+        adic.vlAdicional = item.vlAdicional;
         this.acao(adic, this.adicionalService);
     };
     AdicionalProdutoPopupModalComponent.prototype.criarForm = function () {
