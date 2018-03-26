@@ -4063,12 +4063,15 @@ var PesquisarProdutoModalComponent = (function (_super) {
         _this.adicionalProduto = adicionalProduto;
         _this.categoriaService = categoriaService;
         _this.fb = fb;
-        _this.items = [];
-        _this.produto = {};
-        _this.adicionais = [];
+        //produto = {} as ProdutoDTO;
         _this.desabilitarBtnSelecione = true;
-        _this.comboCategorias = [];
         _this.qtAcompanhamento = 0;
+        _this.qtItens = 0;
+        //itens de consulta
+        _this.produtos = [];
+        _this.adicionais = [];
+        _this.comboCategorias = [];
+        _this.adicionaisItem = [];
         return _this;
     }
     PesquisarProdutoModalComponent.prototype.ngOnInit = function () {
@@ -4084,33 +4087,68 @@ var PesquisarProdutoModalComponent = (function (_super) {
         if (form.categoria != '') {
             idCategoria = form.categoria[0].id;
         }
+        this.qtAcompanhamento = 0;
+        this.qtItens = 0;
         this.produtoService.findByCategoriaOrNmProduto(idCategoria, form.nmProduto).
-            subscribe(function (res) { _this.items = res; }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+            subscribe(function (res) { return _this.produtos = res; }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
         this.adicionais = [];
     };
     PesquisarProdutoModalComponent.prototype.selecionarProduto = function (produto) {
         var _this = this;
-        this.produto = produto;
         this.desabilitarBtnSelecione = false;
         this.qtAcompanhamento = Number(produto.qtAcompanhamento);
+        this.produto = produto;
         if (this.qtAcompanhamento > 0) {
             this.adicionalProduto.findByCategoria(produto.categoria.id)
                 .subscribe(function (res) { return _this.adicionais = res; }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
         }
     };
     PesquisarProdutoModalComponent.prototype.btnConfirmar = function () {
-        this.onClickConfirm.emit(this.produto);
+        this.pedidoItem.qtItem = 0;
+        this.pedidoItem.produto = this.produto;
+        this.pedidoItem.adicionais = this.adicionaisItem;
+        this.onClickConfirm.emit(this.pedidoItem);
         event_emitter_services_1.EventEmitterService.closePopup(this.nomeJanePopup);
     };
     PesquisarProdutoModalComponent.prototype.criarForm = function () {
         var _this = this;
         this.categoriaService.findCategoriasAtivasExcetoInterna()
             .subscribe(function (response) { return _this.comboCategorias = _this.preencharCombo(response, 'id', 'nmCategoria'); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
-        this.items = [];
+        this.pedidoItem = {};
+        this.produtos = [];
+        this.adicionais = [];
+        this.adicionaisItem = [];
+        this.qtAcompanhamento = 0;
+        this.qtItens = 0;
         this.formulario = this.fb.group({
             categoria: [''],
             nmProduto: [''],
         });
+    };
+    PesquisarProdutoModalComponent.prototype.selecionarItem = function (acao, item) {
+        if (acao) {
+            if (this.qtItens < this.qtAcompanhamento) {
+                item.selecionado = true;
+                this.adicionaisItem.push(item);
+                this.qtItens++;
+            }
+        }
+        else {
+            this.qtItens--;
+            item.selecionado = false;
+            this.adicionaisItem = this.adicionaisItem.filter(function (adic) { return adic.id != item.id; });
+        }
+    };
+    PesquisarProdutoModalComponent.prototype.verificarItem = function (item) {
+        if (this.qtItens < this.qtAcompanhamento) {
+            return false;
+        }
+        else {
+            if (item.selecionado) {
+                return false;
+            }
+        }
+        return true;
     };
     return PesquisarProdutoModalComponent;
 }(abstract_popup_component_1.AbstractPopupComponent));
@@ -4544,21 +4582,21 @@ module.exports = "<router-outlet></router-outlet>\r\n\r\n<toaster-container [toa
 /***/ 505:
 /***/ (function(module, exports) {
 
-module.exports = "<up-side-bar>\r\n</up-side-bar>\r\n<div class=\"app-body\">\r\n    <div class=\"sidebar\">\r\n        <heard-side-bar></heard-side-bar>\r\n        <nav class=\"sidebar-nav\">\r\n            <menu-side-bar></menu-side-bar>\r\n        </nav>\r\n    </div>\r\n\r\n    <!-- Main content -->\r\n    <main class=\"main\">\r\n\r\n        <!-- Breadcrumb -->\r\n        <ol class=\"breadcrumb\">\r\n            <breadcrumbs></breadcrumbs>\r\n        </ol>\r\n        <div class=\"container-fluid\">\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n        <!-- /.conainer-fluid -->\r\n    </main>\r\n</div>\r\n<app-footer></app-footer>"
+module.exports = "<up-side-bar>\r\n</up-side-bar>\r\n<div class=\"app-body\">\r\n    <div class=\"sidebar\">\r\n        <div class=\"sidebar-header\">\r\n            <heard-side-bar></heard-side-bar>\r\n        </div>\r\n        <nav class=\"sidebar-nav\">\r\n            <menu-side-bar></menu-side-bar>\r\n        </nav>\r\n    </div>\r\n\r\n    <!-- Main content -->\r\n    <main class=\"main\">\r\n\r\n        <!-- Breadcrumb -->\r\n        <ol class=\"breadcrumb\">\r\n            <breadcrumbs></breadcrumbs>\r\n        </ol>\r\n        <div class=\"container-fluid\">\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n        <!-- /.conainer-fluid -->\r\n    </main>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
 /***/ 506:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"sidebar-header\">\n  <foto src=\"{{urlFotoPerfil}}\" classCss=\"img-avatar\" alt=\"Avatar\"></foto>\n  <div>\n    <strong> {{nmUsuario}}</strong>\n  </div>\n</div>"
+module.exports = "<div class=\"sidebar-header\">\r\n  <foto src=\"{{urlFotoPerfil}}\" classCss=\"img-avatar\" alt=\"Avatar\"></foto>\r\n  <div>\r\n    <strong> {{nmUsuario}}</strong>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 507:
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav\">\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/dashboard']\">\n      <i class=\"icon-speedometer\"></i>Dashboard\n    </a>\n  </li>\n  <li class=\"divider\"></li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/pedidos/listar']\">\n      <i class=\"fa fa-server\"></i>Pedidos\n    </a>\n  </li>\n  <li class=\"divider\"></li>\n\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\n      <i class=\"fa fa-folder\"></i>Cadastro</a>\n    <ul class=\"nav-dropdown-items\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/listar']\">\n          <i class=\"fa fa-user\"></i>Usuário</a>\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/clientes/listar']\">\n          <i class=\"fa fa-users\"></i>Clientes</a>\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/produtos/listar']\">\n          <i class=\"fa fa-building-o\"></i>Produtos</a>\n      </li>\n\n    </ul>\n  </li>\n  <li class=\"divider\"></li>\n\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\n      <i class=\"icon-settings\"></i> Configurações</a>\n    <ul class=\"nav-dropdown-items\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/unidades/listar']\">\n          <i class=\"fa fa-cube\"></i>Unidade medida</a>\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/categorias/listar']\">\n          <i class=\"fa fa-object-group\"></i>Categorias</a>\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/infonutricional/listar']\">\n          <i class=\"fa fa-reorder\"></i>Info Nutricional</a>\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/adicionais/listar']\">\n          <i class=\"fa fa-cubes\"></i>Adicionais</a>\n      </li>\n    </ul>\n  </li>\n  <li class=\"divider\"></li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" (click)=\"logout()\">\n      <i class=\"fa fa-power-off\"></i>Sair\n    </a>\n  </li>\n  <!-- \n\n    \n    <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n      <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\n        <i class=\"icon-star\"></i> Auth Pages</a>\n        <ul class=\"nav-dropdown-items\">\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/auth/login']\">\n              <i class=\"icon-star\"></i> Login</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/auth/register']\">\n                <i class=\"icon-star\"></i> Register</a>\n              </li>\n            </ul>\n          </li>\n          <li class=\"divider\"></li>\n          <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\n            <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\n              <i class=\"icon-star\"></i> Erros Pages</a>\n              <ul class=\"nav-dropdown-items\">\n                <li class=\"nav-item\">\n                  <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/error/404']\">\n                    <i class=\"icon-star\"></i> Error 404</a>\n                  </li>\n                  <li class=\"nav-item\">\n                    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/error/500']\">\n                      <i class=\"icon-star\"></i> Error 500</a>\n                    </li>\n                  </ul>\n                </li>\n                \n                \n              -->\n\n</ul>"
+module.exports = "<ul class=\"nav\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/dashboard']\">\r\n      <i class=\"icon-speedometer\"></i>Dashboard\r\n    </a>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/pedidos/listar']\">\r\n      <i class=\"fa fa-server\"></i>Pedidos\r\n    </a>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-folder\"></i>Cadastro</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/listar']\">\r\n          <i class=\"fa fa-user\"></i>Usuário</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/clientes/listar']\">\r\n          <i class=\"fa fa-users\"></i>Clientes</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/produtos/listar']\">\r\n          <i class=\"fa fa-building-o\"></i>Produtos</a>\r\n      </li>\r\n\r\n    </ul>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"icon-settings\"></i> Configurações</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/unidades/listar']\">\r\n          <i class=\"fa fa-cube\"></i>Unidade medida</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/categorias/listar']\">\r\n          <i class=\"fa fa-object-group\"></i>Categorias</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/infonutricional/listar']\">\r\n          <i class=\"fa fa-reorder\"></i>Info Nutricional</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/adicionais/listar']\">\r\n          <i class=\"fa fa-cubes\"></i>Adicionais</a>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" style=\"cursor:pointer\" routerLinkActive=\"active\" (click)=\"logout()\">\r\n      <i class=\"fa fa-power-off\"></i>Sair\r\n    </a>\r\n  </li>\r\n\r\n</ul>"
 
 /***/ }),
 
@@ -4579,7 +4617,7 @@ module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=
 /***/ 510:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-8\">\n        <alert-field-mensagem ></alert-field-mensagem>   \n        <div class=\"card-group mb-0\">\n          <div class=\"card p-2\">\n            <form>\n              <div class=\"card-block\">\n                <h1>Smartfood</h1>\n                <br/>\n                <div class=\"input-group mb-1\">\n                  <span class=\"input-group-addon\">\n                    <i class=\"icon-user\"></i>\n                  </span>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"login\" [(ngModel)]=\"creds.dsLogin\" name=\"login\">\n                </div>\n                <div class=\"input-group mb-2\">\n                  <span class=\"input-group-addon\">\n                    <i class=\"icon-lock\"></i>\n                  </span>\n                  <input type=\"password\" class=\"form-control\" placeholder=\"senha\" [(ngModel)]=\"creds.dsSenha\" name=\"senha\">\n                </div>\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-8\">\n                    <button type=\"button\" class=\"btn btn-block btn-primary px-2\" (click)=\"login()\">Login</button>\n                  </div>\n                  <div class=\"col-md-6 col-sm-8\">\n                    <button type=\"button\" class=\"btn btn-link px-0\">Esqueceu a senha?</button>\n                  </div>\n                </div>\n              </div>\n            </form>\n          </div>\n          <div class=\"card py-3 hidden-md-down\" style=\"width:44%\">\n            <div class=\"card-block text-center\">\n              <img src=\"./assets/img/logo_paladar_fit.png\" style=\"height: 100%; width: 100%\">\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-8\">\n        <alert-field-mensagem ></alert-field-mensagem>   \n        <div class=\"card-group mb-0\">\n          <div class=\"card p-2\">\n            <form>\n              <div class=\"card-block\">\n                <h1>Smartfood</h1>\n                <br/>\n                <div class=\"input-group mb-1\">\n                  <span class=\"input-group-addon\">\n                    <i class=\"icon-user\"></i>\n                  </span>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"login\" [(ngModel)]=\"creds.dsLogin\" name=\"login\">\n                </div>\n                <div class=\"input-group mb-2\">\n                  <span class=\"input-group-addon\">\n                    <i class=\"icon-lock\"></i>\n                  </span>\n                  <input type=\"password\" class=\"form-control\" placeholder=\"senha\" [(ngModel)]=\"creds.dsSenha\" name=\"senha\">\n                </div>\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-8\">\n                    <button type=\"button\" class=\"btn btn-block btn-primary px-2\" style=\"cursor:pointer\" (click)=\"login()\">Login</button>\n                  </div>\n                  <div class=\"col-md-6 col-sm-8\">\n                    <button type=\"button\" class=\"btn btn-link px-0\" style=\"cursor:pointer\" >Esqueceu a senha?</button>\n                  </div>\n                </div>\n              </div>\n            </form>\n          </div>\n          <div class=\"card py-3 hidden-md-down\" style=\"width:44%\">\n            <div class=\"card-block text-center\">\n              <img src=\"./assets/img/logo_paladar_fit.png\" style=\"height: 100%; width: 100%\">\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -4628,7 +4666,7 @@ module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" 
 /***/ 517:
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-sm-3\">\r\n        <input type=\"text\" class=\"form-control\"  placeholder=\"Cpf\" formControlName=\"nrCpf\" [textMask]=\"{mask: maskCPF}\">\r\n      </div>\r\n      <div class=\"form-group col-sm-7\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do cliente\" formControlName=\"nmPessoaFisica\">\r\n      </div>\r\n      <div class=\"form-group col-sm-2\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary\" (click)=\"pesquisarCliente(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <table class=\"table table-striped\" *ngIf=\"items?.length > 0\">\r\n        <thead>\r\n          <tr>\r\n\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Cliente</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">CPF</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of items\">\r\n            <td class=\"text-center\">\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\" value=\"{{item.id}}\" (click)=\"selecionarCliente(item)\">\r\n            </td>\r\n            <td>\r\n              {{item.nmPessoa}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item.nrCpf | cpfMask}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
+module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-md-4 col-sm-12\">\r\n        <input type=\"text\" class=\"form-control\"  placeholder=\"Cpf\" formControlName=\"nrCpf\" [textMask]=\"{mask: maskCPF}\">\r\n      </div>\r\n      <div class=\"form-group col-md-4 col-sm-12\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do cliente\" formControlName=\"nmPessoaFisica\">\r\n      </div>\r\n      <div class=\"form-group col-md-2 col-sm-12\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary\" style=\"cursor: pointer;\" (click)=\"pesquisarCliente(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <table class=\"table table-striped\" *ngIf=\"items?.length > 0\">\r\n        <thead>\r\n          <tr>\r\n\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Cliente</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">CPF</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of items\">\r\n            <td class=\"text-center\" >\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\"  value=\"{{item.id}}\" (click)=\"selecionarCliente(item)\">\r\n            </td>\r\n            <td>\r\n              {{item.nmPessoa}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item.nrCpf | cpfMask}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
@@ -4649,7 +4687,7 @@ module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' clas
 /***/ 520:
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-sm-4\">\r\n        <ng-select formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n      <div class=\"form-group col-sm-5\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do produto\" formControlName=\"nmProduto\" name=\"nmProduto\">\r\n      </div>\r\n      <div class=\"form-group col-sm-2\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary\" (click)=\"pesquisarProduto(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <table class=\"table table-striped\" *ngIf=\"items?.length > 0\">\r\n        <thead>\r\n          <tr>\r\n\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Produto</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">Categoria</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of items\">\r\n            <td class=\"text-center\">\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\" value=\"{{item.id}}\" (click)=\"selecionarProduto(item)\">\r\n            </td>\r\n            <td>\r\n              {{item.nmProduto}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item?.categoria?.nmCategoria}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"from-group row\" *ngIf=\"qtAcompanhamento > 0\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-8\">\r\n        <div class=\"card\">\r\n          <div class=\"card-header\">\r\n            <strong>Adicionais</strong>\r\n            <small> - selecione até {{qtAcompanhamento}} adicionais</small>\r\n          </div>\r\n          <div class=\"card-block\">\r\n\r\n            <table class=\"table table-striped\">\r\n              <tbody>\r\n                <tr *ngFor=\"let item of adicionais\">\r\n                  <td class=\"text-left\">\r\n                    <input type=\"checkbox\" id=\"checkbox1\" name=\"checkbox1\" value=\"{{item.idProduto}}\"> {{item.nmProduto}}\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
+module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-md-3 col-sm-12\">\r\n        <ng-select formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n      <div class=\"form-group col-md-6 col-sm-12\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do produto\" formControlName=\"nmProduto\" name=\"nmProduto\">\r\n      </div>\r\n      <div class=\"form-group col-md-2 col-sm-12\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary\" style=\"cursor: pointer;\" (click)=\"pesquisarProduto(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <table class=\"table table-striped\" *ngIf=\"produtos?.length > 0\">\r\n        <thead>\r\n          <tr>\r\n\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Produto</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">Categoria</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of produtos\">\r\n            <td class=\"text-center\">\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\" value=\"{{item.id}}\" (click)=\"selecionarProduto(item)\">\r\n            </td>\r\n            <td>\r\n              {{item.nmProduto}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item?.categoria?.nmCategoria}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"from-group row\" *ngIf=\"qtAcompanhamento > 0\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-8\">\r\n        <div class=\"card\">\r\n          <div class=\"card-header\">\r\n            <strong>Adicionais</strong>\r\n            <small> - selecione até {{qtAcompanhamento}} adicionais</small>\r\n          </div>\r\n          <div class=\"card-block\">\r\n\r\n            <table class=\"table table-striped\">\r\n              <tbody>\r\n                <tr *ngFor=\"let item of adicionais\">\r\n                  <td class=\"text-left\">\r\n                    <input type=\"checkbox\" id=\"checkbox1\" \r\n                      name=\"checkbox1\" \r\n                      (click)=\"selecionarItem($event.target.checked, item)\"\r\n                      [(ngModel)]=\"item.selecionado\" \r\n                      [disabled]=\"verificarItem(item)\"\r\n                      [ngModelOptions]=\"{standalone: true}\"> {{item.nmProduto}}\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
