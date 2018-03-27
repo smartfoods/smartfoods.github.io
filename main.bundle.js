@@ -1,4 +1,4 @@
-webpackJsonp([10,14],{
+webpackJsonp([12,16],{
 
 /***/ 102:
 /***/ (function(module, exports, __webpack_require__) {
@@ -133,6 +133,80 @@ exports.STORAGE_KEYS = {
 
 "use strict";
 
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var adicional_produto_service_1 = __webpack_require__(153);
+var ng2_select_1 = __webpack_require__(155);
+var pesquisar_produto_popup_modal_component_1 = __webpack_require__(324);
+var categoria_service_1 = __webpack_require__(149);
+var forms_1 = __webpack_require__(18);
+var angular2_text_mask_1 = __webpack_require__(104);
+var consulta_cep_service_1 = __webpack_require__(151);
+var cep_popup_modal_component_1 = __webpack_require__(320);
+var base_popup_modal_component_1 = __webpack_require__(323);
+var confirm_popup_modal_component_1 = __webpack_require__(322);
+var core_1 = __webpack_require__(1);
+var common_1 = __webpack_require__(25);
+var modal_1 = __webpack_require__(103);
+var shared_component_module_1 = __webpack_require__(78);
+var pesquisar_cliente_popup_modal_component_1 = __webpack_require__(321);
+var cliente_service_1 = __webpack_require__(148);
+var produto_service_1 = __webpack_require__(150);
+// DataTable
+var PopupModalModule = (function () {
+    function PopupModalModule() {
+    }
+    return PopupModalModule;
+}());
+PopupModalModule = __decorate([
+    core_1.NgModule({
+        imports: [
+            common_1.CommonModule,
+            forms_1.FormsModule,
+            forms_1.ReactiveFormsModule,
+            modal_1.ModalModule.forRoot(),
+            shared_component_module_1.SharedComponentModule,
+            ng2_select_1.SelectModule,
+            angular2_text_mask_1.TextMaskModule
+        ],
+        declarations: [
+            confirm_popup_modal_component_1.ConfirmPopupModalComponent,
+            base_popup_modal_component_1.BasePopupModalComponent,
+            cep_popup_modal_component_1.CepModalComponent,
+            pesquisar_cliente_popup_modal_component_1.PesquisarClienteModalComponent,
+            pesquisar_produto_popup_modal_component_1.PesquisarProdutoModalComponent
+        ],
+        exports: [
+            confirm_popup_modal_component_1.ConfirmPopupModalComponent,
+            base_popup_modal_component_1.BasePopupModalComponent,
+            cep_popup_modal_component_1.CepModalComponent,
+            pesquisar_cliente_popup_modal_component_1.PesquisarClienteModalComponent,
+            pesquisar_produto_popup_modal_component_1.PesquisarProdutoModalComponent
+        ],
+        providers: [
+            consulta_cep_service_1.ConsultaCEPService,
+            cliente_service_1.ClienteService,
+            produto_service_1.ProdutoService,
+            categoria_service_1.CategoriaService,
+            adicional_produto_service_1.AdicionalProdutoService
+        ]
+    })
+], PopupModalModule);
+exports.PopupModalModule = PopupModalModule;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/popup-modal.module.js.map
+
+/***/ }),
+
+/***/ 148:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -207,7 +281,7 @@ var _a;
 
 /***/ }),
 
-/***/ 148:
+/***/ 149:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -278,80 +352,6 @@ CategoriaService = __decorate([
 exports.CategoriaService = CategoriaService;
 var _a;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/categoria.service.js.map
-
-/***/ }),
-
-/***/ 149:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var adicional_produto_service_1 = __webpack_require__(153);
-var ng2_select_1 = __webpack_require__(155);
-var pesquisar_produto_popup_modal_component_1 = __webpack_require__(324);
-var categoria_service_1 = __webpack_require__(148);
-var forms_1 = __webpack_require__(18);
-var angular2_text_mask_1 = __webpack_require__(104);
-var consulta_cep_service_1 = __webpack_require__(151);
-var cep_popup_modal_component_1 = __webpack_require__(320);
-var base_popup_modal_component_1 = __webpack_require__(323);
-var confirm_popup_modal_component_1 = __webpack_require__(322);
-var core_1 = __webpack_require__(1);
-var common_1 = __webpack_require__(25);
-var modal_1 = __webpack_require__(103);
-var shared_component_module_1 = __webpack_require__(78);
-var pesquisar_cliente_popup_modal_component_1 = __webpack_require__(321);
-var cliente_service_1 = __webpack_require__(147);
-var produto_service_1 = __webpack_require__(150);
-// DataTable
-var PopupModalModule = (function () {
-    function PopupModalModule() {
-    }
-    return PopupModalModule;
-}());
-PopupModalModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            common_1.CommonModule,
-            forms_1.FormsModule,
-            forms_1.ReactiveFormsModule,
-            modal_1.ModalModule.forRoot(),
-            shared_component_module_1.SharedComponentModule,
-            ng2_select_1.SelectModule,
-            angular2_text_mask_1.TextMaskModule
-        ],
-        declarations: [
-            confirm_popup_modal_component_1.ConfirmPopupModalComponent,
-            base_popup_modal_component_1.BasePopupModalComponent,
-            cep_popup_modal_component_1.CepModalComponent,
-            pesquisar_cliente_popup_modal_component_1.PesquisarClienteModalComponent,
-            pesquisar_produto_popup_modal_component_1.PesquisarProdutoModalComponent
-        ],
-        exports: [
-            confirm_popup_modal_component_1.ConfirmPopupModalComponent,
-            base_popup_modal_component_1.BasePopupModalComponent,
-            cep_popup_modal_component_1.CepModalComponent,
-            pesquisar_cliente_popup_modal_component_1.PesquisarClienteModalComponent,
-            pesquisar_produto_popup_modal_component_1.PesquisarProdutoModalComponent
-        ],
-        providers: [
-            consulta_cep_service_1.ConsultaCEPService,
-            cliente_service_1.ClienteService,
-            produto_service_1.ProdutoService,
-            categoria_service_1.CategoriaService,
-            adicional_produto_service_1.AdicionalProdutoService
-        ]
-    })
-], PopupModalModule);
-exports.PopupModalModule = PopupModalModule;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/popup-modal.module.js.map
 
 /***/ }),
 
@@ -678,6 +678,16 @@ exports.routes = [
                 path: 'adicionais',
                 canActivateChild: [auth_guard_service_1.AuthGuard],
                 loadChildren: './pages/config/adicional/adicional-produto.module#AdicionalProdutoModule'
+            },
+            {
+                path: 'formapagamento',
+                canActivateChild: [auth_guard_service_1.AuthGuard],
+                loadChildren: './pages/config/formapagamento/forma-pagamento.module#FormaPagamentoModule'
+            },
+            {
+                path: 'taxaentrega',
+                canActivateChild: [auth_guard_service_1.AuthGuard],
+                loadChildren: './pages/config/taxaentrega/taxa-entrega.module#TaxaEntregaModule'
             }
         ]
     },
@@ -1151,7 +1161,7 @@ var forms_1 = __webpack_require__(18);
 var http_1 = __webpack_require__(20);
 var angular2_ladda_1 = __webpack_require__(278);
 var modal_1 = __webpack_require__(103);
-var popup_modal_module_1 = __webpack_require__(149);
+var popup_modal_module_1 = __webpack_require__(147);
 var shared_component_module_1 = __webpack_require__(78);
 var angular2_text_mask_1 = __webpack_require__(104);
 var tabs_1 = __webpack_require__(152);
@@ -1372,18 +1382,18 @@ exports.EventEmitterService = EventEmitterService;
 var map = {
 	"./layout/dashboard/dashboard.module": [
 		789,
-		8
+		10
 	],
 	"./pages/admin/config-pages.module": [
 		790,
-		7
+		9
 	],
 	"./pages/auth/auth.module": [
 		162
 	],
 	"./pages/cadastros/cliente/cliente.module": [
 		788,
-		3
+		4
 	],
 	"./pages/cadastros/produto/produto.module": [
 		791,
@@ -1398,18 +1408,26 @@ var map = {
 	],
 	"./pages/config/categoria/categoria.module": [
 		793,
-		6
+		8
+	],
+	"./pages/config/formapagamento/forma-pagamento.module": [
+		794,
+		7
 	],
 	"./pages/config/infonutricional/info-nutricional.module": [
-		794,
-		5
+		795,
+		6
+	],
+	"./pages/config/taxaentrega/taxa-entrega.module": [
+		796,
+		3
 	],
 	"./pages/config/unidademedida/unidade-medida.module": [
-		795,
-		4
+		797,
+		5
 	],
 	"./pages/pedido/pedido.module": [
-		796,
+		798,
 		1
 	]
 };
@@ -1692,7 +1710,7 @@ var http_1 = __webpack_require__(158);
 var forms_1 = __webpack_require__(18);
 var app_routing_1 = __webpack_require__(159);
 var shared_component_module_1 = __webpack_require__(78);
-var popup_modal_module_1 = __webpack_require__(149);
+var popup_modal_module_1 = __webpack_require__(147);
 var dropdown_1 = __webpack_require__(156);
 var aside_directive_1 = __webpack_require__(307);
 var sidebar_directive_1 = __webpack_require__(313);
@@ -3822,7 +3840,7 @@ var forms_1 = __webpack_require__(18);
 var event_emitter_services_1 = __webpack_require__(27);
 var abstract_popup_component_1 = __webpack_require__(64);
 var trata_error_service_1 = __webpack_require__(32);
-var cliente_service_1 = __webpack_require__(147);
+var cliente_service_1 = __webpack_require__(148);
 var PesquisarClienteModalComponent = (function (_super) {
     __extends(PesquisarClienteModalComponent, _super);
     function PesquisarClienteModalComponent(clienteService, fb) {
@@ -4048,7 +4066,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var adicional_produto_service_1 = __webpack_require__(153);
-var categoria_service_1 = __webpack_require__(148);
+var categoria_service_1 = __webpack_require__(149);
 var core_1 = __webpack_require__(1);
 var forms_1 = __webpack_require__(18);
 var event_emitter_services_1 = __webpack_require__(27);
@@ -4104,7 +4122,7 @@ var PesquisarProdutoModalComponent = (function (_super) {
         }
     };
     PesquisarProdutoModalComponent.prototype.btnConfirmar = function () {
-        this.pedidoItem.qtItem = 0;
+        this.pedidoItem.qtItem = 1;
         this.pedidoItem.produto = this.produto;
         this.pedidoItem.adicionais = this.adicionaisItem;
         this.onClickConfirm.emit(this.pedidoItem);
@@ -4596,7 +4614,7 @@ module.exports = "<div class=\"sidebar-header\">\r\n  <foto src=\"{{urlFotoPerfi
 /***/ 507:
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/dashboard']\">\r\n      <i class=\"icon-speedometer\"></i>Dashboard\r\n    </a>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/pedidos/listar']\">\r\n      <i class=\"fa fa-server\"></i>Pedidos\r\n    </a>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-folder\"></i>Cadastro</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/listar']\">\r\n          <i class=\"fa fa-user\"></i>Usuário</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/clientes/listar']\">\r\n          <i class=\"fa fa-users\"></i>Clientes</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/produtos/listar']\">\r\n          <i class=\"fa fa-building-o\"></i>Produtos</a>\r\n      </li>\r\n\r\n    </ul>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"icon-settings\"></i> Configurações</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/unidades/listar']\">\r\n          <i class=\"fa fa-cube\"></i>Unidade medida</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/categorias/listar']\">\r\n          <i class=\"fa fa-object-group\"></i>Categorias</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/infonutricional/listar']\">\r\n          <i class=\"fa fa-reorder\"></i>Info Nutricional</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/adicionais/listar']\">\r\n          <i class=\"fa fa-cubes\"></i>Adicionais</a>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" style=\"cursor:pointer\" routerLinkActive=\"active\" (click)=\"logout()\">\r\n      <i class=\"fa fa-power-off\"></i>Sair\r\n    </a>\r\n  </li>\r\n\r\n</ul>"
+module.exports = "<ul class=\"nav\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/dashboard']\">\r\n      <i class=\"icon-speedometer\"></i>Dashboard\r\n    </a>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/pedidos/listar']\">\r\n      <i class=\"fa fa-server\"></i>Pedidos\r\n    </a>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-folder\"></i>Cadastro</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/listar']\">\r\n          <i class=\"fa fa-user\"></i>Usuário</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/clientes/listar']\">\r\n          <i class=\"fa fa-users\"></i>Clientes</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/produtos/listar']\">\r\n          <i class=\"fa fa-building-o\"></i>Produtos</a>\r\n      </li>\r\n\r\n    </ul>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"icon-settings\"></i> Configurações</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/unidades/listar']\">\r\n          <i class=\"fa fa-cube\"></i>Unidade medida</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/categorias/listar']\">\r\n          <i class=\"fa fa-object-group\"></i>Categorias</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/infonutricional/listar']\">\r\n          <i class=\"fa fa-reorder\"></i>Info Nutricional</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/adicionais/listar']\">\r\n          <i class=\"fa fa-cubes\"></i>Adicionais</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/formapagamento/listar']\">\r\n          <i class=\"fa fa-cubes\"></i>Pagamento</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/taxaentrega/listar']\">\r\n          <i class=\"fa fa-cubes\"></i>Taxa entrega</a>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" style=\"cursor:pointer\" routerLinkActive=\"active\" (click)=\"logout()\">\r\n      <i class=\"fa fa-power-off\"></i>Sair\r\n    </a>\r\n  </li>\r\n\r\n</ul>"
 
 /***/ }),
 

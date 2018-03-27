@@ -1,6 +1,6 @@
-webpackJsonp([5,14],{
+webpackJsonp([5,16],{
 
-/***/ 794:
+/***/ 797:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,49 +12,49 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var info_nutricional_popup_modal_component_1 = __webpack_require__(839);
+var unidade_medida_popup_modal_component_1 = __webpack_require__(850);
 var core_1 = __webpack_require__(1);
 var http_1 = __webpack_require__(20);
-var popup_modal_module_1 = __webpack_require__(149);
+var popup_modal_module_1 = __webpack_require__(147);
 var modal_1 = __webpack_require__(103);
 var forms_1 = __webpack_require__(18);
 var common_1 = __webpack_require__(25);
-var info_nutricional_service_1 = __webpack_require__(798);
-var info_nutricional_routing_module_1 = __webpack_require__(838);
-var listar_info_nutricional_component_1 = __webpack_require__(824);
 var shared_component_module_1 = __webpack_require__(78);
-var InfoNutricionalModule = (function () {
-    function InfoNutricionalModule() {
+var unidade_medida_service_1 = __webpack_require__(799);
+var listar_unidade_medida_component_1 = __webpack_require__(831);
+var unidade_medida_routing_module_1 = __webpack_require__(851);
+var UnidadeMedidaModule = (function () {
+    function UnidadeMedidaModule() {
     }
-    return InfoNutricionalModule;
+    return UnidadeMedidaModule;
 }());
-InfoNutricionalModule = __decorate([
+UnidadeMedidaModule = __decorate([
     core_1.NgModule({
         imports: [
             common_1.CommonModule,
             forms_1.FormsModule,
+            forms_1.ReactiveFormsModule,
             modal_1.ModalModule.forRoot(),
             shared_component_module_1.SharedComponentModule,
-            forms_1.ReactiveFormsModule,
             popup_modal_module_1.PopupModalModule,
             http_1.HttpClientModule,
-            info_nutricional_routing_module_1.InfoNutricionalRoutingModule
+            unidade_medida_routing_module_1.UnidadeMedidaRoutingModule
         ],
         declarations: [
-            listar_info_nutricional_component_1.ListarInfoNutricionalComponent,
-            info_nutricional_popup_modal_component_1.InfoNutricionalPopupModalComponent
+            listar_unidade_medida_component_1.ListarUnidadeMedidaComponent,
+            unidade_medida_popup_modal_component_1.UnidadeMedidaPopupModalComponent
         ],
         providers: [
-            info_nutricional_service_1.InfoNutricionalService
+            unidade_medida_service_1.UnidadeMedidaService
         ]
     })
-], InfoNutricionalModule);
-exports.InfoNutricionalModule = InfoNutricionalModule;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/info-nutricional.module.js.map
+], UnidadeMedidaModule);
+exports.UnidadeMedidaModule = UnidadeMedidaModule;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/unidade-medida.module.js.map
 
 /***/ }),
 
-/***/ 798:
+/***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -83,49 +83,49 @@ var api_config_1 = __webpack_require__(34);
 var http_1 = __webpack_require__(20);
 var core_1 = __webpack_require__(1);
 var abstract_service_1 = __webpack_require__(55);
-var InfoNutricionalService = (function (_super) {
-    __extends(InfoNutricionalService, _super);
-    function InfoNutricionalService(http) {
+var UnidadeMedidaService = (function (_super) {
+    __extends(UnidadeMedidaService, _super);
+    function UnidadeMedidaService(http) {
         var _this = _super.call(this) || this;
         _this.http = http;
-        _this.url = api_config_1.API_CONFIG.baseUrl + "/infonutricional";
+        _this.url = api_config_1.API_CONFIG.baseUrl + "/unidademedida";
         return _this;
     }
-    InfoNutricionalService.prototype.findAll = function () {
+    UnidadeMedidaService.prototype.findAll = function () {
         return this.http.get(this.url + "/all", this.getHearderToken());
     };
-    InfoNutricionalService.prototype.findAllAtivo = function () {
+    UnidadeMedidaService.prototype.findAllAtivo = function () {
         return this.http.get(this.url + "/");
     };
-    InfoNutricionalService.prototype.findById = function (id) {
+    UnidadeMedidaService.prototype.findById = function (id) {
         return this.http.get(this.url + "/" + id, this.getHearderToken());
     };
-    InfoNutricionalService.prototype.salvar = function (info) {
-        return this.http.post(this.url + "/", JSON.stringify(info), this.getHearderTokenNoResponse());
+    UnidadeMedidaService.prototype.salvar = function (unidade) {
+        return this.http.post(this.url + "/", JSON.stringify(unidade), this.getHearderTokenNoResponse());
     };
-    InfoNutricionalService.prototype.changeStatus = function (info) {
-        return this.http.put(this.url + "/" + info.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
+    UnidadeMedidaService.prototype.changeStatus = function (unidade) {
+        return this.http.put(this.url + "/" + unidade.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
     };
-    InfoNutricionalService.prototype.atualizar = function (info) {
-        return this.http.put(this.url + "/" + info.id, JSON.stringify(info), this.getHearderTokenNoResponse());
+    UnidadeMedidaService.prototype.atualizar = function (unidade) {
+        return this.http.put(this.url + "/" + unidade.id, JSON.stringify(unidade), this.getHearderTokenNoResponse());
     };
-    InfoNutricionalService.prototype.excluir = function (info) {
-        var url = this.url + "/" + info.id;
+    UnidadeMedidaService.prototype.excluir = function (unidade) {
+        var url = this.url + "/" + unidade.id;
         return this.http.delete(url, this.getHearderToken());
     };
-    return InfoNutricionalService;
+    return UnidadeMedidaService;
 }(abstract_service_1.AbstractService));
-InfoNutricionalService = __decorate([
+UnidadeMedidaService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], InfoNutricionalService);
-exports.InfoNutricionalService = InfoNutricionalService;
+], UnidadeMedidaService);
+exports.UnidadeMedidaService = UnidadeMedidaService;
 var _a;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/info-nutricional.service.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/unidade-medida.service.js.map
 
 /***/ }),
 
-/***/ 824:
+/***/ 831:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -150,130 +150,94 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var trata_error_service_1 = __webpack_require__(32);
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
 var event_emitter_services_1 = __webpack_require__(27);
 var abstract_base_component_1 = __webpack_require__(102);
-var info_nutricional_service_1 = __webpack_require__(798);
-var trata_error_service_1 = __webpack_require__(32);
-var ListarInfoNutricionalComponent = (function (_super) {
-    __extends(ListarInfoNutricionalComponent, _super);
-    function ListarInfoNutricionalComponent(infoService, router) {
+var unidade_medida_service_1 = __webpack_require__(799);
+var ListarUnidadeMedidaComponent = (function (_super) {
+    __extends(ListarUnidadeMedidaComponent, _super);
+    function ListarUnidadeMedidaComponent(unidadeService, router) {
         var _this = _super.call(this) || this;
-        _this.infoService = infoService;
+        _this.unidadeService = unidadeService;
         _this.router = router;
         return _this;
     }
-    ListarInfoNutricionalComponent.prototype.ngOnInit = function () {
+    ListarUnidadeMedidaComponent.prototype.ngOnInit = function () {
         this.carregarTodos();
     };
-    ListarInfoNutricionalComponent.prototype.selecionarItem = function (item) {
+    ListarUnidadeMedidaComponent.prototype.selecionarItem = function (item) {
         this.item = item;
         this.popupExclusao.show();
     };
-    ListarInfoNutricionalComponent.prototype.selecionarItemChangeStatus = function (item) {
+    ListarUnidadeMedidaComponent.prototype.selecionarItemChangeStatus = function (item) {
         this.item = item;
         this.popupChangeStatus.show();
     };
-    ListarInfoNutricionalComponent.prototype.changeStatus = function () {
+    ListarUnidadeMedidaComponent.prototype.changeStatus = function () {
         var _this = this;
-        this.infoService.changeStatus(this.item)
+        this.unidadeService.changeStatus(this.item)
             .subscribe(function (res) {
-            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Informação Nutricional', 'O status da informação nutricional foi alterado com sucesso!!!');
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Unidade Medida', 'O status da unidade de medida foi alterado com sucesso!!!');
             _this.carregarTodos();
         }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    ListarInfoNutricionalComponent.prototype.excluir = function () {
+    ListarUnidadeMedidaComponent.prototype.excluir = function () {
         var _this = this;
-        this.infoService.excluir(this.item)
+        this.unidadeService.excluir(this.item)
             .subscribe(function (res) {
-            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Informação Nutricional', 'A informação nutricional foi excluída com sucesso!!!');
+            event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Unidade Medida', 'A unidade de medida foi excluída com sucesso!!!');
             _this.carregarTodos();
         }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    ListarInfoNutricionalComponent.prototype.carregarTodos = function () {
+    ListarUnidadeMedidaComponent.prototype.salvar = function (value) {
         var _this = this;
-        this.infoService.findAll().subscribe(function (response) {
+        if (value.emAlteracao) {
+            this.unidadeService.atualizar(value)
+                .subscribe(function (res) {
+                event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Unidade Medida', 'A unidade de medida foi alterada com sucesso!!!');
+                _this.carregarTodos();
+            }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+        }
+        else {
+            this.unidadeService.salvar(value)
+                .subscribe(function (res) {
+                event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Unidade Medida', 'A unidade de medida foi cadastrada com !!!');
+                _this.carregarTodos();
+            }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+        }
+    };
+    ListarUnidadeMedidaComponent.prototype.carregarTodos = function () {
+        var _this = this;
+        this.unidadeService.findAll().subscribe(function (response) {
             _this.items = response;
         }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
-    return ListarInfoNutricionalComponent;
+    return ListarUnidadeMedidaComponent;
 }(abstract_base_component_1.AbstractBaseComponent));
 __decorate([
     core_1.ViewChild('excluirModal'),
     __metadata("design:type", Object)
-], ListarInfoNutricionalComponent.prototype, "popupExclusao", void 0);
+], ListarUnidadeMedidaComponent.prototype, "popupExclusao", void 0);
 __decorate([
     core_1.ViewChild('changeSatusModal'),
     __metadata("design:type", Object)
-], ListarInfoNutricionalComponent.prototype, "popupChangeStatus", void 0);
-ListarInfoNutricionalComponent = __decorate([
+], ListarUnidadeMedidaComponent.prototype, "popupChangeStatus", void 0);
+ListarUnidadeMedidaComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(868),
-        styles: [__webpack_require__(851)]
+        template: __webpack_require__(886),
+        styles: [__webpack_require__(865)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof info_nutricional_service_1.InfoNutricionalService !== "undefined" && info_nutricional_service_1.InfoNutricionalService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
-], ListarInfoNutricionalComponent);
-exports.ListarInfoNutricionalComponent = ListarInfoNutricionalComponent;
+    __metadata("design:paramtypes", [typeof (_a = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
+], ListarUnidadeMedidaComponent);
+exports.ListarUnidadeMedidaComponent = ListarUnidadeMedidaComponent;
 var _a, _b;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/listar-info-nutricional.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/listar-unidade-medida.component.js.map
 
 /***/ }),
 
-/***/ 838:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(1);
-var router_1 = __webpack_require__(43);
-var listar_info_nutricional_component_1 = __webpack_require__(824);
-var routes = [
-    {
-        path: '',
-        redirectTo: 'listar',
-        pathMatch: 'full',
-    },
-    {
-        path: '',
-        data: {
-            title: 'Informações nutricional'
-        },
-        children: [
-            {
-                path: 'listar',
-                component: listar_info_nutricional_component_1.ListarInfoNutricionalComponent,
-                data: {
-                    title: 'Listar'
-                }
-            },
-        ]
-    }
-];
-var InfoNutricionalRoutingModule = (function () {
-    function InfoNutricionalRoutingModule() {
-    }
-    return InfoNutricionalRoutingModule;
-}());
-InfoNutricionalRoutingModule = __decorate([
-    core_1.NgModule({
-        imports: [router_1.RouterModule.forChild(routes)],
-        exports: [router_1.RouterModule]
-    })
-], InfoNutricionalRoutingModule);
-exports.InfoNutricionalRoutingModule = InfoNutricionalRoutingModule;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/info-nutricional-routing.module.js.map
-
-/***/ }),
-
-/***/ 839:
+/***/ 850:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -301,60 +265,115 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var forms_1 = __webpack_require__(18);
 var core_1 = __webpack_require__(1);
 var abstract_popup_component_1 = __webpack_require__(64);
-var info_nutricional_service_1 = __webpack_require__(798);
-var InfoNutricionalPopupModalComponent = (function (_super) {
-    __extends(InfoNutricionalPopupModalComponent, _super);
-    function InfoNutricionalPopupModalComponent(infoService, fb) {
-        var _this = _super.call(this, 'infoNutricionalPopup') || this;
-        _this.infoService = infoService;
+var unidade_medida_service_1 = __webpack_require__(799);
+var UnidadeMedidaPopupModalComponent = (function (_super) {
+    __extends(UnidadeMedidaPopupModalComponent, _super);
+    function UnidadeMedidaPopupModalComponent(unidadeService, fb) {
+        var _this = _super.call(this, 'unidadeMedidaPopup') || this;
+        _this.unidadeService = unidadeService;
         _this.fb = fb;
         return _this;
     }
-    InfoNutricionalPopupModalComponent.prototype.ngOnInit = function () {
+    UnidadeMedidaPopupModalComponent.prototype.ngOnInit = function () {
         this.criarForm();
     };
-    InfoNutricionalPopupModalComponent.prototype.show = function () {
+    UnidadeMedidaPopupModalComponent.prototype.show = function () {
         this.criarForm();
-        this.showPopup("Cadastra informação nutricional");
+        this.showPopup("Cadastra unidade de medida");
     };
-    InfoNutricionalPopupModalComponent.prototype.showAlteracao = function (item) {
+    UnidadeMedidaPopupModalComponent.prototype.showAlteracao = function (item) {
         this.alterarForm(item);
-        this.showPopup("Alterar informação nutricional");
+        this.showPopup("Alterar unidade de medida");
     };
-    InfoNutricionalPopupModalComponent.prototype.btnConfirmar = function (item) {
-        this.acao(item, this.infoService);
+    UnidadeMedidaPopupModalComponent.prototype.btnConfirmar = function (unidade) {
+        this.acao(unidade, this.unidadeService);
     };
-    InfoNutricionalPopupModalComponent.prototype.criarForm = function () {
+    UnidadeMedidaPopupModalComponent.prototype.criarForm = function () {
         this.formulario = this.fb.group({
             id: [''],
-            nmInfoNutricional: ['', forms_1.Validators.required],
+            nmUnidadeMedida: ['', forms_1.Validators.required],
+            sgUnidadeMedida: ['', forms_1.Validators.required],
             emAlteracao: [false]
         });
     };
-    InfoNutricionalPopupModalComponent.prototype.alterarForm = function (item) {
-        this.formulario.patchValue({
-            id: item.id,
-            nmInfoNutricional: item.nmInfoNutricional,
-            emAlteracao: true
+    UnidadeMedidaPopupModalComponent.prototype.alterarForm = function (item) {
+        this.formulario = this.fb.group({
+            id: [item.id],
+            nmUnidadeMedida: [item.nmUnidadeMedida, forms_1.Validators.required],
+            sgUnidadeMedida: [item.sgUnidadeMedida, forms_1.Validators.required],
+            emAlteracao: [true]
         });
     };
-    return InfoNutricionalPopupModalComponent;
+    return UnidadeMedidaPopupModalComponent;
 }(abstract_popup_component_1.AbstractPopupComponent));
-InfoNutricionalPopupModalComponent = __decorate([
+UnidadeMedidaPopupModalComponent = __decorate([
     core_1.Component({
-        selector: 'info-nutricional-popup-modal',
-        template: __webpack_require__(869),
-        styles: [__webpack_require__(852)]
+        selector: 'unidade-popup-modal',
+        template: __webpack_require__(887),
+        styles: [__webpack_require__(866)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof info_nutricional_service_1.InfoNutricionalService !== "undefined" && info_nutricional_service_1.InfoNutricionalService) === "function" && _a || Object, typeof (_b = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _b || Object])
-], InfoNutricionalPopupModalComponent);
-exports.InfoNutricionalPopupModalComponent = InfoNutricionalPopupModalComponent;
+    __metadata("design:paramtypes", [typeof (_a = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _a || Object, typeof (_b = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _b || Object])
+], UnidadeMedidaPopupModalComponent);
+exports.UnidadeMedidaPopupModalComponent = UnidadeMedidaPopupModalComponent;
 var _a, _b;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/info-nutricional-popup-modal.component.js.map
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/unidade-medida-popup-modal.component.js.map
 
 /***/ }),
 
 /***/ 851:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var router_1 = __webpack_require__(43);
+var listar_unidade_medida_component_1 = __webpack_require__(831);
+var routes = [
+    {
+        path: '',
+        redirectTo: 'listar',
+        pathMatch: 'full',
+    },
+    {
+        path: '',
+        data: {
+            title: 'Unidade medida'
+        },
+        children: [
+            {
+                path: 'listar',
+                component: listar_unidade_medida_component_1.ListarUnidadeMedidaComponent,
+                data: {
+                    title: 'Listar'
+                }
+            },
+        ]
+    }
+];
+var UnidadeMedidaRoutingModule = (function () {
+    function UnidadeMedidaRoutingModule() {
+    }
+    return UnidadeMedidaRoutingModule;
+}());
+UnidadeMedidaRoutingModule = __decorate([
+    core_1.NgModule({
+        imports: [router_1.RouterModule.forChild(routes)],
+        exports: [router_1.RouterModule]
+    })
+], UnidadeMedidaRoutingModule);
+exports.UnidadeMedidaRoutingModule = UnidadeMedidaRoutingModule;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/unidade-medida-routing.module.js.map
+
+/***/ }),
+
+/***/ 865:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -372,7 +391,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 852:
+/***/ 866:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -390,17 +409,17 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 868:
+/***/ 886:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"infoNutricionalModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo\r\n</button>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de informações nutricional\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n\r\n            <thead>\r\n                <tr>\r\n                    <th style=\"width:70%\">Descrição </th>\r\n                    <th class=\"text-center\" style=\"width:15%\">Situação</th>\r\n                    <th class=\"text-center\" style=\"width:15%\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td>\r\n                        <strong>{{item.nmInfoNutricional}}</strong>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"infoNutricionalModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeSatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status da informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<info-nutricional-popup-modal #infoNutricionalModal (onClickConfirm)=\"carregarTodos()\">\r\n</info-nutricional-popup-modal>"
+module.exports = "<button type=\"button\" class=\"btn btn-success\" (click)=\"unidadeModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo\r\n</button>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de unidade de medida\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th style=\"width: 40%\">Descrição da unidade </th>\r\n                    <th style=\"width: 30%\" class=\"text-center\">Sigla</th>\r\n                    <th style=\"width: 15%\" class=\"text-center\">Situação</th>\r\n                    <th style=\"width: 15%\" class=\"text-center\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td>\r\n                        <strong>{{item.nmUnidadeMedida}}</strong>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <strong>{{item.sgUnidadeMedida}}</strong>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"unidadeModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a unidade de medida?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeSatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status da unidade de medida?</strong>\r\n</confirm-popup-modal>\r\n\r\n<unidade-popup-modal \r\n    #unidadeModal\r\n    (onClickConfirm)=\"carregarTodos()\">\r\n</unidade-popup-modal>"
 
 /***/ }),
 
-/***/ 869:
+/***/ 887:
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmInfoNutricional'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Descrição</label>\r\n      <div class=\"col-sm-6\">\r\n        <input #campoNome type=\"text\" formControlName=\"nmInfoNutricional\" class=\"form-control input-sm\" name=\"nmInfoNutricional\"\r\n          maxlength=\"40\">\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>\r\n<!-- \r\n\r\n  <base-popup-modal \r\n  #modalConfirm \r\n  [titulo]=\"titulo\"\r\n  (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n  \r\n</base-popup-modal>\r\n-->"
+module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmUnidadeMedida'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Descrição</label>\r\n      <div class=\"col-sm-6\">\r\n        <input #campoNome type=\"text\" formControlName=\"nmUnidadeMedida\" class=\"form-control input-sm\" name=\"nmUnidadeMedida\" maxlength=\"40\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('sgUnidadeMedida'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Sigla</label>\r\n      <div class=\"col-sm-2\">\r\n        <input type=\"text\" formControlName=\"sgUnidadeMedida\" class=\"form-control input-sm\" name=\"sgUnidadeMedida\" maxlength=\"3\">\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ })
 
