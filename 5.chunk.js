@@ -1,6 +1,6 @@
-webpackJsonp([5,16],{
+webpackJsonp([5,17],{
 
-/***/ 797:
+/***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,7 +12,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var unidade_medida_popup_modal_component_1 = __webpack_require__(850);
+var unidade_medida_popup_modal_component_1 = __webpack_require__(858);
 var core_1 = __webpack_require__(1);
 var http_1 = __webpack_require__(20);
 var popup_modal_module_1 = __webpack_require__(147);
@@ -20,9 +20,9 @@ var modal_1 = __webpack_require__(103);
 var forms_1 = __webpack_require__(18);
 var common_1 = __webpack_require__(25);
 var shared_component_module_1 = __webpack_require__(78);
-var unidade_medida_service_1 = __webpack_require__(799);
-var listar_unidade_medida_component_1 = __webpack_require__(831);
-var unidade_medida_routing_module_1 = __webpack_require__(851);
+var unidade_medida_service_1 = __webpack_require__(801);
+var listar_unidade_medida_component_1 = __webpack_require__(836);
+var unidade_medida_routing_module_1 = __webpack_require__(859);
 var UnidadeMedidaModule = (function () {
     function UnidadeMedidaModule() {
     }
@@ -50,11 +50,11 @@ UnidadeMedidaModule = __decorate([
     })
 ], UnidadeMedidaModule);
 exports.UnidadeMedidaModule = UnidadeMedidaModule;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/unidade-medida.module.js.map
+//# sourceMappingURL=C:/temp/build/paladar-fit-frontend-angular/src/unidade-medida.module.js.map
 
 /***/ }),
 
-/***/ 799:
+/***/ 801:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -121,11 +121,11 @@ UnidadeMedidaService = __decorate([
 ], UnidadeMedidaService);
 exports.UnidadeMedidaService = UnidadeMedidaService;
 var _a;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/unidade-medida.service.js.map
+//# sourceMappingURL=C:/temp/build/paladar-fit-frontend-angular/src/unidade-medida.service.js.map
 
 /***/ }),
 
-/***/ 831:
+/***/ 836:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -155,7 +155,7 @@ var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
 var event_emitter_services_1 = __webpack_require__(27);
 var abstract_base_component_1 = __webpack_require__(102);
-var unidade_medida_service_1 = __webpack_require__(799);
+var unidade_medida_service_1 = __webpack_require__(801);
 var ListarUnidadeMedidaComponent = (function (_super) {
     __extends(ListarUnidadeMedidaComponent, _super);
     function ListarUnidadeMedidaComponent(unidadeService, router) {
@@ -226,18 +226,18 @@ __decorate([
 ], ListarUnidadeMedidaComponent.prototype, "popupChangeStatus", void 0);
 ListarUnidadeMedidaComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(886),
-        styles: [__webpack_require__(865)]
+        template: __webpack_require__(898),
+        styles: [__webpack_require__(874)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], ListarUnidadeMedidaComponent);
 exports.ListarUnidadeMedidaComponent = ListarUnidadeMedidaComponent;
 var _a, _b;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/listar-unidade-medida.component.js.map
+//# sourceMappingURL=C:/temp/build/paladar-fit-frontend-angular/src/listar-unidade-medida.component.js.map
 
 /***/ }),
 
-/***/ 850:
+/***/ 858:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -265,7 +265,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var forms_1 = __webpack_require__(18);
 var core_1 = __webpack_require__(1);
 var abstract_popup_component_1 = __webpack_require__(64);
-var unidade_medida_service_1 = __webpack_require__(799);
+var unidade_medida_service_1 = __webpack_require__(801);
 var UnidadeMedidaPopupModalComponent = (function (_super) {
     __extends(UnidadeMedidaPopupModalComponent, _super);
     function UnidadeMedidaPopupModalComponent(unidadeService, fb) {
@@ -309,18 +309,18 @@ var UnidadeMedidaPopupModalComponent = (function (_super) {
 UnidadeMedidaPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'unidade-popup-modal',
-        template: __webpack_require__(887),
-        styles: [__webpack_require__(866)]
+        template: __webpack_require__(899),
+        styles: [__webpack_require__(875)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _a || Object, typeof (_b = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _b || Object])
 ], UnidadeMedidaPopupModalComponent);
 exports.UnidadeMedidaPopupModalComponent = UnidadeMedidaPopupModalComponent;
 var _a, _b;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/unidade-medida-popup-modal.component.js.map
+//# sourceMappingURL=C:/temp/build/paladar-fit-frontend-angular/src/unidade-medida-popup-modal.component.js.map
 
 /***/ }),
 
-/***/ 851:
+/***/ 859:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -334,7 +334,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
-var listar_unidade_medida_component_1 = __webpack_require__(831);
+var listar_unidade_medida_component_1 = __webpack_require__(836);
 var routes = [
     {
         path: '',
@@ -369,11 +369,11 @@ UnidadeMedidaRoutingModule = __decorate([
     })
 ], UnidadeMedidaRoutingModule);
 exports.UnidadeMedidaRoutingModule = UnidadeMedidaRoutingModule;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/unidade-medida-routing.module.js.map
+//# sourceMappingURL=C:/temp/build/paladar-fit-frontend-angular/src/unidade-medida-routing.module.js.map
 
 /***/ }),
 
-/***/ 865:
+/***/ 874:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -391,7 +391,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 866:
+/***/ 875:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -409,14 +409,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 886:
+/***/ 898:
 /***/ (function(module, exports) {
 
 module.exports = "<button type=\"button\" class=\"btn btn-success\" (click)=\"unidadeModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo\r\n</button>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de unidade de medida\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th style=\"width: 40%\">Descrição da unidade </th>\r\n                    <th style=\"width: 30%\" class=\"text-center\">Sigla</th>\r\n                    <th style=\"width: 15%\" class=\"text-center\">Situação</th>\r\n                    <th style=\"width: 15%\" class=\"text-center\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td>\r\n                        <strong>{{item.nmUnidadeMedida}}</strong>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <strong>{{item.sgUnidadeMedida}}</strong>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary\" style=\"cursor:pointer\" (click)=\"unidadeModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger\" style=\"cursor:pointer\" (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning\" style=\"cursor:pointer\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a unidade de medida?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeSatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status da unidade de medida?</strong>\r\n</confirm-popup-modal>\r\n\r\n<unidade-popup-modal \r\n    #unidadeModal\r\n    (onClickConfirm)=\"carregarTodos()\">\r\n</unidade-popup-modal>"
 
 /***/ }),
 
-/***/ 887:
+/***/ 899:
 /***/ (function(module, exports) {
 
 module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmUnidadeMedida'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Descrição</label>\r\n      <div class=\"col-sm-6\">\r\n        <input #campoNome type=\"text\" formControlName=\"nmUnidadeMedida\" class=\"form-control input-sm\" name=\"nmUnidadeMedida\" maxlength=\"40\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('sgUnidadeMedida'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Sigla</label>\r\n      <div class=\"col-sm-2\">\r\n        <input type=\"text\" formControlName=\"sgUnidadeMedida\" class=\"form-control input-sm\" name=\"sgUnidadeMedida\" maxlength=\"3\">\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
