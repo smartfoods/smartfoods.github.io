@@ -413,6 +413,14 @@ var ProdutoService = (function (_super) {
     ProdutoService.prototype.findAll = function () {
         return this.http.get(this.url + "/");
     };
+    ProdutoService.prototype.findByCategorias = function (categorias) {
+        var ids = '';
+        for (var _i = 0, categorias_1 = categorias; _i < categorias_1.length; _i++) {
+            var s = categorias_1[_i];
+            ids += s + ',';
+        }
+        return this.http.get(this.url + "/consultarPorCategorias?categorias=" + ids);
+    };
     ProdutoService.prototype.findByCategoriaOrNmProduto = function (idCategoria, nmProduto) {
         return this.http.get(this.url + "/consultarPor?idCategoria=" + idCategoria + "&nmProduto=" + nmProduto);
     };
@@ -1909,7 +1917,7 @@ exports.API_CONFIG = {
     baseUrl: "https://paladarfit.herokuapp.com",
     //baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit",
-    versao: '1.0.2'
+    versao: '1.0.3'
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
 

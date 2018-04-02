@@ -1175,16 +1175,29 @@ var api_config_1 = __webpack_require__(29);
 var produto_service_1 = __webpack_require__(150);
 var abstract_base_component_1 = __webpack_require__(102);
 var trata_error_service_1 = __webpack_require__(27);
+var categoria_service_1 = __webpack_require__(149);
 var ListarProdutosComponent = (function (_super) {
     __extends(ListarProdutosComponent, _super);
-    function ListarProdutosComponent(produtoService, router) {
+    function ListarProdutosComponent(produtoService, categoriaService, router) {
         var _this = _super.call(this) || this;
         _this.produtoService = produtoService;
+        _this.categoriaService = categoriaService;
         _this.router = router;
         _this.bucketUrl = api_config_1.API_CONFIG.bucketBaseUrl;
+        _this.categorias = [];
+        _this.categoraisSelecionada = [];
         return _this;
     }
     ListarProdutosComponent.prototype.ngOnInit = function () {
+        this.carregarDados();
+    };
+    ListarProdutosComponent.prototype.selecionarCheck = function (acao, item) {
+        if (acao) {
+            this.categoraisSelecionada.push(item.id);
+        }
+        else {
+            this.categoraisSelecionada = this.categoraisSelecionada.filter(function (cat) { return cat != item.id; });
+        }
         this.carregarProdutos();
     };
     ListarProdutosComponent.prototype.selecionarItem = function (item) {
@@ -1214,11 +1227,24 @@ var ListarProdutosComponent = (function (_super) {
     ListarProdutosComponent.prototype.alterarProduto = function (produto) {
         this.router.navigate(["produtos/editar/" + produto.id]);
     };
+    ListarProdutosComponent.prototype.carregarDados = function () {
+        var _this = this;
+        this.categoriaService.findAll()
+            .subscribe(function (res) {
+            _this.categorias = res;
+            for (var _i = 0, _a = _this.categorias; _i < _a.length; _i++) {
+                var x = _a[_i];
+                _this.categoraisSelecionada.push(x.id);
+            }
+            _this.carregarProdutos();
+        });
+    };
     ListarProdutosComponent.prototype.carregarProdutos = function () {
         var _this = this;
-        this.produtoService.findAll()
+        this.produtoService.findByCategorias(this.categoraisSelecionada)
             .subscribe(function (res) { return _this.items = res; }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
+    ;
     return ListarProdutosComponent;
 }(abstract_base_component_1.AbstractBaseComponent));
 __decorate([
@@ -1234,10 +1260,10 @@ ListarProdutosComponent = __decorate([
         template: __webpack_require__(883),
         styles: [__webpack_require__(863)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _a || Object, typeof (_b = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _b || Object, typeof (_c = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _c || Object])
 ], ListarProdutosComponent);
 exports.ListarProdutosComponent = ListarProdutosComponent;
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/listar-produtos.component.js.map
 
 /***/ }),
@@ -1606,7 +1632,7 @@ module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-12\">\r\n      
 /***/ 883:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-1\"></div>\n<button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/produtos/novo']\">\n    <i class=\"icon-plus\"></i> Novo\n</button>\n<div class=\"card\">\n    <div class=\"card-header\">\n        <i class=\"fa fa-align-justify\"></i> Listagem de produtos\n    </div>\n    <div class=\"card-block\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th class=\"text-center\" style=\"width: 5%\">\n                        <i class=\"icon-people\"></i>\n                    </th>\n                    <th style=\"width: 40%\">Descrição do produto</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Categoria</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Situação</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Preço</th>\n                    <th style=\"width: 15%\" class=\"text-center\">Ação</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let item of items\">\n                    <td class=\"text-center\">\n                        <div class=\"avatar\">\n                            <foto-uri id=\"{{item.id}}\" modulo=\"PRD\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\n                        </div>\n                    </td>\n                    <td class=\"text-left\">\n                        <div class=\"margin-top\">{{item.nmProduto}}</div>\n                    </td>\n                    <td class=\"text-center\">\n                        <div class=\"margin-top\">{{item?.categoria?.nmCategoria}}</div>\n                    </td>\n                    <td class=\"text-center\">\n                            <div class=\"margin-top\"><status status={{item.status}}></status></div>\n                    </td>\n                    <td class=\"text-right\">\n                            <div class=\"margin-top\">{{item.vlVenda | currency:'BRL':true}}</div>\n                    </td>\n                    <td class=\"text-right\">\n                        <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"alterarProduto(item)\">\n                            <i class=\"fa fa fa-edit\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\" (click)=\"selecionarItem(item)\">\n                            <i class=\"fa fa-eraser\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-warning cursor-hands\" (click)=\"selecionarItemChangeStatus(item)\">\n                            <i class=\"fa fa-exclamation\"> </i>\n                        </button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n<confirm-popup-modal #modalExcluirProduto popupStyle=\"danger\" (onClickConfirm)=\"excluirCategoria()\">\n    <strong>Deseja excluir o produto?</strong>\n</confirm-popup-modal>\n\n<confirm-popup-modal #modalChangeSatusProduto popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\n    <strong>Deseja alterar o status do produto?</strong>\n</confirm-popup-modal>"
+module.exports = "<div class=\"col-md-1\"></div>\n<button type=\"button\" class=\"btn btn-success\" [routerLink]=\"['/produtos/novo']\">\n    <i class=\"icon-plus\"></i> Novo\n</button>\n<div class=\"card\">\n    <div class=\"card-header\">\n        <div class=\"col-md-4\">\n            <i class=\"fa fa-align-justify\"></i> Listagem de produtos\n        </div>\n        <div class=\"col-md-8\">\n            <div class=\"row\">\n                 <div class=\"col-sm-2 col md-4\">Categorias:</div>\n                 <div class=\"col-sm-4 col-md-2\" *ngFor=\"let item of categorias\">\n                    <input type=\"checkbox\" id=\"checkbox1\" \n                        name=\"checkbox1\" \n                        checked=\"true\"\n                        (click)=\"selecionarCheck($event.target.checked, item)\"\n                        > {{item.nmCategoria}}\n                 </div>\n            </div>\n        </div>\n\n    </div>\n    <div class=\"card-block\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th class=\"text-center\" style=\"width: 5%\">\n                        <i class=\"icon-people\"></i>\n                    </th>\n                    <th style=\"width: 40%\">Descrição do produto</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Categoria</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Situação</th>\n                    <th style=\"width: 10%\" class=\"text-center\">Preço</th>\n                    <th style=\"width: 15%\" class=\"text-center\">Ação</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let item of items\">\n                    <td class=\"text-center\">\n                        <div class=\"avatar\">\n                            <foto-uri id=\"{{item.id}}\" modulo=\"PRD\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\n                        </div>\n                    </td>\n                    <td class=\"text-left\">\n                        <div class=\"margin-top\">{{item.nmProduto}}</div>\n                    </td>\n                    <td class=\"text-center\">\n                        <div class=\"margin-top\">{{item?.categoria?.nmCategoria}}</div>\n                    </td>\n                    <td class=\"text-center\">\n                        <div class=\"margin-top\">\n                            <status status={{item.status}}></status>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">\n                        <div class=\"margin-top\">{{item.vlVenda | currency:'BRL':true}}</div>\n                    </td>\n                    <td class=\"text-right\">\n                        <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"alterarProduto(item)\">\n                            <i class=\"fa fa fa-edit\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\" (click)=\"selecionarItem(item)\">\n                            <i class=\"fa fa-eraser\"> </i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-sm btn-warning cursor-hands\" (click)=\"selecionarItemChangeStatus(item)\">\n                            <i class=\"fa fa-exclamation\"> </i>\n                        </button>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n\n<confirm-popup-modal #modalExcluirProduto popupStyle=\"danger\" (onClickConfirm)=\"excluirCategoria()\">\n    <strong>Deseja excluir o produto?</strong>\n</confirm-popup-modal>\n\n<confirm-popup-modal #modalChangeSatusProduto popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\n    <strong>Deseja alterar o status do produto?</strong>\n</confirm-popup-modal>"
 
 /***/ }),
 
