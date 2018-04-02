@@ -263,11 +263,11 @@ var ServicoEntregaPopupModalComponent = (function (_super) {
     };
     ServicoEntregaPopupModalComponent.prototype.show = function () {
         this.criarForm();
-        this.showPopup("Cadastra taxa de entrega");
+        this.showPopup("Cadastra serviço de entrega");
     };
     ServicoEntregaPopupModalComponent.prototype.showAlteracao = function (item) {
         this.alterarForm(item);
-        this.showPopup("Alterar taxa de entrega");
+        this.showPopup("Alterar serviço de entrega");
     };
     ServicoEntregaPopupModalComponent.prototype.btnConfirmar = function (item) {
         this.acao(item, this.servicoService);
