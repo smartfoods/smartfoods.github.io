@@ -1914,10 +1914,10 @@ var _a;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.API_CONFIG = {
-    //baseUrl: "https://paladarfit.herokuapp.com",
-    baseUrl: "http://localhost:8080",
+    baseUrl: "https://paladarfit.herokuapp.com",
+    //baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit",
-    versao: '1.0.6'
+    versao: '1.0.7'
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
 
