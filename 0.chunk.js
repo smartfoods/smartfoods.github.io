@@ -1895,7 +1895,6 @@ var UpdatePedidoComponent = (function (_super) {
         }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
     UpdatePedidoComponent.prototype.atualizarFormulario = function (pedido) {
-        console.log('ped', pedido);
         this.exibirProduto = true;
         this.exibirDadosPedido = true;
         this.enderecos = pedido.cliente.enderecos;
