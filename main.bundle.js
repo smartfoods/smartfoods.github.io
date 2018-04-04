@@ -7,7 +7,7 @@ webpackJsonp([13,17],{
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var event_emitter_services_1 = __webpack_require__(28);
-var combo_dto_1 = __webpack_require__(330);
+var combo_dto_1 = __webpack_require__(332);
 var AbstractBaseComponent = (function () {
     function AbstractBaseComponent() {
         this.maskCPF = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
@@ -156,19 +156,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var adicional_produto_service_1 = __webpack_require__(153);
 var ng2_select_1 = __webpack_require__(155);
-var pesquisar_produto_popup_modal_component_1 = __webpack_require__(325);
+var pesquisar_produto_popup_modal_component_1 = __webpack_require__(327);
 var categoria_service_1 = __webpack_require__(149);
 var forms_1 = __webpack_require__(18);
 var angular2_text_mask_1 = __webpack_require__(104);
 var consulta_cep_service_1 = __webpack_require__(151);
-var cep_popup_modal_component_1 = __webpack_require__(321);
-var base_popup_modal_component_1 = __webpack_require__(324);
-var confirm_popup_modal_component_1 = __webpack_require__(323);
+var cep_popup_modal_component_1 = __webpack_require__(323);
+var base_popup_modal_component_1 = __webpack_require__(326);
+var confirm_popup_modal_component_1 = __webpack_require__(325);
 var core_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(25);
 var modal_1 = __webpack_require__(103);
 var shared_component_module_1 = __webpack_require__(78);
-var pesquisar_cliente_popup_modal_component_1 = __webpack_require__(322);
+var pesquisar_cliente_popup_modal_component_1 = __webpack_require__(324);
 var cliente_service_1 = __webpack_require__(148);
 var produto_service_1 = __webpack_require__(150);
 // DataTable
@@ -615,7 +615,7 @@ var p404Component = (function () {
 }());
 p404Component = __decorate([
     core_1.Component({
-        template: __webpack_require__(510)
+        template: __webpack_require__(512)
     }),
     __metadata("design:paramtypes", [])
 ], p404Component);
@@ -798,8 +798,8 @@ var FullLayoutComponent = (function () {
 FullLayoutComponent = __decorate([
     core_1.Component({
         selector: 'app-dashboard',
-        styles: [__webpack_require__(489)],
-        template: __webpack_require__(506),
+        styles: [__webpack_require__(491)],
+        template: __webpack_require__(508),
         providers: []
     }),
     __metadata("design:paramtypes", [])
@@ -940,7 +940,7 @@ var LoginComponent = (function () {
 }());
 LoginComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(511)
+        template: __webpack_require__(513)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object, typeof (_c = typeof log_service_1.LogService !== "undefined" && log_service_1.LogService) === "function" && _c || Object])
 ], LoginComponent);
@@ -973,7 +973,7 @@ var RegisterComponent = (function () {
 }());
 RegisterComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(512)
+        template: __webpack_require__(514)
     }),
     __metadata("design:paramtypes", [])
 ], RegisterComponent);
@@ -1065,8 +1065,8 @@ __decorate([
 ], ListarUsuarioComponent.prototype, "popupChangeStatus", void 0);
 ListarUsuarioComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(513),
-        styles: [__webpack_require__(484)]
+        template: __webpack_require__(515),
+        styles: [__webpack_require__(486)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof usuario_service_1.UsuarioService !== "undefined" && usuario_service_1.UsuarioService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], ListarUsuarioComponent);
@@ -1161,7 +1161,7 @@ __decorate([
 ], SenhaUsuarioComponent.prototype, "campo", void 0);
 SenhaUsuarioComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(516)
+        template: __webpack_require__(518)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _a || Object, typeof (_b = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _b || Object, typeof (_c = typeof usuario_service_1.UsuarioService !== "undefined" && usuario_service_1.UsuarioService) === "function" && _c || Object])
 ], SenhaUsuarioComponent);
@@ -1404,57 +1404,57 @@ exports.TrataErrorService = TrataErrorService;
 
 var map = {
 	"./layout/dashboard/dashboard.module": [
-		790,
+		792,
 		11
 	],
 	"./pages/admin/config-pages.module": [
-		791,
+		793,
 		10
 	],
 	"./pages/auth/auth.module": [
 		162
 	],
 	"./pages/cadastros/cliente/cliente.module": [
-		789,
+		791,
 		4
 	],
 	"./pages/cadastros/produto/produto.module": [
-		792,
+		794,
 		1
 	],
 	"./pages/cadastros/usuario/usuario.module": [
 		167
 	],
 	"./pages/config/adicional/adicional-produto.module": [
-		793,
+		795,
 		2
 	],
 	"./pages/config/categoria/categoria.module": [
-		794,
+		796,
 		9
 	],
 	"./pages/config/formapagamento/forma-pagamento.module": [
-		795,
+		797,
 		8
 	],
 	"./pages/config/infonutricional/info-nutricional.module": [
-		796,
+		798,
 		6
 	],
 	"./pages/config/servicoentrega/servico-entrega.module": [
-		797,
+		799,
 		7
 	],
 	"./pages/config/taxaentrega/taxa-entrega.module": [
-		798,
+		800,
 		3
 	],
 	"./pages/config/unidademedida/unidade-medida.module": [
-		799,
+		801,
 		5
 	],
 	"./pages/pedido/pedido.module": [
-		800,
+		802,
 		0
 	]
 };
@@ -1483,7 +1483,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var platform_browser_dynamic_1 = __webpack_require__(282);
 var app_module_1 = __webpack_require__(285);
-var environment_1 = __webpack_require__(328);
+var environment_1 = __webpack_require__(330);
 if (environment_1.environment.production) {
     core_1.enableProdMode();
 }
@@ -1499,7 +1499,7 @@ platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
-var toater_mensagem_model_1 = __webpack_require__(329);
+var toater_mensagem_model_1 = __webpack_require__(331);
 var tipo_mensagem_enum_1 = __webpack_require__(169);
 var EventEmitterService = (function () {
     function EventEmitterService() {
@@ -1606,7 +1606,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'body',
-        template: __webpack_require__(505)
+        template: __webpack_require__(507)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof angular2_toaster_1.ToasterService !== "undefined" && angular2_toaster_1.ToasterService) === "function" && _a || Object])
 ], AppComponent);
@@ -1641,7 +1641,7 @@ var dropdown_1 = __webpack_require__(156);
 var tabs_1 = __webpack_require__(152);
 var nav_dropdown_directive_1 = __webpack_require__(302);
 var ng2_charts_1 = __webpack_require__(279);
-var sidebar_directive_1 = __webpack_require__(303);
+var sidebar_directive_1 = __webpack_require__(304);
 var aside_directive_1 = __webpack_require__(297);
 var angular2_toaster_1 = __webpack_require__(172);
 var auth_guard_service_1 = __webpack_require__(168);
@@ -1651,8 +1651,8 @@ var auth_service_1 = __webpack_require__(46);
 var app_routing_1 = __webpack_require__(159);
 //Layouts
 var layout_module_1 = __webpack_require__(288);
-var error_interceptor_1 = __webpack_require__(327);
-var auth_interceptor_1 = __webpack_require__(326);
+var error_interceptor_1 = __webpack_require__(329);
+var auth_interceptor_1 = __webpack_require__(328);
 var _404_component_1 = __webpack_require__(154);
 var AppModule = (function () {
     function AppModule() {
@@ -1779,7 +1779,7 @@ var HeardSideBarComponent = (function () {
 HeardSideBarComponent = __decorate([
     core_1.Component({
         selector: 'heard-side-bar',
-        template: __webpack_require__(507)
+        template: __webpack_require__(509)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof usuario_service_1.UsuarioService !== "undefined" && usuario_service_1.UsuarioService) === "function" && _a || Object, typeof (_b = typeof image_service_1.ImageService !== "undefined" && image_service_1.ImageService) === "function" && _b || Object])
 ], HeardSideBarComponent);
@@ -1811,9 +1811,9 @@ var app_routing_1 = __webpack_require__(159);
 var shared_component_module_1 = __webpack_require__(78);
 var popup_modal_module_1 = __webpack_require__(147);
 var dropdown_1 = __webpack_require__(156);
-var aside_directive_1 = __webpack_require__(307);
-var sidebar_directive_1 = __webpack_require__(313);
-var nav_dropdown_directive_1 = __webpack_require__(311);
+var aside_directive_1 = __webpack_require__(309);
+var sidebar_directive_1 = __webpack_require__(315);
+var nav_dropdown_directive_1 = __webpack_require__(313);
 var breadcrumb_component_1 = __webpack_require__(298);
 var footer_component_1 = __webpack_require__(286);
 var menu_side_bar_component_1 = __webpack_require__(289);
@@ -1897,7 +1897,7 @@ var MenuSideBarComponent = (function () {
 MenuSideBarComponent = __decorate([
     core_1.Component({
         selector: 'menu-side-bar',
-        template: __webpack_require__(508)
+        template: __webpack_require__(510)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _a || Object])
 ], MenuSideBarComponent);
@@ -1917,7 +1917,7 @@ exports.API_CONFIG = {
     baseUrl: "https://paladarfit.herokuapp.com",
     //baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit",
-    versao: '1.0.7'
+    versao: '1.0.8'
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
 
@@ -1954,7 +1954,7 @@ var UpSideBarComponent = (function () {
 UpSideBarComponent = __decorate([
     core_1.Component({
         selector: 'up-side-bar',
-        template: __webpack_require__(509)
+        template: __webpack_require__(511)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _a || Object])
 ], UpSideBarComponent);
@@ -2096,8 +2096,8 @@ var SenhaPopupModalComponent = (function (_super) {
 SenhaPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'senha-popup-modal',
-        template: __webpack_require__(514),
-        styles: [__webpack_require__(485)]
+        template: __webpack_require__(516),
+        styles: [__webpack_require__(487)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof usuario_service_1.UsuarioService !== "undefined" && usuario_service_1.UsuarioService) === "function" && _b || Object])
 ], SenhaPopupModalComponent);
@@ -2233,8 +2233,8 @@ var UsuarioPopupModalComponent = (function (_super) {
 UsuarioPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'usuario-popup-modal',
-        template: __webpack_require__(515),
-        styles: [__webpack_require__(486)]
+        template: __webpack_require__(517),
+        styles: [__webpack_require__(488)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof usuario_service_1.UsuarioService !== "undefined" && usuario_service_1.UsuarioService) === "function" && _b || Object])
 ], UsuarioPopupModalComponent);
@@ -2772,6 +2772,57 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
+var OrigemPedidoComponent = (function () {
+    function OrigemPedidoComponent() {
+    }
+    OrigemPedidoComponent.prototype.ngOnInit = function () {
+        switch (this.status) {
+            case 'W':
+                this.texto = 'Web Internet';
+                break;
+            case 'A':
+                this.texto = 'Mobile - Android';
+                break;
+            case 'I':
+                this.texto = 'Mobile - IOS';
+                break;
+        }
+        this.class = 'default';
+    };
+    return OrigemPedidoComponent;
+}());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], OrigemPedidoComponent.prototype, "status", void 0);
+OrigemPedidoComponent = __decorate([
+    core_1.Component({
+        selector: 'origem-pedido',
+        template: '<span  class="badge badge-{{class}}">{{texto}}</span>'
+    }),
+    __metadata("design:paramtypes", [])
+], OrigemPedidoComponent);
+exports.OrigemPedidoComponent = OrigemPedidoComponent;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/origem-pedido.component.js.map
+
+/***/ }),
+
+/***/ 304:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
 /**
 * Allows the sidebar to be toggled via click.
 */
@@ -2872,7 +2923,7 @@ exports.SIDEBAR_TOGGLE_DIRECTIVES = [SidebarToggleDirective, SidebarOffCanvasClo
 
 /***/ }),
 
-/***/ 304:
+/***/ 305:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2921,7 +2972,68 @@ exports.SimNaoComponent = SimNaoComponent;
 
 /***/ }),
 
-/***/ 305:
+/***/ 306:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var StatusPedidoComponent = (function () {
+    function StatusPedidoComponent() {
+    }
+    StatusPedidoComponent.prototype.ngOnInit = function () {
+        switch (this.status) {
+            case 'E':
+                this.texto = 'Enviado';
+                this.class = 'info';
+                break;
+            case 'P':
+                this.texto = 'Em preparação';
+                this.class = 'info';
+                break;
+            case 'C':
+                this.texto = 'Cancelado';
+                this.class = 'danger';
+                break;
+            case 'G':
+                this.texto = 'Na rota de Entrega';
+                this.class = 'primary';
+                break;
+            case 'T':
+                this.texto = 'Entrega';
+                this.class = 'success';
+                break;
+        }
+    };
+    return StatusPedidoComponent;
+}());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], StatusPedidoComponent.prototype, "status", void 0);
+StatusPedidoComponent = __decorate([
+    core_1.Component({
+        selector: 'status-pedido',
+        template: '<span  class="badge badge-{{class}}">{{texto}}</span>'
+    }),
+    __metadata("design:paramtypes", [])
+], StatusPedidoComponent);
+exports.StatusPedidoComponent = StatusPedidoComponent;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/status-pedido.component.js.map
+
+/***/ }),
+
+/***/ 307:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2970,7 +3082,7 @@ exports.StatusComponent = StatusComponent;
 
 /***/ }),
 
-/***/ 306:
+/***/ 308:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3078,7 +3190,7 @@ exports.UploadImagemComponent = UploadImagemComponent;
 
 /***/ }),
 
-/***/ 307:
+/***/ 309:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3123,7 +3235,7 @@ exports.AsideToggleDirective = AsideToggleDirective;
 
 /***/ }),
 
-/***/ 308:
+/***/ 310:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3165,7 +3277,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 309:
+/***/ 311:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3213,7 +3325,7 @@ var _a;
 
 /***/ }),
 
-/***/ 310:
+/***/ 312:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3253,7 +3365,7 @@ var _a;
 
 /***/ }),
 
-/***/ 311:
+/***/ 313:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3343,7 +3455,7 @@ exports.NAV_DROPDOWN_DIRECTIVES = [NavDropdownDirective, NavDropdownToggleDirect
 
 /***/ }),
 
-/***/ 312:
+/***/ 314:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3399,7 +3511,7 @@ var _a;
 
 /***/ }),
 
-/***/ 313:
+/***/ 315:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3515,7 +3627,7 @@ exports.SIDEBAR_TOGGLE_DIRECTIVES = [SidebarToggleDirective, SidebarOffCanvasClo
 
 /***/ }),
 
-/***/ 314:
+/***/ 316:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3555,7 +3667,7 @@ var _a;
 
 /***/ }),
 
-/***/ 315:
+/***/ 317:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3590,7 +3702,7 @@ exports.CepPipe = CepPipe;
 
 /***/ }),
 
-/***/ 316:
+/***/ 318:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3623,7 +3735,7 @@ exports.CnpjPipe = CnpjPipe;
 
 /***/ }),
 
-/***/ 317:
+/***/ 319:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3660,7 +3772,7 @@ exports.CpfCnpjPipe = CpfCnpjPipe;
 
 /***/ }),
 
-/***/ 318:
+/***/ 320:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3693,7 +3805,7 @@ exports.CpfPipe = CpfPipe;
 
 /***/ }),
 
-/***/ 319:
+/***/ 321:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3726,7 +3838,7 @@ exports.DataPipe = DataPipe;
 
 /***/ }),
 
-/***/ 320:
+/***/ 322:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3761,7 +3873,7 @@ exports.TelefonePipe = TelefonePipe;
 
 /***/ }),
 
-/***/ 321:
+/***/ 323:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3888,7 +4000,7 @@ var CepModalComponent = (function (_super) {
 CepModalComponent = __decorate([
     core_1.Component({
         selector: 'cep-popup-modal',
-        template: __webpack_require__(517)
+        template: __webpack_require__(519)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof consulta_cep_service_1.ConsultaCEPService !== "undefined" && consulta_cep_service_1.ConsultaCEPService) === "function" && _a || Object, typeof (_b = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _b || Object])
 ], CepModalComponent);
@@ -3898,7 +4010,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 322:
+/***/ 324:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3954,7 +4066,7 @@ var PesquisarClienteModalComponent = (function (_super) {
     };
     PesquisarClienteModalComponent.prototype.selecionarCliente = function (cliente) {
         this.cliente = cliente;
-        this.desabilitarBtnSelecione = false;
+        this.modalConfirm.btnBaseConfirmar();
     };
     PesquisarClienteModalComponent.prototype.btnConfirmar = function () {
         this.onClickConfirm.emit(this.cliente);
@@ -3969,10 +4081,14 @@ var PesquisarClienteModalComponent = (function (_super) {
     };
     return PesquisarClienteModalComponent;
 }(abstract_popup_component_1.AbstractPopupComponent));
+__decorate([
+    core_1.ViewChild('modalConfirm'),
+    __metadata("design:type", Object)
+], PesquisarClienteModalComponent.prototype, "modalConfirm", void 0);
 PesquisarClienteModalComponent = __decorate([
     core_1.Component({
         selector: 'pesquisar-cliente-popup-modal',
-        template: __webpack_require__(518)
+        template: __webpack_require__(520)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof cliente_service_1.ClienteService !== "undefined" && cliente_service_1.ClienteService) === "function" && _a || Object, typeof (_b = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _b || Object])
 ], PesquisarClienteModalComponent);
@@ -3982,7 +4098,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 323:
+/***/ 325:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4040,8 +4156,8 @@ __decorate([
 ConfirmPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'confirm-popup-modal',
-        styles: [__webpack_require__(487)],
-        template: __webpack_require__(519)
+        styles: [__webpack_require__(489)],
+        template: __webpack_require__(521)
     }),
     __metadata("design:paramtypes", [])
 ], ConfirmPopupModalComponent);
@@ -4050,7 +4166,7 @@ exports.ConfirmPopupModalComponent = ConfirmPopupModalComponent;
 
 /***/ }),
 
-/***/ 324:
+/***/ 326:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4071,6 +4187,7 @@ var BasePopupModalComponent = (function () {
     function BasePopupModalComponent() {
         this.exibirBtnSelecione = false;
         this.desabilitarBtnConfirmar = false;
+        this.ocultarBotoes = false;
         this.onClickBaseConfirm = new core_1.EventEmitter();
     }
     BasePopupModalComponent.prototype.ngOnInit = function () {
@@ -4112,14 +4229,18 @@ __decorate([
     __metadata("design:type", Boolean)
 ], BasePopupModalComponent.prototype, "desabilitarBtnConfirmar", void 0);
 __decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], BasePopupModalComponent.prototype, "ocultarBotoes", void 0);
+__decorate([
     core_1.Output(),
     __metadata("design:type", Object)
 ], BasePopupModalComponent.prototype, "onClickBaseConfirm", void 0);
 BasePopupModalComponent = __decorate([
     core_1.Component({
         selector: 'base-popup-modal',
-        styles: [__webpack_require__(488)],
-        template: __webpack_require__(520)
+        styles: [__webpack_require__(490)],
+        template: __webpack_require__(522)
     }),
     __metadata("design:paramtypes", [])
 ], BasePopupModalComponent);
@@ -4128,7 +4249,7 @@ exports.BasePopupModalComponent = BasePopupModalComponent;
 
 /***/ }),
 
-/***/ 325:
+/***/ 327:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4271,7 +4392,7 @@ var PesquisarProdutoModalComponent = (function (_super) {
 PesquisarProdutoModalComponent = __decorate([
     core_1.Component({
         selector: 'pesquisar-produto-popup-modal',
-        template: __webpack_require__(521)
+        template: __webpack_require__(523)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _a || Object, typeof (_b = typeof adicional_produto_service_1.AdicionalProdutoService !== "undefined" && adicional_produto_service_1.AdicionalProdutoService) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _c || Object, typeof (_d = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _d || Object])
 ], PesquisarProdutoModalComponent);
@@ -4281,7 +4402,7 @@ var _a, _b, _c, _d;
 
 /***/ }),
 
-/***/ 326:
+/***/ 328:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4333,7 +4454,7 @@ var _a;
 
 /***/ }),
 
-/***/ 327:
+/***/ 329:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4351,7 +4472,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var storage_service_1 = __webpack_require__(65);
 var core_1 = __webpack_require__(1);
 var http_1 = __webpack_require__(20);
-var Rx_1 = __webpack_require__(523); // IMPORTANTE: IMPORT ATUALIZADO
+var Rx_1 = __webpack_require__(525); // IMPORTANTE: IMPORT ATUALIZADO
 var trata_error_service_1 = __webpack_require__(27);
 var ErrorInterceptor = (function () {
     function ErrorInterceptor(storage) {
@@ -4410,7 +4531,7 @@ var _a;
 
 /***/ }),
 
-/***/ 328:
+/***/ 330:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4427,7 +4548,7 @@ exports.environment = {
 
 /***/ }),
 
-/***/ 329:
+/***/ 331:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4461,7 +4582,7 @@ exports.ToasterMensagem = ToasterMensagem;
 
 /***/ }),
 
-/***/ 330:
+/***/ 332:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4510,7 +4631,7 @@ var http_1 = __webpack_require__(20);
 var core_1 = __webpack_require__(1);
 var api_config_1 = __webpack_require__(29);
 var storage_service_1 = __webpack_require__(65);
-var angular2_jwt_1 = __webpack_require__(331);
+var angular2_jwt_1 = __webpack_require__(333);
 var AuthService = (function (_super) {
     __extends(AuthService, _super);
     function AuthService(http, router, storage) {
@@ -4566,7 +4687,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 484:
+/***/ 486:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -4584,7 +4705,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 485:
+/***/ 487:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -4602,7 +4723,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 486:
+/***/ 488:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -4620,7 +4741,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 487:
+/***/ 489:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -4638,7 +4759,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 488:
+/***/ 490:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -4656,7 +4777,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 489:
+/***/ 491:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -4674,122 +4795,122 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 505:
+/***/ 507:
 /***/ (function(module, exports) {
 
 module.exports = "<router-outlet></router-outlet>\r\n\r\n<toaster-container [toasterconfig]=\"toasterconfig\"></toaster-container>\r\n"
 
 /***/ }),
 
-/***/ 506:
+/***/ 508:
 /***/ (function(module, exports) {
 
 module.exports = "<up-side-bar>\r\n</up-side-bar>\r\n<div class=\"app-body\">\r\n    <div class=\"sidebar\">\r\n        <div class=\"sidebar-header\">\r\n            <heard-side-bar></heard-side-bar>\r\n        </div>\r\n        <nav class=\"sidebar-nav\">\r\n            <menu-side-bar></menu-side-bar>\r\n        </nav>\r\n    </div>\r\n\r\n    <!-- Main content -->\r\n    <main class=\"main\">\r\n\r\n        <!-- Breadcrumb -->\r\n        <ol class=\"breadcrumb\">\r\n            <breadcrumbs></breadcrumbs>\r\n        </ol>\r\n        <div class=\"container-fluid\">\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n        <!-- /.conainer-fluid -->\r\n    </main>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
-/***/ 507:
+/***/ 509:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"sidebar-header\">\r\n  <foto src=\"{{urlFotoPerfil}}\" classCss=\"img-avatar\" alt=\"Avatar\"></foto>\r\n  <div>\r\n    <strong> {{nmUsuario}}</strong>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
-/***/ 508:
+/***/ 510:
 /***/ (function(module, exports) {
 
 module.exports = "<ul class=\"nav\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/dashboard']\">\r\n      <i class=\"icon-speedometer\"></i>Dashboard\r\n    </a>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-server\"></i>Pedidos</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/pedidos/novo']\">\r\n          <i class=\"fa fa-cart-plus\"></i>Novo</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/pedidos/listar']\">\r\n          <i class=\"fa fa-cart-arrow-down\"></i>Acompanhamento</a>\r\n      </li>\r\n\r\n    </ul>\r\n  </li>\r\n\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-folder\"></i>Cadastro</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/listar']\">\r\n          <i class=\"fa fa-user\"></i>Usuário</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/clientes/listar']\">\r\n          <i class=\"fa fa-users\"></i>Clientes</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/produtos/listar']\">\r\n          <i class=\"fa fa-building-o\"></i>Produtos</a>\r\n      </li>\r\n\r\n    </ul>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"icon-settings\"></i> Configurações</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/unidades/listar']\">\r\n          <i class=\"fa fa-cube\"></i>Unidade medida</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/categorias/listar']\">\r\n          <i class=\"fa fa-object-group\"></i>Categorias</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/infonutricional/listar']\">\r\n          <i class=\"fa fa-reorder\"></i>Info Nutricional</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/adicionais/listar']\">\r\n          <i class=\"fa fa-cubes\"></i>Adicionais</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/formapagamento/listar']\">\r\n          <i class=\"fa fa-money\"></i>Forma de Pagamento</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/taxaentrega/listar']\">\r\n          <i class=\"fa fa-truck\"></i>Taxa de entrega</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/servicoentrega/listar']\">\r\n          <i class=\"fa fa-motorcycle\"></i>Servico de entrega</a>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link cursor-hands\" routerLinkActive=\"active\" (click)=\"logout()\">\r\n      <i class=\"fa fa-power-off\"></i>Sair\r\n    </a>\r\n  </li>\r\n\r\n</ul>"
 
 /***/ }),
 
-/***/ 509:
+/***/ 511:
 /***/ (function(module, exports) {
 
 module.exports = "<header class=\"app-header navbar\">\r\n  <button class=\"navbar-toggler mobile-sidebar-toggler hidden-lg-up\" type=\"button\">&#9776;</button>\r\n\r\n  <a class=\"navbar-brand\" href=\"#\"></a>\r\n  <ul class=\"nav navbar-nav hidden-md-down\">\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link navbar-toggler sidebar-toggler\" href=\"#\"><i class=\"fa fa-navicon\"></i></a>\r\n    </li>\r\n    <li class=\"nav-item px-1\">\r\n      <a class=\"nav-link\" href=\"#\">Dashboard</a>\r\n    </li>\r\n  </ul>\r\n\r\n  <ul class=\"nav navbar-nav ml-auto\">\r\n    <li class=\"nav-item dropdown hidden-md-down\" dropdown placement=\"bottom right\">\r\n      <a class=\"nav-link\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\" dropdownToggle>\r\n        <i class=\"icon-bell\"></i>\r\n        <span class=\"badge badge-pill badge-danger\">5</span>\r\n      </a>\r\n\r\n      <div class=\"dropdown-menu dropdown-menu-right dropdown-menu-lg\" *dropdownMenu aria-labelledby=\"simple-dropdown\">\r\n\r\n        <div class=\"dropdown-header text-center\">\r\n          <strong>You have 5 notifications</strong>\r\n        </div>\r\n\r\n        <a href=\"#\" class=\"dropdown-item\">\r\n          <i class=\"icon-user-follow text-success\"></i> New user registered\r\n        </a>\r\n        <a href=\"#\" class=\"dropdown-item\">\r\n          <i class=\"icon-user-unfollow text-danger\"></i> User deleted\r\n        </a>\r\n        <a href=\"#\" class=\"dropdown-item\">\r\n          <i class=\"icon-chart text-info\"></i> Sales report is ready\r\n        </a>\r\n        <a href=\"#\" class=\"dropdown-item\">\r\n          <i class=\"icon-basket-loaded text-primary\"></i> New client\r\n        </a>\r\n        <a href=\"#\" class=\"dropdown-item\">\r\n          <i class=\"icon-speedometer text-warning\"></i> Server overloaded\r\n        </a>\r\n\r\n      </div>\r\n    </li>\r\n\r\n    <li class=\"nav-item dropdown\" dropdown placement=\"bottom right\">\r\n      <a class=\"nav-link navbar-toggler\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n        dropdownToggle><i class=\"fa fa-navicon\"></i>\r\n      </a>\r\n\r\n      <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu aria-labelledby=\"simple-dropdown\">\r\n\r\n        <div class=\"dropdown-header text-center\">\r\n          <strong>Contas</strong>\r\n        </div>\r\n\r\n        <a class=\"dropdown-item\" href=\"#\">\r\n          <i class=\"fa fa-bell-o\"></i> Atualizações\r\n          <span class=\"badge badge-info\">42</span>\r\n        </a>\r\n        <a class=\"dropdown-item\" href=\"#\">\r\n          <i class=\"fa fa-envelope-o\"></i> Mensagens\r\n          <span class=\"badge badge-success\">42</span>\r\n        </a>\r\n        <a class=\"dropdown-item\" href=\"#\">\r\n          <i class=\"fa fa-tasks\"></i> Tarefas\r\n          <span class=\"badge badge-danger\">42</span>\r\n        </a>\r\n        <a class=\"dropdown-item\" href=\"#\">\r\n          <i class=\"fa fa-comments\"></i> Comentários\r\n          <span class=\"badge badge-warning\">42</span>\r\n        </a>\r\n\r\n        <div class=\"dropdown-header text-center\">\r\n          <strong>Configurações</strong>\r\n        </div>\r\n\r\n        <a class=\"dropdown-item\" [routerLink]=\"['/clientes/perfil/']\">\r\n          <i class=\"fa fa-user\"></i> Perfil</a>\r\n        <a class=\"dropdown-item\" [routerLink]=\"['/usuarios/changePassword/']\">\r\n          <i class=\"fa fa-lock\"></i> Alterar senha</a>\r\n        <div class=\"divider\"></div>\r\n        <a class=\"dropdown-item\" href=\"#\" (click)=\"logout()\">\r\n          <i class=\"fa fa-power-off\"></i> Sair</a>\r\n      </div>\r\n    </li>\r\n  </ul>\r\n</header>"
 
 /***/ }),
 
-/***/ 510:
+/***/ 512:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-6\">\n        <div class=\"clearfix\">\n          <h1 class=\"float-left display-3 mr-2\">404</h1>\n          <h4 class=\"pt-1\">Oops! You're lost.</h4>\n          <p class=\"text-muted\">The page you are looking for was not found.</p>\n        </div>\n        <div class=\"input-prepend input-group\">\n          <span class=\"input-group-addon\"><i class=\"fa fa-search\"></i></span>\n          <input id=\"prependedInput\" class=\"form-control\" size=\"16\" type=\"text\" placeholder=\"What are you looking for?\">\n          <span class=\"input-group-btn\">\n            <button class=\"btn btn-info\" type=\"button\">Search</button>\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 511:
+/***/ 513:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-8\">\n        <alert-field-mensagem></alert-field-mensagem>\n        <div class=\"card-group mb-0\">\n          <div class=\"card p-2\">\n            <form>\n              <div class=\"card-block\">\n                <h1>Smartfood</h1>\n                <div class=\"small text-muted\">{{versao}}</div>\n                <br/>\n                <div class=\"input-group mb-1\">\n                  <span class=\"input-group-addon\">\n                    <i class=\"icon-user\"></i>\n                  </span>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"login\" [(ngModel)]=\"creds.dsLogin\" name=\"login\">\n                </div>\n                <div class=\"input-group mb-2\">\n                  <span class=\"input-group-addon\">\n                    <i class=\"icon-lock\"></i>\n                  </span>\n                  <input type=\"password\" class=\"form-control\" placeholder=\"senha\" [(ngModel)]=\"creds.dsSenha\" name=\"senha\">\n                </div>\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-8\">\n                    <button type=\"button\" class=\"btn btn-block btn-primary px-2 cursor-hands\"  (click)=\"login()\">Login</button>\n                  </div>\n                  <div class=\"col-md-6 col-sm-8\">\n                    <button type=\"button\" class=\"btn btn-link px-0 cursor-hands\">Esqueceu a senha?</button>\n                  </div>\n                </div>\n              </div>\n            </form>\n          </div>\n          <div class=\"card py-3 hidden-md-down\" style=\"width:44%\">\n            <div class=\"card-block text-center\">\n              <img src=\"./assets/img/logo_paladar_fit.png\" style=\"height: 100%; width: 100%\">\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 512:
+/***/ 514:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-6\">\n        <div class=\"card mx-2\">\n          <div class=\"card-block p-2\">\n            <h1>Register</h1>\n            <p class=\"text-muted\">Create your account</p>\n            <div class=\"input-group mb-1\">\n              <span class=\"input-group-addon\"><i class=\"icon-user\"></i></span>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Username\">\n            </div>\n\n            <div class=\"input-group mb-1\">\n              <span class=\"input-group-addon\">@</span>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Email\">\n            </div>\n\n            <div class=\"input-group mb-1\">\n              <span class=\"input-group-addon\"><i class=\"icon-lock\"></i></span>\n              <input type=\"password\" class=\"form-control\" placeholder=\"Password\">\n            </div>\n\n            <div class=\"input-group mb-2\">\n              <span class=\"input-group-addon\"><i class=\"icon-lock\"></i></span>\n              <input type=\"password\" class=\"form-control\" placeholder=\"Repeat password\">\n            </div>\n\n            <button type=\"button\" class=\"btn btn-block btn-success\">Create Account</button>\n          </div>\n          <div class=\"card-footer p-2\">\n            <div class=\"row\">\n              <div class=\"col-6\">\n                <button class=\"btn btn-block btn-facebook\" type=\"button\"><span>facebook</span></button>\n              </div>\n              <div class=\"col-6\">\n                <button class=\"btn btn-block btn-twitter\" type=\"button\"><span>twitter</span></button>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 513:
+/***/ 515:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"usuarioModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo</button>\r\n\r\n\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de usuários\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th style=\"width: 25%\">Nome</th>\r\n                    <th style=\"width: 20%\">CPF / Cnpj </th>\r\n                    <th style=\"width: 20%\">E-mail</th>\r\n                    <th style=\"width: 18%\">Login</th>\r\n                    <th style=\"width: 5%\">Situação</th>\r\n                    <th style=\"width: 12%\" class=\"text-center\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td>\r\n                        {{item.nmPessoa | uppercase}}\r\n                    </td>\r\n                    <td class=\"text-left\">\r\n                        {{item.nrDocumento | cpfCnpj}}\r\n                    </td>\r\n                    <td class=\"text-left\">\r\n                        {{item.edEmail}}\r\n                    </td>\r\n                    <td class=\"text-left\">\r\n                        {{item.dsLogin}}\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"usuarioModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"senhaModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa-lock\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\"  (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning cursor-hands\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n\r\n            </tbody>\r\n        </table>\r\n\r\n    </div>\r\n</div>\r\n\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeStatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status do cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<usuario-popup-modal #usuarioModal (onClickConfirm)=\"carregarTodos()\"></usuario-popup-modal>\r\n<senha-popup-modal #senhaModal (onClickConfirm)=\"carregarTodos()\"></senha-popup-modal>"
 
 /***/ }),
 
-/***/ 514:
+/***/ 516:
 /***/ (function(module, exports) {
 
 module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"lg\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n\r\n    <div class=\"form-group row\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"text\" class=\"form-control input-sm\" value=\"{{usuario.dsLogin}}\" [readonly]=\"true\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsSenha'))\" >\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n      <div class=\"col-sm-4\">\r\n        <input #campoNome type=\"password\" formControlName=\"dsSenha\" class=\"form-control input-sm\" name=\"dsSenha\" maxlength=\"8\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('senhaConfirmacao'))\" >\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\" maxlength=\"8\">\r\n      </div>\r\n    </div> \r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
-/***/ 515:
+/***/ 517:
 /***/ (function(module, exports) {
 
 module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"lg\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nrDocumento'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">CPF</label>\r\n      <div class=\"col-sm-4\">\r\n        <input #campoNome type=\"text\" formControlName=\"nrDocumento\" class=\"form-control input-sm\" name=\"nrDocumento\" [textMask]=\"{mask: maskCPF}\"\r\n          (blur)=\"consultarCpf($event.target.value)\" [readonly]=\"isAlteracao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmPessoa'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\r\n      <div class=\"col-sm-8\">\r\n        <input upper type=\"text\" formControlName=\"nmPessoa\" class=\"form-control input-sm\" name=\"nmPessoa\" maxlength=\"100\" [readonly]=\"isAlteracao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('edEmail'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">E-mail</label>\r\n      <div class=\"col-sm-8\">\r\n        <input lower type=\"text\" class=\"form-control input-sm\" formControlName=\"edEmail\" name=\"edEmail\" maxlength=\"100\" (blur)=\"consultarEdEmail($event.target.value)\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsLogin'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n      <div class=\"col-sm-4\">\r\n        <input lower type=\"text\" formControlName=\"dsLogin\" class=\"form-control input-sm\" name=\"dsLogin\" (blur)=\"consultarLogin($event.target.value)\"\r\n          [readonly]=\"formulario.get('emAlteracao').value\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsSenha'))\" *ngIf=\"!isAlteracao\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"dsSenha\" class=\"form-control input-sm\" name=\"dsSenha\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('senhaConfirmacao'))\" *ngIf=\"!isAlteracao\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('perfil'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Perfil</label>\r\n      <div class=\"col-sm-4\">\r\n        <select class=\"form-control\" id=\"perfil\" formControlName=\"perfil\" name=\"perfil\">\r\n          <option value=\"0\">:: selecione ::</option>\r\n          <option value=\"A\">Administrador</option>\r\n          <option value=\"C\">Cliente</option>\r\n        </select>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
-/***/ 516:
+/***/ 518:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Alteração de senha</strong>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-12 col-sm-12\">\r\n              <alert-mensagem [mostrarErro]=\"isErro\" titulo=\"Erro:\" [mensagem]=\"errorMensagem\"></alert-mensagem>\r\n\r\n              <form [formGroup]=\"formulario\">\r\n\r\n                <div class=\"form-group row\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\r\n                  <div class=\"col-sm-4\">\r\n                    <strong class=\"form-control-static\">{{usuario.nmPessoa}}</strong>\r\n                  </div>\r\n                </div>\r\n                <div class=\"form-group row\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n                  <div class=\"col-sm-4\">\r\n                      <strong class=\"form-control-static\">{{usuario.dsLogin}}</strong>\r\n                  </div>\r\n                </div>\r\n\r\n                <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsSenha'))\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n                  <div class=\"col-sm-4\">\r\n                    <input #campoNome type=\"password\" formControlName=\"dsSenha\" class=\"form-control input-sm\" name=\"dsSenha\" maxlength=\"8\">\r\n                  </div>\r\n                </div>\r\n                <div [ngClass]=\"aplicarCssGroupRow(formulario.get('senhaConfirmacao'))\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n                  <div class=\"col-sm-4\">\r\n                    <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\" maxlength=\"8\">\r\n                  </div>\r\n                </div>\r\n                <!-- \r\n                -->\r\n              </form>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmSenha.show()\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n\r\n<confirm-popup-modal #modalConfirmSenha popupStyle=\"primary\" (onClickConfirm)=\"btnConfirmar(formulario.value)\">\r\n  <strong>Confirma a alteração da senha?</strong>\r\n</confirm-popup-modal>"
 
 /***/ }),
 
-/***/ 517:
+/***/ 519:
 /***/ (function(module, exports) {
 
 module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"!formulario.valid\"\r\n  (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"form-group\">\r\n      <div class=\"row\">\r\n        <div class=\"form-group col-sm-4\">\r\n          <label for=\"dsEndereco\">Identificação do endereco</label>\r\n          <input type=\"text\" #campoNome sclass=\"form-control\" id=\"cep\" formControlName=\"dsEndereco\">\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"form-group col-sm-2\">\r\n          <label for=\"nrCep\">CEP</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"nrCep\" placeholder=\"CEP\" formControlName=\"nrCep\" (blur)=\"consultarCEP($event.target.value)\"\r\n            [textMask]=\"{mask: maskCEP}\">\r\n        </div>\r\n        <div class=\"form-group col-sm-8\">\r\n          <label for=\"dsLogradouro\">Endereço</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"dsLogradouro\" placeholder=\"rua\" formControlName=\"dsLogradouro\" [disableControl]=\"true\">\r\n        </div>\r\n        <div class=\"form-group col-sm-2\">\r\n          <label for=\"nrNumero\">Número</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"nrNumero\" placeholder=\"número\" formControlName=\"nrNumero\">\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"form-group col-sm-6\">\r\n          <label for=\"dsComplemento\">Complemento</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"dsComplemento\" placeholder=\"Complemento\" formControlName=\"dsComplemento\">\r\n        </div>\r\n        <div class=\"form-group col-sm-6\">\r\n          <label for=\"dsReferencia\">Referência</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"dsReferencia\" placeholder=\"ponto de referência\" formControlName=\"dsReferencia\">\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"form-group col-sm-4\">\r\n          <label for=\"nmBairro\">Bairro</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"nmBairro\" placeholder=\"Bairro\" formControlName=\"nmBairro\" [disableControl]=\"true\">\r\n        </div>\r\n        <div class=\"form-group col-sm-6\">\r\n          <label for=\"cidade\">Cidade</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"nmCidade\" placeholder=\"Cidade\" formControlName=\"nmCidade\" [disableControl]=\"true\">\r\n        </div>\r\n        <div class=\"form-group col-sm-2\">\r\n          <label for=\"sgUF\">Estado</label>\r\n          <input type=\"text\" class=\"form-control\" id=\"ufCidade\" placeholder=\"UF\" formControlName=\"ufCidade\" [disableControl]=\"true\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
-/***/ 518:
-/***/ (function(module, exports) {
-
-module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-md-4 col-sm-12\">\r\n        <input type=\"text\" class=\"form-control\"  placeholder=\"Cpf\" formControlName=\"nrCpf\" [textMask]=\"{mask: maskCPF}\">\r\n      </div>\r\n      <div class=\"form-group col-md-4 col-sm-12\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do cliente\" formControlName=\"nmPessoaFisica\">\r\n      </div>\r\n      <div class=\"form-group col-md-2 col-sm-12\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary\" style=\"cursor: pointer;\" (click)=\"pesquisarCliente(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <table class=\"table table-striped\" *ngIf=\"items?.length > 0\">\r\n        <thead>\r\n          <tr>\r\n\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Cliente</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">CPF</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of items\" (click)=\"selecionarCliente(item)\" class=\"cursor-hands\" >\r\n            <td class=\"text-center\" >\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\"  value=\"{{item.id}}\" (click)=\"selecionarCliente(item)\" class=\"cursor-hands\">\r\n            </td>\r\n            <td>\r\n              {{item.nmPessoa}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item.nrCpf | cpfMask}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
-
-/***/ }),
-
-/***/ 519:
-/***/ (function(module, exports) {
-
-module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog\" \r\n        [ngClass]=\"getPopupStyle()\" \r\n        role=\"document\">\r\n\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">{{titulo}}</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"modalConfirm.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <ng-content></ng-content>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-secondary cursor-hands\" (click)=\"modalConfirm.hide()\">Fechar</button>\r\n        <button type=\"button\" class=\"btn btn-primary cursor-hands\"   (click)=\"btnConfirmar()\">Confirmar</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
-
-/***/ }),
-
 /***/ 520:
 /***/ (function(module, exports) {
 
-module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n  aria-hidden=\"true\">\r\n\r\n\r\n  <div class=\"modal-dialog modal-primary \" [ngClass]=\"modalSize\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">{{titulo}}</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"modalConfirm.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <alert-field-mensagem ></alert-field-mensagem>   \r\n        <ng-content></ng-content>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button class=\"btn btn-secondary cursor-hands\" (click)=\"modalConfirm.hide()\">\r\n          <i class=\"fa fa-history\"></i> voltar\r\n        </button>\r\n        <button *ngIf=\"!exibirBtnSelecione\"   [disabled]=\"desabilitarBtnConfirmar\" [disabled]=\"desabilitarBtnConfirmar\" type=\"button\" class=\"btn btn-md btn-success cursor-hands\" (click)=\"btnBaseConfirmar()\">\r\n          <i class=\"fa fa-save\"> </i> salvar\r\n        </button>\r\n\r\n        <button *ngIf=\"exibirBtnSelecione\"    [disabled]=\"desabilitarBtnConfirmar\" type=\"button\" class=\"btn btn-md btn-success cursor-hands\" (click)=\"btnBaseConfirmar()\">\r\n          <i class=\"fa fa-check-square-o\"> </i> Selecione\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\" [ocultarBotoes]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-md-4 col-sm-12\">\r\n        <input type=\"text\" class=\"form-control\"  placeholder=\"Cpf\" formControlName=\"nrCpf\" [textMask]=\"{mask: maskCPF}\">\r\n      </div>\r\n      <div class=\"form-group col-md-6 col-sm-12\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do cliente\" formControlName=\"nmPessoaFisica\">\r\n      </div>\r\n      <div class=\"form-group col-md-2 col-sm-12\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary btn-block\" style=\"cursor: pointer;\" (click)=\"pesquisarCliente(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <table class=\"table table-striped\" *ngIf=\"items?.length > 0\">\r\n        <thead>\r\n          <tr>\r\n\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Cliente</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">CPF</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of items\" (click)=\"selecionarCliente(item)\" class=\"cursor-hands\" >\r\n            <td class=\"text-center\" >\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\"  value=\"{{item.id}}\" (click)=\"selecionarCliente(item)\" class=\"cursor-hands\">\r\n            </td>\r\n            <td>\r\n              {{item.nmPessoa}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item.nrCpf | cpfMask}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
 /***/ 521:
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-md-3 col-sm-12\">\r\n        <ng-select formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n      <div class=\"form-group col-md-6 col-sm-12\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do produto\" formControlName=\"nmProduto\" name=\"nmProduto\">\r\n      </div>\r\n      <div class=\"form-group col-md-2 col-sm-12\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary\" style=\"cursor: pointer;\" (click)=\"pesquisarProduto(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <table class=\"table table-striped\" *ngIf=\"produtos?.length > 0\">\r\n        <thead>\r\n          <tr>\r\n\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Produto</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">Categoria</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of produtos\" (click)=\"selecionarProduto(item)\" class=\"cursor-hands\">\r\n            <td class=\"text-center\">\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\" value=\"{{item.id}}\" (click)=\"selecionarProduto(item)\" class=\"cursor-hands\" >\r\n            </td>\r\n            <td>\r\n              {{item.nmProduto}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item?.categoria?.nmCategoria}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"from-group row\" *ngIf=\"qtAcompanhamento > 0\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-8\">\r\n        <div class=\"card\">\r\n          <div class=\"card-header\">\r\n            <strong>Adicionais</strong>\r\n            <small> - selecione até {{qtAcompanhamento}} adicionais</small>\r\n          </div>\r\n          <div class=\"card-block\">\r\n\r\n            <table class=\"table table-striped\">\r\n              <tbody>\r\n                <tr *ngFor=\"let item of adicionais\">\r\n                  <td class=\"text-left\">\r\n                    <input type=\"checkbox\" id=\"checkbox1\" \r\n                      name=\"checkbox1\" \r\n                      (click)=\"selecionarItem($event.target.checked, item)\"\r\n                      [(ngModel)]=\"item.selecionado\" \r\n                      [disabled]=\"verificarItem(item)\"\r\n                      [ngModelOptions]=\"{standalone: true}\"> {{item.nmProduto}}\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
+module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog\" \r\n        [ngClass]=\"getPopupStyle()\" \r\n        role=\"document\">\r\n\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">{{titulo}}</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"modalConfirm.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <ng-content></ng-content>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-secondary cursor-hands\" (click)=\"modalConfirm.hide()\">Fechar</button>\r\n        <button type=\"button\" class=\"btn btn-primary cursor-hands\"   (click)=\"btnConfirmar()\">Confirmar</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ 522:
+/***/ (function(module, exports) {
+
+module.exports = "<div bsModal #modalConfirm=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n  aria-hidden=\"true\">\r\n\r\n\r\n  <div class=\"modal-dialog modal-primary \" [ngClass]=\"modalSize\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">{{titulo}}</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"modalConfirm.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <alert-field-mensagem ></alert-field-mensagem>   \r\n        <ng-content></ng-content>\r\n      </div>\r\n      <div class=\"modal-footer\" *ngIf=\"!ocultarBotoes\" >\r\n        <button class=\"btn btn-secondary cursor-hands\" (click)=\"modalConfirm.hide()\">\r\n          <i class=\"fa fa-history\"></i> voltar\r\n        </button>\r\n        <button *ngIf=\"!exibirBtnSelecione\"   [disabled]=\"desabilitarBtnConfirmar\" [disabled]=\"desabilitarBtnConfirmar\" type=\"button\" class=\"btn btn-md btn-success cursor-hands\" (click)=\"btnBaseConfirmar()\">\r\n          <i class=\"fa fa-save\"> </i> salvar\r\n        </button>\r\n\r\n        <button *ngIf=\"exibirBtnSelecione\"    [disabled]=\"desabilitarBtnConfirmar\" type=\"button\" class=\"btn btn-md btn-success cursor-hands\" (click)=\"btnBaseConfirmar()\">\r\n          <i class=\"fa fa-check-square-o\"> </i> Selecione\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ 523:
+/***/ (function(module, exports) {
+
+module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-md-4 col-sm-12\">\r\n        <ng-select formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n      <div class=\"form-group col-md-6 col-sm-12\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do produto\" formControlName=\"nmProduto\" name=\"nmProduto\">\r\n      </div>\r\n      <div class=\"form-group col-md-2 col-sm-12\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary btn-block\" style=\"cursor: pointer;\" (click)=\"pesquisarProduto(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n      <table class=\"table table-striped\" *ngIf=\"produtos?.length > 0\">\r\n        <thead>\r\n          <tr>\r\n\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Produto</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">Categoria</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of produtos\" (click)=\"selecionarProduto(item)\" class=\"cursor-hands\">\r\n            <td class=\"text-center\">\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\" value=\"{{item.id}}\" (click)=\"selecionarProduto(item)\" class=\"cursor-hands\" >\r\n            </td>\r\n            <td>\r\n              {{item.nmProduto}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item?.categoria?.nmCategoria}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"from-group row\" *ngIf=\"qtAcompanhamento > 0\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-8\">\r\n        <div class=\"card\">\r\n          <div class=\"card-header\">\r\n            <strong>Adicionais</strong>\r\n            <small> - selecione até {{qtAcompanhamento}} adicionais</small>\r\n          </div>\r\n          <div class=\"card-block\">\r\n\r\n            <table class=\"table table-striped\">\r\n              <tbody>\r\n                <tr *ngFor=\"let item of adicionais\">\r\n                  <td class=\"text-left\" *ngIf=\"!verificarItem(item)\" >\r\n                    <input type=\"checkbox\" id=\"checkbox1\" \r\n                      name=\"checkbox1\" \r\n                      (click)=\"selecionarItem($event.target.checked, item)\"\r\n                      [(ngModel)]=\"item.selecionado\" \r\n                      class=\"cursor-hands\"\r\n                      [ngModelOptions]=\"{standalone: true}\"> <strong >{{item.nmProduto}}</strong>\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
@@ -5072,29 +5193,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var telefone_pipe_1 = __webpack_require__(320);
-var cpf_cnpj_pipe_1 = __webpack_require__(317);
-var cep_pipe_1 = __webpack_require__(315);
+var status_pedido_component_1 = __webpack_require__(306);
+var origem_pedido_component_1 = __webpack_require__(303);
+var telefone_pipe_1 = __webpack_require__(322);
+var cpf_cnpj_pipe_1 = __webpack_require__(319);
+var cep_pipe_1 = __webpack_require__(317);
 var ng2_select_1 = __webpack_require__(155);
 var alert_field_mensagem_component_1 = __webpack_require__(295);
-var disabled_control_directive_1 = __webpack_require__(309);
-var lower_case_directive_1 = __webpack_require__(310);
-var upper_case_directive_1 = __webpack_require__(314);
+var disabled_control_directive_1 = __webpack_require__(311);
+var lower_case_directive_1 = __webpack_require__(312);
+var upper_case_directive_1 = __webpack_require__(316);
 var common_1 = __webpack_require__(25);
 var forms_1 = __webpack_require__(18);
 var angular2_text_mask_1 = __webpack_require__(104);
 var form_debug_component_1 = __webpack_require__(299);
 var alert_mensagem_component_1 = __webpack_require__(296);
 var foto_component_1 = __webpack_require__(301);
-var sim_nao_component_1 = __webpack_require__(304);
-var status_component_1 = __webpack_require__(305);
-var upload_imagem_component_1 = __webpack_require__(306);
-var auto_foco_directive_1 = __webpack_require__(308);
-var number_only_directive_1 = __webpack_require__(312);
-var data_pipe_1 = __webpack_require__(319);
-var cnpj_pipe_1 = __webpack_require__(316);
+var sim_nao_component_1 = __webpack_require__(305);
+var status_component_1 = __webpack_require__(307);
+var upload_imagem_component_1 = __webpack_require__(308);
+var auto_foco_directive_1 = __webpack_require__(310);
+var number_only_directive_1 = __webpack_require__(314);
+var data_pipe_1 = __webpack_require__(321);
+var cnpj_pipe_1 = __webpack_require__(318);
 var core_1 = __webpack_require__(1);
-var cpf_pipe_1 = __webpack_require__(318);
+var cpf_pipe_1 = __webpack_require__(320);
 var foto_uri_component_1 = __webpack_require__(300);
 var image_service_1 = __webpack_require__(79);
 var SharedComponentModule = (function () {
@@ -5121,6 +5244,7 @@ SharedComponentModule = __decorate([
             sim_nao_component_1.SimNaoComponent,
             auto_foco_directive_1.AutoFocoDirective,
             number_only_directive_1.NumberOnlyDirective,
+            origem_pedido_component_1.OrigemPedidoComponent,
             cpf_cnpj_pipe_1.CpfCnpjPipe,
             cpf_pipe_1.CpfPipe,
             cep_pipe_1.CepPipe,
@@ -5130,6 +5254,7 @@ SharedComponentModule = __decorate([
             upper_case_directive_1.UpperCaseTextDirective,
             lower_case_directive_1.LowerCaseTextDirective,
             disabled_control_directive_1.DisableControlDirective,
+            status_pedido_component_1.StatusPedidoComponent
         ],
         exports: [
             foto_component_1.FotoComponent,
@@ -5150,7 +5275,9 @@ SharedComponentModule = __decorate([
             telefone_pipe_1.TelefonePipe,
             upper_case_directive_1.UpperCaseTextDirective,
             lower_case_directive_1.LowerCaseTextDirective,
-            disabled_control_directive_1.DisableControlDirective
+            disabled_control_directive_1.DisableControlDirective,
+            origem_pedido_component_1.OrigemPedidoComponent,
+            status_pedido_component_1.StatusPedidoComponent
         ],
         providers: [
             image_service_1.ImageService
@@ -5162,7 +5289,7 @@ exports.SharedComponentModule = SharedComponentModule;
 
 /***/ }),
 
-/***/ 785:
+/***/ 787:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(273);
@@ -5220,5 +5347,5 @@ var _a;
 
 /***/ })
 
-},[785]);
+},[787]);
 //# sourceMappingURL=main.bundle.js.map
