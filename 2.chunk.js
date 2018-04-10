@@ -1,6 +1,6 @@
 webpackJsonp([2,17],{
 
-/***/ 795:
+/***/ 793:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,22 +12,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var ng2_currency_mask_1 = __webpack_require__(808);
-var ng2_select_1 = __webpack_require__(155);
-var unidade_medida_service_1 = __webpack_require__(803);
-var categoria_service_1 = __webpack_require__(149);
+var dropdown_1 = __webpack_require__(105);
+var ng2_currency_mask_1 = __webpack_require__(806);
+var ng2_select_1 = __webpack_require__(156);
+var unidade_medida_service_1 = __webpack_require__(801);
+var categoria_service_1 = __webpack_require__(150);
 var core_1 = __webpack_require__(1);
 var http_1 = __webpack_require__(20);
-var popup_modal_module_1 = __webpack_require__(147);
+var popup_modal_module_1 = __webpack_require__(148);
 var modal_1 = __webpack_require__(103);
 var forms_1 = __webpack_require__(18);
 var common_1 = __webpack_require__(25);
 var shared_component_module_1 = __webpack_require__(78);
-var adicional_produto_service_1 = __webpack_require__(153);
-var adicional_produto_routing_module_1 = __webpack_require__(848);
-var adicional_produto_popup_modal_component_1 = __webpack_require__(849);
-var listar_adicional_produto_component_1 = __webpack_require__(832);
-var produto_service_1 = __webpack_require__(150);
+var adicional_produto_service_1 = __webpack_require__(154);
+var adicional_produto_routing_module_1 = __webpack_require__(846);
+var adicional_produto_popup_modal_component_1 = __webpack_require__(847);
+var listar_adicional_produto_component_1 = __webpack_require__(830);
+var produto_service_1 = __webpack_require__(151);
 var AdicionalProdutoModule = (function () {
     function AdicionalProdutoModule() {
     }
@@ -38,6 +39,7 @@ AdicionalProdutoModule = __decorate([
         imports: [
             common_1.CommonModule,
             forms_1.FormsModule,
+            dropdown_1.BsDropdownModule,
             modal_1.ModalModule.forRoot(),
             ng2_select_1.SelectModule,
             shared_component_module_1.SharedComponentModule,
@@ -64,7 +66,7 @@ exports.AdicionalProdutoModule = AdicionalProdutoModule;
 
 /***/ }),
 
-/***/ 803:
+/***/ 801:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -135,7 +137,7 @@ var _a;
 
 /***/ }),
 
-/***/ 804:
+/***/ 802:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -143,8 +145,8 @@ var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var forms_1 = __webpack_require__(18);
-var currency_mask_config_1 = __webpack_require__(809);
-var input_handler_1 = __webpack_require__(811);
+var currency_mask_config_1 = __webpack_require__(807);
+var input_handler_1 = __webpack_require__(809);
 exports.CURRENCYMASKDIRECTIVE_VALUE_ACCESSOR = {
     provide: forms_1.NG_VALUE_ACCESSOR,
     useExisting: core_1.forwardRef(function () { return CurrencyMaskDirective; }),
@@ -254,7 +256,7 @@ exports.CurrencyMaskDirective = CurrencyMaskDirective;
 
 /***/ }),
 
-/***/ 808:
+/***/ 806:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -263,13 +265,13 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(804));
-__export(__webpack_require__(810));
+__export(__webpack_require__(802));
+__export(__webpack_require__(808));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 809:
+/***/ 807:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -281,7 +283,7 @@ exports.CURRENCY_MASK_CONFIG = new core_1.InjectionToken("currency.mask.config")
 
 /***/ }),
 
-/***/ 810:
+/***/ 808:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -290,7 +292,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(25);
 var forms_1 = __webpack_require__(18);
 var core_1 = __webpack_require__(1);
-var currency_mask_directive_1 = __webpack_require__(804);
+var currency_mask_directive_1 = __webpack_require__(802);
 var CurrencyMaskModule = (function () {
     function CurrencyMaskModule() {
     }
@@ -317,13 +319,13 @@ exports.CurrencyMaskModule = CurrencyMaskModule;
 
 /***/ }),
 
-/***/ 811:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_service_1 = __webpack_require__(813);
+var input_service_1 = __webpack_require__(811);
 var InputHandler = (function () {
     function InputHandler(htmlInputElement, options) {
         this.inputService = new input_service_1.InputService(htmlInputElement, options);
@@ -451,7 +453,7 @@ exports.InputHandler = InputHandler;
 
 /***/ }),
 
-/***/ 812:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -560,13 +562,13 @@ exports.InputManager = InputManager;
 
 /***/ }),
 
-/***/ 813:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_manager_1 = __webpack_require__(812);
+var input_manager_1 = __webpack_require__(810);
 var InputService = (function () {
     function InputService(htmlInputElement, options) {
         this.htmlInputElement = htmlInputElement;
@@ -694,7 +696,7 @@ exports.InputService = InputService;
 
 /***/ }),
 
-/***/ 832:
+/***/ 830:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -719,7 +721,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var adicional_produto_service_1 = __webpack_require__(153);
+var adicional_produto_service_1 = __webpack_require__(154);
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
 var event_emitter_services_1 = __webpack_require__(28);
@@ -778,8 +780,8 @@ __decorate([
 ], ListarAdicionalProdutoComponent.prototype, "popupChangeStatus", void 0);
 ListarAdicionalProdutoComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(888),
-        styles: [__webpack_require__(867)]
+        template: __webpack_require__(886),
+        styles: [__webpack_require__(865)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof adicional_produto_service_1.AdicionalProdutoService !== "undefined" && adicional_produto_service_1.AdicionalProdutoService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], ListarAdicionalProdutoComponent);
@@ -789,7 +791,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 848:
+/***/ 846:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -801,7 +803,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var listar_adicional_produto_component_1 = __webpack_require__(832);
+var listar_adicional_produto_component_1 = __webpack_require__(830);
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
 var routes = [
@@ -842,7 +844,7 @@ exports.AdicionalProdutoRoutingModule = AdicionalProdutoRoutingModule;
 
 /***/ }),
 
-/***/ 849:
+/***/ 847:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -868,13 +870,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var trata_error_service_1 = __webpack_require__(27);
-var unidade_medida_service_1 = __webpack_require__(803);
+var unidade_medida_service_1 = __webpack_require__(801);
 var forms_1 = __webpack_require__(18);
 var core_1 = __webpack_require__(1);
 var abstract_popup_component_1 = __webpack_require__(64);
-var produto_service_1 = __webpack_require__(150);
-var categoria_service_1 = __webpack_require__(149);
-var adicional_produto_service_1 = __webpack_require__(153);
+var produto_service_1 = __webpack_require__(151);
+var categoria_service_1 = __webpack_require__(150);
+var adicional_produto_service_1 = __webpack_require__(154);
 var AdicionalProdutoPopupModalComponent = (function (_super) {
     __extends(AdicionalProdutoPopupModalComponent, _super);
     function AdicionalProdutoPopupModalComponent(adicionalService, produtoService, categoriaService, unidadeService, fb) {
@@ -950,8 +952,8 @@ var AdicionalProdutoPopupModalComponent = (function (_super) {
 AdicionalProdutoPopupModalComponent = __decorate([
     core_1.Component({
         selector: 'adicional-produto-popup-modal',
-        template: __webpack_require__(889),
-        styles: [__webpack_require__(868)]
+        template: __webpack_require__(887),
+        styles: [__webpack_require__(866)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof adicional_produto_service_1.AdicionalProdutoService !== "undefined" && adicional_produto_service_1.AdicionalProdutoService) === "function" && _a || Object, typeof (_b = typeof produto_service_1.ProdutoService !== "undefined" && produto_service_1.ProdutoService) === "function" && _b || Object, typeof (_c = typeof categoria_service_1.CategoriaService !== "undefined" && categoria_service_1.CategoriaService) === "function" && _c || Object, typeof (_d = typeof unidade_medida_service_1.UnidadeMedidaService !== "undefined" && unidade_medida_service_1.UnidadeMedidaService) === "function" && _d || Object, typeof (_e = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _e || Object])
 ], AdicionalProdutoPopupModalComponent);
@@ -961,7 +963,7 @@ var _a, _b, _c, _d, _e;
 
 /***/ }),
 
-/***/ 867:
+/***/ 865:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -979,7 +981,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 868:
+/***/ 866:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -997,14 +999,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 888:
+/***/ 886:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"adicionalProdutoModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo\r\n</button>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de adicionais por categoria\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n\r\n            <thead>\r\n                <tr>\r\n                    <th>\r\n                        <div style=\"width:20%\">\r\n                            Categoria\r\n                        </div>\r\n                    </th>\r\n                    <th style=\"width:35%\">\r\n                        <div>\r\n                            Produto\r\n                        </div>\r\n                    </th>\r\n                    <th>\r\n                        <div class=\"text-right hidden-md-down\">\r\n                            Quantidade\r\n                        </div>\r\n                    </th>\r\n                    <th class=\"text-right hidden-md-down width:10%\">\r\n                        <div>\r\n                            Valor\r\n                        </div>\r\n                    </th>\r\n                    <th class=\"text-right\">\r\n                        <div>\r\n                            Situação\r\n                        </div>\r\n                    </th>\r\n                    <th class=\"text-right hidden-md-down width:15%\">\r\n                        <div>\r\n                            Ação\r\n                        </div>\r\n                    </th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td>\r\n                        <div>\r\n                            <strong>{{item.nmCategoria}}</strong>\r\n                        </div>\r\n                    </td>\r\n                    <td>\r\n                        <div >\r\n                            <strong>{{item.nmProduto}}</strong>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-right\">\r\n                        <div class=\"hidden-md-down\">\r\n                            <strong>{{item.qtUtilizada}} - {{item.nmUnidadeMedida}}</strong>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"hidden-md-down\">\r\n                        <strong>{{item.vlAdicional | currency:'BRL':true}}</strong>\r\n                    </td>\r\n                    <td >\r\n                        <div class=\"text-center\">\r\n                            <status status={{item.status}}></status>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"hidden-md-down\">\r\n                            <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"adicionalProdutoModal.showAlteracao(item)\">\r\n                                <i class=\"fa fa fa-edit\"> </i>\r\n                            </button>\r\n                            <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\" (click)=\"selecionarItem(item)\">\r\n                                <i class=\"fa fa-eraser\"> </i>\r\n                            </button>\r\n                            <button type=\"button\" class=\"btn btn-sm btn-warning cursor-hands\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                                <i class=\"fa fa-exclamation\"> </i>\r\n                            </button>\r\n                        </div>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeSatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status da informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<adicional-produto-popup-modal #adicionalProdutoModal (onClickConfirm)=\"carregarTodos()\">\r\n</adicional-produto-popup-modal>"
+module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"adicionalProdutoModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo\r\n</button>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de adicionais por categoria\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n\r\n            <thead>\r\n                <tr>\r\n                    <th>\r\n                        <div style=\"width:20%\">\r\n                            Categoria\r\n                        </div>\r\n                    </th>\r\n                    <th style=\"width:35%\">\r\n                        <div>\r\n                            Produto\r\n                        </div>\r\n                    </th>\r\n                    <th>\r\n                        <div class=\"text-right hidden-md-down\">\r\n                            Quantidade\r\n                        </div>\r\n                    </th>\r\n                    <th class=\"text-right hidden-md-down width:10%\">\r\n                        <div>\r\n                            Valor\r\n                        </div>\r\n                    </th>\r\n                    <th class=\"text-right\">\r\n                        <div>\r\n                            Situação\r\n                        </div>\r\n                    </th>\r\n                    <th class=\"text-right hidden-md-down width:15%\">\r\n                        <div>\r\n                            Ação\r\n                        </div>\r\n                    </th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td>\r\n                        <div>\r\n                            <strong>{{item.nmCategoria}}</strong>\r\n                        </div>\r\n                    </td>\r\n                    <td>\r\n                        <div>\r\n                            <strong>{{item.nmProduto}}</strong>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-right\">\r\n                        <div class=\"hidden-md-down\">\r\n                            <strong>{{item.qtUtilizada}} - {{item.nmUnidadeMedida}}</strong>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"hidden-md-down\">\r\n                        <strong>{{item.vlAdicional | currency:'BRL':true}}</strong>\r\n                    </td>\r\n                    <td>\r\n                        <div class=\"text-center\">\r\n                            <status status={{item.status}}></status>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <form-buttons \r\n                            (onClickBtnEditar)=\"adicionalProdutoModal.showAlteracao(item)\"\r\n                            (onClickBtnExcluir)=\"selecionarItem(item)\" \r\n                            (onClickBtnAlterarStatus)=\"selecionarItemChangeStatus(item)\">\r\n                        </form-buttons>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeSatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status da informação nutricional?</strong>\r\n</confirm-popup-modal>\r\n\r\n<adicional-produto-popup-modal #adicionalProdutoModal (onClickConfirm)=\"carregarTodos()\">\r\n</adicional-produto-popup-modal>"
 
 /***/ }),
 
-/***/ 889:
+/***/ 887:
 /***/ (function(module, exports) {
 
 module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('categoria'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Categoria</label>\r\n      <div class=\"col-sm-8\">\r\n        <ng-select formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('produto'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Produto</label>\r\n      <div class=\"col-sm-8\">\r\n        <ng-select formControlName=\"produto\" [items]=\"comboProdutos\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('qtUtilizada'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-normal\">Quantidade</label>\r\n      <div class=\"col-sm-4\">\r\n        <input #campoNome numberOnly type=\"text\" formControlName=\"qtUtilizada\" class=\"form-control input-sm\" name=\"qtUtilizada\" formControlName=\"qtUtilizada\"\r\n          maxlength=\"4\"\r\n          [ngClass]=\"aplicarCssForm(formulario.get('qtUtilizada'))\"\r\n          >\r\n      </div>\r\n      <div class=\"col-sm-4\">\r\n        <ng-select formControlName=\"unidade\" [items]=\"comboUnidades\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('vlAdicional'))\">\r\n      <label class=\"col-sm-2 form-control-label\">Valor</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"text\" currencyMask [options]=\"{ prefix: 'R$ ', thousands: '.', decimal: ',' }\" class=\"form-control input\" [ngClass]=\"aplicarCssForm(formulario.get('vlAdicional'))\"\r\n          name=\"vlAdicional\" maxlength=\"10\" formControlName=\"vlAdicional\" [ngClass]=\"aplicarCssForm(formulario.get('vlAdicional'))\">\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
