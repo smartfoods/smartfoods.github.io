@@ -19,7 +19,7 @@ var core_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(25);
 var forms_1 = __webpack_require__(18);
 var http_1 = __webpack_require__(20);
-var angular2_ladda_1 = __webpack_require__(278);
+var angular2_ladda_1 = __webpack_require__(277);
 var modal_1 = __webpack_require__(103);
 var popup_modal_module_1 = __webpack_require__(148);
 var shared_component_module_1 = __webpack_require__(78);
@@ -563,4 +563,3 @@ module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm 
 /***/ })
 
 });
-//# sourceMappingURL=4.chunk.js.map

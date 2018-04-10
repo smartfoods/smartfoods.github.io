@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var config_pages_routing_module_1 = __webpack_require__(842);
 var _500_component_1 = __webpack_require__(825);
-var _404_component_1 = __webpack_require__(155);
+var _404_component_1 = __webpack_require__(278);
 var ConfigPagesModule = (function () {
     function ConfigPagesModule() {
     }
@@ -82,7 +82,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
 var _500_component_1 = __webpack_require__(825);
-var _404_component_1 = __webpack_require__(155);
+var _404_component_1 = __webpack_require__(278);
 var routes = [
     {
         path: '',
@@ -131,4 +131,3 @@ module.exports = "<div class=\"app flex-row align-items-center\">\n  <div class=
 /***/ })
 
 });
-//# sourceMappingURL=10.chunk.js.map
