@@ -1,6 +1,6 @@
-webpackJsonp([0,4,17],{
+webpackJsonp([0,4,16],{
 
-/***/ 789:
+/***/ 791:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,23 +12,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var perfil_cliente_component_1 = __webpack_require__(814);
+var perfil_cliente_component_1 = __webpack_require__(815);
 var consulta_cep_service_1 = __webpack_require__(152);
-var cliente_popup_modal_component_1 = __webpack_require__(817);
+var cliente_popup_modal_component_1 = __webpack_require__(818);
 var core_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(25);
 var forms_1 = __webpack_require__(18);
 var http_1 = __webpack_require__(20);
-var angular2_ladda_1 = __webpack_require__(278);
+var angular2_ladda_1 = __webpack_require__(279);
 var modal_1 = __webpack_require__(103);
 var popup_modal_module_1 = __webpack_require__(148);
 var shared_component_module_1 = __webpack_require__(78);
 var angular2_text_mask_1 = __webpack_require__(104);
 var tabs_1 = __webpack_require__(153);
 var cliente_service_1 = __webpack_require__(149);
-var cliente_routing_module_1 = __webpack_require__(816);
+var cliente_routing_module_1 = __webpack_require__(817);
 var storage_service_1 = __webpack_require__(65);
-var listar_cliente_component_1 = __webpack_require__(813);
+var listar_cliente_component_1 = __webpack_require__(814);
 var ClienteModule = (function () {
     function ClienteModule() {
     }
@@ -66,7 +66,7 @@ exports.ClienteModule = ClienteModule;
 
 /***/ }),
 
-/***/ 800:
+/***/ 801:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -78,24 +78,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var ng2_currency_mask_1 = __webpack_require__(806);
+var ng2_currency_mask_1 = __webpack_require__(807);
 var core_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(25);
 var forms_1 = __webpack_require__(18);
 var http_1 = __webpack_require__(20);
-var angular2_ladda_1 = __webpack_require__(278);
+var angular2_ladda_1 = __webpack_require__(279);
 var modal_1 = __webpack_require__(103);
 var shared_component_module_1 = __webpack_require__(78);
 var popup_modal_module_1 = __webpack_require__(148);
-var pedido_routing_module_1 = __webpack_require__(860);
+var pedido_routing_module_1 = __webpack_require__(859);
 var angular2_text_mask_1 = __webpack_require__(104);
 var tabs_1 = __webpack_require__(153);
-var pedido_service_1 = __webpack_require__(815);
+var pedido_service_1 = __webpack_require__(816);
 var storage_service_1 = __webpack_require__(65);
-var cliente_module_1 = __webpack_require__(789);
-var forma_pagamento_service_1 = __webpack_require__(803);
-var servico_entrega_service_1 = __webpack_require__(804);
-var taxa_entrega_service_1 = __webpack_require__(805);
+var cliente_module_1 = __webpack_require__(791);
+var forma_pagamento_service_1 = __webpack_require__(804);
+var servico_entrega_service_1 = __webpack_require__(805);
+var taxa_entrega_service_1 = __webpack_require__(806);
 var listar_pedidocomponent_1 = __webpack_require__(839);
 var create_pedido_component_1 = __webpack_require__(838);
 var update_pedido_component_1 = __webpack_require__(840);
@@ -141,7 +141,7 @@ exports.PedidoModule = PedidoModule;
 
 /***/ }),
 
-/***/ 802:
+/***/ 803:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -149,8 +149,8 @@ exports.PedidoModule = PedidoModule;
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var forms_1 = __webpack_require__(18);
-var currency_mask_config_1 = __webpack_require__(807);
-var input_handler_1 = __webpack_require__(809);
+var currency_mask_config_1 = __webpack_require__(808);
+var input_handler_1 = __webpack_require__(810);
 exports.CURRENCYMASKDIRECTIVE_VALUE_ACCESSOR = {
     provide: forms_1.NG_VALUE_ACCESSOR,
     useExisting: core_1.forwardRef(function () { return CurrencyMaskDirective; }),
@@ -260,7 +260,7 @@ exports.CurrencyMaskDirective = CurrencyMaskDirective;
 
 /***/ }),
 
-/***/ 803:
+/***/ 804:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -331,7 +331,7 @@ var _a;
 
 /***/ }),
 
-/***/ 804:
+/***/ 805:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -402,7 +402,7 @@ var _a;
 
 /***/ }),
 
-/***/ 805:
+/***/ 806:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -473,7 +473,7 @@ var _a;
 
 /***/ }),
 
-/***/ 806:
+/***/ 807:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -482,13 +482,13 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(802));
-__export(__webpack_require__(808));
+__export(__webpack_require__(803));
+__export(__webpack_require__(809));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 807:
+/***/ 808:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -500,7 +500,7 @@ exports.CURRENCY_MASK_CONFIG = new core_1.InjectionToken("currency.mask.config")
 
 /***/ }),
 
-/***/ 808:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -509,7 +509,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(25);
 var forms_1 = __webpack_require__(18);
 var core_1 = __webpack_require__(1);
-var currency_mask_directive_1 = __webpack_require__(802);
+var currency_mask_directive_1 = __webpack_require__(803);
 var CurrencyMaskModule = (function () {
     function CurrencyMaskModule() {
     }
@@ -536,13 +536,13 @@ exports.CurrencyMaskModule = CurrencyMaskModule;
 
 /***/ }),
 
-/***/ 809:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_service_1 = __webpack_require__(811);
+var input_service_1 = __webpack_require__(812);
 var InputHandler = (function () {
     function InputHandler(htmlInputElement, options) {
         this.inputService = new input_service_1.InputService(htmlInputElement, options);
@@ -670,7 +670,7 @@ exports.InputHandler = InputHandler;
 
 /***/ }),
 
-/***/ 810:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -779,13 +779,13 @@ exports.InputManager = InputManager;
 
 /***/ }),
 
-/***/ 811:
+/***/ 812:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_manager_1 = __webpack_require__(810);
+var input_manager_1 = __webpack_require__(811);
 var InputService = (function () {
     function InputService(htmlInputElement, options) {
         this.htmlInputElement = htmlInputElement;
@@ -913,7 +913,7 @@ exports.InputService = InputService;
 
 /***/ }),
 
-/***/ 813:
+/***/ 814:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -996,8 +996,8 @@ __decorate([
 ], ListarClienteComponent.prototype, "popupChangeStatus", void 0);
 ListarClienteComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(821),
-        styles: [__webpack_require__(818)]
+        template: __webpack_require__(822),
+        styles: [__webpack_require__(819)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof cliente_service_1.ClienteService !== "undefined" && cliente_service_1.ClienteService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
 ], ListarClienteComponent);
@@ -1007,7 +1007,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 814:
+/***/ 815:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1123,8 +1123,8 @@ var PerfilClienteComponent = (function (_super) {
 }(abstract_base_component_1.AbstractBaseComponent));
 PerfilClienteComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(822),
-        styles: [__webpack_require__(819)]
+        template: __webpack_require__(823),
+        styles: [__webpack_require__(820)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof cliente_service_1.ClienteService !== "undefined" && cliente_service_1.ClienteService) === "function" && _b || Object, typeof (_c = typeof consulta_cep_service_1.ConsultaCEPService !== "undefined" && consulta_cep_service_1.ConsultaCEPService) === "function" && _c || Object])
 ], PerfilClienteComponent);
@@ -1134,7 +1134,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 815:
+/***/ 816:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1202,7 +1202,7 @@ var _a;
 
 /***/ }),
 
-/***/ 816:
+/***/ 817:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1214,10 +1214,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var perfil_cliente_component_1 = __webpack_require__(814);
+var perfil_cliente_component_1 = __webpack_require__(815);
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
-var listar_cliente_component_1 = __webpack_require__(813);
+var listar_cliente_component_1 = __webpack_require__(814);
 var routes = [
     {
         path: '',
@@ -1263,7 +1263,7 @@ exports.ClienteRoutingModule = ClienteRoutingModule;
 
 /***/ }),
 
-/***/ 817:
+/***/ 818:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1391,32 +1391,14 @@ var ClientePopupModalComponent = (function (_super) {
 ClientePopupModalComponent = __decorate([
     core_1.Component({
         selector: 'cliente-popup-modal',
-        template: __webpack_require__(823),
-        styles: [__webpack_require__(820)]
+        template: __webpack_require__(824),
+        styles: [__webpack_require__(821)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof cliente_service_1.ClienteService !== "undefined" && cliente_service_1.ClienteService) === "function" && _b || Object, typeof (_c = typeof consulta_cep_service_1.ConsultaCEPService !== "undefined" && consulta_cep_service_1.ConsultaCEPService) === "function" && _c || Object])
 ], ClientePopupModalComponent);
 exports.ClientePopupModalComponent = ClientePopupModalComponent;
 var _a, _b, _c;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/cliente-popup-modal.component.js.map
-
-/***/ }),
-
-/***/ 818:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(44)();
-// imports
-
-
-// module
-exports.push([module.i, ".table th, .table td {\n  padding: 0.20rem; }\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
 
 /***/ }),
 
@@ -1428,7 +1410,7 @@ exports = module.exports = __webpack_require__(44)();
 
 
 // module
-exports.push([module.i, ".img-avatar-160 {\n  height: 160px;\n  width: 160px;\n  margin: 20px auto 10px;\n  border-radius: 50em; }\n\n.modal-dialog {\n  padding-top: 5%; }\n", ""]);
+exports.push([module.i, ".table th, .table td {\n  padding: 0.20rem; }\n", ""]);
 
 // exports
 
@@ -1457,23 +1439,41 @@ module.exports = module.exports.toString();
 /***/ }),
 
 /***/ 821:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"clienteModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo</button>\r\n\r\n\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de clientes\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th class=\"text-center\" style=\"width: 5%\">\r\n                        <i class=\"icon-people\"></i>\r\n                    </th>\r\n                    <th style=\"width: 45%\">Nome</th>\r\n                    <th class=\"text-center\"style=\"width: 20%\">CPF</th>\r\n                    <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n                    <th class=\"text-center\" style=\"width: 15%\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td class=\"text-center\">\r\n                        <div class=\"avatar\">\r\n                            <foto-uri id=\"{{item.id}}\" modulo=\"CLI\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\r\n                        </div>\r\n                    </td>\r\n                    <td>\r\n                        {{item.nmPessoa | uppercase}}\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        {{item.nrCpf | cpfMask}}\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <status status={{item.status}}></status>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"clienteModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\"  (click)=\"selecionarItem(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-sm btn-warning cursor-hands\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                            <i class=\"fa fa-exclamation\"> </i>\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n\r\n            </tbody>\r\n        </table>\r\n\r\n    </div>\r\n</div>\r\n\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeStatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status do cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<cliente-popup-modal #clienteModal (onClickConfirm)=\"carregarTodos()\"></cliente-popup-modal>"
+exports = module.exports = __webpack_require__(44)();
+// imports
+
+
+// module
+exports.push([module.i, ".img-avatar-160 {\n  height: 160px;\n  width: 160px;\n  margin: 20px auto 10px;\n  border-radius: 50em; }\n\n.modal-dialog {\n  padding-top: 5%; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
 /***/ 822:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Perfil</strong>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4 col-md-4\">\r\n              <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                  <strong>Imagens do produto</strong>\r\n                </div>\r\n                <div class=\"card-block\">\r\n                  <div class=\"row\">\r\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                  </div>\r\n\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                    (onSelecionarImagem)=\"mudarImage($event)\">\r\n                  </upload-imagem>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-8 col-sm-8\">\r\n              <alert-mensagem [mostrarErro]=\"isErro\" titulo=\"Erro:\" [mensagem]=\"errorMensagem\"></alert-mensagem>\r\n              <form [formGroup]=\"formulario\" novalidade (ngSubmit)=\"confirmar()\">\r\n                  <tabset>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-list\"></i> Dados Pessoais &nbsp;\r\n                      </ng-template>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmPessoa'))\">\r\n                        <div class=\"col-sm-12\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Nome</label>\r\n                          <input #campoNome upper type=\"text\" formControlName=\"nmPessoa\" class=\"form-control input-sm\" name=\"nmPessoa\" maxlength=\"120\"\r\n                            [readonly]=\"formulario.get('emAlteracao').value\">\r\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmPessoa'))\" titulo=\"Erro:\" mensagem=\"o campo Nome ter entre 5 a 120 caracteres\">\r\n                          </alert-mensagem>\r\n                        </div>\r\n          \r\n                      </div>\r\n                      <div class=\"form-group row\">\r\n                        <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('nrCpf'))\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">CPF</label>\r\n                          <input type=\"text\" formControlName=\"nrCpf\" class=\"form-control input-sm\" name=\"nrCpf\" [textMask]=\"{mask: maskCPF}\" (blur)=\"consultarCpf($event.target.value)\"\r\n                            [readonly]=\"formulario.get('emAlteracao').value\">\r\n                        </div>\r\n                        <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('dtNascimento'))\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Data de Nascimento</label>\r\n                          <input type=\"text\" formControlName=\"dtNascimento\" class=\"form-control input-sm\" name=\"dtNascimento\" [textMask]=\"{mask: maskData}\">\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"form-group row\" formGroupName=\"fone\">\r\n                        <div class=\"col-sm-6\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Celular/Whatsapp</label>\r\n                          <input type=\"text\" formControlName=\"nrFoneCelular\" class=\"form-control input-sm\" name=\"nrFoneCelular\" [textMask]=\"{mask: maskFoneCelular}\">\r\n                        </div>\r\n                        <div class=\"col-sm-6\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Residencial</label>\r\n                          <input type=\"text\" formControlName=\"nrFoneResidencial\" class=\"form-control input-sm\" name=\"nrFoneResidencial\" [textMask]=\"{mask: maskFoneResidencial}\">\r\n                        </div>\r\n                      </div>\r\n                    </tab>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-list\"></i> Endereços &nbsp;\r\n                      </ng-template>\r\n                      <div class=\"card\">\r\n                        <div class=\"card-header\">\r\n                          <strong>Lista de endereços</strong>\r\n                          <div class=\"card-actions\">\r\n                              <button type=\"button\" (click)=\"cepPopuModal.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"card-block\" *ngIf=\"enderecos?.length > 0\">\r\n                          <div class=\"row\">\r\n          \r\n                            <table class=\"table table-striped\">\r\n                              <thead>\r\n                                <th class=\"text-left\">Descrição</th>\r\n                                <th class=\"text-right\">Cep</th>\r\n                                <th class=\"text-right\">Logradouro</th>\r\n                                <th class=\"text-right\">Cidade</th>\r\n                                <th class=\"text-right\">UF</th>\r\n                                <th class=\"text-right\">Ação</th>\r\n                              </thead>\r\n                              <tbody>\r\n                                <tr *ngFor=\"let item of enderecos\">\r\n                                  <td class=\"text-left\">\r\n                                    <div>{{item.dsEndereco}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.nrCep | cepMask}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.dsLogradouro}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.nmCidade}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.ufCidade}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"cepPopuModal.showAlteracao(item)\">\r\n                                      <i class=\"fa fa fa-edit\"> </i>\r\n                                    </button>\r\n                                    <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\"  (click)=\"excluirEndereco(item)\">\r\n                                      <i class=\"fa fa-eraser\"> </i>\r\n                                    </button>\r\n                                  </td>\r\n                                </tr>\r\n                              </tbody>\r\n                            </table>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </tab>\r\n                  </tabset>\r\n                </form>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmPerfil.show();\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <cep-popup-modal #cepPopuModal (onClickConfirm)=\"confirmarEndereco($event)\">\r\n  </cep-popup-modal>\r\n</div>\r\n\r\n<confirm-popup-modal #modalConfirmPerfil popupStyle=\"primary\" (onClickConfirm)=\"btnConfirmar(formulario.value)\">\r\n    <strong>Confirma a alteraçdo do Perfil?</strong>\r\n  </confirm-popup-modal>"
+module.exports = "<div class=\"col-md-1\"></div>\r\n<button type=\"button\" class=\"btn btn-success\" (click)=\"clienteModal.show()\">\r\n    <i class=\"icon-plus\"></i> Novo</button>\r\n\r\n\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de clientes\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th class=\"text-center\" style=\"width: 5%\">\r\n                        <i class=\"icon-people\"></i>\r\n                    </th>\r\n                    <th>\r\n                        <div style=\"width: 45%\">\r\n                            Nome\r\n                        </div>\r\n                    </th>\r\n                    <th>\r\n                        <div class=\"text-center \" style=\"width: 20%\">\r\n                            CPF\r\n                        </div>\r\n                    </th>\r\n                    <th>\r\n                        <div class=\"text-center hidden-md-down\" style=\"width: 15%\">\r\n                            Situação\r\n                        </div>\r\n                    </th>\r\n                    <th class=\"text-center\" style=\"width: 15%\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td class=\"text-center\">\r\n                        <div class=\"avatar\">\r\n                            <foto-uri id=\"{{item.id}}\" modulo=\"CLI\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\r\n                        </div>\r\n                    </td>\r\n                    <td>\r\n                        <div>\r\n                            {{item.nmPessoa | uppercase}}\r\n                        </div>\r\n                    </td>\r\n                    <td>\r\n                        <div class=\"text-center\">\r\n                            {{item.nrCpf | cpfMask}}\r\n                        </div>\r\n                    </td>\r\n                    <td>\r\n                        <div class=\"text-center hidden-md-down\">\r\n                            <status status={{item.status}}></status>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <form-buttons \r\n                            (onClickBtnEditar)=\"clienteModal.showAlteracao(item)\" \r\n                            (onClickBtnExcluir)=\"selecionarItem(item)\" \r\n                            (onClickBtnAlterarStatus)=\"selecionarItemChangeStatus(item)\">\r\n                        </form-buttons>\r\n                    </td>\r\n                </tr>\r\n\r\n            </tbody>\r\n        </table>\r\n\r\n    </div>\r\n</div>\r\n\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #changeStatusModal popupStyle=\"danger\" (onClickConfirm)=\"changeStatus()\">\r\n    <strong>Deseja alterar o status do cliente?</strong>\r\n</confirm-popup-modal>\r\n\r\n<cliente-popup-modal #clienteModal (onClickConfirm)=\"carregarTodos()\"></cliente-popup-modal>"
 
 /***/ }),
 
 /***/ 823:
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm  modalSize=\"lg\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-4 col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <strong>Imagem da categoria</strong>\r\n        </div>\r\n        <div class=\"card-block\">\r\n          <div class=\"row\">\r\n            <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n          </div>\r\n\r\n        </div>\r\n        <div class=\"card-footer\">\r\n          <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n            (onSelecionarImagem)=\"mudarImage($event)\">\r\n          </upload-imagem>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <!--/.col-->\r\n    <div class=\"col-md-8 col-sm-8\">\r\n      <form [formGroup]=\"formulario\" novalidade (ngSubmit)=\"confirmar()\">\r\n        <tabset>\r\n          <tab>\r\n            <ng-template tabHeading>\r\n              <i class=\"icon-list\"></i> Dados Pessoais &nbsp;\r\n            </ng-template>\r\n            <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmPessoa'))\">\r\n              <div class=\"col-sm-12\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Nome</label>\r\n                <input #campoNome upper type=\"text\" formControlName=\"nmPessoa\" class=\"form-control input-sm\" name=\"nmPessoa\" maxlength=\"120\"\r\n                  [readonly]=\"formulario.get('emAlteracao').value\">\r\n                <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmPessoa'))\" titulo=\"Erro:\" mensagem=\"o campo Nome ter entre 5 a 120 caracteres\">\r\n                </alert-mensagem>\r\n              </div>\r\n\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('nrCpf'))\">\r\n                <label class=\"form-control-label\" for=\"input-small\">CPF</label>\r\n                <input type=\"text\" formControlName=\"nrCpf\" class=\"form-control input-sm\" name=\"nrCpf\" [textMask]=\"{mask: maskCPF}\" (blur)=\"consultarCpf($event.target.value)\"\r\n                  [readonly]=\"formulario.get('emAlteracao').value\">\r\n              </div>\r\n              <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('dtNascimento'))\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Data de Nascimento</label>\r\n                <input type=\"text\" formControlName=\"dtNascimento\" class=\"form-control input-sm\" name=\"dtNascimento\" [textMask]=\"{mask: maskData}\">\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\" formGroupName=\"fone\">\r\n              <div class=\"col-sm-6\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Celular/Whatsapp</label>\r\n                <input type=\"text\" formControlName=\"nrFoneCelular\" class=\"form-control input-sm\" name=\"nrFoneCelular\" [textMask]=\"{mask: maskFoneCelular}\">\r\n              </div>\r\n              <div class=\"col-sm-6\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Residencial</label>\r\n                <input type=\"text\" formControlName=\"nrFoneResidencial\" class=\"form-control input-sm\" name=\"nrFoneResidencial\" [textMask]=\"{mask: maskFoneResidencial}\">\r\n              </div>\r\n            </div>\r\n          </tab>\r\n          <tab>\r\n            <ng-template tabHeading>\r\n              <i class=\"icon-list\"></i> Endereços &nbsp;\r\n            </ng-template>\r\n            <div class=\"card\">\r\n              <div class=\"card-header\">\r\n                <strong>Lista de endereços</strong>\r\n                <div class=\"card-actions\">\r\n                    <button type=\"button\" (click)=\"cepPopuModal.show()\">\r\n                        <i class=\"icon-plus\"></i>\r\n                      </button>\r\n                </div>\r\n              </div>\r\n              <div class=\"card-block\" *ngIf=\"enderecos?.length > 0\">\r\n                <div class=\"row\">\r\n\r\n                  <table class=\"table table-striped\">\r\n                    <thead>\r\n                      <th class=\"text-left\">Descrição</th>\r\n                      <th class=\"text-right\">Cep</th>\r\n                      <th class=\"text-right\">Logradouro</th>\r\n                      <th class=\"text-right\">Cidade</th>\r\n                      <th class=\"text-right\">UF</th>\r\n                      <th class=\"text-right\">Ação</th>\r\n                    </thead>\r\n                    <tbody>\r\n                      <tr *ngFor=\"let item of enderecos\">\r\n                        <td class=\"text-left\">\r\n                          <div>{{item.dsEndereco}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.nrCep | cepMask}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.dsLogradouro}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.nmCidade}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.ufCidade}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"cepPopuModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                          </button>\r\n                          <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\"  (click)=\"excluirEndereco(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                          </button>\r\n                        </td>\r\n                      </tr>\r\n                    </tbody>\r\n                  </table>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </tab>\r\n\r\n          <!-- \r\n          <tab>\r\n            <ng-template tabHeading>\r\n              <i class=\"icon-calculator\"></i> Endereço &nbsp;\r\n            </ng-template>\r\n            <div class=\"form-group\" formGroupName=\"endereco\">\r\n              \r\n              <div class=\"row\">\r\n                <div class=\"form-group col-sm-4\">\r\n                  <label for=\"endCep\">CEP</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"cep\" placeholder=\"CEP\" formControlName=\"cep\" (blur)=\"consultarCEP($event.target.value)\"\r\n                    [textMask]=\"{mask: maskCEP}\">\r\n                </div>\r\n                <div class=\"form-group col-sm-8\">\r\n                  <label for=\"logradouro\">Endereço</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"logradouro\" placeholder=\"rua\" formControlName=\"logradouro\" [disableControl]=\"true\">\r\n                </div>\r\n              </div>\r\n              <div class=\"row\">\r\n                <div class=\"form-group col-sm-2\">\r\n                  <label for=\"numero\">Número</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"numero\" placeholder=\"número\" formControlName=\"numero\">\r\n                </div>\r\n                <div class=\"form-group col-sm-6\">\r\n                  <label for=\"complemento\">Complemento</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"complemento\" placeholder=\"Complemento\" formControlName=\"complemento\">\r\n                </div>\r\n                <div class=\"form-group col-sm-4\">\r\n                  <label for=\"bairro\">Bairro</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"bairro\" placeholder=\"Bairro\" formControlName=\"bairro\" [disableControl]=\"true\">\r\n                </div>\r\n              </div>\r\n              <div class=\"row\">\r\n                <div class=\"form-group col-sm-4\">\r\n                  <label for=\"sgUF\">Estado</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"uf\" placeholder=\"estado\" formControlName=\"uf\" [disableControl]=\"true\">\r\n                </div>\r\n                <div class=\"form-group col-sm-8\">\r\n                  <label for=\"cidade\">Cidade</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"cidade\" placeholder=\"Cidade\" formControlName=\"cidade\" [disableControl]=\"true\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </tab>\r\n          <tab [disabled]=\"isAlteracao\">\r\n            <ng-template tabHeading>\r\n              <i class=\"icon-pie-chart\"></i> Acesso\r\n            </ng-template>\r\n            <div formGroupName=\"usuario\">\r\n\r\n              <div class=\"form-group row\">\r\n                <div class=\"col-sm-12\">\r\n                  <label class=\"form-control-label\" for=\"input-small\">email</label>\r\n                  <input type=\"text\" formControlName=\"email\" class=\"form-control input-sm\" name=\"email\" lower>\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n                <div class=\"col-sm-6\">\r\n                  <input type=\"text\" formControlName=\"login\" class=\"form-control input-sm\" name=\"login\" maxlength=\"40\" lower>\r\n                </div>\r\n              </div>\r\n\r\n              <div class=\"form-group row\">\r\n                <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n                <div class=\"col-sm-6\">\r\n                  <input type=\"password\" formControlName=\"senha\" class=\"form-control input-sm\" name=\"senha\" maxlength=\"8\">\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n                <div class=\"col-sm-6\">\r\n                  <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\" maxlength=\"8\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </tab>\r\n-->\r\n        </tabset>\r\n      </form>\r\n    </div>\r\n  </div>\r\n\r\n</base-popup-modal>\r\n<cep-popup-modal #cepPopuModal (onClickConfirm)=\"confirmarEndereco($event)\">\r\n</cep-popup-modal>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Perfil</strong>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4 col-md-4\">\r\n              <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                  <strong>Imagens do produto</strong>\r\n                </div>\r\n                <div class=\"card-block\">\r\n                  <div class=\"row\">\r\n                    <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n                  </div>\r\n\r\n                </div>\r\n                <div class=\"card-footer\">\r\n                  <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n                    (onSelecionarImagem)=\"mudarImage($event)\">\r\n                  </upload-imagem>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-8 col-sm-8\">\r\n              <alert-mensagem [mostrarErro]=\"isErro\" titulo=\"Erro:\" [mensagem]=\"errorMensagem\"></alert-mensagem>\r\n              <form [formGroup]=\"formulario\" novalidade (ngSubmit)=\"confirmar()\">\r\n                  <tabset>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-list\"></i> Dados Pessoais &nbsp;\r\n                      </ng-template>\r\n                      <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmPessoa'))\">\r\n                        <div class=\"col-sm-12\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Nome</label>\r\n                          <input #campoNome upper type=\"text\" formControlName=\"nmPessoa\" class=\"form-control input-sm\" name=\"nmPessoa\" maxlength=\"120\"\r\n                            [readonly]=\"formulario.get('emAlteracao').value\">\r\n                          <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmPessoa'))\" titulo=\"Erro:\" mensagem=\"o campo Nome ter entre 5 a 120 caracteres\">\r\n                          </alert-mensagem>\r\n                        </div>\r\n          \r\n                      </div>\r\n                      <div class=\"form-group row\">\r\n                        <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('nrCpf'))\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">CPF</label>\r\n                          <input type=\"text\" formControlName=\"nrCpf\" class=\"form-control input-sm\" name=\"nrCpf\" [textMask]=\"{mask: maskCPF}\" (blur)=\"consultarCpf($event.target.value)\"\r\n                            [readonly]=\"formulario.get('emAlteracao').value\">\r\n                        </div>\r\n                        <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('dtNascimento'))\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Data de Nascimento</label>\r\n                          <input type=\"text\" formControlName=\"dtNascimento\" class=\"form-control input-sm\" name=\"dtNascimento\" [textMask]=\"{mask: maskData}\">\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"form-group row\" formGroupName=\"fone\">\r\n                        <div class=\"col-sm-6\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Celular/Whatsapp</label>\r\n                          <input type=\"text\" formControlName=\"nrFoneCelular\" class=\"form-control input-sm\" name=\"nrFoneCelular\" [textMask]=\"{mask: maskFoneCelular}\">\r\n                        </div>\r\n                        <div class=\"col-sm-6\">\r\n                          <label class=\"form-control-label\" for=\"input-small\">Residencial</label>\r\n                          <input type=\"text\" formControlName=\"nrFoneResidencial\" class=\"form-control input-sm\" name=\"nrFoneResidencial\" [textMask]=\"{mask: maskFoneResidencial}\">\r\n                        </div>\r\n                      </div>\r\n                    </tab>\r\n                    <tab>\r\n                      <ng-template tabHeading>\r\n                        <i class=\"icon-list\"></i> Endereços &nbsp;\r\n                      </ng-template>\r\n                      <div class=\"card\">\r\n                        <div class=\"card-header\">\r\n                          <strong>Lista de endereços</strong>\r\n                          <div class=\"card-actions\">\r\n                              <button type=\"button\" (click)=\"cepPopuModal.show()\">\r\n                                  <i class=\"icon-plus\"></i>\r\n                                </button>\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"card-block\" *ngIf=\"enderecos?.length > 0\">\r\n                          <div class=\"row\">\r\n          \r\n                            <table class=\"table table-striped\">\r\n                              <thead>\r\n                                <th class=\"text-left\">Descrição</th>\r\n                                <th class=\"text-right\">Cep</th>\r\n                                <th class=\"text-right\">Logradouro</th>\r\n                                <th class=\"text-right\">Cidade</th>\r\n                                <th class=\"text-right\">UF</th>\r\n                                <th class=\"text-right\">Ação</th>\r\n                              </thead>\r\n                              <tbody>\r\n                                <tr *ngFor=\"let item of enderecos\">\r\n                                  <td class=\"text-left\">\r\n                                    <div>{{item.dsEndereco}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.nrCep | cepMask}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.dsLogradouro}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.nmCidade}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <div>{{item.ufCidade}}</div>\r\n                                  </td>\r\n                                  <td class=\"text-right\">\r\n                                    <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"cepPopuModal.showAlteracao(item)\">\r\n                                      <i class=\"fa fa fa-edit\"> </i>\r\n                                    </button>\r\n                                    <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\"  (click)=\"excluirEndereco(item)\">\r\n                                      <i class=\"fa fa-eraser\"> </i>\r\n                                    </button>\r\n                                  </td>\r\n                                </tr>\r\n                              </tbody>\r\n                            </table>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </tab>\r\n                  </tabset>\r\n                </form>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmPerfil.show();\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <cep-popup-modal #cepPopuModal (onClickConfirm)=\"confirmarEndereco($event)\">\r\n  </cep-popup-modal>\r\n</div>\r\n\r\n<confirm-popup-modal #modalConfirmPerfil popupStyle=\"primary\" (onClickConfirm)=\"btnConfirmar(formulario.value)\">\r\n    <strong>Confirma a alteraçdo do Perfil?</strong>\r\n  </confirm-popup-modal>"
+
+/***/ }),
+
+/***/ 824:
+/***/ (function(module, exports) {
+
+module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm  modalSize=\"lg\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-4 col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <strong>Imagem da categoria</strong>\r\n        </div>\r\n        <div class=\"card-block\">\r\n          <div class=\"row\">\r\n            <img [src]=\"urlFoto\" class=\"img-avatar-160 center-block \" alt=\"avatar\">\r\n          </div>\r\n\r\n        </div>\r\n        <div class=\"card-footer\">\r\n          <upload-imagem altura=\"140\" largura=\"140\" botaoIcone=\"fa fa-save\" botaoTitulo=\"Alterar imagem\" botaoCss=\"btn btn-md btn-primary btn-block\"\r\n            (onSelecionarImagem)=\"mudarImage($event)\">\r\n          </upload-imagem>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <!--/.col-->\r\n    <div class=\"col-md-8 col-sm-8\">\r\n      <alert-mensagem [mostrarErro]=\"isErro\" titulo=\"Erro:\" [mensagem]=\"errorMensagem\"></alert-mensagem>\r\n      <form [formGroup]=\"formulario\" novalidade (ngSubmit)=\"confirmar()\">\r\n        <tabset>\r\n          <tab>\r\n            <ng-template tabHeading>\r\n              <i class=\"icon-list\"></i> Dados Pessoais &nbsp;\r\n            </ng-template>\r\n            <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmPessoa'))\">\r\n              <div class=\"col-sm-12\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Nome</label>\r\n                <input #campoNome upper type=\"text\" formControlName=\"nmPessoa\" class=\"form-control input-sm\" name=\"nmPessoa\" maxlength=\"120\"\r\n                  [readonly]=\"formulario.get('emAlteracao').value\">\r\n                <alert-mensagem [mostrarErro]=\"isInvalido(formulario.get('nmPessoa'))\" titulo=\"Erro:\" mensagem=\"o campo Nome ter entre 5 a 120 caracteres\">\r\n                </alert-mensagem>\r\n              </div>\r\n\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('nrCpf'))\">\r\n                <label class=\"form-control-label\" for=\"input-small\">CPF</label>\r\n                <input type=\"text\" formControlName=\"nrCpf\" class=\"form-control input-sm\" name=\"nrCpf\" [textMask]=\"{mask: maskCPF}\" (blur)=\"consultarCpf($event.target.value)\"\r\n                  [readonly]=\"formulario.get('emAlteracao').value\">\r\n              </div>\r\n              <div class=\"col-sm-6\" [ngClass]=\"aplicarCssGroup(formulario.get('dtNascimento'))\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Data de Nascimento</label>\r\n                <input type=\"text\" formControlName=\"dtNascimento\" class=\"form-control input-sm\" name=\"dtNascimento\" [textMask]=\"{mask: maskData}\">\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\" formGroupName=\"fone\">\r\n              <div class=\"col-sm-6\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Celular/Whatsapp</label>\r\n                <input type=\"text\" formControlName=\"nrFoneCelular\" class=\"form-control input-sm\" name=\"nrFoneCelular\" [textMask]=\"{mask: maskFoneCelular}\">\r\n              </div>\r\n              <div class=\"col-sm-6\">\r\n                <label class=\"form-control-label\" for=\"input-small\">Residencial</label>\r\n                <input type=\"text\" formControlName=\"nrFoneResidencial\" class=\"form-control input-sm\" name=\"nrFoneResidencial\" [textMask]=\"{mask: maskFoneResidencial}\">\r\n              </div>\r\n            </div>\r\n          </tab>\r\n          <tab>\r\n            <ng-template tabHeading>\r\n              <i class=\"icon-list\"></i> Endereços &nbsp;\r\n            </ng-template>\r\n            <div class=\"card\">\r\n              <div class=\"card-header\">\r\n                <strong>Lista de endereços</strong>\r\n                <div class=\"card-actions\">\r\n                    <button type=\"button\" (click)=\"cepPopuModal.show()\">\r\n                        <i class=\"icon-plus\"></i>\r\n                      </button>\r\n                </div>\r\n              </div>\r\n              <div class=\"card-block\" *ngIf=\"enderecos?.length > 0\">\r\n                <div class=\"row\">\r\n\r\n                  <table class=\"table table-striped\">\r\n                    <thead>\r\n                      <th class=\"text-left\">Descrição</th>\r\n                      <th class=\"text-right\">Cep</th>\r\n                      <th class=\"text-right\">Logradouro</th>\r\n                      <th class=\"text-right\">Cidade</th>\r\n                      <th class=\"text-right\">UF</th>\r\n                      <th class=\"text-right\">Ação</th>\r\n                    </thead>\r\n                    <tbody>\r\n                      <tr *ngFor=\"let item of enderecos\">\r\n                        <td class=\"text-left\">\r\n                          <div>{{item.dsEndereco}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.nrCep | cepMask}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.dsLogradouro}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.nmCidade}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <div>{{item.ufCidade}}</div>\r\n                        </td>\r\n                        <td class=\"text-right\">\r\n                          <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"cepPopuModal.showAlteracao(item)\">\r\n                            <i class=\"fa fa fa-edit\"> </i>\r\n                          </button>\r\n                          <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\"  (click)=\"excluirEndereco(item)\">\r\n                            <i class=\"fa fa-eraser\"> </i>\r\n                          </button>\r\n                        </td>\r\n                      </tr>\r\n                    </tbody>\r\n                  </table>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </tab>\r\n        </tabset>\r\n      </form>\r\n    </div>\r\n  </div>\r\n\r\n</base-popup-modal>\r\n<cep-popup-modal #cepPopuModal (onClickConfirm)=\"confirmarEndereco($event)\">\r\n</cep-popup-modal>"
 
 /***/ }),
 
@@ -1675,10 +1675,10 @@ var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
 var common_1 = __webpack_require__(25);
 var abstract_pedido_component_1 = __webpack_require__(837);
-var pedido_service_1 = __webpack_require__(815);
-var taxa_entrega_service_1 = __webpack_require__(805);
-var forma_pagamento_service_1 = __webpack_require__(803);
-var servico_entrega_service_1 = __webpack_require__(804);
+var pedido_service_1 = __webpack_require__(816);
+var taxa_entrega_service_1 = __webpack_require__(806);
+var forma_pagamento_service_1 = __webpack_require__(804);
+var servico_entrega_service_1 = __webpack_require__(805);
 var trata_error_service_1 = __webpack_require__(27);
 var event_emitter_services_1 = __webpack_require__(28);
 var CreatePedidoComponent = (function (_super) {
@@ -1712,8 +1712,8 @@ var CreatePedidoComponent = (function (_super) {
 }(abstract_pedido_component_1.AbstractPedidoComponent));
 CreatePedidoComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(900),
-        styles: [__webpack_require__(876)]
+        template: __webpack_require__(898),
+        styles: [__webpack_require__(875)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof forma_pagamento_service_1.FormaPagamentoService !== "undefined" && forma_pagamento_service_1.FormaPagamentoService) === "function" && _b || Object, typeof (_c = typeof taxa_entrega_service_1.TaxaEntregaService !== "undefined" && taxa_entrega_service_1.TaxaEntregaService) === "function" && _c || Object, typeof (_d = typeof servico_entrega_service_1.ServicoEntregaService !== "undefined" && servico_entrega_service_1.ServicoEntregaService) === "function" && _d || Object, typeof (_e = typeof pedido_service_1.PedidoService !== "undefined" && pedido_service_1.PedidoService) === "function" && _e || Object, typeof (_f = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _f || Object, typeof (_g = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _g || Object])
 ], CreatePedidoComponent);
@@ -1749,7 +1749,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var trata_error_service_1 = __webpack_require__(27);
-var pedido_service_1 = __webpack_require__(815);
+var pedido_service_1 = __webpack_require__(816);
 var cliente_service_1 = __webpack_require__(149);
 var event_emitter_services_1 = __webpack_require__(28);
 var core_1 = __webpack_require__(1);
@@ -1811,8 +1811,8 @@ __decorate([
 ], ListarPedidoComponent.prototype, "popupChangeStatus", void 0);
 ListarPedidoComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(901),
-        styles: [__webpack_require__(877)]
+        template: __webpack_require__(899),
+        styles: [__webpack_require__(876)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof cliente_service_1.ClienteService !== "undefined" && cliente_service_1.ClienteService) === "function" && _a || Object, typeof (_b = typeof pedido_service_1.PedidoService !== "undefined" && pedido_service_1.PedidoService) === "function" && _b || Object, typeof (_c = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _c || Object])
 ], ListarPedidoComponent);
@@ -1852,10 +1852,10 @@ var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
 var common_1 = __webpack_require__(25);
 var abstract_pedido_component_1 = __webpack_require__(837);
-var pedido_service_1 = __webpack_require__(815);
-var taxa_entrega_service_1 = __webpack_require__(805);
-var forma_pagamento_service_1 = __webpack_require__(803);
-var servico_entrega_service_1 = __webpack_require__(804);
+var pedido_service_1 = __webpack_require__(816);
+var taxa_entrega_service_1 = __webpack_require__(806);
+var forma_pagamento_service_1 = __webpack_require__(804);
+var servico_entrega_service_1 = __webpack_require__(805);
 var trata_error_service_1 = __webpack_require__(27);
 var event_emitter_services_1 = __webpack_require__(28);
 var UpdatePedidoComponent = (function (_super) {
@@ -1925,8 +1925,8 @@ var UpdatePedidoComponent = (function (_super) {
 }(abstract_pedido_component_1.AbstractPedidoComponent));
 UpdatePedidoComponent = __decorate([
     core_1.Component({
-        template: __webpack_require__(902),
-        styles: [__webpack_require__(878)]
+        template: __webpack_require__(900),
+        styles: [__webpack_require__(877)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof forma_pagamento_service_1.FormaPagamentoService !== "undefined" && forma_pagamento_service_1.FormaPagamentoService) === "function" && _b || Object, typeof (_c = typeof taxa_entrega_service_1.TaxaEntregaService !== "undefined" && taxa_entrega_service_1.TaxaEntregaService) === "function" && _c || Object, typeof (_d = typeof servico_entrega_service_1.ServicoEntregaService !== "undefined" && servico_entrega_service_1.ServicoEntregaService) === "function" && _d || Object, typeof (_e = typeof pedido_service_1.PedidoService !== "undefined" && pedido_service_1.PedidoService) === "function" && _e || Object, typeof (_f = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _f || Object, typeof (_g = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _g || Object, typeof (_h = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _h || Object])
 ], UpdatePedidoComponent);
@@ -1936,7 +1936,7 @@ var _a, _b, _c, _d, _e, _f, _g, _h;
 
 /***/ }),
 
-/***/ 860:
+/***/ 859:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2005,7 +2005,7 @@ exports.PedidoRoutingModule = PedidoRoutingModule;
 
 /***/ }),
 
-/***/ 876:
+/***/ 875:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -2023,7 +2023,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 877:
+/***/ 876:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -2041,7 +2041,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 878:
+/***/ 877:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(44)();
@@ -2059,21 +2059,21 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 900:
+/***/ 898:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-1\"></div>\r\n  <div class=\"col-sm-10\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Pedido</strong>\r\n        <small> - inclusão de um novo pedido</small>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <form [formGroup]=\"formulario\" class=\"form-horizontal \">\r\n\r\n          <div class=\"form-group row\" formGroupName=\"cliente\">\r\n            <label class=\"col-md-2 form-control-label text-align-right-center\">Cliente:</label>\r\n            <div class=\"col-md-10\">\r\n              <input type=\"text\" formControlName=\"nmPessoa\" name=\"nmPessoa\" class=\"form-control input-sm cursor-hands\" readonly placeholder=\"clique para selecionar um cliente\"\r\n                (click)=\"modalCliente.show()\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\" formGroupName=\"cliente\" *ngIf=\"exibirProduto\">\r\n            <label class=\"col-md-2 form-control-label text-align-right-center\">Produtos:</label>\r\n            <div class=\"col-md-10\">\r\n              <div class=\"from-group row\">\r\n                <div class=\"col-sm-12\">\r\n                  <div class=\"card\">\r\n                    <div class=\"card-header\">\r\n                      <strong>Produtos</strong>\r\n                      <div class=\"card-actions\">\r\n                        <button type=\"button\" (click)=\"modalProduto.show()\" class=\"cursor-hands\">\r\n                          <i class=\"icon-plus\"></i>\r\n                        </button>\r\n                      </div>\r\n                    </div>\r\n                    <div class=\"card-block\" *ngIf=\"pedido.itens?.length > 0\">\r\n                      <table class=\"table table-striped\">\r\n                        <thead>\r\n                          <th style=\"width:65%;\" class=\"text-left\">Produto</th>\r\n                          <th style=\"width:10%;\" class=\"text-left\">Quantidade</th>\r\n                          <th style=\"width:10%;\" class=\"text-right\">Valor</th>\r\n                          <th style=\"width:05%\" class=\"text-left\">Ação</th>\r\n                        </thead>\r\n                        <tbody>\r\n                          <tr *ngFor=\"let item of pedido.itens\">\r\n                            <td class=\"text-left\">\r\n                              <strong>{{item?.produto?.nmProduto}}</strong>\r\n                              <div *ngIf=\"item?.adicionais?.length > 0\" style=\"padding-left:5%\">\r\n                                <div *ngFor=\"let ad of item?.adicionais\">{{ad.nmProduto}}</div>\r\n                              </div>\r\n                            </td>\r\n                            <td class=\"text-left\" class=\"coluna\">\r\n                              <i class=\"fa fa-minus-circle fa-lg mt-0 cursor-hands\" style=\"color: red\" (click)=\"decreaseQuantity(item)\"></i>\r\n                              <strong>&nbsp;&nbsp; {{item.qtItem}}&nbsp;&nbsp; </strong>\r\n                              <i class=\"fa fa-plus-circle fa-lg mt-0  cursor-hands\" style=\"color: blue\" (click)=\"increaseQuantity(item)\"></i>\r\n                            </td>\r\n                            <td class=\"text-left\" class=\"coluna\">\r\n                              <strong>{{item.qtItem * item.produto.vlVenda | currency:'BRL':true}}</strong>\r\n                            </td>\r\n                            <td class=\"text-left\" class=\"coluna\">\r\n                              <i class=\"fa fa-trash fa-lg mt-0 cursor-hands\" style=\"color:red\" (click)=\"removeItem(item)\"></i>\r\n                            </td>\r\n                          </tr>\r\n                        </tbody>\r\n                      </table>\r\n\r\n                    </div>\r\n                    <div class=\"card-footer\" *ngIf=\"pedido.itens?.length > 0\">\r\n                      <div class=\"row\">\r\n                        <div class=\"col-md-7\"></div>\r\n                        <div class=\"col-md-3 text-align-right\">\r\n                          <strong>Taxa Entrega:</strong>\r\n                        </div>\r\n                        <div class=\"col-md-2 text-align-right\">\r\n                          <strong>{{pedido.vlTaxaEntrega | currency:'BRL':true}}</strong>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"row\" *ngIf=\"pedido.vlDesconto >0\">\r\n                        <div class=\"col-md-7\"></div>\r\n                        <div class=\"col-md-3 text-align-right\">\r\n                          <strong>Descontos:</strong>\r\n                        </div>\r\n                        <div class=\"col-md-2 text-align-right\">\r\n                          <strong>{{pedido.vlDesconto | currency:'BRL':true}}</strong>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"row\">\r\n                        <div class=\"col-md-7\"></div>\r\n                        <div class=\"col-md-3 text-align-right\">\r\n                          <strong>Totalização:</strong>\r\n                        </div>\r\n                        <div class=\"col-md-2 text-align-right\">\r\n                          <strong>{{pedido.vlPedido | currency:'BRL':true}}</strong>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n\r\n\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"form-group row\" *ngIf=\"exibirDadosPedido\">\r\n            <label class=\"col-md-2 form-control-label text-align-right-center\">Descontos</label>\r\n            <div class=\"col-md-2\">\r\n              <input type=\"text\" currencyMask [options]=\"{ prefix: '', thousands: '.', decimal: ',' }\" class=\"form-control input\"\r\n                name=\"vlDesconto\" maxlength=\"10\" formControlName=\"vlDesconto\" [ngClass]=\"aplicarCssForm(formulario.get('vlDesconto'))\"\r\n                (blur)=\"atualizarValorDesconto($event.target.value)\"\r\n                >\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\" *ngIf=\"exibirDadosPedido\">\r\n            <label class=\"col-md-2 form-control-label text-align-right-center\">Endereco de entrega:</label>\r\n            <div class=\"col-md-10\">\r\n              <select class=\"form-control\" id=\"enderecoEntrega\" formControlName=\"enderecoEntrega\">\r\n                <option *ngFor=\"let endr of enderecos\" value=\"{{endr.id}}\">\r\n                  {{endr.dsEndereco }} - {{endr.dsLogradouro}} - {{endr.nrNumero }} - {{endr.dsComplemento}} {{endr.nmCidade}} - {{endr.ufCidade}}\r\n                </option>\r\n              </select>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\" *ngIf=\"exibirDadosPedido\">\r\n            <label class=\"col-md-2 form-control-label text-align-right-center\">Taxa de entrega:</label>\r\n            <div class=\"col-md-4\">\r\n              <select class=\"form-control\" formControlName=\"taxaEntrega\" id=\"taxaEntrega\" (ngModelChange)=\"selecionarTaxaEntrega($event)\">\r\n                <option *ngFor=\"let te of taxaEntregas\" value=\"{{te.id}}\">{{te.nmTaxaEntrega}} - {{te.vlTaxaEntrega | currency:'BRL':true}} </option>\r\n              </select>\r\n            </div>\r\n            <label class=\"col-md-2 form-control-label text-align-right-center\" *ngIf=\"exibirServicoEntrega\">Servico de entrega:</label>\r\n            <div class=\"col-md-4\">\r\n              <select class=\"form-control\" formControlName=\"servicoEntrega\" id=\"servicoEntrega\" *ngIf=\"exibirServicoEntrega\">\r\n                <option *ngFor=\"let se of servicoEntregas\" value=\"{{se.id}}\">{{se.nmServicoEntrega}} - {{se.nrTelefone | telefone}} </option>\r\n              </select>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\" *ngIf=\"exibirDadosPedido\">\r\n            <label class=\"col-md-2 form-control-label text-align-right-center\">Pagamento:</label>\r\n            <div class=\"col-md-4\">\r\n              <select class=\"form-control\" id=\"formaPagamento\" formControlName=\"formaPagamento\">\r\n                <option *ngFor=\"let fp of formaPagmentos\" value=\"{{fp.id}}\">{{fp.nmFormaPagamento}}</option>\r\n              </select>\r\n            </div>\r\n          </div>\r\n        </form>\r\n        <div class=\"card-footer\">\r\n          <div style=\"float: right;\">\r\n            <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n              <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n            </button>\r\n            <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmPedido.show();\">\r\n              <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n            </button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <confirm-popup-modal #modalConfirmPedido popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n    <strong>Confirma a inclusão do pedido?</strong>\r\n  </confirm-popup-modal>\r\n\r\n  <pesquisar-cliente-popup-modal #modalCliente (onClickConfirm)=\"selecionarCliente($event)\"> </pesquisar-cliente-popup-modal>\r\n  <pesquisar-produto-popup-modal #modalProduto (onClickConfirm)=\"adicionarProduto($event)\"> </pesquisar-produto-popup-modal>\r\n</div>"
 
 /***/ }),
 
-/***/ 901:
+/***/ 899:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"col-md-1\"></div>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de pedidos\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th class=\"text-center\" style=\"width: 3%\">\r\n                        <i class=\"fa fa-hashtag\"></i>\r\n                    </th>\r\n                    <th class=\"text-center\" style=\"width: 7%\">\r\n                        <i class=\"icon-people\"></i>\r\n                    </th>\r\n                    <th class=\"text-left\" style=\"width: 30%\">Cliente</th>\r\n                    <th class=\"text-left\" style=\"width: 10%\">CPF</th>\r\n                    <th class=\"text-left\" style=\"width: 10%\">Telefone</th>\r\n                    <th class=\"text-center\" style=\"width: 10%\">Status</th>\r\n                    <th class=\"text-center\" style=\"width: 10%\">Origem</th>\r\n                    <th class=\"text-center\" style=\"width: 15%\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td class=\"text-center\">\r\n                        {{item.id}}\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"avatar\">\r\n                            <foto-uri id=\"{{item.cliente.id}}\" modulo=\"CLI\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-left-midle\">\r\n                        <div class=\"margin-top\">\r\n                            {{item.cliente.nmPessoa | uppercase}}\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-left-midle\">\r\n                        <div class=\"margin-top\">\r\n                            {{item.cliente.nrCpf | cpfMask}}\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-left-midle\">\r\n                        <div class=\"margin-top\">\r\n                            {{item.cliente.fone.nrFoneCelular | telefone}}\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"margin-top\">\r\n                            <status-pedido status={{item.status}}></status-pedido>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"margin-top\">\r\n                            <origem-pedido status={{item.origem}}></origem-pedido>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"margin-top\">\r\n                            <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"alterarPedido(item)\">\r\n                                <i class=\"fa fa fa-edit\"> </i>\r\n                            </button>\r\n                            <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\" (click)=\"selecionarItem(item)\">\r\n                                <i class=\"fa fa-eraser\"> </i>\r\n                            </button>\r\n                            <button type=\"button\" class=\"btn btn-sm btn-warning cursor-hands\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                                <i class=\"fa fa-exclamation\"> </i>\r\n                            </button>\r\n                        </div>\r\n                    </td>\r\n                </tr>\r\n\r\n            </tbody>\r\n        </table>\r\n\r\n    </div>\r\n</div>\r\n\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a pedido?</strong>\r\n</confirm-popup-modal>"
 
 /***/ }),
 
-/***/ 902:
+/***/ 900:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row\">\r\n    <div class=\"col-sm-1\"></div>\r\n    <div class=\"col-sm-10\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\">\r\n          <strong>Pedido</strong>\r\n          <small> - alteração de pedido</small>\r\n        </div>\r\n  \r\n        <div class=\"card-block\">\r\n          <form [formGroup]=\"formulario\" class=\"form-horizontal \">\r\n  \r\n            <div class=\"form-group row\" formGroupName=\"cliente\">\r\n              <label class=\"col-md-2 form-control-label text-align-right-center\">Cliente:</label>\r\n              <div class=\"col-md-10\">\r\n                <input type=\"text\" formControlName=\"nmPessoa\" name=\"nmPessoa\" class=\"form-control input-sm cursor-hands\" readonly placeholder=\"clique para selecionar um cliente\"\r\n                  (click)=\"modalCliente.show()\">\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\" formGroupName=\"cliente\" *ngIf=\"exibirProduto\">\r\n              <label class=\"col-md-2 form-control-label text-align-right-center\">Produtos:</label>\r\n              <div class=\"col-md-10\">\r\n                <div class=\"from-group row\">\r\n                  <div class=\"col-sm-12\">\r\n                    <div class=\"card\">\r\n                      <div class=\"card-header\">\r\n                        <strong>Produtos</strong>\r\n                        <div class=\"card-actions\">\r\n                          <button type=\"button\" (click)=\"modalProduto.show()\" class=\"cursor-hands\">\r\n                            <i class=\"icon-plus\"></i>\r\n                          </button>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"card-block\" *ngIf=\"pedido.itens?.length > 0\">\r\n                        <table class=\"table table-striped\">\r\n                          <thead>\r\n                            <th style=\"width:65%;\" class=\"text-left\">Produto</th>\r\n                            <th style=\"width:10%;\" class=\"text-left\">Quantidade</th>\r\n                            <th style=\"width:10%;\" class=\"text-right\">Valor</th>\r\n                            <th style=\"width:05%\" class=\"text-left\">Ação</th>\r\n                          </thead>\r\n                          <tbody>\r\n                            <tr *ngFor=\"let item of pedido.itens\">\r\n                              <td class=\"text-left\">\r\n                                <strong>{{item?.produto?.nmProduto}}</strong>\r\n                                <div *ngIf=\"item?.adicionais?.length > 0\" style=\"padding-left:5%\">\r\n                                  <div *ngFor=\"let ad of item?.adicionais\">{{ad.nmProduto}}</div>\r\n                                </div>\r\n                              </td>\r\n                              <td class=\"text-left\" class=\"coluna\">\r\n                                <i class=\"fa fa-minus-circle fa-lg mt-0 cursor-hands\" style=\"color: red\" (click)=\"decreaseQuantity(item)\"></i>\r\n                                <strong>&nbsp;&nbsp; {{item.qtItem}}&nbsp;&nbsp; </strong>\r\n                                <i class=\"fa fa-plus-circle fa-lg mt-0  cursor-hands\" style=\"color: blue\" (click)=\"increaseQuantity(item)\"></i>\r\n                              </td>\r\n                              <td class=\"text-left\" class=\"coluna\">\r\n                                <strong>{{item.qtItem * item.produto.vlVenda | currency:'BRL':true}}</strong>\r\n                              </td>\r\n                              <td class=\"text-left\" class=\"coluna\">\r\n                                <i class=\"fa fa-trash fa-lg mt-0 cursor-hands\" style=\"color:red\" (click)=\"removeItem(item)\"></i>\r\n                              </td>\r\n                            </tr>\r\n                          </tbody>\r\n                        </table>\r\n  \r\n                      </div>\r\n                      <div class=\"card-footer\" *ngIf=\"pedido.itens?.length > 0\">\r\n                        <div class=\"row\">\r\n                          <div class=\"col-md-7\"></div>\r\n                          <div class=\"col-md-3 text-align-right\">\r\n                            <strong>Taxa Entrega:</strong>\r\n                          </div>\r\n                          <div class=\"col-md-2 text-align-right\">\r\n                            <strong>{{pedido.vlTaxaEntrega | currency:'BRL':true}}</strong>\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"row\" *ngIf=\"pedido.vlDesconto >0\">\r\n                          <div class=\"col-md-7\"></div>\r\n                          <div class=\"col-md-3 text-align-right\">\r\n                            <strong>Descontos:</strong>\r\n                          </div>\r\n                          <div class=\"col-md-2 text-align-right\">\r\n                            <strong>{{pedido.vlDesconto | currency:'BRL':true}}</strong>\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                          <div class=\"col-md-7\"></div>\r\n                          <div class=\"col-md-3 text-align-right\">\r\n                            <strong>Totalização:</strong>\r\n                          </div>\r\n                          <div class=\"col-md-2 text-align-right\">\r\n                            <strong>{{pedido.vlPedido | currency:'BRL':true}}</strong>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n  \r\n  \r\n              </div>\r\n            </div>\r\n  \r\n            <div class=\"form-group row\" *ngIf=\"exibirDadosPedido\">\r\n              <label class=\"col-md-2 form-control-label text-align-right-center\">Descontos</label>\r\n              <div class=\"col-md-2\">\r\n                <input type=\"text\" currencyMask [options]=\"{ prefix: '', thousands: '.', decimal: ',' }\" class=\"form-control input\"\r\n                  name=\"vlDesconto\" maxlength=\"10\" formControlName=\"vlDesconto\" [ngClass]=\"aplicarCssForm(formulario.get('vlDesconto'))\"\r\n                  (blur)=\"atualizarValorDesconto($event.target.value)\"\r\n                  >\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\" *ngIf=\"exibirDadosPedido\">\r\n              <label class=\"col-md-2 form-control-label text-align-right-center\">Endereco de entrega:</label>\r\n              <div class=\"col-md-10\">\r\n                <select class=\"form-control\" id=\"enderecoEntrega\" formControlName=\"enderecoEntrega\">\r\n                  <option *ngFor=\"let endr of enderecos\" value=\"{{endr.id}}\">\r\n                    {{endr.dsEndereco }} - {{endr.dsLogradouro}} - {{endr.nrNumero }} - {{endr.dsComplemento}} {{endr.nmCidade}} - {{endr.ufCidade}}\r\n                  </option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\" *ngIf=\"exibirDadosPedido\">\r\n              <label class=\"col-md-2 form-control-label text-align-right-center\">Taxa de entrega:</label>\r\n              <div class=\"col-md-4\">\r\n                <select class=\"form-control\" formControlName=\"taxaEntrega\" id=\"taxaEntrega\" (ngModelChange)=\"selecionarTaxaEntrega($event)\">\r\n                  <option *ngFor=\"let te of taxaEntregas\" value=\"{{te.id}}\">{{te.nmTaxaEntrega}} - {{te.vlTaxaEntrega | currency:'BRL':true}} </option>\r\n                </select>\r\n              </div>\r\n              <label class=\"col-md-2 form-control-label text-align-right-center\" *ngIf=\"exibirServicoEntrega\">Servico de entrega:</label>\r\n              <div class=\"col-md-4\">\r\n                <select class=\"form-control\" formControlName=\"servicoEntrega\" id=\"servicoEntrega\" *ngIf=\"exibirServicoEntrega\">\r\n                  <option *ngFor=\"let se of servicoEntregas\" value=\"{{se.id}}\">{{se.nmServicoEntrega}} - {{se.nrTelefone | telefone}} </option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\" *ngIf=\"exibirDadosPedido\">\r\n              <label class=\"col-md-2 form-control-label text-align-right-center\">Pagamento:</label>\r\n              <div class=\"col-md-4\">\r\n                <select class=\"form-control\" id=\"formaPagamento\" formControlName=\"formaPagamento\">\r\n                  <option *ngFor=\"let fp of formaPagmentos\" value=\"{{fp.id}}\">{{fp.nmFormaPagamento}}</option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n          </form>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button class=\"btn btn-md btn-default\" (click)=\"voltar()\">\r\n                <i class=\"fa fa-history\"></i> {{btn.btnVoltar}}\r\n              </button>\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmPedido.show();\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <confirm-popup-modal #modalConfirmPedido popupStyle=\"primary\" (onClickConfirm)=\"confirmar(formulario.value)\">\r\n      <strong>Confirma a inclusão do pedido?</strong>\r\n    </confirm-popup-modal>\r\n  \r\n    <pesquisar-cliente-popup-modal #modalCliente (onClickConfirm)=\"selecionarCliente($event)\"> </pesquisar-cliente-popup-modal>\r\n    <pesquisar-produto-popup-modal #modalProduto (onClickConfirm)=\"adicionarProduto($event)\"> </pesquisar-produto-popup-modal>\r\n  </div>"
