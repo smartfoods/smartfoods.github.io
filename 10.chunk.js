@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var config_pages_routing_module_1 = __webpack_require__(842);
 var _500_component_1 = __webpack_require__(825);
-var _404_component_1 = __webpack_require__(155);
 var ConfigPagesModule = (function () {
     function ConfigPagesModule() {
     }
@@ -25,7 +24,6 @@ ConfigPagesModule = __decorate([
     core_1.NgModule({
         imports: [config_pages_routing_module_1.ConfigPagesRoutingModule],
         declarations: [
-            _404_component_1.p404Component,
             _500_component_1.p500Component,
         ]
     })
@@ -82,7 +80,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
 var _500_component_1 = __webpack_require__(825);
-var _404_component_1 = __webpack_require__(155);
 var routes = [
     {
         path: '',
@@ -90,13 +87,6 @@ var routes = [
             title: 'Erros Pages'
         },
         children: [
-            {
-                path: '404',
-                component: _404_component_1.p404Component,
-                data: {
-                    title: 'Page 404'
-                }
-            },
             {
                 path: '500',
                 component: _500_component_1.p500Component,

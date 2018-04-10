@@ -155,7 +155,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var adicional_produto_service_1 = __webpack_require__(154);
-var ng2_select_1 = __webpack_require__(156);
+var ng2_select_1 = __webpack_require__(155);
 var pesquisar_produto_popup_modal_component_1 = __webpack_require__(325);
 var categoria_service_1 = __webpack_require__(150);
 var forms_1 = __webpack_require__(18);
@@ -592,39 +592,7 @@ var _a;
 
 /***/ }),
 
-/***/ 155:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(1);
-var p404Component = (function () {
-    function p404Component() {
-    }
-    return p404Component;
-}());
-p404Component = __decorate([
-    core_1.Component({
-        template: __webpack_require__(510)
-    }),
-    __metadata("design:paramtypes", [])
-], p404Component);
-exports.p404Component = p404Component;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/404.component.js.map
-
-/***/ }),
-
-/***/ 159:
+/***/ 158:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -640,9 +608,9 @@ var auth_guard_service_1 = __webpack_require__(168);
 var core_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(43);
 //Layouts
-var full_layout_component_1 = __webpack_require__(160);
-var simple_layout_component_1 = __webpack_require__(161);
-var _404_component_1 = __webpack_require__(155);
+var full_layout_component_1 = __webpack_require__(159);
+var simple_layout_component_1 = __webpack_require__(160);
+var _404_component_1 = __webpack_require__(161);
 exports.routes = [
     {
         path: '',
@@ -765,7 +733,7 @@ exports.AppRoutingModule = AppRoutingModule;
 
 /***/ }),
 
-/***/ 160:
+/***/ 159:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -809,7 +777,7 @@ exports.FullLayoutComponent = FullLayoutComponent;
 
 /***/ }),
 
-/***/ 161:
+/***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -840,6 +808,38 @@ SimpleLayoutComponent = __decorate([
 ], SimpleLayoutComponent);
 exports.SimpleLayoutComponent = SimpleLayoutComponent;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/simple-layout.component.js.map
+
+/***/ }),
+
+/***/ 161:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(1);
+var p404Component = (function () {
+    function p404Component() {
+    }
+    return p404Component;
+}());
+p404Component = __decorate([
+    core_1.Component({
+        template: __webpack_require__(510)
+    }),
+    __metadata("design:paramtypes", [])
+], p404Component);
+exports.p404Component = p404Component;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/404.component.js.map
 
 /***/ }),
 
@@ -1645,12 +1645,12 @@ var auth_guard_service_1 = __webpack_require__(168);
 var storage_service_1 = __webpack_require__(65);
 var auth_service_1 = __webpack_require__(46);
 // Routing Module
-var app_routing_1 = __webpack_require__(159);
+var app_routing_1 = __webpack_require__(158);
 //Layouts
 var layout_module_1 = __webpack_require__(288);
 var error_interceptor_1 = __webpack_require__(327);
 var auth_interceptor_1 = __webpack_require__(326);
-var _404_component_1 = __webpack_require__(155);
+var _404_component_1 = __webpack_require__(161);
 var AppModule = (function () {
     function AppModule() {
     }
@@ -1799,9 +1799,9 @@ var modal_1 = __webpack_require__(103);
 var image_service_1 = __webpack_require__(79);
 var core_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(25);
-var http_1 = __webpack_require__(158);
+var http_1 = __webpack_require__(157);
 var forms_1 = __webpack_require__(18);
-var app_routing_1 = __webpack_require__(159);
+var app_routing_1 = __webpack_require__(158);
 var shared_component_module_1 = __webpack_require__(78);
 var popup_modal_module_1 = __webpack_require__(148);
 var dropdown_1 = __webpack_require__(105);
@@ -1813,8 +1813,8 @@ var footer_component_1 = __webpack_require__(286);
 var menu_side_bar_component_1 = __webpack_require__(289);
 var heard_side_bar_component_1 = __webpack_require__(287);
 var up_side_bar_component_1 = __webpack_require__(290);
-var full_layout_component_1 = __webpack_require__(160);
-var simple_layout_component_1 = __webpack_require__(161);
+var full_layout_component_1 = __webpack_require__(159);
+var simple_layout_component_1 = __webpack_require__(160);
 var auth_service_1 = __webpack_require__(46);
 var usuario_module_1 = __webpack_require__(167);
 var LayoutModule = (function () {
@@ -4690,7 +4690,7 @@ module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm 
 /***/ 516:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Alteração de senha</strong>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-12 col-sm-12\">\r\n              <alert-mensagem [mostrarErro]=\"isErro\" titulo=\"Erro:\" [mensagem]=\"errorMensagem\"></alert-mensagem>\r\n\r\n              <form [formGroup]=\"formulario\">\r\n\r\n                <div class=\"form-group row\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\r\n                  <div class=\"col-sm-4\">\r\n                    <strong class=\"form-control-static\">{{usuario.nmPessoa}}</strong>\r\n                  </div>\r\n                </div>\r\n                <div class=\"form-group row\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n                  <div class=\"col-sm-4\">\r\n                      <strong class=\"form-control-static\">{{usuario.dsLogin}}</strong>\r\n                  </div>\r\n                </div>\r\n\r\n                <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsSenha'))\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n                  <div class=\"col-sm-4\">\r\n                    <input #campoNome type=\"password\" formControlName=\"dsSenha\" class=\"form-control input-sm\" name=\"dsSenha\" maxlength=\"8\">\r\n                  </div>\r\n                </div>\r\n                <div [ngClass]=\"aplicarCssGroupRow(formulario.get('senhaConfirmacao'))\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n                  <div class=\"col-sm-4\">\r\n                    <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\" maxlength=\"8\">\r\n                  </div>\r\n                </div>\r\n                <!-- \r\n                -->\r\n              </form>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmSenha.show()\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n\r\n<confirm-popup-modal #modalConfirmSenha popupStyle=\"primary\" (onClickConfirm)=\"btnConfirmar(formulario.value)\">\r\n  <strong>Confirma a alteração da senha?</strong>\r\n</confirm-popup-modal>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-sm-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Alteração de senha</strong>\r\n      </div>\r\n\r\n      <div class=\"card-block\">\r\n        <div class=\"form-group\">\r\n          <div class=\"row\">\r\n            <!--/.col-->\r\n\r\n            <div class=\"col-md-12 col-sm-12\">\r\n              <form [formGroup]=\"formulario\">\r\n\r\n                <div class=\"form-group row\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\r\n                  <div class=\"col-sm-4\">\r\n                    <strong class=\"form-control-static\">{{usuario.nmPessoa}}</strong>\r\n                  </div>\r\n                </div>\r\n                <div class=\"form-group row\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n                  <div class=\"col-sm-4\">\r\n                      <strong class=\"form-control-static\">{{usuario.dsLogin}}</strong>\r\n                  </div>\r\n                </div>\r\n\r\n                <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsSenha'))\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n                  <div class=\"col-sm-4\">\r\n                    <input #campoNome type=\"password\" formControlName=\"dsSenha\" class=\"form-control input-sm\" name=\"dsSenha\" maxlength=\"8\">\r\n                  </div>\r\n                </div>\r\n                <div [ngClass]=\"aplicarCssGroupRow(formulario.get('senhaConfirmacao'))\">\r\n                  <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n                  <div class=\"col-sm-4\">\r\n                    <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\" maxlength=\"8\">\r\n                  </div>\r\n                </div>\r\n                <!-- \r\n                -->\r\n              </form>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <div class=\"card-footer\">\r\n            <div style=\"float: right;\">\r\n              <button type=\"button\" [disabled]=\"!formulario.valid\" class=\"btn btn-md btn-success\" (click)=\"modalConfirmSenha.show()\">\r\n                <i class=\"fa fa-save\"> </i> {{btn.btnSalvar}}\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n\r\n<confirm-popup-modal #modalConfirmSenha popupStyle=\"primary\" (onClickConfirm)=\"btnConfirmar(formulario.value)\">\r\n  <strong>Confirma a alteração da senha?</strong>\r\n</confirm-popup-modal>"
 
 /***/ }),
 
@@ -5013,7 +5013,7 @@ var common_1 = __webpack_require__(25);
 var forms_1 = __webpack_require__(18);
 var dropdown_1 = __webpack_require__(105);
 var angular2_text_mask_1 = __webpack_require__(104);
-var ng2_select_1 = __webpack_require__(156);
+var ng2_select_1 = __webpack_require__(155);
 var telefone_pipe_1 = __webpack_require__(320);
 var cpf_cnpj_pipe_1 = __webpack_require__(317);
 var cep_pipe_1 = __webpack_require__(315);

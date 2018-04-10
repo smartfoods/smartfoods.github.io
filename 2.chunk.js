@@ -14,7 +14,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var dropdown_1 = __webpack_require__(105);
 var ng2_currency_mask_1 = __webpack_require__(806);
-var ng2_select_1 = __webpack_require__(156);
+var ng2_select_1 = __webpack_require__(155);
 var unidade_medida_service_1 = __webpack_require__(801);
 var categoria_service_1 = __webpack_require__(150);
 var core_1 = __webpack_require__(1);
