@@ -1890,7 +1890,7 @@ exports.API_CONFIG = {
     baseUrl: "https://paladarfit.herokuapp.com",
     //baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit",
-    versao: '1.0.13'
+    versao: '1.0.14'
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
 
@@ -2555,7 +2555,7 @@ __decorate([
 FormButtonsComponent = __decorate([
     core_1.Component({
         selector: 'form-buttons',
-        template: "\n      <div class=\"hidden-md-down\">\n          <button type=\"button\" *ngIf=\"!ocultarBtnEditar\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"btnEditar()\">\n              <i class=\"fa fa fa-edit\"> </i>\n          </button>\n          <button type=\"button\" *ngIf=\"exibirBtnAlterarSenha\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"btnAlterarSenha()\">\n              <i class=\"fa fa fa-edit\"> </i>\n          </button>\n          <button type=\"button\" *ngIf=\"!ocultarBtnExcluir\" class=\"btn btn-sm btn-danger cursor-hands\" (click)=\"selecionarItem(item)\">\n              <i class=\"fa fa-eraser\"> </i>\n          </button>\n          <button type=\"button\" *ngIf=\"!ocultarBtnAlterarStatus\" class=\"btn btn-sm btn-warning cursor-hands\" (click)=\"selecionarItemChangeStatus(item)\">\n              <i class=\"fa fa-exclamation\"> </i>\n          </button>\n      </div>\n      <div dropdown placement=\"bottom right\" class=\"hidden-lg-up\">\n        <button type=\"button\" class=\"btn btn-transparent\" style=\"color:black\" dropdownToggle>\n            <i class=\"icon-options-vertical\"></i>\n        </button>\n        <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu>\n            <a *ngIf=\"!ocultarBtnEditar\" class=\"dropdown-item cursor-hands\"         (click)=\"btnEditar()\">editar</a>\n            <a *ngIf=\"exibirBtnAlterarSenha\" class=\"dropdown-item cursor-hands\"         (click)=\"btnAlterarSenha()\">alterar senha</a>\n            <a *ngIf=\"!ocultarBtnExcluir\" class=\"dropdown-item cursor-hands\"        (click)=\"btnExcluir()\" >excluir </a>\n            <a *ngIf=\"!ocultarBtnAlterarStatus\" class=\"dropdown-item cursor-hands\"  (click)=\"btnAlterarStatus()\" >alterar status</a>\n        </div>\n      </div>\n"
+        template: "\n      <div class=\"hidden-md-down\">\n          <button type=\"button\" *ngIf=\"!ocultarBtnEditar\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"btnEditar()\">\n              <i class=\"fa fa fa-edit\"> </i>\n          </button>\n          <button type=\"button\" *ngIf=\"exibirBtnAlterarSenha\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"btnAlterarSenha()\">\n              <i class=\"fa fa fa-edit\"> </i>\n          </button>\n          <button type=\"button\" *ngIf=\"!ocultarBtnExcluir\" class=\"btn btn-sm btn-danger cursor-hands\" (click)=\"btnExcluir()\">\n              <i class=\"fa fa-eraser\"> </i>\n          </button>\n          <button type=\"button\" *ngIf=\"!ocultarBtnAlterarStatus\" class=\"btn btn-sm btn-warning cursor-hands\" (click)=\"btnAlterarStatus()\">\n              <i class=\"fa fa-exclamation\"> </i>\n          </button>\n      </div>\n      <div dropdown placement=\"bottom right\" class=\"hidden-lg-up\">\n        <button type=\"button\" class=\"btn btn-transparent\" style=\"color:black\" dropdownToggle>\n            <i class=\"icon-options-vertical\"></i>\n        </button>\n        <div class=\"dropdown-menu dropdown-menu-right\" *dropdownMenu>\n            <a *ngIf=\"!ocultarBtnEditar\" class=\"dropdown-item cursor-hands\"         (click)=\"btnEditar()\">editar</a>\n            <a *ngIf=\"exibirBtnAlterarSenha\" class=\"dropdown-item cursor-hands\"     (click)=\"btnAlterarSenha()\">alterar senha</a>\n            <a *ngIf=\"!ocultarBtnExcluir\" class=\"dropdown-item cursor-hands\"        (click)=\"btnExcluir()\" >excluir </a>\n            <a *ngIf=\"!ocultarBtnAlterarStatus\" class=\"dropdown-item cursor-hands\"  (click)=\"btnAlterarStatus()\" >alterar status</a>\n        </div>\n      </div>\n"
     }),
     __metadata("design:paramtypes", [])
 ], FormButtonsComponent);
@@ -5209,3 +5209,4 @@ var _a;
 /***/ })
 
 },[787]);
+//# sourceMappingURL=main.bundle.js.map
