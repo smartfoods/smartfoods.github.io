@@ -4348,6 +4348,8 @@ var event_emitter_services_1 = __webpack_require__("./src/app/shared/event/event
 var combo_dto_1 = __webpack_require__("./src/models/domain/combo.dto.ts");
 var AbstractBaseComponent = (function () {
     function AbstractBaseComponent() {
+        this.isErro = false;
+        this.errorMensagem = "";
         this.maskCPF = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
         this.maskCNPJ = [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
         this.maskCEP = [/[0-9]/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
@@ -4599,7 +4601,7 @@ exports.API_CONFIG = {
     baseUrl: "https://paladarfit.herokuapp.com",
     //baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit",
-    versao: '1.1.3'
+    versao: '1.1.4'
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
 

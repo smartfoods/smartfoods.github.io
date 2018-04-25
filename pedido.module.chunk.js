@@ -20,18 +20,21 @@ var abstract_base_component_1 = __webpack_require__("./src/config/core/abstract-
 var trata_error_service_1 = __webpack_require__("./src/services/trata-error.service.ts");
 var AbstractPedidoComponent = (function (_super) {
     __extends(AbstractPedidoComponent, _super);
-    function AbstractPedidoComponent(fb, pagService, taxaService, servicoService, pedidoService, location, router) {
+    function AbstractPedidoComponent(fb, pagService, taxaService, servicoService, pedidoService, enderecoService, location, router) {
         var _this = _super.call(this) || this;
         _this.fb = fb;
         _this.pagService = pagService;
         _this.taxaService = taxaService;
         _this.servicoService = servicoService;
         _this.pedidoService = pedidoService;
+        _this.enderecoService = enderecoService;
         _this.location = location;
         _this.router = router;
+        _this.pedido = {};
         _this.exibirProduto = false;
         _this.exibirDadosPedido = false;
         _this.exibirServicoEntrega = false;
+        _this.enderecos = [];
         _this.formaPagmentos = [];
         _this.taxaEntregas = [];
         _this.servicoEntregas = [];
@@ -102,10 +105,10 @@ var AbstractPedidoComponent = (function (_super) {
                 id: cliente.id,
                 nmPessoa: cliente.nmPessoa
             },
-            vlDesconto: ['']
+            vlDesconto: 0
         });
+        this.preencherEndereco(cliente.enderecos);
         this.pedido.itens = [];
-        this.enderecos = cliente.enderecos;
     };
     AbstractPedidoComponent.prototype.adicionarProduto = function (pedidoItem) {
         var position = this.pedido.itens.findIndex(function (x) { return x.hash == pedidoItem.hash; });
@@ -131,12 +134,13 @@ var AbstractPedidoComponent = (function (_super) {
                 id: [''],
                 nmPessoa: ['']
             }),
-            vlDesconto: [''],
+            vlDesconto: 0,
             enderecoEntrega: ['1'],
             taxaEntrega: ['1'],
             servicoEntrega: ['1'],
             formaPagamento: ['1']
         });
+        this.enderecos = [];
     };
     AbstractPedidoComponent.prototype.carregarCombos = function () {
         var _this = this;
@@ -160,6 +164,11 @@ var AbstractPedidoComponent = (function (_super) {
         this.pedido.formaPagamento = {};
         this.pedido.formaPagamento.id = pedidoForm.formaPagamento;
         this.pedido.origem = 'W';
+    };
+    AbstractPedidoComponent.prototype.preencherEndereco = function (enderecos) {
+        var _this = this;
+        this.enderecos = enderecos;
+        this.enderecoService.findEnderecoBalcao().subscribe(function (res) { return _this.enderecos.push(res); }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
     };
     return AbstractPedidoComponent;
 }(abstract_base_component_1.AbstractBaseComponent));
@@ -217,16 +226,18 @@ var taxa_entrega_service_1 = __webpack_require__("./src/app/pages/config/taxaent
 var forma_pagamento_service_1 = __webpack_require__("./src/app/pages/config/formapagamento/forma-pagamento.service.ts");
 var servico_entrega_service_1 = __webpack_require__("./src/app/pages/config/servicoentrega/servico-entrega.service.ts");
 var trata_error_service_1 = __webpack_require__("./src/services/trata-error.service.ts");
+var endereco_service_1 = __webpack_require__("./src/services/domain/endereco.service.ts");
 var event_emitter_services_1 = __webpack_require__("./src/app/shared/event/event-emitter.services.ts");
 var CreatePedidoComponent = (function (_super) {
     __extends(CreatePedidoComponent, _super);
-    function CreatePedidoComponent(fb, pagService, taxaService, servicoService, pedidoService, location, router) {
-        var _this = _super.call(this, fb, pagService, taxaService, servicoService, pedidoService, location, router) || this;
+    function CreatePedidoComponent(fb, pagService, taxaService, servicoService, pedidoService, enderecoService, location, router) {
+        var _this = _super.call(this, fb, pagService, taxaService, servicoService, pedidoService, enderecoService, location, router) || this;
         _this.fb = fb;
         _this.pagService = pagService;
         _this.taxaService = taxaService;
         _this.servicoService = servicoService;
         _this.pedidoService = pedidoService;
+        _this.enderecoService = enderecoService;
         _this.location = location;
         _this.router = router;
         return _this;
@@ -238,6 +249,7 @@ var CreatePedidoComponent = (function (_super) {
     };
     CreatePedidoComponent.prototype.confirmar = function (pedidoForm) {
         var _this = this;
+        console.log('pedido', pedidoForm);
         this.preencherPedido(pedidoForm);
         this.pedidoService.salvar(this.pedido)
             .subscribe(function (res) {
@@ -252,10 +264,10 @@ CreatePedidoComponent = __decorate([
         template: __webpack_require__("./src/app/pages/pedido/create/create-pedido.component.html"),
         styles: [__webpack_require__("./src/app/pages/pedido/create/create-pedido.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof forma_pagamento_service_1.FormaPagamentoService !== "undefined" && forma_pagamento_service_1.FormaPagamentoService) === "function" && _b || Object, typeof (_c = typeof taxa_entrega_service_1.TaxaEntregaService !== "undefined" && taxa_entrega_service_1.TaxaEntregaService) === "function" && _c || Object, typeof (_d = typeof servico_entrega_service_1.ServicoEntregaService !== "undefined" && servico_entrega_service_1.ServicoEntregaService) === "function" && _d || Object, typeof (_e = typeof pedido_service_1.PedidoService !== "undefined" && pedido_service_1.PedidoService) === "function" && _e || Object, typeof (_f = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _f || Object, typeof (_g = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _g || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof forma_pagamento_service_1.FormaPagamentoService !== "undefined" && forma_pagamento_service_1.FormaPagamentoService) === "function" && _b || Object, typeof (_c = typeof taxa_entrega_service_1.TaxaEntregaService !== "undefined" && taxa_entrega_service_1.TaxaEntregaService) === "function" && _c || Object, typeof (_d = typeof servico_entrega_service_1.ServicoEntregaService !== "undefined" && servico_entrega_service_1.ServicoEntregaService) === "function" && _d || Object, typeof (_e = typeof pedido_service_1.PedidoService !== "undefined" && pedido_service_1.PedidoService) === "function" && _e || Object, typeof (_f = typeof endereco_service_1.EnderecoService !== "undefined" && endereco_service_1.EnderecoService) === "function" && _f || Object, typeof (_g = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _g || Object, typeof (_h = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _h || Object])
 ], CreatePedidoComponent);
 exports.CreatePedidoComponent = CreatePedidoComponent;
-var _a, _b, _c, _d, _e, _f, _g;
+var _a, _b, _c, _d, _e, _f, _g, _h;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/create-pedido.component.js.map
 
 /***/ }),
@@ -454,6 +466,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var endereco_service_1 = __webpack_require__("./src/services/domain/endereco.service.ts");
 var ng2_currency_mask_1 = __webpack_require__("./node_modules/ng2-currency-mask/index.js");
 var core_1 = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 var common_1 = __webpack_require__("./node_modules/@angular/common/@angular/common.es5.js");
@@ -508,7 +521,8 @@ PedidoModule = __decorate([
             forma_pagamento_service_1.FormaPagamentoService,
             taxa_entrega_service_1.TaxaEntregaService,
             servico_entrega_service_1.ServicoEntregaService,
-            storage_service_1.StorageService
+            storage_service_1.StorageService,
+            endereco_service_1.EnderecoService
         ]
     })
 ], PedidoModule);
@@ -629,6 +643,7 @@ var core_1 = __webpack_require__("./node_modules/@angular/core/@angular/core.es5
 var router_1 = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
 var common_1 = __webpack_require__("./node_modules/@angular/common/@angular/common.es5.js");
 var abstract_pedido_component_1 = __webpack_require__("./src/app/pages/pedido/abstract-pedido.component.ts");
+var endereco_service_1 = __webpack_require__("./src/services/domain/endereco.service.ts");
 var pedido_service_1 = __webpack_require__("./src/app/pages/pedido/pedido.service.ts");
 var taxa_entrega_service_1 = __webpack_require__("./src/app/pages/config/taxaentrega/taxa-entrega.service.ts");
 var forma_pagamento_service_1 = __webpack_require__("./src/app/pages/config/formapagamento/forma-pagamento.service.ts");
@@ -637,13 +652,14 @@ var trata_error_service_1 = __webpack_require__("./src/services/trata-error.serv
 var event_emitter_services_1 = __webpack_require__("./src/app/shared/event/event-emitter.services.ts");
 var UpdatePedidoComponent = (function (_super) {
     __extends(UpdatePedidoComponent, _super);
-    function UpdatePedidoComponent(fb, pagService, taxaService, servicoService, pedidoService, location, router, route) {
-        var _this = _super.call(this, fb, pagService, taxaService, servicoService, pedidoService, location, router) || this;
+    function UpdatePedidoComponent(fb, pagService, taxaService, servicoService, pedidoService, enderecoService, location, router, route) {
+        var _this = _super.call(this, fb, pagService, taxaService, servicoService, pedidoService, enderecoService, location, router) || this;
         _this.fb = fb;
         _this.pagService = pagService;
         _this.taxaService = taxaService;
         _this.servicoService = servicoService;
         _this.pedidoService = pedidoService;
+        _this.enderecoService = enderecoService;
         _this.location = location;
         _this.router = router;
         _this.route = route;
@@ -674,7 +690,7 @@ var UpdatePedidoComponent = (function (_super) {
     UpdatePedidoComponent.prototype.atualizarFormulario = function (pedido) {
         this.exibirProduto = true;
         this.exibirDadosPedido = true;
-        this.enderecos = pedido.cliente.enderecos;
+        this.preencherEndereco(pedido.cliente.enderecos);
         this.formulario.patchValue({
             id: pedido.id,
             cliente: {
@@ -705,11 +721,52 @@ UpdatePedidoComponent = __decorate([
         template: __webpack_require__("./src/app/pages/pedido/update/update-pedido.component.html"),
         styles: [__webpack_require__("./src/app/pages/pedido/update/update-pedido.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof forma_pagamento_service_1.FormaPagamentoService !== "undefined" && forma_pagamento_service_1.FormaPagamentoService) === "function" && _b || Object, typeof (_c = typeof taxa_entrega_service_1.TaxaEntregaService !== "undefined" && taxa_entrega_service_1.TaxaEntregaService) === "function" && _c || Object, typeof (_d = typeof servico_entrega_service_1.ServicoEntregaService !== "undefined" && servico_entrega_service_1.ServicoEntregaService) === "function" && _d || Object, typeof (_e = typeof pedido_service_1.PedidoService !== "undefined" && pedido_service_1.PedidoService) === "function" && _e || Object, typeof (_f = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _f || Object, typeof (_g = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _g || Object, typeof (_h = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _h || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _a || Object, typeof (_b = typeof forma_pagamento_service_1.FormaPagamentoService !== "undefined" && forma_pagamento_service_1.FormaPagamentoService) === "function" && _b || Object, typeof (_c = typeof taxa_entrega_service_1.TaxaEntregaService !== "undefined" && taxa_entrega_service_1.TaxaEntregaService) === "function" && _c || Object, typeof (_d = typeof servico_entrega_service_1.ServicoEntregaService !== "undefined" && servico_entrega_service_1.ServicoEntregaService) === "function" && _d || Object, typeof (_e = typeof pedido_service_1.PedidoService !== "undefined" && pedido_service_1.PedidoService) === "function" && _e || Object, typeof (_f = typeof endereco_service_1.EnderecoService !== "undefined" && endereco_service_1.EnderecoService) === "function" && _f || Object, typeof (_g = typeof common_1.Location !== "undefined" && common_1.Location) === "function" && _g || Object, typeof (_h = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _h || Object, typeof (_j = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _j || Object])
 ], UpdatePedidoComponent);
 exports.UpdatePedidoComponent = UpdatePedidoComponent;
-var _a, _b, _c, _d, _e, _f, _g, _h;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/update-pedido.component.js.map
+
+/***/ }),
+
+/***/ "./src/services/domain/endereco.service.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var http_1 = __webpack_require__("./node_modules/@angular/common/@angular/common/http.es5.js");
+var core_1 = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var api_config_1 = __webpack_require__("./src/config/core/api.config.ts");
+var EnderecoService = (function () {
+    function EnderecoService(http) {
+        this.http = http;
+        this.url = api_config_1.API_CONFIG.baseUrl + "/endereco";
+    }
+    EnderecoService.prototype.findEnderecoBalcao = function () {
+        return this.http.get(this.url + "/enderecoBalcao");
+    };
+    EnderecoService.prototype.findByEndereco = function (endereco) {
+        return this.http.get(this.url + "/" + endereco.id);
+    };
+    return EnderecoService;
+}());
+EnderecoService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
+], EnderecoService);
+exports.EnderecoService = EnderecoService;
+var _a;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/endereco.service.js.map
 
 /***/ })
 
