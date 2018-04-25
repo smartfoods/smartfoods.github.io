@@ -211,7 +211,7 @@ var _a, _b;
 /***/ "./src/app/pages/config/formapagamento/popup/forma-pagamento-popup-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmFormaPagamento'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Descrição</label>\r\n      <div class=\"col-sm-6\">\r\n        <input #campoNome type=\"text\" formControlName=\"nmFormaPagamento\" class=\"form-control input-sm\" name=\"nmFormaPagamento\"\r\n          maxlength=\"40\">\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
+module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmFormaPagamento'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Descrição</label>\r\n      <div class=\"col-sm-6\">\r\n        <input #campoNome type=\"text\" formControlName=\"nmFormaPagamento\" class=\"form-control input-sm\" name=\"nmFormaPagamento\"\r\n          maxlength=\"40\">\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 

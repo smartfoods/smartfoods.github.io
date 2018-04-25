@@ -1136,8 +1136,13 @@ var ProdutoService = (function (_super) {
         }
         return this.http.get(this.url + "/consultarPorCategorias?categorias=" + ids);
     };
-    ProdutoService.prototype.findByCategoriaOrNmProduto = function (idCategoria, nmProduto) {
-        return this.http.get(this.url + "/consultarPor?idCategoria=" + idCategoria + "&nmProduto=" + nmProduto);
+    ProdutoService.prototype.findByCategoriaOrNmProduto = function (idCategoria, nmProduto, moduloConsulta) {
+        if (moduloConsulta == 'CRD') {
+            return this.http.get(this.url + "/cardapio/consultarPor?idCategoria=" + idCategoria + "&nmProduto=" + nmProduto);
+        }
+        else {
+            return this.http.get(this.url + "/consultarPor?idCategoria=" + idCategoria + "&nmProduto=" + nmProduto);
+        }
     };
     ProdutoService.prototype.findAllProdutoInterno = function () {
         return this.http.get(this.url + "/internos");
@@ -1379,7 +1384,7 @@ var _a, _b;
 /***/ "./src/app/pages/cadastros/usuario/popup/usuario-popup-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"lg\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"salvar()\">\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nrDocumento'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">CPF</label>\r\n      <div class=\"col-sm-4\">\r\n        <input #campoNome type=\"text\" formControlName=\"nrDocumento\" class=\"form-control input-sm\" name=\"nrDocumento\" [textMask]=\"{mask: maskCPF}\"\r\n          (blur)=\"consultarCpf($event.target.value)\" [readonly]=\"isAlteracao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmPessoa'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\r\n      <div class=\"col-sm-8\">\r\n        <input upper type=\"text\" formControlName=\"nmPessoa\" class=\"form-control input-sm\" name=\"nmPessoa\" maxlength=\"100\" [readonly]=\"isAlteracao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('edEmail'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">E-mail</label>\r\n      <div class=\"col-sm-8\">\r\n        <input lower type=\"text\" class=\"form-control input-sm\" formControlName=\"edEmail\" name=\"edEmail\" maxlength=\"100\" (blur)=\"consultarEdEmail($event.target.value)\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsLogin'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n      <div class=\"col-sm-4\">\r\n        <input lower type=\"text\" formControlName=\"dsLogin\" class=\"form-control input-sm\" name=\"dsLogin\" (blur)=\"consultarLogin($event.target.value)\"\r\n          [readonly]=\"formulario.get('emAlteracao').value\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsSenha'))\" *ngIf=\"!isAlteracao\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"dsSenha\" class=\"form-control input-sm\" name=\"dsSenha\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('senhaConfirmacao'))\" *ngIf=\"!isAlteracao\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('perfil'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Perfil</label>\r\n      <div class=\"col-sm-4\">\r\n        <select class=\"form-control\" id=\"perfil\" formControlName=\"perfil\" name=\"perfil\">\r\n          <option value=\"0\">:: selecione ::</option>\r\n          <option value=\"A\">Administrador</option>\r\n          <option value=\"C\">Cliente</option>\r\n        </select>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
+module.exports = "<base-popup-modal [nomePopup]=\"nomeJanePopup\" #modalConfirm modalSize=\"lg\" [titulo]=\"titulo\" (onClickBaseConfirm)=\"btnConfirmar(formulario.value)\"\r\n  [desabilitarBtnConfirmar]=\"!formulario.valid\">\r\n\r\n  <form [formGroup]=\"formulario\" >\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nrDocumento'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">CPF</label>\r\n      <div class=\"col-sm-4\">\r\n        <input #campoNome type=\"text\" formControlName=\"nrDocumento\" class=\"form-control input-sm\" name=\"nrDocumento\" [textMask]=\"{mask: maskCPF}\"\r\n          (blur)=\"consultarCpf($event.target.value)\" [readonly]=\"isAlteracao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('nmPessoa'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Nome</label>\r\n      <div class=\"col-sm-8\">\r\n        <input upper type=\"text\" formControlName=\"nmPessoa\" class=\"form-control input-sm\" name=\"nmPessoa\" maxlength=\"100\" [readonly]=\"isAlteracao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('edEmail'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">E-mail</label>\r\n      <div class=\"col-sm-8\">\r\n        <input lower type=\"text\" class=\"form-control input-sm\" formControlName=\"edEmail\" name=\"edEmail\" maxlength=\"100\" (blur)=\"consultarEdEmail($event.target.value)\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsLogin'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Login</label>\r\n      <div class=\"col-sm-4\">\r\n        <input lower type=\"text\" formControlName=\"dsLogin\" class=\"form-control input-sm\" name=\"dsLogin\" (blur)=\"consultarLogin($event.target.value)\"\r\n          [readonly]=\"formulario.get('emAlteracao').value\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('dsSenha'))\" *ngIf=\"!isAlteracao\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Senha</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"dsSenha\" class=\"form-control input-sm\" name=\"dsSenha\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('senhaConfirmacao'))\" *ngIf=\"!isAlteracao\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Confirmação</label>\r\n      <div class=\"col-sm-4\">\r\n        <input type=\"password\" formControlName=\"senhaConfirmacao\" class=\"form-control input-sm\" name=\"senhaConfirmacao\">\r\n      </div>\r\n    </div>\r\n    <div [ngClass]=\"aplicarCssGroupRow(formulario.get('perfil'))\">\r\n      <label class=\"col-sm-2 form-control-label\" for=\"input-small\">Perfil</label>\r\n      <div class=\"col-sm-4\">\r\n        <select class=\"form-control\" id=\"perfil\" formControlName=\"perfil\" name=\"perfil\">\r\n          <option value=\"0\">:: selecione ::</option>\r\n          <option value=\"A\">Administrador</option>\r\n          <option value=\"C\">Cliente</option>\r\n        </select>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
@@ -1952,13 +1957,12 @@ var CategoriaService = (function (_super) {
     CategoriaService.prototype.findById = function (id) {
         return this.http.get(this.url + "/" + id, this.getHearderToken());
     };
-    CategoriaService.prototype.findCategoriasAtivasExcetoInterna = function (moduloCons) {
-        console.log('modulo', moduloCons);
-        if (moduloCons == 'PRD') {
-            return this.http.get(this.url + "/");
+    CategoriaService.prototype.findCategoriasAtivasExcetoInterna = function (moduloConsulta) {
+        if (moduloConsulta == 'CRD') {
+            return this.http.get(this.url + "/cardapio/");
         }
         else {
-            return this.http.get(this.url + "/cardapio/");
+            return this.http.get(this.url + "/");
         }
     };
     CategoriaService.prototype.findAll = function () {
@@ -2147,6 +2151,54 @@ BreadcrumbsComponent = __decorate([
 exports.BreadcrumbsComponent = BreadcrumbsComponent;
 var _a, _b;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/breadcrumb.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/shared/components/destaque.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var DestaqueComponent = (function () {
+    function DestaqueComponent() {
+    }
+    DestaqueComponent.prototype.ngOnInit = function () {
+    };
+    DestaqueComponent.prototype.getColor = function () {
+        return { 'color': this.valor ? 'green' : 'gray' };
+    };
+    DestaqueComponent.prototype.definirIcone = function () {
+        return {
+            'icon-star': !this.valor,
+            'fa fa-star': this.valor
+        };
+    };
+    return DestaqueComponent;
+}());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], DestaqueComponent.prototype, "valor", void 0);
+DestaqueComponent = __decorate([
+    core_1.Component({
+        selector: 'destaque',
+        template: '<i [ngClass]="definirIcone()" [ngStyle]="getColor()"></i>'
+    }),
+    __metadata("design:paramtypes", [])
+], DestaqueComponent);
+exports.DestaqueComponent = DestaqueComponent;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/destaque.component.js.map
 
 /***/ }),
 
@@ -2632,7 +2684,7 @@ var UploadImagemComponent = (function () {
             img.src = result;
             _this.onSelecionarImagem.emit({ foto: img.src });
             //this.onSelecionarImagem.emit({ foto: resized_jpeg });
-            //this.redimensionarImagem(img, this.largura, this.altura, (resized_jpeg) => {});
+            _this.redimensionarImagem(img, _this.largura, _this.altura, function (resized_jpeg) { });
         });
     };
     UploadImagemComponent.prototype.lerArquivo = function (file, reader, callback) {
@@ -2663,8 +2715,8 @@ var UploadImagemComponent = (function () {
             // create a canvas object
             var canvas = document.createElement("canvas");
             // Set the canvas to the new calculated dimensions
-            canvas.width = width;
-            canvas.height = height;
+            canvas.width = (width / 2);
+            canvas.height = (height / 2);
             var ctx = canvas.getContext("2d");
             ctx.drawImage(img, 0, 0, width, height);
             // Get this encoded as a jpeg
@@ -3962,7 +4014,7 @@ exports.PopupModalModule = PopupModalModule;
 /***/ "./src/app/shared/popup/produto/pesquisar-produto-popup-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-md-4 col-sm-12\">\r\n        <ng-select formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n      <div class=\"form-group col-md-6 col-sm-12\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do produto\" formControlName=\"nmProduto\" name=\"nmProduto\">\r\n      </div>\r\n      <div class=\"form-group col-md-2 col-sm-12\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary btn-block\" style=\"cursor: pointer;\" (click)=\"pesquisarProduto(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row\" *ngIf=\"produtos?.length > 0\">\r\n      <table class=\"table table-striped\" >\r\n        <thead>\r\n          <tr>\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Produto</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">Categoria</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of produtos\" (click)=\"selecionarProduto(item)\" class=\"cursor-hands\">\r\n            <td class=\"text-center\">\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\" value=\"{{item.id}}\" (click)=\"selecionarProduto(item)\" class=\"cursor-hands\" >\r\n            </td>\r\n            <td>\r\n              {{item.nmProduto}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item?.categoria?.nmCategoria}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"from-group row\" *ngIf=\"adicionais?.length > 0\">\r\n        <div class=\"col-sm-2\"></div>\r\n        <div class=\"col-sm-8\">\r\n        <div class=\"card\">\r\n          <div class=\"card-header\">\r\n            <strong>Adicionais</strong>\r\n            <small> - selecione até {{qtAcompanhamento}} adicionais</small>\r\n          </div>\r\n          <div class=\"card-block\">\r\n\r\n            <table class=\"table table-striped\">\r\n              <tbody>\r\n                <tr *ngFor=\"let item of adicionais\">\r\n                  <td class=\"text-left\" *ngIf=\"!verificarItem(item)\" >\r\n                    <input type=\"checkbox\" id=\"checkbox1\" \r\n                      name=\"checkbox1\" \r\n                      (click)=\"selecionarItem($event.target.checked, item)\"\r\n                      [(ngModel)]=\"item.selecionado\" \r\n                      class=\"cursor-hands\"\r\n                      [ngModelOptions]=\"{standalone: true}\"> <strong >{{item.nmProduto}}</strong>\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group row\" *ngIf=\"ctrExibicaoCampoOrdem\">\r\n        <label class=\"col-md-2 form-control-label text-align-right-center\">Ordem do item:</label>\r\n        <div class=\"col-md-2\">\r\n            <input type=\"text\" #cmpOrdemItem class=\"form-control input\" name=\"nrOrdemItem\" maxlength=\"2\"  formControlName=\"nrOrdemItem\">\r\n          </div>\r\n        </div>\r\n  </form>\r\n</base-popup-modal>"
+module.exports = "<base-popup-modal #modalConfirm [nomePopup]=\"nomeJanePopup\" [titulo]=\"titulo\" [desabilitarBtnConfirmar]=\"desabilitarBtnSelecione\"\r\n  (onClickBaseConfirm)=\"btnConfirmar()\" [exibirBtnSelecione]=\"true\">\r\n\r\n  <form [formGroup]=\"formulario\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-md-4 col-sm-12\">\r\n        <ng-select formControlName=\"categoria\" [items]=\"comboCategorias\" placeholder=\"{{label.selecione}}\"></ng-select>\r\n      </div>\r\n      <div class=\"form-group col-md-6 col-sm-12\">\r\n        <input #campoNome type=\"text\" class=\"form-control\" placeholder=\"Digite o nome do produto\" formControlName=\"nmProduto\" name=\"nmProduto\">\r\n      </div>\r\n      <div class=\"form-group col-md-2 col-sm-12\">\r\n        <button type=\"button\" class=\"btn btn-md btn-primary btn-block\" style=\"cursor: pointer;\" (click)=\"pesquisarProduto(formulario.value)\">\r\n          <i class=\"fa fa-search\"> </i> Pesquisar\r\n        </button>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"row\" *ngIf=\"produtos?.length > 0\">\r\n      <table class=\"table table-striped\">\r\n        <thead>\r\n          <tr>\r\n            <th class=\"text-center\" style=\"width: 5%\">\r\n              <i class=\"icon-people\"></i>\r\n            </th>\r\n            <th class=\"text-left\" style=\"width: 40%\">Produto</th>\r\n            <th class=\"text-left\" style=\"width: 15%\">Categoria</th>\r\n            <th class=\"text-center\" style=\"width: 15%\">Situação</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of produtos\" (click)=\"selecionarProduto(item)\" class=\"cursor-hands\">\r\n            <td class=\"text-center\">\r\n              <input type=\"radio\" id=\"radio\" name=\"radios\" value=\"{{item.id}}\" (click)=\"selecionarProduto(item)\" class=\"cursor-hands\">\r\n            </td>\r\n            <td>\r\n              {{item.nmProduto}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              {{item?.categoria?.nmCategoria}}\r\n            </td>\r\n            <td class=\"text-center\">\r\n              <status status={{item.status}}></status>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"from-group row\" *ngIf=\"adicionais?.length > 0\">\r\n      <div class=\"col-sm-2\"></div>\r\n      <div class=\"col-sm-8\">\r\n        <div class=\"card\">\r\n          <div class=\"card-header\">\r\n            <strong>Adicionais</strong>\r\n            <small> - selecione até {{qtAcompanhamento}} adicionais</small>\r\n          </div>\r\n          <div class=\"card-block\">\r\n\r\n            <table class=\"table table-striped\">\r\n              <tbody>\r\n                <tr *ngFor=\"let item of adicionais\">\r\n                  <td class=\"text-left\" *ngIf=\"!verificarItem(item)\">\r\n                    <input type=\"checkbox\" id=\"checkbox1\" name=\"checkbox1\" (click)=\"selecionarItem($event.target.checked, item)\" [(ngModel)]=\"item.selecionado\"\r\n                      class=\"cursor-hands\" [ngModelOptions]=\"{standalone: true}\">\r\n                    <strong>{{item.nmProduto}}</strong>\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group row\" *ngIf=\"ctrExibicaoCampoOrdem\">\r\n      <label class=\"col-md-2 form-control-label text-align-right-center\">Ordem do item:</label>\r\n      <div class=\"col-md-2\">\r\n        <input type=\"text\" #cmpOrdemItem class=\"form-control input\" name=\"nrOrdemItem\" maxlength=\"2\" formControlName=\"nrOrdemItem\">\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group row\" *ngIf=\"ctrExibicaoCampoOrdem\">\r\n      <label class=\"col-md-2 form-control-label text-align-right\">Destaque:</label>\r\n      <div class=\"col-md-4\">\r\n        <a (click)=\"definirCor()\" class=\"cursor-hands\">\r\n          <destaque [valor]=\"this.formulario.get('destaque').value\"></destaque> Item com desque no cardapio\r\n        </a>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</base-popup-modal>"
 
 /***/ }),
 
@@ -4026,6 +4078,7 @@ var PesquisarProdutoModalComponent = (function (_super) {
         this.criarForm();
     };
     PesquisarProdutoModalComponent.prototype.show = function () {
+        this.ctrExibicaoCampoOrdem = false;
         this.criarForm();
         this.showPopup("Pesquisa de Produto");
     };
@@ -4037,7 +4090,7 @@ var PesquisarProdutoModalComponent = (function (_super) {
         }
         this.qtAcompanhamento = 0;
         this.qtItens = 0;
-        this.produtoService.findByCategoriaOrNmProduto(idCategoria, form.nmProduto).
+        this.produtoService.findByCategoriaOrNmProduto(idCategoria, form.nmProduto, this.moduloConsulta).
             subscribe(function (res) { return _this.produtos = res; }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
         this.adicionais = [];
     };
@@ -4068,9 +4121,9 @@ var PesquisarProdutoModalComponent = (function (_super) {
         }
     };
     PesquisarProdutoModalComponent.prototype.btnConfirmar = function () {
-        this.ctrExibicaoCampoOrdem = false;
         this.pedidoItem.qtItem = 1;
         this.pedidoItem.nrOrdemItem = this.formulario.get('nrOrdemItem').value;
+        this.pedidoItem.destaque = this.formulario.get('destaque').value;
         this.pedidoItem.produto = this.produto;
         this.pedidoItem.adicionais = this.adicionaisItem;
         this.pedidoItem.hash = this.calcularHashItem(this.pedidoItem);
@@ -4090,7 +4143,8 @@ var PesquisarProdutoModalComponent = (function (_super) {
         this.formulario = this.fb.group({
             categoria: [''],
             nmProduto: [''],
-            nrOrdemItem: ['']
+            nrOrdemItem: [''],
+            destaque: false
         });
     };
     PesquisarProdutoModalComponent.prototype.consultarCategorias = function (modulo) {
@@ -4121,6 +4175,21 @@ var PesquisarProdutoModalComponent = (function (_super) {
             }
         }
         return true;
+    };
+    PesquisarProdutoModalComponent.prototype.getColor = function () {
+        return this.formulario.get('destaque').value ? 'green' : 'gray';
+    };
+    PesquisarProdutoModalComponent.prototype.definirCor = function () {
+        this.formulario.patchValue({
+            destaque: !this.formulario.get('destaque').value
+        });
+    };
+    PesquisarProdutoModalComponent.prototype.definirIcone = function () {
+        return {
+            'icon-star': !this.formulario.get('destaque').value,
+            //'fa fa-star fa-lg mt-0': this.formulario.get('destaque').value
+            'fa fa-star': this.formulario.get('destaque').value
+        };
     };
     return PesquisarProdutoModalComponent;
 }(abstract_popup_component_1.AbstractPopupComponent));
@@ -4182,6 +4251,7 @@ var lower_case_directive_1 = __webpack_require__("./src/app/shared/directive/low
 var upper_case_directive_1 = __webpack_require__("./src/app/shared/directive/upper-case.directive.ts");
 var auto_foco_directive_1 = __webpack_require__("./src/app/shared/directive/auto-foco.directive.ts");
 var number_only_directive_1 = __webpack_require__("./src/app/shared/directive/number-only.directive.ts");
+var destaque_component_1 = __webpack_require__("./src/app/shared/components/destaque.component.ts");
 var form_buttons_component_1 = __webpack_require__("./src/app/shared/components/form-buttons.component.ts");
 var status_pedido_component_1 = __webpack_require__("./src/app/shared/components/status-pedido.component.ts");
 var origem_pedido_component_1 = __webpack_require__("./src/app/shared/components/origem-pedido.component.ts");
@@ -4230,7 +4300,8 @@ SharedComponentModule = __decorate([
             lower_case_directive_1.LowerCaseTextDirective,
             disabled_control_directive_1.DisableControlDirective,
             status_pedido_component_1.StatusPedidoComponent,
-            form_buttons_component_1.FormButtonsComponent
+            form_buttons_component_1.FormButtonsComponent,
+            destaque_component_1.DestaqueComponent
         ],
         exports: [
             foto_component_1.FotoComponent,
@@ -4254,7 +4325,8 @@ SharedComponentModule = __decorate([
             disabled_control_directive_1.DisableControlDirective,
             origem_pedido_component_1.OrigemPedidoComponent,
             status_pedido_component_1.StatusPedidoComponent,
-            form_buttons_component_1.FormButtonsComponent
+            form_buttons_component_1.FormButtonsComponent,
+            destaque_component_1.DestaqueComponent
         ],
         providers: [
             image_service_1.ImageService
@@ -4524,10 +4596,10 @@ exports.AbstractService = AbstractService;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.API_CONFIG = {
-    baseUrl: "https://paladarfit.herokuapp.com",
-    //baseUrl: "http://localhost:8080",
+    //baseUrl: "https://paladarfit.herokuapp.com",
+    baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit",
-    versao: '1.1.1'
+    versao: '1.1.2'
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
 
