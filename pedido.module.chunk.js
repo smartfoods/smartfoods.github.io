@@ -249,7 +249,6 @@ var CreatePedidoComponent = (function (_super) {
     };
     CreatePedidoComponent.prototype.confirmar = function (pedidoForm) {
         var _this = this;
-        console.log('pedido', pedidoForm);
         this.preencherPedido(pedidoForm);
         this.pedidoService.salvar(this.pedido)
             .subscribe(function (res) {

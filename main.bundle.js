@@ -1126,7 +1126,7 @@ var ProdutoService = (function (_super) {
         return this.http.get(this.url + "/" + id, this.getHearderToken());
     };
     ProdutoService.prototype.findAll = function () {
-        return this.http.get(this.url + "/");
+        return this.http.get(this.url + "/", this.getHearderToken());
     };
     ProdutoService.prototype.findByCategorias = function (categorias) {
         var ids = '';
@@ -1134,14 +1134,14 @@ var ProdutoService = (function (_super) {
             var s = categorias_1[_i];
             ids += s + ',';
         }
-        return this.http.get(this.url + "/consultarPorCategorias?categorias=" + ids);
+        return this.http.get(this.url + "/consultarPorCategorias?categorias=" + ids, this.getHearderToken());
     };
     ProdutoService.prototype.findByCategoriaOrNmProduto = function (idCategoria, nmProduto, moduloConsulta) {
         if (moduloConsulta == 'CRD') {
-            return this.http.get(this.url + "/cardapio/consultarPor?idCategoria=" + idCategoria + "&nmProduto=" + nmProduto);
+            return this.http.get(api_config_1.API_CONFIG.baseUrl + "/cardapio/consultarPor?idCategoria=" + idCategoria + "&nmProduto=" + nmProduto);
         }
         else {
-            return this.http.get(this.url + "/consultarPor?idCategoria=" + idCategoria + "&nmProduto=" + nmProduto);
+            return this.http.get(this.url + "/consultarPor?idCategoria=" + idCategoria + "&nmProduto=" + nmProduto, this.getHearderToken());
         }
     };
     ProdutoService.prototype.findAllProdutoInterno = function () {
@@ -1959,10 +1959,10 @@ var CategoriaService = (function (_super) {
     };
     CategoriaService.prototype.findCategoriasAtivasExcetoInterna = function (moduloConsulta) {
         if (moduloConsulta == 'CRD') {
-            return this.http.get(this.url + "/cardapio/");
+            return this.http.get(api_config_1.API_CONFIG.baseUrl + "/cardapio/categoria");
         }
         else {
-            return this.http.get(this.url + "/");
+            return this.http.get(this.url + "/", this.getHearderToken());
         }
     };
     CategoriaService.prototype.findAll = function () {
@@ -3822,6 +3822,10 @@ __decorate([
 __decorate([
     core_1.Input(),
     __metadata("design:type", String)
+], ConfirmPopupModalComponent.prototype, "titulo", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
 ], ConfirmPopupModalComponent.prototype, "popupStyle", void 0);
 __decorate([
     core_1.Output(),
@@ -4598,10 +4602,10 @@ exports.AbstractService = AbstractService;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.API_CONFIG = {
-    baseUrl: "https://paladarfit.herokuapp.com",
-    //baseUrl: "http://localhost:8080",
+    //baseUrl: "https://paladarfit.herokuapp.com",
+    baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit",
-    versao: '1.1.4'
+    versao: '1.1.5'
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
 
