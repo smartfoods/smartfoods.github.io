@@ -2656,6 +2656,106 @@ exports.StatusComponent = StatusComponent;
 
 /***/ }),
 
+/***/ "./src/app/shared/components/upload-imagem/modal/upload-image-popup-modal.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div bsModal #modalUploadImagem=\"bs-modal\" id='modalConfirm' class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\r\n  aria-hidden=\"true\">\r\n\r\n\r\n  <div class=\"modal-dialog modal-sm modal-primary\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Upload de imagem</h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"modalUploadImagem.hide()\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"col-12\">\r\n              <label for='selecao-arquivo' class=\"btn btn-md btn-primary btn-block\"><i class=\"fa fa-camera\"> </i> {{botaoTitulo}}</label>\r\n              <input id='selecao-arquivo' type=\"file\" (change)=\"fileChangeListener($event)\" accept=\"image/x-png,image/gif,image/jpeg\" style='display:none' />\r\n          </div>\r\n          <div class=\"col-12\">\r\n              <img-cropper #cropper [image]=\"data\" [settings]=\"cropperSettings\"></img-cropper>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-secondary cursor-hands\" (click)=\"modalUploadImagem.hide()\">Fechar</button>\r\n        <button type=\"button\" class=\"btn btn-primary cursor-hands\" (click)=\"btnConfirmar()\">Confirmar</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/shared/components/upload-imagem/modal/upload-image-popup-modal.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ".modal-dialog {\n  padding-top: 5%; }\n"
+
+/***/ }),
+
+/***/ "./src/app/shared/components/upload-imagem/modal/upload-image-popup-modal.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var ng2_img_cropper_1 = __webpack_require__("./node_modules/ng2-img-cropper/index.js");
+var UploadImagePopupModalComponent = (function () {
+    function UploadImagePopupModalComponent() {
+        this.onClickConfirm = new core_1.EventEmitter();
+        this.botaoTitulo = "Selecione uma imagem";
+        this.cropperSettings = new ng2_img_cropper_1.CropperSettings();
+        this.cropperSettings.width = 200;
+        this.cropperSettings.height = 200;
+        this.cropperSettings.croppedWidth = 200;
+        this.cropperSettings.croppedHeight = 200;
+        this.cropperSettings.canvasWidth = 270;
+        this.cropperSettings.canvasHeight = 265;
+        this.cropperSettings.noFileInput = true;
+        this.data = new Image();
+    }
+    UploadImagePopupModalComponent.prototype.ngOnInit = function () {
+    };
+    UploadImagePopupModalComponent.prototype.show = function () {
+        this.confirma.show();
+    };
+    UploadImagePopupModalComponent.prototype.btnConfirmar = function () {
+        this.confirma.hide();
+        this.onClickConfirm.emit({ foto: this.data.image });
+    };
+    UploadImagePopupModalComponent.prototype.fileChangeListener = function ($event) {
+        var image = new Image();
+        var file = $event.target.files[0];
+        var myReader = new FileReader();
+        var that = this;
+        myReader.onloadend = function (loadEvent) {
+            image.src = loadEvent.target.result;
+            that.cropper.setImage(image);
+        };
+        myReader.readAsDataURL(file);
+    };
+    return UploadImagePopupModalComponent;
+}());
+__decorate([
+    core_1.ViewChild('modalUploadImagem'),
+    __metadata("design:type", Object)
+], UploadImagePopupModalComponent.prototype, "confirma", void 0);
+__decorate([
+    core_1.ViewChild('cropper', undefined),
+    __metadata("design:type", typeof (_a = typeof ng2_img_cropper_1.ImageCropperComponent !== "undefined" && ng2_img_cropper_1.ImageCropperComponent) === "function" && _a || Object)
+], UploadImagePopupModalComponent.prototype, "cropper", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], UploadImagePopupModalComponent.prototype, "onClickConfirm", void 0);
+UploadImagePopupModalComponent = __decorate([
+    core_1.Component({
+        selector: 'upload-image-modal',
+        styles: [__webpack_require__("./src/app/shared/components/upload-imagem/modal/upload-image-popup-modal.component.scss")],
+        template: __webpack_require__("./src/app/shared/components/upload-imagem/modal/upload-image-popup-modal.component.html")
+    }),
+    __metadata("design:paramtypes", [])
+], UploadImagePopupModalComponent);
+exports.UploadImagePopupModalComponent = UploadImagePopupModalComponent;
+var _a;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/upload-image-popup-modal.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/shared/components/upload-imagem/upload-imagem.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div>\r\n  <!--\r\n\r\n    <label for='selecao-arquivo' class=\"{{botaoCss}}\"><i class=\"{{botaoIcone}}\"> </i> {{botaoTitulo}}</label>\r\n    <input id='selecao-arquivo' type=\"file\" (change)=\"selecionarImagem(input)\" accept=\"image/x-png,image/gif,image/jpeg\" #input style='display:none' />\r\n  -->\r\n\r\n  <label for='selecao-arquivo1' class=\"{{botaoCss}}\" (click)=\"uploadImage.show()\" ><i class=\"{{botaoIcone}}\" > </i> {{botaoTitulo}}</label>\r\n  <!--\r\n    <label for='selecao-arquivo1' class=\"btn btn-md btn-primary btn-block\" (click)=\"uploadImage.show()\" ><i class=\"fa fa-save\">  </i> upload da imagem</label>  \r\n  -->\r\n  <upload-image-modal #uploadImage (onClickConfirm)=\"selecionarImagem($event)\" ></upload-image-modal>\r\n</div>"
+
+/***/ }),
+
 /***/ "./src/app/shared/components/upload-imagem/upload-imagem.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2677,54 +2777,8 @@ var UploadImagemComponent = (function () {
         this.onSelecionarImagem = new core_1.EventEmitter();
     }
     UploadImagemComponent.prototype.ngOnInit = function () { };
-    UploadImagemComponent.prototype.selecionarImagem = function (input) {
-        var _this = this;
-        this.lerArquivo(input.files[0], new FileReader(), function (result) {
-            var img = document.createElement("img");
-            img.src = result;
-            _this.onSelecionarImagem.emit({ foto: img.src });
-            //this.onSelecionarImagem.emit({ foto: resized_jpeg });
-            _this.redimensionarImagem(img, _this.largura, _this.altura, function (resized_jpeg) { });
-        });
-    };
-    UploadImagemComponent.prototype.lerArquivo = function (file, reader, callback) {
-        reader.onload = function () {
-            callback(reader.result);
-        };
-        reader.readAsDataURL(file);
-    };
-    UploadImagemComponent.prototype.redimensionarImagem = function (img, MAX_WIDTH, MAX_HEIGHT, callback) {
-        // This will wait until the img is loaded before calling this function
-        return img.onload = function () {
-            // Get the images current width and height
-            var width = img.width;
-            var height = img.height;
-            // Set the WxH to fit the Max values (but maintain proportions)
-            if (width > height) {
-                if (width > MAX_WIDTH) {
-                    height *= MAX_WIDTH / width;
-                    width = MAX_WIDTH;
-                }
-            }
-            else {
-                if (height > MAX_HEIGHT) {
-                    width *= MAX_HEIGHT / height;
-                    height = MAX_HEIGHT;
-                }
-            }
-            // create a canvas object
-            var canvas = document.createElement("canvas");
-            // Set the canvas to the new calculated dimensions
-            canvas.width = (width / 2);
-            canvas.height = (height / 2);
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0, width, height);
-            // Get this encoded as a jpeg
-            // IMPORTANT: 'jpeg' NOT 'jpg'
-            var dataUrl = canvas.toDataURL('image/jpeg');
-            // callback with the results
-            callback(dataUrl);
-        };
+    UploadImagemComponent.prototype.selecionarImagem = function (data) {
+        this.onSelecionarImagem.emit(data);
     };
     return UploadImagemComponent;
 }());
@@ -2737,10 +2791,6 @@ __decorate([
     __metadata("design:type", Number)
 ], UploadImagemComponent.prototype, "largura", void 0);
 __decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], UploadImagemComponent.prototype, "onSelecionarImagem", void 0);
-__decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], UploadImagemComponent.prototype, "botaoIcone", void 0);
@@ -2752,10 +2802,27 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], UploadImagemComponent.prototype, "botaoCss", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], UploadImagemComponent.prototype, "onSelecionarImagem", void 0);
 UploadImagemComponent = __decorate([
     core_1.Component({
         selector: 'upload-imagem',
-        template: "\n      <div>\n        <label for='selecao-arquivo' class=\"{{botaoCss}}\"  > <i class=\"{{botaoIcone}}\">  </i> {{botaoTitulo}}</label>\n        <input  id='selecao-arquivo'\n                type=\"file\"\n                (change)=\"selecionarImagem(input)\"\n                accept=\"image/x-png,image/gif,image/jpeg\"\n                #input\n                style='display:none' />\n      </div>\n  "
+        template: __webpack_require__("./src/app/shared/components/upload-imagem/upload-imagem.component.html")
+        /*
+        template: `
+            <div>
+              <label for='selecao-arquivo' class="{{botaoCss}}"  > <i class="{{botaoIcone}}">  </i> {{botaoTitulo}}</label>
+              <input  id='selecao-arquivo'
+                      type="file"
+                      (change)="selecionarImagem(input)"
+                      accept="image/x-png,image/gif,image/jpeg"
+                      #input
+                      style='display:none' />
+            </div>
+        `
+        */
     }),
     __metadata("design:paramtypes", [])
 ], UploadImagemComponent);
@@ -4238,6 +4305,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var ng2_img_cropper_1 = __webpack_require__("./node_modules/ng2-img-cropper/index.js");
+var upload_image_popup_modal_component_1 = __webpack_require__("./src/app/shared/components/upload-imagem/modal/upload-image-popup-modal.component.ts");
 var core_1 = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 var common_1 = __webpack_require__("./node_modules/@angular/common/@angular/common.es5.js");
 var forms_1 = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
@@ -4268,6 +4337,7 @@ var sim_nao_component_1 = __webpack_require__("./src/app/shared/components/sim-n
 var status_component_1 = __webpack_require__("./src/app/shared/components/status.component.ts");
 var foto_uri_component_1 = __webpack_require__("./src/app/shared/components/foto-uri.component.ts");
 var image_service_1 = __webpack_require__("./src/services/image.service.ts");
+var modal_1 = __webpack_require__("./node_modules/ng2-bootstrap/modal/index.js");
 var SharedComponentModule = (function () {
     function SharedComponentModule() {
     }
@@ -4280,7 +4350,8 @@ SharedComponentModule = __decorate([
             forms_1.FormsModule,
             angular2_text_mask_1.TextMaskModule,
             ng2_select_1.SelectModule,
-            dropdown_1.BsDropdownModule
+            dropdown_1.BsDropdownModule,
+            modal_1.ModalModule.forRoot(),
         ],
         declarations: [
             foto_component_1.FotoComponent,
@@ -4305,7 +4376,9 @@ SharedComponentModule = __decorate([
             disabled_control_directive_1.DisableControlDirective,
             status_pedido_component_1.StatusPedidoComponent,
             form_buttons_component_1.FormButtonsComponent,
-            destaque_component_1.DestaqueComponent
+            destaque_component_1.DestaqueComponent,
+            upload_image_popup_modal_component_1.UploadImagePopupModalComponent,
+            ng2_img_cropper_1.ImageCropperComponent
         ],
         exports: [
             foto_component_1.FotoComponent,
@@ -4330,7 +4403,9 @@ SharedComponentModule = __decorate([
             origem_pedido_component_1.OrigemPedidoComponent,
             status_pedido_component_1.StatusPedidoComponent,
             form_buttons_component_1.FormButtonsComponent,
-            destaque_component_1.DestaqueComponent
+            destaque_component_1.DestaqueComponent,
+            upload_image_popup_modal_component_1.UploadImagePopupModalComponent,
+            ng2_img_cropper_1.ImageCropperComponent
         ],
         providers: [
             image_service_1.ImageService
@@ -4602,10 +4677,10 @@ exports.AbstractService = AbstractService;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.API_CONFIG = {
-    //baseUrl: "https://paladarfit.herokuapp.com",
-    baseUrl: "http://localhost:8080",
+    baseUrl: "https://paladarfit.herokuapp.com",
+    //baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit",
-    versao: '1.1.5'
+    versao: '1.2.0'
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
 

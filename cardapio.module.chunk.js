@@ -331,7 +331,6 @@ var CardapioService = (function (_super) {
     };
     /** consulta de produto */
     CardapioService.prototype.findProdutoByCategoriaOrNome = function (idCategoria, nmProduto) {
-        console.log('teste');
         return this.http.get(this.url + "/consultarPor?idCategoria=" + idCategoria + "&nmProduto=" + nmProduto, this.getHearderToken());
     };
     CardapioService.prototype.findProdutoByCategoriaCardapio = function (idCategoria) {
