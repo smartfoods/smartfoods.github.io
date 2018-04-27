@@ -1145,7 +1145,7 @@ var ProdutoService = (function (_super) {
         }
     };
     ProdutoService.prototype.findAllProdutoInterno = function () {
-        return this.http.get(this.url + "/internos");
+        return this.http.get(this.url + "/internos", this.getHearderToken());
     };
     ProdutoService.prototype.salvar = function (produto) {
         return this.http.post(this.url + "/", JSON.stringify(produto), this.getHearderTokenNoResponse());
@@ -1966,7 +1966,7 @@ var CategoriaService = (function (_super) {
         }
     };
     CategoriaService.prototype.findAll = function () {
-        return this.http.get(this.url + "/all");
+        return this.http.get(this.url + "/all", this.getHearderToken());
     };
     CategoriaService.prototype.salvar = function (categoria) {
         return this.http.post("" + this.url, JSON.stringify(categoria), this.getHearderTokenNoResponse());
