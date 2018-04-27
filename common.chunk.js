@@ -1413,7 +1413,7 @@ var UnidadeMedidaService = (function (_super) {
         return this.http.get(this.url + "/all", this.getHearderToken());
     };
     UnidadeMedidaService.prototype.findAllAtivo = function () {
-        return this.http.get(this.url + "/");
+        return this.http.get(this.url + "/", this.getHearderToken());
     };
     UnidadeMedidaService.prototype.findById = function (id) {
         return this.http.get(this.url + "/" + id, this.getHearderToken());
