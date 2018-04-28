@@ -4179,6 +4179,7 @@ var PesquisarProdutoModalComponent = (function (_super) {
         else if (this.qtAcompanhamento > 0) {
             this.adicionalProduto.findByCategoria(produto.categoria.id)
                 .subscribe(function (res) {
+                _this.adicionais = [];
                 for (var _i = 0, res_1 = res; _i < res_1.length; _i++) {
                     var p = res_1[_i];
                     var prod = {};
@@ -4186,7 +4187,7 @@ var PesquisarProdutoModalComponent = (function (_super) {
                     prod.nmProduto = p.nmProduto;
                     _this.adicionais.push(prod);
                 }
-                _this.adicionais = res;
+                //this.adicionais = res
             }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
             this.ctrExibicaoCampoOrdem = this.exibirCampoOrdem;
         }
@@ -4680,7 +4681,7 @@ exports.API_CONFIG = {
     baseUrl: "https://paladarfit.herokuapp.com",
     //baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit",
-    versao: '1.2.1'
+    versao: '1.2.2'
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
 
