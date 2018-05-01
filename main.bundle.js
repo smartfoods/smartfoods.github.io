@@ -3502,10 +3502,12 @@ var CpfPipe = (function () {
     function CpfPipe() {
     }
     CpfPipe.prototype.transform = function (value) {
-        value = value.replace(/\D/g, '');
-        if (value && value.length === 11) {
-            value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-            return value;
+        if (value != null && value != '') {
+            value = value.replace(/\D/g, '');
+            if (value && value.length === 11) {
+                value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+                return value;
+            }
         }
     };
     return CpfPipe;
@@ -3568,12 +3570,14 @@ var TelefonePipe = (function () {
     function TelefonePipe() {
     }
     TelefonePipe.prototype.transform = function (value) {
-        value = value.replace(/\D/g, '');
-        if (value && value.length == 10) {
-            return value.replace(/(\d{2})(\d{4})(\d{4})/, "($1) $2-$3");
-        }
-        else if (value && value.length === 11) {
-            return value.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+        if (value != null && value != '') {
+            value = value.replace(/\D/g, '');
+            if (value && value.length == 10) {
+                return value.replace(/(\d{2})(\d{4})(\d{4})/, "($1) $2-$3");
+            }
+            else if (value && value.length === 11) {
+                return value.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+            }
         }
     };
     return TelefonePipe;
@@ -4681,7 +4685,7 @@ exports.API_CONFIG = {
     baseUrl: "https://paladarfit.herokuapp.com",
     //baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit",
-    versao: '1.2.2'
+    versao: '1.2.3'
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
 
