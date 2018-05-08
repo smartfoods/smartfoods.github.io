@@ -274,7 +274,7 @@ var _a, _b, _c, _d, _e, _f, _g, _h;
 /***/ "./src/app/pages/pedido/listar/listar-pedido.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-1\"></div>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de pedidos\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th class=\"text-center\" style=\"width: 3%\">\r\n                        <i class=\"fa fa-hashtag\"></i>\r\n                    </th>\r\n                    <th class=\"text-center\" style=\"width: 7%\">\r\n                        <i class=\"icon-people\"></i>\r\n                    </th>\r\n                    <th class=\"text-left\" style=\"width: 30%\">Cliente</th>\r\n                    <th class=\"text-left\" style=\"width: 10%\">CPF</th>\r\n                    <th class=\"text-left\" style=\"width: 10%\">Telefone</th>\r\n                    <th class=\"text-center\" style=\"width: 10%\">Status</th>\r\n                    <th class=\"text-center\" style=\"width: 10%\">Origem</th>\r\n                    <th class=\"text-center\" style=\"width: 15%\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td class=\"text-center\">\r\n                        {{item.id}}\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"avatar\">\r\n                            <foto-uri id=\"{{item.cliente.id}}\" modulo=\"CLI\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-left-midle\">\r\n                        <div class=\"margin-top\">\r\n                            {{item.cliente.nmPessoa | uppercase}}\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-left-midle\">\r\n                        <div class=\"margin-top\">\r\n                            {{item.cliente.nrCpf | cpfMask}}\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-left-midle\">\r\n                        <div class=\"margin-top\">\r\n                            {{item.cliente.fone.nrFoneCelular | telefone}}\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"margin-top\">\r\n                            <status-pedido status={{item.status}}></status-pedido>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"margin-top\">\r\n                            <origem-pedido status={{item.origem}}></origem-pedido>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"margin-top\">\r\n                            <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"alterarPedido(item)\">\r\n                                <i class=\"fa fa fa-edit\"> </i>\r\n                            </button>\r\n                            <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\" (click)=\"selecionarItem(item)\">\r\n                                <i class=\"fa fa-eraser\"> </i>\r\n                            </button>\r\n                            <button type=\"button\" class=\"btn btn-sm btn-warning cursor-hands\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                                <i class=\"fa fa-exclamation\"> </i>\r\n                            </button>\r\n                        </div>\r\n                    </td>\r\n                </tr>\r\n\r\n            </tbody>\r\n        </table>\r\n\r\n    </div>\r\n</div>\r\n\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a pedido?</strong>\r\n</confirm-popup-modal>"
+module.exports = "<div class=\"col-md-1\"></div>\r\n<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        <i class=\"fa fa-align-justify\"></i> Listagem de pedidos\r\n    </div>\r\n    <div class=\"card-block\">\r\n        <table class=\"table table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th class=\"text-center\" style=\"width: 3%\">\r\n                        <i class=\"fa fa-hashtag\"></i>\r\n                    </th>\r\n                    <th class=\"text-center\" style=\"width: 7%\">\r\n                        <i class=\"icon-people\"></i>\r\n                    </th>\r\n                    <th class=\"text-left\" style=\"width: 30%\">Cliente</th>\r\n                    <th class=\"text-left\" style=\"width: 10%\">CPF</th>\r\n                    <th class=\"text-left\" style=\"width: 10%\">Telefone</th>\r\n                    <th class=\"text-center\" style=\"width: 10%\">Status</th>\r\n                    <th class=\"text-center\" style=\"width: 10%\">Origem</th>\r\n                    <th class=\"text-center\" style=\"width: 15%\">Ação</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items\">\r\n                    <td class=\"text-center\">\r\n                        {{item.id}}\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"avatar\">\r\n                            <foto-uri id=\"{{item.cliente.id}}\" modulo=\"CLI\" classCss=\"img-avatar\" alt=\"Avatar\"></foto-uri>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-left-midle\">\r\n                        <div class=\"margin-top\">\r\n                            {{item.cliente.nmPessoa | uppercase}}\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-left-midle\">\r\n                        <div class=\"margin-top\">\r\n                            {{item.cliente.nrCpf | cpfMask}}\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-left-midle\">\r\n                        <div class=\"margin-top\">\r\n                            {{item.cliente.fone.nrFoneCelular | telefone}}\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"margin-top\">\r\n                            <status-pedido status={{item.status}}></status-pedido>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"margin-top\">\r\n                            <origem-pedido status={{item.origem}}></origem-pedido>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <div class=\"margin-top\">\r\n                            <button type=\"button\" class=\"btn btn-sm btn-primary cursor-hands\" (click)=\"alterarPedido(item)\">\r\n                                <i class=\"fa fa fa-edit\"> </i>\r\n                            </button>\r\n                            <button type=\"button\" class=\"btn btn-sm btn-danger cursor-hands\" (click)=\"selecionarItem(item)\">\r\n                                <i class=\"fa fa-eraser\"> </i>\r\n                            </button>\r\n                            <button type=\"button\" class=\"btn btn-sm btn-warning cursor-hands\" (click)=\"selecionarItemChangeStatus(item)\">\r\n                                <i class=\"fa fa-exclamation\"> </i>\r\n                            </button>\r\n                        </div>\r\n                    </td>\r\n                </tr>\r\n\r\n            </tbody>\r\n        </table>\r\n\r\n    </div>\r\n</div>\r\n\r\n<confirm-popup-modal #excluirModal popupStyle=\"danger\" (onClickConfirm)=\"excluir()\">\r\n    <strong>Deseja excluir a pedido?</strong>\r\n</confirm-popup-modal>\r\n\r\n<confirm-popup-modal #alterarStatusModal popupStyle=\"primary\" (onClickConfirm)=\"changeStatus()\">\r\n\r\n    <div class=\"form-group row\">\r\n        <label class=\"col-md-2 form-control-label text-align-right-center\">Pagamento:</label>\r\n        <div class=\"col-md-6\">\r\n            <select [(ngModel)]=\"status\" class=\"form-control\">\r\n                <option *ngFor=\"let s of statusList\" [ngValue]=\"s.id\">{{s.text}}</option>\r\n            </select>\r\n        </div>\r\n    </div>\r\n</confirm-popup-modal>"
 
 /***/ }),
 
@@ -325,6 +325,7 @@ var ListarPedidoComponent = (function (_super) {
         _this.pedidoService = pedidoService;
         _this.router = router;
         _this.items = [];
+        _this.statusList = [];
         return _this;
     }
     ListarPedidoComponent.prototype.ngOnInit = function () {
@@ -340,7 +341,8 @@ var ListarPedidoComponent = (function (_super) {
     };
     ListarPedidoComponent.prototype.changeStatus = function () {
         var _this = this;
-        this.pedidoService.changeStatus(this.pedido)
+        console.log(this.status);
+        this.pedidoService.changeStatus(this.pedido, this.status)
             .subscribe(function (res) {
             event_emitter_services_1.EventEmitterService.emitirMensagemToasterSucesso('Pedido', 'Status do pedido foi alterado com sucesso!!!');
             _this.carregarTodos();
@@ -359,7 +361,16 @@ var ListarPedidoComponent = (function (_super) {
     };
     ListarPedidoComponent.prototype.carregarTodos = function () {
         var _this = this;
+        this.carregarStatus();
         this.pedidoService.findAll().subscribe(function (res) { _this.items = res; }, function (error) { return trata_error_service_1.TrataErrorService.tratarError(error); });
+    };
+    ListarPedidoComponent.prototype.carregarStatus = function () {
+        this.statusList = [];
+        this.statusList.push({ id: 'E', text: 'Enviado' });
+        this.statusList.push({ id: 'P', text: 'Em preparação' });
+        this.statusList.push({ id: 'C', text: 'Cancelado' });
+        this.statusList.push({ id: 'G', text: 'Na rota de Entrega' });
+        this.statusList.push({ id: 'T', text: 'Entrega' });
     };
     return ListarPedidoComponent;
 }(abstract_base_component_1.AbstractBaseComponent));
@@ -368,7 +379,7 @@ __decorate([
     __metadata("design:type", Object)
 ], ListarPedidoComponent.prototype, "popupExclusao", void 0);
 __decorate([
-    core_1.ViewChild('changeStatusModal'),
+    core_1.ViewChild('alterarStatusModal'),
     __metadata("design:type", Object)
 ], ListarPedidoComponent.prototype, "popupChangeStatus", void 0);
 ListarPedidoComponent = __decorate([
@@ -527,74 +538,6 @@ PedidoModule = __decorate([
 ], PedidoModule);
 exports.PedidoModule = PedidoModule;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/pedido.module.js.map
-
-/***/ }),
-
-/***/ "./src/app/pages/pedido/pedido.service.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var api_config_1 = __webpack_require__("./src/config/core/api.config.ts");
-var core_1 = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-var http_1 = __webpack_require__("./node_modules/@angular/common/@angular/common/http.es5.js");
-var abstract_service_1 = __webpack_require__("./src/config/core/abstract-service.ts");
-//import { catchError, retry } from 'rxjs/operators';
-var PedidoService = (function (_super) {
-    __extends(PedidoService, _super);
-    function PedidoService(http) {
-        var _this = _super.call(this) || this;
-        _this.http = http;
-        _this.url = api_config_1.API_CONFIG.baseUrl + "/pedido";
-        return _this;
-    }
-    PedidoService.prototype.findById = function (id) {
-        return this.http.get(this.url + "/" + id, this.getHearderToken());
-    };
-    PedidoService.prototype.findAll = function () {
-        return this.http.get(this.url, this.getHearderToken());
-    };
-    PedidoService.prototype.salvar = function (cliente) {
-        return this.http.post("" + this.url, JSON.stringify(cliente), this.getHearderTokenNoResponse());
-    };
-    PedidoService.prototype.changeStatus = function (cliente) {
-        return this.http.put(this.url + "/" + cliente.id + "/changeStatus", {}, this.getHearderTokenNoResponse());
-    };
-    PedidoService.prototype.atualizar = function (cliente) {
-        return this.http.put(this.url + "/" + cliente.id, JSON.stringify(cliente), this.getHearderTokenNoResponse());
-    };
-    PedidoService.prototype.excluir = function (cliente) {
-        return this.http.delete(this.url + "/" + cliente.id, this.getHearderToken());
-    };
-    return PedidoService;
-}(abstract_service_1.AbstractService));
-PedidoService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
-], PedidoService);
-exports.PedidoService = PedidoService;
-var _a;
-//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/pedido.service.js.map
 
 /***/ }),
 

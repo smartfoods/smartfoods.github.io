@@ -1441,6 +1441,75 @@ exports.UnidadeMedidaService = UnidadeMedidaService;
 var _a;
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/unidade-medida.service.js.map
 
+/***/ }),
+
+/***/ "./src/app/pages/pedido/pedido.service.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var api_config_1 = __webpack_require__("./src/config/core/api.config.ts");
+var core_1 = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var http_1 = __webpack_require__("./node_modules/@angular/common/@angular/common/http.es5.js");
+var abstract_service_1 = __webpack_require__("./src/config/core/abstract-service.ts");
+//import { catchError, retry } from 'rxjs/operators';
+var PedidoService = (function (_super) {
+    __extends(PedidoService, _super);
+    function PedidoService(http) {
+        var _this = _super.call(this) || this;
+        _this.http = http;
+        _this.url = api_config_1.API_CONFIG.baseUrl + "/pedido";
+        _this.urlReport = api_config_1.API_CONFIG.baseUrl + "/relatorio/pedido/";
+        return _this;
+    }
+    PedidoService.prototype.findById = function (id) {
+        return this.http.get(this.url + "/" + id, this.getHearderToken());
+    };
+    PedidoService.prototype.findAll = function () {
+        return this.http.get(this.url, this.getHearderToken());
+    };
+    PedidoService.prototype.salvar = function (pedido) {
+        return this.http.post("" + this.url, JSON.stringify(pedido), this.getHearderTokenNoResponse());
+    };
+    PedidoService.prototype.changeStatus = function (pedido, status) {
+        return this.http.put(this.url + "/" + pedido.id + "/changeStatus?status=" + status, {}, this.getHearderTokenNoResponse());
+    };
+    PedidoService.prototype.atualizar = function (pedido) {
+        return this.http.put(this.url + "/" + pedido.id, JSON.stringify(pedido), this.getHearderTokenNoResponse());
+    };
+    PedidoService.prototype.excluir = function (pedido) {
+        return this.http.delete(this.url + "/" + pedido.id, this.getHearderToken());
+    };
+    return PedidoService;
+}(abstract_service_1.AbstractService));
+PedidoService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [typeof (_a = typeof http_1.HttpClient !== "undefined" && http_1.HttpClient) === "function" && _a || Object])
+], PedidoService);
+exports.PedidoService = PedidoService;
+var _a;
+//# sourceMappingURL=E:/paladar-fit/frontend-angular/src/pedido.service.js.map
+
 /***/ })
 
 });

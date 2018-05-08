@@ -65,6 +65,11 @@ var map = {
 		"./src/app/pages/pedido/pedido.module.ts",
 		"common",
 		"pedido.module"
+	],
+	"./pages/relatorio/relatorio.module": [
+		"./src/app/pages/relatorio/relatorio.module.ts",
+		"common",
+		"relatorio.module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -320,7 +325,20 @@ exports.routes = [
                 path: 'servicoentrega',
                 canActivateChild: [auth_guard_service_1.AuthGuard],
                 loadChildren: './pages/config/servicoentrega/servico-entrega.module#ServicoEntregaModule'
+            },
+            {
+                path: 'relatorio',
+                canActivateChild: [auth_guard_service_1.AuthGuard],
+                loadChildren: './pages/relatorio/relatorio.module#RelatorioModule'
             }
+            /*
+            ,
+            {
+              path: 'relatorio',
+              canActivateChild: [AuthGuard],
+              loadChildren: './pages/relatorio/relatorio-routing.module#RelatorioRoutingModule'
+            }
+      */
         ]
     },
     {
@@ -626,7 +644,7 @@ exports.LayoutModule = LayoutModule;
 /***/ "./src/app/layout/layouts/menu-side-bar/menu-side-bar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/dashboard']\">\r\n      <i class=\"icon-speedometer\"></i>Dashboard\r\n    </a>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-server\"></i>Pedidos</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/pedidos/novo']\">\r\n          <i class=\"fa fa-cart-plus\"></i>Novo</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/pedidos/listar']\">\r\n          <i class=\"fa fa-cart-arrow-down\"></i>Acompanhamento</a>\r\n      </li>\r\n\r\n    </ul>\r\n  </li>\r\n\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-folder\"></i>Cadastro</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/listar']\">\r\n          <i class=\"fa fa-user\"></i>Usuário</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/clientes/listar']\">\r\n          <i class=\"fa fa-users\"></i>Clientes</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/produtos/listar']\">\r\n          <i class=\"fa fa-building-o\"></i>Produtos</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/cardapios/listar']\">\r\n          <i class=\"fa fa-book\"></i>Cardapios</a>\r\n      </li>\r\n\r\n    </ul>\r\n  </li>\r\n  <li class=\"divider\" ></li>\r\n\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"icon-settings\"></i> Configurações</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/unidades/listar']\">\r\n          <i class=\"fa fa-cube\"></i>Unidade medida</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/categorias/listar']\">\r\n          <i class=\"fa fa-object-group\"></i>Categorias</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/infonutricional/listar']\">\r\n          <i class=\"fa fa-reorder\"></i>Info Nutricional</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/adicionais/listar']\">\r\n          <i class=\"fa fa-cubes\"></i>Adicionais</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/formapagamento/listar']\">\r\n          <i class=\"fa fa-money\"></i>Forma de Pagamento</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/taxaentrega/listar']\">\r\n          <i class=\"fa fa-truck\"></i>Taxa de entrega</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/servicoentrega/listar']\">\r\n          <i class=\"fa fa-motorcycle\"></i>Servico de entrega</a>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n  <div class=\"divider hidden-lg-up\"></div>\r\n  <li class=\"nav-item nav-dropdown hidden-lg-up\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-group\"></i> Contas</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/clientes/perfil/']\">\r\n          <i class=\"fa fa-user\"></i> Perfil</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/changePassword/']\">\r\n          <i class=\"fa fa-lock\"></i> Alterar senha</a>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n  <div class=\"divider\"></div>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link cursor-hands\" routerLinkActive=\"active\" (click)=\"logout()\">\r\n      <i class=\"fa fa-power-off\"></i>Sair\r\n    </a>\r\n  </li>\r\n\r\n</ul>"
+module.exports = "<ul class=\"nav\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/dashboard']\">\r\n      <i class=\"icon-speedometer\"></i>Dashboard\r\n    </a>\r\n  </li>\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-server\"></i>Pedidos</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/pedidos/novo']\">\r\n          <i class=\"fa fa-cart-plus\"></i>Novo</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/pedidos/listar']\">\r\n          <i class=\"fa fa-cart-arrow-down\"></i>Acompanhamento</a>\r\n      </li>\r\n\r\n    </ul>\r\n  </li>\r\n\r\n  <li class=\"divider\"></li>\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-folder\"></i>Cadastro</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/listar']\">\r\n          <i class=\"fa fa-user\"></i>Usuário</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/clientes/listar']\">\r\n          <i class=\"fa fa-users\"></i>Clientes</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/produtos/listar']\">\r\n          <i class=\"fa fa-building-o\"></i>Produtos</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/cardapios/listar']\">\r\n          <i class=\"fa fa-book\"></i>Cardapios</a>\r\n      </li>\r\n\r\n    </ul>\r\n  </li>\r\n  <li class=\"divider\" ></li>\r\n\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"icon-settings\"></i> Configurações</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/unidades/listar']\">\r\n          <i class=\"fa fa-cube\"></i>Unidade medida</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/categorias/listar']\">\r\n          <i class=\"fa fa-object-group\"></i>Categorias</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/infonutricional/listar']\">\r\n          <i class=\"fa fa-reorder\"></i>Info Nutricional</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/adicionais/listar']\">\r\n          <i class=\"fa fa-cubes\"></i>Adicionais</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/formapagamento/listar']\">\r\n          <i class=\"fa fa-money\"></i>Forma de Pagamento</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/taxaentrega/listar']\">\r\n          <i class=\"fa fa-truck\"></i>Taxa de entrega</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/servicoentrega/listar']\">\r\n          <i class=\"fa fa-motorcycle\"></i>Servico de entrega</a>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n  <!-- modulo de relatório inio-->\r\n  <li class=\"divider\" ></li>\r\n  <li class=\"nav-item nav-dropdown\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-building-o\"></i> Relatório</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/relatorio/pedido/listar']\">\r\n          <i class=\"fa fa-list-alt\"></i>Pedido</a>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n  <!-- modulo de relatório fim-->\r\n\r\n  <!-- conta na resolução menor -->\r\n  <div class=\"divider hidden-lg-up\"></div>\r\n  <li class=\"nav-item nav-dropdown hidden-lg-up\" routerLinkActive=\"open\">\r\n    <a class=\"nav-link nav-dropdown-toggle\" href=\"#\">\r\n      <i class=\"fa fa-group\"></i> Contas</a>\r\n    <ul class=\"nav-dropdown-items\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/clientes/perfil/']\">\r\n          <i class=\"fa fa-user\"></i> Perfil</a>\r\n        <a class=\"nav-link\" routerLinkActive=\"active\" [routerLink]=\"['/usuarios/changePassword/']\">\r\n          <i class=\"fa fa-lock\"></i> Alterar senha</a>\r\n      </li>\r\n    </ul>\r\n  </li>\r\n  <div class=\"divider\"></div>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link cursor-hands\" routerLinkActive=\"active\" (click)=\"logout()\">\r\n      <i class=\"fa fa-power-off\"></i>Sair\r\n    </a>\r\n  </li>\r\n\r\n</ul>"
 
 /***/ }),
 
@@ -4647,6 +4665,14 @@ var AbstractService = (function () {
         var authHeader = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token }) };
         return authHeader;
     };
+    AbstractService.prototype.getPDF = function () {
+        // return { responseType: 'blob' };
+        var authHeader = {
+            responseType: 'blob',
+            headers: new http_1.HttpHeaders({ 'Authorization': 'Bearer ' + this.getToken().token })
+        };
+        return authHeader;
+    };
     AbstractService.prototype.getHearderTokenNoResponse = function () {
         var authHeader = {
             observe: 'response',
@@ -4685,7 +4711,7 @@ exports.API_CONFIG = {
     baseUrl: "https://paladarfit.herokuapp.com",
     //baseUrl: "http://localhost:8080",
     bucketBaseUrl: "https://s3.us-east-2.amazonaws.com/paladarfit",
-    versao: '1.2.3'
+    versao: '1.3.0'
 };
 //# sourceMappingURL=E:/paladar-fit/frontend-angular/src/api.config.js.map
 
